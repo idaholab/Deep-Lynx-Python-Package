@@ -84,6 +84,9 @@ class DeepLynxService:
     def check_container(self, offset: int=0, limit: int=100) -> bool:
         """Ensures that the provided container exists in Deep Lynx.
 
+        If a container does not exist with the provided name, a value of `False`
+        is returned. This method does NOT attempt to create the missing container.
+
         Args:
             offset: The number of results to skip before return (optional).
             limit: The number of results to return in a single request (optional).
@@ -108,7 +111,7 @@ class DeepLynxService:
         logging.warning(f'Container with name {self.container_name} does not exist')
         return False
 
-    def check_data_source(self) -> bool:
+    def check_data_source(self, adapter_type: str='standard', config: Dict[Any, Any]={}) -> bool:
         """Determines if the data source exists. Creates it if it does not exist.
 
         Args:
@@ -127,9 +130,9 @@ class DeepLynxService:
                     return True
 
         # matching data source has not been found, attempt to create a new one
-        body = {'adapter_type': 'manual', 'active': True, 'name': self.data_source_name, 'config': None}
+        body = {'adapter_type': adapter_type, 'active': True, 'name': self.data_source_name, 'config': config}
         new_data_source = self.create_data_source(self.container_id, payload=body)
-        if new_data_source['error']:
+        if new_data_source['isError']:
             return False
         else:
             self.data_source_id = new_data_source['value']['id']
@@ -146,7 +149,7 @@ class DeepLynxService:
             Bool indicating whether data source was found/created.
         """
         imports = self.list_imports_for_data_source(self.container_id, self.data_source_id)
-        if imports['error']:
+        if imports['isError']:
             return False
         else:
             if len(imports['value']) > 0:
@@ -181,9 +184,13 @@ class DeepLynxService:
         """Updates one or more Deep Lynx containers."""
         return self.__put('/containers', payload)
 
-    def delete_container(self, container_id: str):
-        """Deletes a certain container."""
+    def archive_container(self, container_id: str):
+        """Archives a certain container."""
         return self.__delete(f'/containers/{container_id}')
+
+    def delete_container(self, container_id: str, params: Dict[str, Any]={'permanent': 'true'}):
+        """Permanently deletes a certain container."""
+        return self.__delete(f'/containers/{container_id}', params)
 
     def import_container(self, payload: Dict[Any, Any], file: Dict):
         """Creates a container from an ontology file."""
