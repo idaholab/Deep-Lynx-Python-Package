@@ -1,5 +1,6 @@
 import logging
 import requests
+from requests_toolbelt import MultipartEncoder
 from typing import Dict, Any
 
 class DeepLynxService:
@@ -170,7 +171,7 @@ class DeepLynxService:
 
     def retrieve_container(self, container_id: str):
         """Retrieves a certain container."""
-        return self.__get(f'/containers{container_id}')
+        return self.__get(f'/containers/{container_id}')
 
     def list_containers(self, params: Dict[str, Any]={}):
         """Lists all containers."""
@@ -182,23 +183,85 @@ class DeepLynxService:
 
     def batch_update_containers(self, payload: Dict[Any, Any]):
         """Updates one or more Deep Lynx containers."""
+        # convert payload to list if necessary
+        if type(payload) is not list:
+            payload = [payload]
         return self.__put('/containers', payload)
 
     def archive_container(self, container_id: str):
         """Archives a certain container."""
         return self.__delete(f'/containers/{container_id}')
 
+    def set_container_active(self, container_id: str):
+        """Sets a certain container active (unarchives it)."""
+        return self.__post(f'/containers/{container_id}/active')
+
     def delete_container(self, container_id: str, params: Dict[str, Any]={'permanent': 'true'}):
         """Permanently deletes a certain container."""
         return self.__delete(f'/containers/{container_id}', params)
 
-    def import_container(self, payload: Dict[Any, Any], file: Dict):
-        """Creates a container from an ontology file."""
-        return self.__post('/containers/import', payload, files=file)
+    def import_container(self, form_upload: Dict[str, str]):
+        """Creates a container from an ontology file.
+        
+        One of the following must be provided: A path to a local file
+        or a URL path to the ontology file.
 
-    def update_import(self, container_id: str, payload: Dict[Any, Any], file: Dict):
-        """Updates a container from an ontology file."""
-        return self.__put(f'/containers/import/{container_id}', payload, files=file)
+        Args:
+            form_upload: Dict that must contain - 
+                name: The name of the container to be created
+                description: A description for the container (optional)
+                url_path: A path to the url of the raw `.owl` document OR
+                file_path: A path to local file
+        """
+        if form_upload['file_path']:
+            multipart_data = MultipartEncoder(
+                fields={
+                    'name': form_upload['name'],
+                    'description': form_upload['description'],
+                    'file': (form_upload['file_path'], open(form_upload['file_path'], 'rb'), 'multipart/form-data')
+                }
+            )
+        else:
+            multipart_data = MultipartEncoder(
+                fields={
+                    'name': form_upload['name'],
+                    'description': form_upload['description'],
+                    'path': form_upload['url_path']
+                }
+            )
+
+        return self.__post('/containers/import', data=multipart_data)
+
+    def update_import(self, container_id: str, form_upload: Dict[str, str]):
+        """Updates a container from an ontology file.
+        
+        One of the following must be provided: A path to a local file
+        or a URL path to the ontology file.
+
+        Args:
+            form_upload: Dict that must contain - 
+                name: The name of the container to be created
+                description: A description for the container (optional)
+                url_path: A path to the url of the raw `.owl` document OR
+                file_path: A path to local file
+        """
+        if form_upload['file_path']:
+            multipart_data = MultipartEncoder(
+                fields={
+                    'name': form_upload['name'],
+                    'description': form_upload['description'],
+                    'file': (form_upload['file_path'], open(form_upload['file_path'], 'rb'), 'multipart/form-data')
+                }
+            )
+        else:
+            multipart_data = MultipartEncoder(
+                fields={
+                    'name': form_upload['name'],
+                    'description': form_upload['description'],
+                    'path': form_upload['url_path']
+                }
+            )
+        return self.__put(f'/containers/import/{container_id}', data=multipart_data)
 
     def repair_container_permissions(self, container_id: str):
         """Repairs the permissions of a container."""
@@ -243,9 +306,19 @@ class DeepLynxService:
         """Retrieves a file."""
         return self.__get(f'/containers/{container_id}/files/{file_id}')
 
-    def upload_file(self, container_id: str, data_source_id: str, payload: Dict[Any, Any]):
-        """Uploads a file."""
-        return self.__post(f'/containers/{container_id}/import/datasources/{data_source_id}/files', payload)
+    def upload_file(self, container_id: str, data_source_id: str, file_paths: [str]):
+        """Uploads a file.
+        
+        Args:
+            file_paths: An array of strings with locations to each file
+            to be uploaded.
+        """
+        multipart_data = MultipartEncoder(
+            fields={
+                fname: (fname, open(fname, 'rb')) for fname in file_paths
+            }
+        )
+        return self.__post(f'/containers/{container_id}/import/datasources/{data_source_id}/files', data=multipart_data)
 
     def update_datasource_configuration(self, container_id: str, data_source_id: str, payload: Dict[Any, Any]):
         """Updates a datasource configuration."""
@@ -594,36 +667,39 @@ class DeepLynxService:
             logging.exception(f'Exception: {e}')
             return e
 
-        if not resp.ok:
-            logging.error(f'Error: {resp.json()["error"]}')
+        return self.__requests_handler(resp)
 
-        return resp.json()
-
-    def __post(self, uri: str, payload: Dict[Any, Any], params: Dict[str, Any]={}, files=None):
+    def __post(self, uri: str, payload: Dict[Any, Any]={}, params: Dict[str, Any]={}, data=None):
         try:
-            # payload must be sent in json format
-            resp = requests.post(self.deep_lynx_url + uri, json=payload, params=params, headers=self.headers, files=files)
+            if data is not None:
+                # multipart uploads
+                self.headers['Content-Type'] = data.content_type
+                resp = requests.post(self.deep_lynx_url + uri, params=params, headers=self.headers, data=data)
+            else:
+                # payload must be sent in json format
+                self.headers['Content-Type'] = 'application/json'
+                resp = requests.post(self.deep_lynx_url + uri, json=payload, params=params, headers=self.headers)
         except requests.exceptions.RequestException as e:
             logging.exception(f'Exception: {e}')
             return e
         
-        if not resp.ok:
-            logging.error(f'Error: {resp.json()["error"]}')
+        return self.__requests_handler(resp)
 
-        return resp.json()
-
-    def __put(self, uri: str, payload: Dict[Any, Any], params: Dict[str, Any]={}, files=None):
+    def __put(self, uri: str, payload: Dict[Any, Any]={}, params: Dict[str, Any]={}, data=None):
         try:
-            # payload must be sent in json format
-            resp = requests.put(self.deep_lynx_url + uri, json=payload, params=params, headers=self.headers, files=files)
+            if data is not None:
+                # multipart uploads
+                self.headers['Content-Type'] = data.content_type
+                resp = requests.put(self.deep_lynx_url + uri, params=params, headers=self.headers, data=data)
+            else:
+                # payload must be sent in json format
+                self.headers['Content-Type'] = 'application/json'
+                resp = requests.put(self.deep_lynx_url + uri, json=payload, params=params, headers=self.headers)
         except requests.exceptions.RequestException as e:
             logging.exception(f'Exception: {e}')
             return e
 
-        if not resp.ok:
-            logging.error(f'Error: {resp.json()["error"]}')
-
-        return resp.json()
+        return self.__requests_handler(resp)
 
     def __delete(self, uri: str, params: Dict[str, Any]={}):
         try:
@@ -632,9 +708,13 @@ class DeepLynxService:
             logging.exception(f'Exception: {e}')
             return e
 
+        return self.__requests_handler(resp)
+        
+    def __requests_handler(self, resp: Any) -> Any:
         if not resp.ok:
-            logging.error(f'Error: {resp.json()["error"]}')
+            logging.error(f'Error: {resp.text}')
 
-        return resp.json()
-
-    # TODO: Split out error checking and return into a separate function?
+        if ('application/json' in resp.headers.get('content-type')):
+            return resp.json()
+        else:
+            return resp.text

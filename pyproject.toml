@@ -28,6 +28,8 @@ requests-mock = "*"
 python-dateutil = "*"
 random_word = "*"
 pyyaml = "*"
+pytest-dotenv = "*"
+requests-toolbelt = "*"
 
 [build-system]
 requires = ["poetry>=0.12"]
