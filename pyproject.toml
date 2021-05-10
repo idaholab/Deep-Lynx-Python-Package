@@ -1,8 +1,42 @@
-[build-system]
-requires = [
-    "setuptools>=42",
-    "wheel",
-    "logging",
-    "requests"
+[tool.poetry]
+name = "deep-lynx"
+version = "0.0.1"
+description = "A package for interacting with the Deep Lynx data warehouse"
+authors = ["Jeren Browning <jeren.browning@inl.gov>"]
+maintainers = ["Jeren Browning <jeren.browning@inl.gov>"]
+license = "MIT"
+readme = "README.md"
+homepage = ""
+repository = "https://github.com/idaholab/deep-lynx-python/"
+documentation = "https://github.com/idaholab/deep-lynx-python/wiki"
+keywords = [
+    "Deep Lynx"
 ]
-build-backend = "setuptools.build_meta"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+requests = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+pytest-cov = "*"
+pytest-randomly = "*"
+pytest-mock = "*"
+pytest-ordering = "*"
+pytest-dependency = "*"
+requests-mock = "*"
+python-dateutil = "*"
+random_word = "*"
+pyyaml = "*"
+pytest-dotenv = "*"
+requests-toolbelt = "*"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+run = "wsgi:main"
+
+[tool.poetry.urls]
+issues = "https://github.com/idaholab/deep-lynx-python/issues"
