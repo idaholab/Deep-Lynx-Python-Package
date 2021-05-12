@@ -266,6 +266,12 @@ class TestServiceHelpers:
             self.dl_service.data_source_id,
             ['tests/sample.txt']
         )
+        
+        # check for error here and log with useful message to user about DL parameter
+        if resp[0]['isError']:
+            self.logger.error(resp[0]['error'])
+            self.logger.error('Did you set the Deep Lynx FILESYSTEM_STORAGE_DIRECTORY parameter?')
+        
         file_id = resp[0]['value']['id']
         assert file_id is not None
 
