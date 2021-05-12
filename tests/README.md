@@ -2,6 +2,9 @@
 
 This project uses Pytest.  
 
+The following tests require certain parameters to be set in the test instance of Deep Lynx:  
+- `test_upload_file`: The `FILESYSTEM_STORAGE_DIRECTORY` parameter must be set in the Deep Lynx `.env`. Note that this path must end with a directory character (e.g. "/").
+
 To run all tests and view statement coverage, run the following commands:
 - `coverage run -m pytest tests/ --cov=deep_lynx --junit-xml=tests/reports/test-results.xml --cov-report html`  
 - `python -m http.server`  This will start a web browser to which you can navigate to view all tested files as well as covered and uncovered lines.  
