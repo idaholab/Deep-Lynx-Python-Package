@@ -339,15 +339,18 @@ class DeepLynxService:
 
     # DATA QUERY
 
-    def query(self, container_id: str, payload: Dict[Any, Any]):
+    def query(self, container_id: str, payload: Any):
         """Queries the Deep Lynx data using GraphQL."""
         # Endpoint handles both graph and file queries
-        return self.__post(f'/containers/{container_id}/query', payload)
+        return self.__post_plain(f'/containers/{container_id}/query', payload)
 
     # GRAPH
 
     def create_update_nodes(self, container_id: str, payload: Dict[Any, Any]):
-        """Creates or updates nodes."""
+        """Creates or updates nodes.
+        
+        Return: A boolean indicating success.
+        """
         return self.__post(f'/containers/{container_id}/graphs/nodes', payload)
 
     def retrieve_node(self, container_id: str, node_id: str):
@@ -369,6 +372,10 @@ class DeepLynxService:
     def create_update_edges(self, container_id: str, payload: Dict[Any, Any]):
         """Creates or updates edges."""
         return self.__post(f'/containers/{container_id}/graphs/edges', payload)
+
+    def retrieve_edge(self, container_id: str, edge_id: str):
+        """Retrieves an edge."""
+        return self.__get(f'/containers/{container_id}/graphs/edges/{edge_id}')
 
     def list_edges(self, container_id: str, params: Dict[str, Any]={}):
         """Lists all edges."""
@@ -424,7 +431,7 @@ class DeepLynxService:
         """Registers for an event on some container or data source."""
         return self.__post('/events', payload)
 
-    def list_registered_event(self, params: Dict[str, Any]={}):
+    def list_registered_events(self, params: Dict[str, Any]={}):
         """Lists all registered events."""
         return self.__get('/events', params)
 
@@ -471,10 +478,6 @@ class DeepLynxService:
         return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}')
 
     # USERS
-
-    def create_user(self, payload: Dict[Any, Any]):
-        """Creates a user."""
-        return self.__post('/users', payload)
 
     def generate_user_keypair(self, user_id: str, payload: Dict[Any, Any]):
         """Creates a keypair for a user."""
@@ -679,6 +682,16 @@ class DeepLynxService:
                 # payload must be sent in json format
                 self.headers['Content-Type'] = 'application/json'
                 resp = requests.post(self.deep_lynx_url + uri, json=payload, params=params, headers=self.headers)
+        except requests.exceptions.RequestException as e:
+            logging.exception(f'Exception: {e}')
+            return e
+        
+        return self.__requests_handler(resp)
+
+    def __post_plain(self, uri: str, payload: Any, params: Dict[str, Any]={}):
+        try:
+            self.headers['Content-Type'] = 'text/plain'
+            resp = requests.post(self.deep_lynx_url + uri, data=payload, params=params, headers=self.headers)
         except requests.exceptions.RequestException as e:
             logging.exception(f'Exception: {e}')
             return e
