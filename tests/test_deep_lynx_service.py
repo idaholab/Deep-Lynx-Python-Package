@@ -1,16 +1,11 @@
 import pytest
-import sys
 import os
 import logging
 import requests
-import requests_mock
-import dateutil.parser
-import datetime
-import random_word
 
 from deep_lynx import deep_lynx_service
 
-class TestServiceHelpers:
+class TestDeepLynxService:
 
     dl_service = None
     log_path = 'test.log'

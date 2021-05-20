@@ -17,7 +17,7 @@ class DeepLynxService:
         token: The authentication token (optional).
         origin: The origin for CORS (optional).
         init: Indicates whether a connection with Deep Lynx should be made
-            and the Container and Data Source verified.
+            and the Container and Data Source verified (default of False).
     """
 
     def __init__(self, deep_lynx_url: str, container_name: str, data_source_name: str, token: str=None, origin: str=None, init: bool=False):
@@ -116,7 +116,7 @@ class DeepLynxService:
         """Determines if the data source exists. Creates it if it does not exist.
 
         Args:
-            None
+            adapter_type: string with value `standard` (default) or `http`
 
         Returns:
             Bool indicating whether data source was found/created.
@@ -147,7 +147,7 @@ class DeepLynxService:
             None
 
         Returns:
-            Bool indicating whether data source was found/created.
+            Timestamp of latest import or False on an error or no imports.
         """
         imports = self.list_imports_for_data_source(self.container_id, self.data_source_id)
         if imports['isError']:
@@ -283,7 +283,7 @@ class DeepLynxService:
                             payload)
 
     def list_data_sources(self, container_id: str, params: Dict[str, Any]={}):
-        """Retrieves all registered data sources for some container."""
+        """Lists all registered data sources for some container."""
         return self.__get(f'/containers/{container_id}/import/datasources', params)
 
     def retrieve_data_source(self, container_id: str, data_source_id: str):
