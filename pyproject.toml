@@ -1,16 +1,16 @@
 [tool.poetry]
 name = "deep-lynx"
-version = "0.0.1"
+version = "0.0.2"
 description = "A package for interacting with the Deep Lynx data warehouse"
 authors = ["Jeren Browning <jeren.browning@inl.gov>"]
 maintainers = ["Jeren Browning <jeren.browning@inl.gov>"]
 license = "MIT"
 readme = "README.md"
 homepage = ""
-repository = "https://github.com/idaholab/deep-lynx-python/"
-documentation = "https://github.com/idaholab/deep-lynx-python/wiki"
+repository = "https://github.com/idaholab/Deep-Lynx-Python-Package/"
+documentation = "https://github.com/idaholab/Deep-Lynx-Python-Package/wiki"
 keywords = [
-    "Deep Lynx"
+    "Deep-Lynx"
 ]
 
 [tool.poetry.dependencies]
@@ -32,4 +32,4 @@ build-backend = "poetry.masonry.api"
 run = "wsgi:main"
 
 [tool.poetry.urls]
-issues = "https://github.com/idaholab/deep-lynx-python/issues"
+issues = "https://github.com/idaholab/Deep-Lynx-Python-Package/issues"

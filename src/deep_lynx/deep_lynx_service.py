@@ -1,7 +1,10 @@
+# Copyright 2021, Battelle Energy Alliance, LLC
+
 import logging
 import requests
 from requests_toolbelt import MultipartEncoder
 from typing import Dict, Any
+
 
 class DeepLynxService:
     """Interacts with and makes calls to Deep Lynx.
@@ -19,8 +22,13 @@ class DeepLynxService:
         init: Indicates whether a connection with Deep Lynx should be made
             and the Container and Data Source verified (default of False).
     """
-
-    def __init__(self, deep_lynx_url: str, container_name: str, data_source_name: str, token: str=None, origin: str=None, init: bool=False):
+    def __init__(self,
+                 deep_lynx_url: str,
+                 container_name: str,
+                 data_source_name: str,
+                 token: str = None,
+                 origin: str = None,
+                 init: bool = False):
         """Initializes a Deep Lynx Service object."""
         self.deep_lynx_url: str = deep_lynx_url
         self.container_name: str = container_name
@@ -61,7 +69,7 @@ class DeepLynxService:
             self.headers = {'Access-Control-Allow-Origin': origin, 'Authorization': 'Bearer ' + token}
         else:
             self.headers = {'Access-Control-Allow-Origin': origin}
-    
+
     def init(self) -> None:
         """Makes initial contact with Deep Lynx.
 
@@ -78,11 +86,13 @@ class DeepLynxService:
             if not verified:
                 logging.error('Unable to find or register the provided data source name')
             else:
-                logging.info(f'Successful connection to Deep Lynx container {self.container_id} and data source {self.data_source_id}')
+                logging.info(
+                    f'Successful connection to Deep Lynx container {self.container_id} and data source {self.data_source_id}'
+                )
         else:
             logging.error('Deep Lynx container does not exist or Deep Lynx cannot be reached')
 
-    def check_container(self, offset: int=0, limit: int=100) -> bool:
+    def check_container(self, offset: int = 0, limit: int = 100) -> bool:
         """Ensures that the provided container exists in Deep Lynx.
 
         If a container does not exist with the provided name, a value of `False`
@@ -112,7 +122,7 @@ class DeepLynxService:
         logging.warning(f'Container with name {self.container_name} does not exist')
         return False
 
-    def check_data_source(self, adapter_type: str='standard', config: Dict[Any, Any]={}) -> bool:
+    def check_data_source(self, adapter_type: str = 'standard', config: Dict[Any, Any] = {}) -> bool:
         """Determines if the data source exists. Creates it if it does not exist.
 
         Args:
@@ -173,7 +183,7 @@ class DeepLynxService:
         """Retrieves a certain container."""
         return self.__get(f'/containers/{container_id}')
 
-    def list_containers(self, params: Dict[str, Any]={}):
+    def list_containers(self, params: Dict[str, Any] = {}):
         """Lists all containers."""
         return self.__get('/containers', params)
 
@@ -196,7 +206,7 @@ class DeepLynxService:
         """Sets a certain container active (unarchives it)."""
         return self.__post(f'/containers/{container_id}/active')
 
-    def delete_container(self, container_id: str, params: Dict[str, Any]={'permanent': 'true'}):
+    def delete_container(self, container_id: str, params: Dict[str, Any] = {'permanent': 'true'}):
         """Permanently deletes a certain container."""
         return self.__delete(f'/containers/{container_id}', params)
 
@@ -219,16 +229,13 @@ class DeepLynxService:
                     'name': form_upload['name'],
                     'description': form_upload['description'],
                     'file': (form_upload['file_path'], open(form_upload['file_path'], 'rb'), 'multipart/form-data')
-                }
-            )
+                })
         else:
-            multipart_data = MultipartEncoder(
-                fields={
-                    'name': form_upload['name'],
-                    'description': form_upload['description'],
-                    'path': form_upload['url_path']
-                }
-            )
+            multipart_data = MultipartEncoder(fields={
+                'name': form_upload['name'],
+                'description': form_upload['description'],
+                'path': form_upload['url_path']
+            })
 
         return self.__post('/containers/import', data=multipart_data)
 
@@ -251,16 +258,13 @@ class DeepLynxService:
                     'name': form_upload['name'],
                     'description': form_upload['description'],
                     'file': (form_upload['file_path'], open(form_upload['file_path'], 'rb'), 'multipart/form-data')
-                }
-            )
+                })
         else:
-            multipart_data = MultipartEncoder(
-                fields={
-                    'name': form_upload['name'],
-                    'description': form_upload['description'],
-                    'path': form_upload['url_path']
-                }
-            )
+            multipart_data = MultipartEncoder(fields={
+                'name': form_upload['name'],
+                'description': form_upload['description'],
+                'path': form_upload['url_path']
+            })
         return self.__put(f'/containers/import/{container_id}', data=multipart_data)
 
     def repair_container_permissions(self, container_id: str):
@@ -278,11 +282,10 @@ class DeepLynxService:
         # convert payload to list if necessary
         if type(payload) is not list:
             payload = [payload]
-        
-        return self.__post(f'/containers/{container_id}/import/datasources/{data_source_id}/imports',
-                            payload)
 
-    def list_data_sources(self, container_id: str, params: Dict[str, Any]={}):
+        return self.__post(f'/containers/{container_id}/import/datasources/{data_source_id}/imports', payload)
+
+    def list_data_sources(self, container_id: str, params: Dict[str, Any] = {}):
         """Lists all registered data sources for some container."""
         return self.__get(f'/containers/{container_id}/import/datasources', params)
 
@@ -290,7 +293,7 @@ class DeepLynxService:
         """Retrieves a certain data source."""
         return self.__get(f'/containers/{container_id}/import/datasources/{data_source_id}')
 
-    def list_imports_for_data_source(self, container_id: str, data_source_id: str, params: Dict[str, Any]={}):
+    def list_imports_for_data_source(self, container_id: str, data_source_id: str, params: Dict[str, Any] = {}):
         """Lists all imports for a data source."""
         return self.__get(f'/containers/{container_id}/import/datasources/{data_source_id}/imports', params)
 
@@ -313,11 +316,7 @@ class DeepLynxService:
             file_paths: An array of strings with locations to each file
             to be uploaded.
         """
-        multipart_data = MultipartEncoder(
-            fields={
-                fname: (fname, open(fname, 'rb')) for fname in file_paths
-            }
-        )
+        multipart_data = MultipartEncoder(fields={fname: (fname, open(fname, 'rb')) for fname in file_paths})
         return self.__post(f'/containers/{container_id}/import/datasources/{data_source_id}/files', data=multipart_data)
 
     def update_datasource_configuration(self, container_id: str, data_source_id: str, payload: Dict[Any, Any]):
@@ -335,7 +334,6 @@ class DeepLynxService:
     def delete_data_source(self, container_id: str, data_source_id: str):
         """Permanently deletes a data source."""
         return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}')
-
 
     # DATA QUERY
 
@@ -357,11 +355,11 @@ class DeepLynxService:
         """Retrieves a node."""
         return self.__get(f'/containers/{container_id}/graphs/nodes/{node_id}')
 
-    def list_nodes(self, container_id: str, params: Dict[str, Any]={}):
+    def list_nodes(self, container_id: str, params: Dict[str, Any] = {}):
         """Lists all nodes."""
         return self.__get(f'/containers/{container_id}/graphs/nodes', params)
 
-    def list_nodes_by_metatype_id(self, container_id: str, metatype_id: str, params: Dict[str, Any]={}):
+    def list_nodes_by_metatype_id(self, container_id: str, metatype_id: str, params: Dict[str, Any] = {}):
         """Lists all nodes by common metatype ID."""
         return self.__get(f'/containers/{container_id}/graphs/nodes/metatype/{metatype_id}', params)
 
@@ -377,7 +375,7 @@ class DeepLynxService:
         """Retrieves an edge."""
         return self.__get(f'/containers/{container_id}/graphs/edges/{edge_id}')
 
-    def list_edges(self, container_id: str, params: Dict[str, Any]={}):
+    def list_edges(self, container_id: str, params: Dict[str, Any] = {}):
         """Lists all edges."""
         return self.__get(f'/containers/{container_id}/graphs/edges', params)
 
@@ -387,7 +385,7 @@ class DeepLynxService:
 
     # IMPORTS
 
-    def list_import_data(self, container_id: str, import_id: str, params: Dict[str, Any]={}):
+    def list_import_data(self, container_id: str, import_id: str, params: Dict[str, Any] = {}):
         """Lists the data from a Deep Lynx import."""
         return self.__get(f'/containers/{container_id}/import/imports/{import_id}/data', params)
 
@@ -431,7 +429,7 @@ class DeepLynxService:
         """Registers for an event on some container or data source."""
         return self.__post('/events', payload)
 
-    def list_registered_events(self, params: Dict[str, Any]={}):
+    def list_registered_events(self, params: Dict[str, Any] = {}):
         """Lists all registered events."""
         return self.__get('/events', params)
 
@@ -439,7 +437,7 @@ class DeepLynxService:
         """Retrieves a certain registered event."""
         return self.__get(f'/events/{event_id}')
 
-    def update_registered_event(self, event_id: str, payload: Dict[Any, Any], active: bool=True):
+    def update_registered_event(self, event_id: str, payload: Dict[Any, Any], active: bool = True):
         """Updates a registered event."""
         return self.__put(f'/events/{event_id}', payload, params={'active': active})
 
@@ -449,11 +447,14 @@ class DeepLynxService:
 
     # DATA TYPE MAPPINGS
 
-    def create_type_mapping_transformation(self, container_id: str, data_source_id: str, mapping_id: str, payload: Dict[Any, Any]):
+    def create_type_mapping_transformation(self, container_id: str, data_source_id: str, mapping_id: str,
+                                           payload: Dict[Any, Any]):
         """Creates a type mapping transformation."""
-        return self.__post(f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations', payload)
+        return self.__post(
+            f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations',
+            payload)
 
-    def list_type_mappings(self, container_id: str, data_source_id: str, params: Dict[str, Any]={}):
+    def list_type_mappings(self, container_id: str, data_source_id: str, params: Dict[str, Any] = {}):
         """Lists all type mappings."""
         return self.__get(f'/containers/{container_id}/import/datasources/{data_source_id}/mappings', params)
 
@@ -461,17 +462,29 @@ class DeepLynxService:
         """Retrieves a certain registered event."""
         return self.__get(f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}')
 
-    def list_type_mapping_transformations(self, container_id: str, data_source_id: str, mapping_id: str, params: Dict[str, Any]={}):
+    def list_type_mapping_transformations(self,
+                                          container_id: str,
+                                          data_source_id: str,
+                                          mapping_id: str,
+                                          params: Dict[str, Any] = {}):
         """Lists all transformations for a type mapping."""
-        return self.__get(f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations', params)
+        return self.__get(
+            f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations',
+            params)
 
-    def update_type_mapping_transformations(self, container_id: str, data_source_id: str, mapping_id: str, transformation_id: str, payload: Dict[Any, Any]):
+    def update_type_mapping_transformations(self, container_id: str, data_source_id: str, mapping_id: str,
+                                            transformation_id: str, payload: Dict[Any, Any]):
         """Updates a transformation for a type mapping."""
-        return self.__put(f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id}', payload)
+        return self.__put(
+            f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id}',
+            payload)
 
-    def delete_type_mapping_transformations(self, container_id: str, data_source_id: str, mapping_id: str, transformation_id: str):
+    def delete_type_mapping_transformations(self, container_id: str, data_source_id: str, mapping_id: str,
+                                            transformation_id: str):
         """Deletes a transformation."""
-        return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id}')
+        return self.__delete(
+            f'/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id}'
+        )
 
     def delete_type_mapping(self, container_id: str, data_source_id: str, mapping_id: str):
         """Deletes a type mapping."""
@@ -486,7 +499,7 @@ class DeepLynxService:
     def assign_role(self, container_id: str, payload: Dict[Any, Any]):
         """Assigns a role to a user."""
         return self.__post(f'/containers/{container_id}/users/roles', payload)
-    
+
     def reset_password(self, payload: Dict[Any, Any]):
         """Request a password reset for a user."""
         return self.__post('/users/reset-password', payload)
@@ -499,15 +512,15 @@ class DeepLynxService:
         """Retrieves a user."""
         return self.__get(f'/containers/{container_id}/users/{user_id}')
 
-    def list_users(self, container_id: str, params: Dict[str, Any]={}):
+    def list_users(self, container_id: str, params: Dict[str, Any] = {}):
         """Lists all users."""
         return self.__get(f'/containers/{container_id}/users', params)
 
-    def list_user_roles(self, container_id: str, user_id: str, params: Dict[str, Any]={}):
+    def list_user_roles(self, container_id: str, user_id: str, params: Dict[str, Any] = {}):
         """Lists roles for a user."""
         return self.__get(f'/containers/{container_id}/users/{user_id}/roles', params)
 
-    def validate_email(self, params: Dict[str, Any]={}):
+    def validate_email(self, params: Dict[str, Any] = {}):
         """Validates the email for a user.
 
         Args:
@@ -515,7 +528,7 @@ class DeepLynxService:
         """
         return self.__get('/users/validate', params)
 
-    def request_password_reset(self, params: Dict[str, Any]={}):
+    def request_password_reset(self, params: Dict[str, Any] = {}):
         """Requests a password reset for a certain email.
 
         Args:
@@ -523,7 +536,7 @@ class DeepLynxService:
         """
         return self.__get('/users/reset-password', params)
 
-    def list_container_invited_users(self, container_id: str, params: Dict[str, Any]={}):
+    def list_container_invited_users(self, container_id: str, params: Dict[str, Any] = {}):
         """Lists all invited users for a container."""
         return self.__get(f'/containers/{container_id}/users/invite', params)
 
@@ -541,7 +554,7 @@ class DeepLynxService:
         """Retrieves a metatype."""
         return self.__get(f'/containers/{container_id}/metatypes/{metatype_id}')
 
-    def list_metatypes(self, container_id: str, params: Dict[str, Any]={}):
+    def list_metatypes(self, container_id: str, params: Dict[str, Any] = {}):
         """Lists all metatypes.
         
         Args:
@@ -567,7 +580,7 @@ class DeepLynxService:
         """Retrieves a metatype key."""
         return self.__get(f'/containers/{container_id}/metatypes/{metatype_id}/keys/{key_id}')
 
-    def list_metatype_keys(self, container_id: str, metatype_id: str, params: Dict[str, Any]={}):
+    def list_metatype_keys(self, container_id: str, metatype_id: str, params: Dict[str, Any] = {}):
         """Lists all keys for a metatype.
         
         Args:
@@ -593,7 +606,7 @@ class DeepLynxService:
         """Retrieves a metatype relationship."""
         return self.__get(f'/containers/{container_id}/metatype_relationships/{relationship_id}')
 
-    def list_relationships(self, container_id: str, params: Dict[str, Any]={}):
+    def list_relationships(self, container_id: str, params: Dict[str, Any] = {}):
         """Lists all metatype relationships.
         
         Args:
@@ -619,7 +632,7 @@ class DeepLynxService:
         """Retrieves a relationship key."""
         return self.__get(f'/containers/{container_id}/metatype_relationships/{relationship_id}/keys/{key_id}')
 
-    def list_relationship_keys(self, container_id: str, relationship_id: str, params: Dict[str, Any]={}):
+    def list_relationship_keys(self, container_id: str, relationship_id: str, params: Dict[str, Any] = {}):
         """Lists all keys for a relationship.
         
         Args:
@@ -645,7 +658,7 @@ class DeepLynxService:
         """Retrieves a metatype relationship pair."""
         return self.__get(f'/containers/{container_id}/metatype_relationship_pairs/{pair_id}')
 
-    def list_relationship_pairs(self, container_id: str, params: Dict[str, Any]={}):
+    def list_relationship_pairs(self, container_id: str, params: Dict[str, Any] = {}):
         """Lists all metatype relationship pairs.
         
         Args:
@@ -663,7 +676,7 @@ class DeepLynxService:
 
     # REQUESTS PRIVATE FUNCTIONS
 
-    def __get(self, uri: str, params: Dict[str, Any]={}):
+    def __get(self, uri: str, params: Dict[str, Any] = {}):
         try:
             resp = requests.get(self.deep_lynx_url + uri, params=params, headers=self.headers)
         except requests.exceptions.RequestException as e:
@@ -672,7 +685,7 @@ class DeepLynxService:
 
         return self.__requests_handler(resp)
 
-    def __post(self, uri: str, payload: Dict[Any, Any]={}, params: Dict[str, Any]={}, data=None):
+    def __post(self, uri: str, payload: Dict[Any, Any] = {}, params: Dict[str, Any] = {}, data=None):
         try:
             if data is not None:
                 # multipart uploads
@@ -685,20 +698,20 @@ class DeepLynxService:
         except requests.exceptions.RequestException as e:
             logging.exception(f'Exception: {e}')
             return e
-        
+
         return self.__requests_handler(resp)
 
-    def __post_plain(self, uri: str, payload: Any, params: Dict[str, Any]={}):
+    def __post_plain(self, uri: str, payload: Any, params: Dict[str, Any] = {}):
         try:
             self.headers['Content-Type'] = 'text/plain'
             resp = requests.post(self.deep_lynx_url + uri, data=payload, params=params, headers=self.headers)
         except requests.exceptions.RequestException as e:
             logging.exception(f'Exception: {e}')
             return e
-        
+
         return self.__requests_handler(resp)
 
-    def __put(self, uri: str, payload: Dict[Any, Any]={}, params: Dict[str, Any]={}, data=None):
+    def __put(self, uri: str, payload: Dict[Any, Any] = {}, params: Dict[str, Any] = {}, data=None):
         try:
             if data is not None:
                 # multipart uploads
@@ -714,7 +727,7 @@ class DeepLynxService:
 
         return self.__requests_handler(resp)
 
-    def __delete(self, uri: str, params: Dict[str, Any]={}):
+    def __delete(self, uri: str, params: Dict[str, Any] = {}):
         try:
             resp = requests.delete(self.deep_lynx_url + uri, params=params, headers=self.headers)
         except requests.exceptions.RequestException as e:
@@ -722,7 +735,7 @@ class DeepLynxService:
             return e
 
         return self.__requests_handler(resp)
-        
+
     def __requests_handler(self, resp: Any) -> Any:
         if not resp.ok:
             logging.error(f'Error: {resp.text}')
