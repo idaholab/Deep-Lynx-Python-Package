@@ -228,7 +228,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
 name = "requests-toolbelt"
 version = "0.9.1"
 description = "A utility belt for advanced users of python-requests"
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -295,7 +295,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.6"
-content-hash = "fb08f0207b62be9418f54e249ee37b989fb7fe85cd3f46b77b327bdda5f3d4c2"
+content-hash = "f8195eeb2defcd19a4deed50e0cb6c077185ea35eb6e9e434c3f43120c18fccb"
 
 [metadata.files]
 atomicwrites = [

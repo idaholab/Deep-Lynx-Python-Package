@@ -4,9 +4,10 @@ Deep Lynx Python Package
 Allows applications to interact with the [Deep Lynx](https://github.com/idaholab/Deep-Lynx) data warehouse.  
 
 ```python
-import deep_lynx_service
+import deep_lynx
+# alternate direct import: from deep_lynx.deep_lynx_service import DeepLynxService
 
-dl_service = deep_lynx_service.DeepLynxService('http://127.0.0.1:8090', 'MyContainer', 'MyDatasource')
+dl_service = deep_lynx.DeepLynxService('http://127.0.0.1:8090', 'MyContainer', 'MyDatasource')
 
 # create container
 dl_service.create_container(
@@ -32,7 +33,8 @@ dl_service.create_manual_import(
   
 ## Installation  
 
-`pip install deep-lynx`   
+pip: `pip install deep_lynx`   
+poetry: `poetry add deep_lynx`  
 
 ## Contributing
 After cloning the repository, please use [Poetry](https://python-poetry.org/) for setup (e.g. `poetry install`, `poetry shell` to activate the virtual environment, etc).  
