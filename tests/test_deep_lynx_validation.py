@@ -8,6 +8,7 @@ import json
 from deep_lynx import deep_lynx_service
 from validation import deep_lynx_validation
 
+
 class TestDeepLynxValidation:
     dl_service = None
     log_path = 'test.log'
@@ -36,7 +37,10 @@ class TestDeepLynxValidation:
         """ setup any state specific to the execution of the given class """
         cls.logger.info('Setting up test class')
         cls.set_env_success(cls)
-        cls.dl_service = deep_lynx_service.DeepLynxService(cls.DEEP_LYNX_URL, cls.CONTAINER_NAME, cls.DATA_SOURCE_NAME, init=True)
+        cls.dl_service = deep_lynx_service.DeepLynxService(cls.DEEP_LYNX_URL,
+                                                           cls.CONTAINER_NAME,
+                                                           cls.DATA_SOURCE_NAME,
+                                                           init=True)
         resp = cls.dl_service.import_container({
             'file_path': 'tests/test.owl',
             'name': 'Test_Import_Container',
@@ -66,11 +70,7 @@ class TestDeepLynxValidation:
     def test_invalid_metatype(self):
         # Invalid metatype
         metatype = 'DataItem'
-        json_data = {
-            'id': 'data_item_id',
-            'name': 'data item name',
-            'description': 'description of data item'
-        }
+        json_data = {'id': 'data_item_id', 'name': 'data item name', 'description': 'description of data item'}
         invalid_metatype = self.dl_validator.validate_properties(metatype, json_data, self.container_id)
         invalid_metatype = json.loads(invalid_metatype)
         assert invalid_metatype['isError'] is True
@@ -91,7 +91,7 @@ class TestDeepLynxValidation:
         invalid_property = json.loads(invalid_property)
         assert invalid_property['isError'] is True
         assert len(invalid_property['error']) > 0
-    
+
     def test_invalid_datatype(self):
         # Invalid datatype
         metatype = 'Equipment'
@@ -112,11 +112,7 @@ class TestDeepLynxValidation:
         # Invalid id
         metatype = 'Note'
         date = datetime.datetime.utcnow().isoformat()[:-3]
-        json_data = {
-            'name': "Note name",
-            'description': 'description of note',
-            'creation date': date
-        }
+        json_data = {'name': "Note name", 'description': 'description of note', 'creation date': date}
         invalid_id = self.dl_validator.validate_properties(metatype, json_data, self.container_id)
         invalid_id = json.loads(invalid_id)
         assert invalid_id['isError'] is True
@@ -125,10 +121,7 @@ class TestDeepLynxValidation:
     def test_valid_json(self):
         # Valid json
         metatype = 'History'
-        json_data = {
-            'id': 'history_id',
-            'name': 'history name'
-        }
+        json_data = {'id': 'history_id', 'name': 'history name'}
         valid_json = self.dl_validator.validate_properties(metatype, json_data, self.container_id)
         valid_json = json.loads(valid_json)
         print(valid_json)

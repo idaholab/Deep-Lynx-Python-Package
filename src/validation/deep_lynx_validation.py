@@ -8,11 +8,9 @@ from deep_lynx.deep_lynx_service import DeepLynxService
 
 
 class DeepLynxValidator():
-    def __init__(self,
-                 deep_lynx: DeepLynxService):
+    def __init__(self, deep_lynx: DeepLynxService):
         """Initializes a Deep Lynx Service object."""
         self.deep_lynx: str = deep_lynx
-    
 
     def validate_properties(self, metatype: str, json_data: dict, container_id: str = None):
         error = dict()
@@ -38,7 +36,8 @@ class DeepLynxValidator():
                         is_property_found = True
                         datatype = self.__identify_datatype(value)
                         if datatype != metatype_datatype:
-                            error["error"].append("Wrong datatype for property '{0}'. Change from '{1}' to '{2}".format(property, datatype, metatype_datatype))
+                            error["error"].append("Wrong datatype for property '{0}'. Change from '{1}' to '{2}".format(
+                                property, datatype, metatype_datatype))
                             error["isError"] = True
                 if not is_property_found:
                     error["error"].append("Invalid property '{0}' for the metatype '{1}'".format(property, metatype))
@@ -48,7 +47,7 @@ class DeepLynxValidator():
                 error["isError"] = True
         error = json.dumps(error)
         return error
-    
+
     def __get_properties(self, metatype: str, container_id: str = None):
         error = dict()
         error["isError"] = False
@@ -94,7 +93,7 @@ class DeepLynxValidator():
             if os.path.isfile(value):
                 dtype = 'file'
             if len(value) > 0:
-                try: 
+                try:
                     if value[-1] == 'Z':
                         date = datetime.datetime.fromisoformat(value[:-1])
                     else:
