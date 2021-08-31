@@ -10,9 +10,8 @@ linter:
     script:
         - echo "Run Linter"
         - python3 -m pip install yapf
-        - |
-            chmod +x yapf.sh
-            bash yapf.sh
+        - chmod +x yapf.sh
+        - bash yapf.sh
 security:
     stage: security
     image:
