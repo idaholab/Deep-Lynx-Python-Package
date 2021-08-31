@@ -37,10 +37,7 @@ class TestDeepLynxValidation:
         """ setup any state specific to the execution of the given class """
         cls.logger.info('Setting up test class')
         cls.set_env_success(cls)
-        cls.dl_service = deep_lynx_service.DeepLynxService(cls.DEEP_LYNX_URL,
-                                                           cls.CONTAINER_NAME,
-                                                           cls.DATA_SOURCE_NAME,
-                                                           init=True)
+        cls.dl_service = deep_lynx_service.DeepLynxService(cls.DEEP_LYNX_URL, cls.CONTAINER_NAME, cls.DATA_SOURCE_NAME, init=True)
         resp = cls.dl_service.import_container({
             'file_path': 'tests/test.owl',
             'name': 'Test_Import_Container',
