@@ -60,6 +60,7 @@ class TestDeepLynxValidation:
             cls.dl_service.delete_data_source(cls.dl_service.container_id, cls.dl_service.data_source_id)
             # delete container
             resp = cls.dl_service.delete_container(cls.dl_service.container_id)
+        if cls.container_id:
             resp = cls.dl_service.delete_container(cls.container_id)
 
     def test_invalid_metatype(self):
@@ -74,8 +75,6 @@ class TestDeepLynxValidation:
         invalid_metatype = json.loads(invalid_metatype)
         assert invalid_metatype['isError'] is True
         assert len(invalid_metatype['error']) > 0
-        if invalid_metatype['isError']:
-            self.logger.error(invalid_metatype['error'])
 
     def test_invalid_property(self):
         # Invalid property
@@ -92,8 +91,6 @@ class TestDeepLynxValidation:
         invalid_property = json.loads(invalid_property)
         assert invalid_property['isError'] is True
         assert len(invalid_property['error']) > 0
-        if invalid_property['isError']:
-            self.logger.error(invalid_property['error'])
     
     def test_invalid_datatype(self):
         # Invalid datatype
@@ -110,8 +107,6 @@ class TestDeepLynxValidation:
         invalid_datatype = json.loads(invalid_datatype)
         assert invalid_datatype['isError'] is True
         assert len(invalid_datatype['error']) > 0
-        if invalid_datatype['isError']:
-            self.logger.error(invalid_datatype['error'])
 
     def test_invalid_id(self):
         # Invalid id
@@ -126,8 +121,6 @@ class TestDeepLynxValidation:
         invalid_id = json.loads(invalid_id)
         assert invalid_id['isError'] is True
         assert len(invalid_id['error']) > 0
-        if invalid_id['isError']:
-            self.logger.error(invalid_id['error'])
 
     def test_valid_json(self):
         # Valid json

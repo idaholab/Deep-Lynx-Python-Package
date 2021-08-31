@@ -49,7 +49,7 @@ DATA_SOURCE_NAME=
 
 See `tests/REAMDE.md` for more information.  
 
-This project uses [yapf](https://github.com/google/yapf) for formatting. Please install it and apply formatting before submitting changes (e.g. `yapf src/deep_lynx tests --in-place --recursive --style={column_limit:120}`)  
+This project uses [yapf](https://github.com/google/yapf) for formatting. Please install it and apply formatting before submitting changes (e.g. `yapf --in-place --recursive . --style={column_limit:120}`)  
 
 ### Other Software
 Idaho National Laboratory is a cutting edge research facility which is a constantly producing high quality research and software. Feel free to take a look at our other software and scientific offerings at:
