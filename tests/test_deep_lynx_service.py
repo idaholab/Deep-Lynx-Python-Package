@@ -4,6 +4,7 @@ import pytest
 import os
 import logging
 import requests
+import settings
 
 from deep_lynx import deep_lynx_service
 
@@ -179,7 +180,8 @@ class TestDeepLynxService:
         resp = self.dl_service.import_container({
             'file_path': 'tests/test.owl',
             'name': 'Test_Import_Container',
-            'description': 'Description for my test container'
+            'description': 'Description for my test container',
+            'data_versioning_enabled': "true"
         })
         assert resp['value'] is not None
         container_id = resp['value']
@@ -189,7 +191,8 @@ class TestDeepLynxService:
             container_id, {
                 'file_path': 'tests/test.owl',
                 'name': 'Test_Import_Container',
-                'description': 'Description updated for my test container'
+                'description': 'Description updated for my test container',
+                'data_versioning_enabled': "true"
             })
         assert update_resp['value'] is not None
 

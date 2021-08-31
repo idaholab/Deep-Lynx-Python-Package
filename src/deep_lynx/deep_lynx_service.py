@@ -228,13 +228,16 @@ class DeepLynxService:
                 fields={
                     'name': form_upload['name'],
                     'description': form_upload['description'],
-                    'file': (form_upload['file_path'], open(form_upload['file_path'], 'rb'), 'multipart/form-data')
+                    'file': (form_upload['file_path'], open(form_upload['file_path'], 'rb'), 'multipart/form-data'),
+                    'data_versioning_enabled': form_upload['data_versioning_enabled']
                 })
         else:
             multipart_data = MultipartEncoder(fields={
                 'name': form_upload['name'],
                 'description': form_upload['description'],
-                'path': form_upload['url_path']
+                'path': form_upload['url_path'],
+                'data_versioning_enabled': form_upload['data_versioning_enabled']
+                
             })
 
         return self.__post('/containers/import', data=multipart_data)
