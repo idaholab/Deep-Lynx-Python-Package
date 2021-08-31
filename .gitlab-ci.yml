@@ -1,0 +1,24 @@
+stages:
+    - linter
+    - security
+
+linter:
+    stage: linter
+    image:
+        name: gcr.io/google-appengine/python
+        entrypoint: [""]
+    script:
+        - echo "Run Linter"
+        - python3 -m pip install yapf
+        - |
+            chmod +x yapf.sh
+            bash yapf.sh
+security:
+    stage: security
+    image:
+        name: gcr.io/google-appengine/python
+        entrypoint: [""]
+    script:
+        - echo "Run Security Check"
+        - python3 -m pip install bandit
+        - bandit -r adapter
