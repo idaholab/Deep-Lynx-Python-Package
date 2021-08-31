@@ -14,13 +14,13 @@ class DeepLynxValidator():
         self.deep_lynx: str = deep_lynx
     
 
-    def validate_properties(self, metatype, json_data):
+    def validate_properties(self, metatype: str, json_data: dict, container_id: str = None):
         error = dict()
         error["isError"] = False
         error["error"] = list()
-        error["value"] = None
 
-        get_properties_error = self.__get_properties(metatype)
+        get_properties_error = self.__get_properties(metatype, container_id)
+        get_properties_error = json.loads(get_properties_error)
         if get_properties_error["isError"]:
             error["isError"] = True
             error["error"] = get_properties_error["error"]
@@ -46,17 +46,23 @@ class DeepLynxValidator():
             if not is_id_found:
                 error["error"].append("The 'id' property is required for every metatype")
                 error["isError"] = True
-        json_dict = json.dumps(error)
-        return json_dict
+        error = json.dumps(error)
+        return error
     
-    def __get_properties(self, metatype: str):
+    def __get_properties(self, metatype: str, container_id: str = None):
         error = dict()
         error["isError"] = False
         error["error"] = list()
         error["value"] = None
 
         params = {"name": metatype}
-        metatype_info = self.deep_lynx.list_metatypes(self.deep_lynx.container_id, params)
+        if not container_id:
+            container = self.deep_lynx.container_id
+        else:
+            container = container_id
+        print(container_id)
+        metatype_info = self.deep_lynx.list_metatypes(container, params)
+        print(metatype_info)
         if metatype_info['isError'] == False and len(metatype_info["value"]) > 0:
             info = metatype_info["value"][0]
             # Add {property: datatype} to dictionary
@@ -68,6 +74,7 @@ class DeepLynxValidator():
         else:
             error["isError"] = True
             error["error"].append("The metatype '{0}' does not exist".format(metatype))
+        error = json.dumps(error)
         return error
 
     def __identify_datatype(self, value):
@@ -79,10 +86,10 @@ class DeepLynxValidator():
                 dtype: the datatype either 'string', 'number', 'boolean', 'date', or 'file'
         """
         dtype = ""
-        if isinstance(value, int) or isinstance(value, float):
-            dtype = 'number'
-        elif isinstance(value, bool):
+        if isinstance(value, bool):
             dtype = 'boolean'
+        elif isinstance(value, int) or isinstance(value, float):
+            dtype = 'number'
         elif isinstance(value, str):
             if os.path.isfile(value):
                 dtype = 'file'
@@ -99,21 +106,3 @@ class DeepLynxValidator():
             if not dtype:
                 dtype = "string"
         return dtype
-
-
-def main():
-    dl_service = DeepLynxService(os.getenv("DEEP_LYNX_URL"), os.getenv("CONTAINER_NAME"), os.getenv("DATA_SOURCE_NAME"), init=True)
-    dl_validator = DeepLynxValidator(dl_service)
-    
-    heat_pipe = {
-                    "id": "Heat Pipe ID",
-                    "name": "Heat Pipe Name",
-                    "acronym": "HP",
-                    "manufacturer name": "Heat Pipe Company"
-                }
-
-    error = dl_validator.validate_properties("HeatPipe", heat_pipe)
-    print(error)
-
-if __name__ == '__main__':
-    main()

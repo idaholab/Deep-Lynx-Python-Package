@@ -181,7 +181,7 @@ class TestDeepLynxService:
             'file_path': 'tests/test.owl',
             'name': 'Test_Import_Container',
             'description': 'Description for my test container',
-            'data_versioning_enabled': "true"
+            'data_versioning_enabled': 'false'
         })
         assert resp['value'] is not None
         container_id = resp['value']
@@ -192,7 +192,7 @@ class TestDeepLynxService:
                 'file_path': 'tests/test.owl',
                 'name': 'Test_Import_Container',
                 'description': 'Description updated for my test container',
-                'data_versioning_enabled': "true"
+                'data_versioning_enabled': 'false'
             })
         assert update_resp['value'] is not None
 
