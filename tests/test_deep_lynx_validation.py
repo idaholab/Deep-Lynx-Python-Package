@@ -115,9 +115,14 @@ class TestDeepLynxValidation:
 
     def test_invalid_id(self):
         """Tests providing an invalid id"""
-        metatype = 'Note'
+        metatype = 'Paragraph'
         date = datetime.datetime.utcnow().isoformat()[:-3]
-        json_data = {'name': "Note name", 'description': 'description of note', 'creation date': date}
+        json_data = {
+            'name': "paragraph name",
+            'description': 'description of paragraph',
+            'creation date': date,
+            'keywords': ['a', 'b', 'c']
+        }
         invalid_id = self.dl_validator.validate_properties(metatype, json_data, self.container_id)
         invalid_id = json.loads(invalid_id)
         assert invalid_id['isError'] is True

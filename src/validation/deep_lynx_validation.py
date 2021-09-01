@@ -104,6 +104,8 @@ class DeepLynxValidator():
             value: the item to check its datatype
         """
         dtype = ""
+        if isinstance(value, list):
+            dtype = 'list'
         if isinstance(value, bool):
             dtype = 'boolean'
         elif isinstance(value, int) or isinstance(value, float):
