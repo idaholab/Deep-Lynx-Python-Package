@@ -312,7 +312,7 @@ class DeepLynxService:
         """Retrieves a file."""
         return self.__get(f'/containers/{container_id}/files/{file_id}')
 
-    def upload_file(self, container_id: str, data_source_id: str, file_paths: [str]):
+    def upload_file(self, container_id: str, data_source_id: str, file_paths: list()):
         """Uploads a file.
         
         Args:
@@ -334,9 +334,9 @@ class DeepLynxService:
         """Sets a data source's active flag to false."""
         return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}/active')
 
-    def delete_data_source(self, container_id: str, data_source_id: str):
+    def delete_data_source(self, container_id: str, data_source_id: str, params: Dict[str, Any] = {}):
         """Permanently deletes a data source."""
-        return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}')
+        return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}', params)
 
     # DATA QUERY
 

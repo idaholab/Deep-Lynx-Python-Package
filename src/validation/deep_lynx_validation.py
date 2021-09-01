@@ -1,6 +1,5 @@
 import os
 import json
-import logging
 import datetime
 import settings
 
@@ -9,14 +8,26 @@ from deep_lynx.deep_lynx_service import DeepLynxService
 
 class DeepLynxValidator():
     def __init__(self, deep_lynx: DeepLynxService):
-        """Initializes a Deep Lynx Service object."""
+        """Initializes a Deep Lynx Validator object."""
         self.deep_lynx: str = deep_lynx
 
+    # PUBLIC FUNCTIONS
+
     def validate_properties(self, metatype: str, json_data: dict, container_id: str = None):
+        """
+        Validates the properties and datatype of the json data for a metatype
+        Args:
+            metatype: name of the metatype
+            json_data: a dictionary of the metatype's data
+            container_id: a container uuid
+        Return:
+            error: whether an error occurred e.g. {"isError": false, "error": []}
+        """
         error = dict()
         error["isError"] = False
         error["error"] = list()
 
+        # Get the properties
         get_properties_error = self.__get_properties(metatype, container_id)
         get_properties_error = json.loads(get_properties_error)
         if get_properties_error["isError"]:
@@ -34,6 +45,7 @@ class DeepLynxValidator():
                 for metatype_property, metatype_datatype in metatype_properties.items():
                     if metatype_property == property:
                         is_property_found = True
+                        # Check if the correct datatype
                         datatype = self.__identify_datatype(value)
                         if datatype != metatype_datatype:
                             error["error"].append("Wrong datatype for property '{0}'. Change from '{1}' to '{2}".format(
@@ -48,20 +60,29 @@ class DeepLynxValidator():
         error = json.dumps(error)
         return error
 
+    # PRIVATE FUNCTIONS
+
     def __get_properties(self, metatype: str, container_id: str = None):
+        """
+        Return a dictionary with each property name and property datatype for a metatype
+        Args:
+            metatype: name of the metatype
+            container_id: a container uuid
+        """
         error = dict()
         error["isError"] = False
         error["error"] = list()
         error["value"] = None
 
+        # Determine the container id
         params = {"name": metatype}
         if not container_id:
             container = self.deep_lynx.container_id
         else:
             container = container_id
-        print(container_id)
+
+        # Get the metatype information
         metatype_info = self.deep_lynx.list_metatypes(container, params)
-        print(metatype_info)
         if metatype_info['isError'] == False and len(metatype_info["value"]) > 0:
             info = metatype_info["value"][0]
             # Add {property: datatype} to dictionary
@@ -79,10 +100,8 @@ class DeepLynxValidator():
     def __identify_datatype(self, value):
         """
         Identifies whether the provided value is 'string', 'number', 'boolean', 'date', or 'file'
-        Inputs:
-                value: the item to check its datatype
-        Outputs:
-                dtype: the datatype either 'string', 'number', 'boolean', 'date', or 'file'
+        Args:
+            value: the item to check its datatype
         """
         dtype = ""
         if isinstance(value, bool):

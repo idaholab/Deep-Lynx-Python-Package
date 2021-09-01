@@ -11,7 +11,7 @@ from validation import deep_lynx_validation
 
 class TestDeepLynxValidation:
     dl_service = None
-    log_path = 'test.log'
+    log_path = 'test_val.log'
     # setup logging
     # remove log file if it exists
     if os.path.exists(log_path):
@@ -35,12 +35,16 @@ class TestDeepLynxValidation:
     @classmethod
     def setup_class(cls):
         """ setup any state specific to the execution of the given class """
-        cls.logger.info('Setting up test class')
+        cls.logger.info('Setting up TestDeepLynxValidation class')
         cls.set_env_success(cls)
-        cls.dl_service = deep_lynx_service.DeepLynxService(cls.DEEP_LYNX_URL,
-                                                           cls.CONTAINER_NAME,
-                                                           cls.DATA_SOURCE_NAME,
-                                                           init=True)
+        cls.dl_service = deep_lynx_service.DeepLynxService(cls.DEEP_LYNX_URL, cls.CONTAINER_NAME, cls.DATA_SOURCE_NAME)
+        # create a test container
+        if cls.dl_service.check_container() == False:
+            cls.dl_service.create_container({'name': cls.CONTAINER_NAME, 'description': 'Test container'})
+
+        # create a data source
+        cls.dl_service.init()
+
         resp = cls.dl_service.import_container({
             'file_path': 'tests/test.owl',
             'name': 'Test_Import_Container',
@@ -57,18 +61,19 @@ class TestDeepLynxValidation:
         """ teardown any state that was previously setup with a call to
         setup_class.
         """
-        cls.logger.info('Tearing down test class')
+        cls.logger.info('Tearing down TestDeepLynxValidation class')
         cls.set_env_success(cls)
         if cls.dl_service.check_container() == True:
             # delete datasource
-            cls.dl_service.delete_data_source(cls.dl_service.container_id, cls.dl_service.data_source_id)
+            cls.dl_service.delete_data_source(cls.dl_service.container_id, cls.dl_service.data_source_id,
+                                              {'forceDelete': 'true'})
             # delete container
             resp = cls.dl_service.delete_container(cls.dl_service.container_id)
         if cls.container_id:
             resp = cls.dl_service.delete_container(cls.container_id)
 
     def test_invalid_metatype(self):
-        # Invalid metatype
+        """Tests providing an invalid metatype"""
         metatype = 'DataItem'
         json_data = {'id': 'data_item_id', 'name': 'data item name', 'description': 'description of data item'}
         invalid_metatype = self.dl_validator.validate_properties(metatype, json_data, self.container_id)
@@ -77,7 +82,7 @@ class TestDeepLynxValidation:
         assert len(invalid_metatype['error']) > 0
 
     def test_invalid_property(self):
-        # Invalid property
+        """Tests providing an invalid property"""
         metatype = 'Document'
         json_data = {
             'id': 'document_id',
@@ -93,7 +98,7 @@ class TestDeepLynxValidation:
         assert len(invalid_property['error']) > 0
 
     def test_invalid_datatype(self):
-        # Invalid datatype
+        """Tests providing an invalid datatype"""
         metatype = 'Equipment'
         date = datetime.datetime.utcnow().isoformat()[:-3] + 'Z'
         json_data = {
@@ -109,7 +114,7 @@ class TestDeepLynxValidation:
         assert len(invalid_datatype['error']) > 0
 
     def test_invalid_id(self):
-        # Invalid id
+        """Tests providing an invalid id"""
         metatype = 'Note'
         date = datetime.datetime.utcnow().isoformat()[:-3]
         json_data = {'name': "Note name", 'description': 'description of note', 'creation date': date}
@@ -119,11 +124,10 @@ class TestDeepLynxValidation:
         assert len(invalid_id['error']) > 0
 
     def test_valid_json(self):
-        # Valid json
+        """Tests providing an valid json"""
         metatype = 'History'
         json_data = {'id': 'history_id', 'name': 'history name'}
         valid_json = self.dl_validator.validate_properties(metatype, json_data, self.container_id)
         valid_json = json.loads(valid_json)
-        print(valid_json)
         assert valid_json['isError'] is False
         assert len(valid_json['error']) == 0

@@ -28,9 +28,25 @@ dl_service.create_manual_import(
 )
 ```
 
-**DeepLynxService** includes a few helper methods for container verification, data source verification and creation, setting auth headers, and retrieving the latest import time. The majority of the class methods are API calls to Deep Lynx. Please see the Deep Lynx [API Documentation](https://github.com/idaholab/Deep-Lynx/tree/master/API%20Documentation) for further details.  
-  
-  
+**DeepLynxService** includes a few helper methods for container verification, data source verification and creation, setting auth headers, and retrieving the latest import time. The majority of the class methods are API calls to Deep Lynx. Please see the Deep Lynx [API Documentation](https://github.com/idaholab/Deep-Lynx/tree/master/API%20Documentation) for further details.
+
+## Validation
+Allows applications to validate the properties and datatypes of a metatype before import.
+
+```python
+from deep_lynx.deep_lynx_validation import DeepLynxValidator
+
+dl_validator = DeepLynxValidator(dl_service)
+
+metatype = 'History'
+json_data = {'id': 'history_id', 'name': 'history name'}
+json_dict = self.dl_validator.validate_properties(metatype, json_data)
+```
+Provided below is a sample return from `validate_properties`.
+```json
+{"isError": false, "error": []}
+```
+
 ## Installation  
 
 pip: `pip install deep_lynx`   
@@ -39,7 +55,7 @@ poetry: `poetry add deep_lynx`
 ## Contributing
 After cloning the repository, please use [Poetry](https://python-poetry.org/) for setup (e.g. `poetry install`, `poetry shell` to activate the virtual environment, etc).  
 
-Tests can be run with an active and reachable instance of Deep Lynx. Create a file named `.env` at the root of the project. Then fill it out with the following parameters:  
+Tests can be run with an active and reachable instance of Deep Lynx. Create a file named `.env` at the root of the project. Then fill it out with the following parameters using mock variables:  
 
 ```
 DEEP_LYNX_URL=  
