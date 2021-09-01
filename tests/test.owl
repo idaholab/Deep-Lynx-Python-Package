@@ -335,6 +335,12 @@
     
 
 
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#List -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+    
+
+
     <!-- http://www.w3.org/2001/XMLSchema#ID -->
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#ID"/>
@@ -555,6 +561,27 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- https://github.com/idaholab/DIAMOND/keywords -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/idaholab/DIAMOND/keywords">
+        <rdfs:subPropertyOf rdf:resource="https://github.com/idaholab/DIAMOND/list"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jeren Browning</dc:creator>
+        <rdfs:label>keywords</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://github.com/idaholab/DIAMOND/list -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/idaholab/DIAMOND/list">
+        <obo:IAO_0000115>A list is a data property that must contain only primitive values( strings, numbers, etc)</obo:IAO_0000115>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jeren Browning</dc:creator>
+        <rdfs:label>list</rdfs:label>
+    </owl:DatatypeProperty>
     
 
 
@@ -9658,6 +9685,12 @@ WB diferentiates this dose as the SDE across the whole body</obo:IAO_0000115>
 
     <owl:Class rdf:about="nuclear:001182">
         <rdfs:subClassOf rdf:resource="nuclear:000118"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://github.com/idaholab/DIAMOND/keywords"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="nuclear:000412"/>

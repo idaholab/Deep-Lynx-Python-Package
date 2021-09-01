@@ -4,6 +4,7 @@ import pytest
 import os
 import logging
 import requests
+import settings
 
 from deep_lynx import deep_lynx_service
 
@@ -42,7 +43,7 @@ class TestDeepLynxService:
     @classmethod
     def setup_class(cls):
         """ setup any state specific to the execution of the given class """
-        cls.logger.info('Setting up test class')
+        cls.logger.info('Setting up TestDeepLynxService class')
         cls.set_env_success(cls)
         cls.dl_service = deep_lynx_service.DeepLynxService(cls.DEEP_LYNX_URL, cls.CONTAINER_NAME, cls.DATA_SOURCE_NAME)
 
@@ -67,11 +68,12 @@ class TestDeepLynxService:
         """ teardown any state that was previously setup with a call to
         setup_class.
         """
-        cls.logger.info('Tearing down test class')
+        cls.logger.info('Tearing down TestDeepLynxService class')
         cls.set_env_success(cls)
         if cls.dl_service.check_container() == True:
             # delete datasource
-            cls.dl_service.delete_data_source(cls.dl_service.container_id, cls.dl_service.data_source_id)
+            cls.dl_service.delete_data_source(cls.dl_service.container_id, cls.dl_service.data_source_id,
+                                              {'forceDelete': 'true'})
             # delete container
             resp = cls.dl_service.delete_container(cls.dl_service.container_id)
 
@@ -179,7 +181,8 @@ class TestDeepLynxService:
         resp = self.dl_service.import_container({
             'file_path': 'tests/test.owl',
             'name': 'Test_Import_Container',
-            'description': 'Description for my test container'
+            'description': 'Description for my test container',
+            'data_versioning_enabled': 'false'
         })
         assert resp['value'] is not None
         container_id = resp['value']
@@ -189,7 +192,8 @@ class TestDeepLynxService:
             container_id, {
                 'file_path': 'tests/test.owl',
                 'name': 'Test_Import_Container',
-                'description': 'Description updated for my test container'
+                'description': 'Description updated for my test container',
+                'data_versioning_enabled': 'false'
             })
         assert update_resp['value'] is not None
 

@@ -228,14 +228,17 @@ class DeepLynxService:
                 fields={
                     'name': form_upload['name'],
                     'description': form_upload['description'],
-                    'file': (form_upload['file_path'], open(form_upload['file_path'], 'rb'), 'multipart/form-data')
+                    'file': (form_upload['file_path'], open(form_upload['file_path'], 'rb'), 'multipart/form-data'),
+                    'data_versioning_enabled': form_upload['data_versioning_enabled']
                 })
         else:
-            multipart_data = MultipartEncoder(fields={
-                'name': form_upload['name'],
-                'description': form_upload['description'],
-                'path': form_upload['url_path']
-            })
+            multipart_data = MultipartEncoder(
+                fields={
+                    'name': form_upload['name'],
+                    'description': form_upload['description'],
+                    'path': form_upload['url_path'],
+                    'data_versioning_enabled': form_upload['data_versioning_enabled']
+                })
 
         return self.__post('/containers/import', data=multipart_data)
 
@@ -309,7 +312,7 @@ class DeepLynxService:
         """Retrieves a file."""
         return self.__get(f'/containers/{container_id}/files/{file_id}')
 
-    def upload_file(self, container_id: str, data_source_id: str, file_paths: [str]):
+    def upload_file(self, container_id: str, data_source_id: str, file_paths: list()):
         """Uploads a file.
         
         Args:
@@ -331,9 +334,9 @@ class DeepLynxService:
         """Sets a data source's active flag to false."""
         return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}/active')
 
-    def delete_data_source(self, container_id: str, data_source_id: str):
+    def delete_data_source(self, container_id: str, data_source_id: str, params: Dict[str, Any] = {}):
         """Permanently deletes a data source."""
-        return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}')
+        return self.__delete(f'/containers/{container_id}/import/datasources/{data_source_id}', params)
 
     # DATA QUERY
 
