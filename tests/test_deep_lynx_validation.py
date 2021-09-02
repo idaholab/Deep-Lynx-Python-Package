@@ -5,8 +5,7 @@ import settings
 import datetime
 import json
 
-from deep_lynx import deep_lynx_service
-from validation import deep_lynx_validation
+import deep_lynx
 
 
 class TestDeepLynxValidation:
@@ -37,7 +36,7 @@ class TestDeepLynxValidation:
         """ setup any state specific to the execution of the given class """
         cls.logger.info('Setting up TestDeepLynxValidation class')
         cls.set_env_success(cls)
-        cls.dl_service = deep_lynx_service.DeepLynxService(cls.DEEP_LYNX_URL, cls.CONTAINER_NAME, cls.DATA_SOURCE_NAME)
+        cls.dl_service = deep_lynx.DeepLynxService(cls.DEEP_LYNX_URL, cls.CONTAINER_NAME, cls.DATA_SOURCE_NAME)
         # create a test container
         if cls.dl_service.check_container() == False:
             cls.dl_service.create_container({'name': cls.CONTAINER_NAME, 'description': 'Test container'})
@@ -54,7 +53,7 @@ class TestDeepLynxValidation:
         if resp['isError']:
             cls.logger.error(resp)
         cls.container_id = resp['value']
-        cls.dl_validator = deep_lynx_validation.DeepLynxValidator(cls.dl_service)
+        cls.dl_validator = deep_lynx.DeepLynxValidator(cls.dl_service)
 
     @classmethod
     def teardown_class(cls):
