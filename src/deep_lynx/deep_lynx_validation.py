@@ -3,11 +3,11 @@ import json
 import datetime
 import settings
 
-from deep_lynx.deep_lynx_service import DeepLynxService
+import deep_lynx
 
 
 class DeepLynxValidator():
-    def __init__(self, deep_lynx: DeepLynxService):
+    def __init__(self, deep_lynx: deep_lynx.DeepLynxService):
         """Initializes a Deep Lynx Validator object."""
         self.deep_lynx: str = deep_lynx
 

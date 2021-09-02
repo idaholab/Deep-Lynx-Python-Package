@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "deep-lynx"
-version = "0.0.4"
+name = "deep_lynx"
+version = "0.0.5"
 description = "A package for interacting with the Deep Lynx data warehouse"
 authors = ["Jeren Browning <jeren.browning@inl.gov>", "Katherine Wilsdon <katherine.wilsdon@inl.gov>"]
 maintainers = ["Jeren Browning <jeren.browning@inl.gov>", "Katherine Wilsdon <katherine.wilsdon@inl.gov>"]

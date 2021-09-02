@@ -20,11 +20,14 @@ dl_service.create_container(
 # ensure data source exists or create it
 dl_service.init()
 
+# create data
+json_data = {'your data here': 'data'}
+
 # import data to deep lynx
 dl_service.create_manual_import(
   dl_service.container_id,
   dl_service.data_source_id,
-  {'your data here': 'data'}
+  json_data
 )
 ```
 
@@ -34,15 +37,19 @@ dl_service.create_manual_import(
 Allows applications to validate the properties and datatypes of a metatype before import.
 
 ```python
-from deep_lynx.deep_lynx_validation import DeepLynxValidator
+import deep_lynx
 
-dl_validator = DeepLynxValidator(dl_service)
+# create deep lynx validator object
+dl_validator = deep_lynx.DeepLynxValidator(dl_service)
 
+# validate properties
 metatype = 'History'
 json_data = {'id': 'history_id', 'name': 'history name'}
-json_dict = self.dl_validator.validate_properties(metatype, json_data)
+json_dict = dl_validator.validate_properties(metatype, json_data)
 ```
+
 Provided below is a sample return from `validate_properties`.
+
 ```json
 {"isError": false, "error": []}
 ```
