@@ -48,14 +48,15 @@ class DeepLynxValidator():
                         # Check if the correct datatype
                         datatype = self.__identify_datatype(value)
                         if datatype != metatype_datatype:
-                            error["error"].append("Wrong datatype for property '{0}'. Change from '{1}' to '{2}".format(
-                                property, datatype, metatype_datatype))
+                            error["error"].append(
+                                "Wrong datatype for property '{0}' of the metatype '{1}'. Change from '{2}' to '{3}'".
+                                format(property, metatype, datatype, metatype_datatype))
                             error["isError"] = True
                 if not is_property_found:
                     error["error"].append("Invalid property '{0}' for the metatype '{1}'".format(property, metatype))
                     error["isError"] = True
             if not is_id_found:
-                error["error"].append("The 'id' property is required for every metatype")
+                error["error"].append("The 'id' property is required for the metatype '{0}'".format(metatype))
                 error["isError"] = True
         error = json.dumps(error)
         return error
