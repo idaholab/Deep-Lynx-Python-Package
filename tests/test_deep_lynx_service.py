@@ -525,16 +525,18 @@ class TestDeepLynxService:
             Limited since Deep Lynx doesn't allow user creation via API."""
         # list users
         list_users = self.dl_service.list_users(self.dl_service.container_id)
-        assert len(list_users['value']) > 0
-        user_id = list_users['value'][0]['id']
+        assert list_users['isError'] is False
+
+        # We are unable to create users via API, so very little
+        # testing of the User APIs can occur
 
         # retrieve user
-        retrieve_user = self.dl_service.retrieve_user(self.dl_service.container_id, user_id)
-        assert retrieve_user['isError'] is False
+        # retrieve_user = self.dl_service.retrieve_user(self.dl_service.container_id, user_id)
+        # assert retrieve_user['isError'] is False
 
-        # list user roles
-        user_roles = self.dl_service.list_user_roles(self.dl_service.container_id, user_id)
-        assert user_roles['isError'] is False
+        # # list user roles
+        # user_roles = self.dl_service.list_user_roles(self.dl_service.container_id, user_id)
+        # assert user_roles['isError'] is False
 
     # METATYPES
 
