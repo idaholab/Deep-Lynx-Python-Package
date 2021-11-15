@@ -40,6 +40,19 @@ class TestCreateManualImport(unittest.TestCase):
 
     def setUp(self):
         load_dotenv()
+        if getenv('API_KEY') is None or getenv('API_SECRET') is None:
+            print("""Please supply API key and secret.
+Have you copied the .env-sample and created .env?
+Skipping all tests in test_create_manual_import.py""")
+            raise unittest.SkipTest("""Please supply API key and secret.
+                Have you copied the .env-sample and created .env?
+                Skipping all tests in test_create_manual_import.py""")
+                
+        if getenv('API_KEY') == '' or getenv('API_SECRET') == '':
+            print("""Please supply API key and secret.
+Skipping all tests in test_create_manual_import.py""")
+            raise unittest.SkipTest("""Please supply API key and secret.
+                Skipping all tests in test_create_manual_import.py""")
         pass
 
     def tearDown(self):
