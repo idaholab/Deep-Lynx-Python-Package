@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**list_edges**](GraphApi.md#list_edges) | **GET** /containers/{container_id}/graphs/edges | ListEdges
 [**list_node_files**](GraphApi.md#list_node_files) | **GET** /containers/{container_id}/graphs/nodes/{node_id}/files | ListNodeFiles
 [**list_nodes**](GraphApi.md#list_nodes) | **GET** /containers/{container_id}/graphs/nodes | ListNodes
-[**list_nodesby_metatype_id**](GraphApi.md#list_nodesby_metatype_id) | **GET** /containers/{container_id}/graphs/nodes/metatype/{metatype_id} | ListNodesbyMetatypeID
+[**list_nodes_by_metatype_id**](GraphApi.md#list_nodes_by_metatype_id) | **GET** /containers/{container_id}/graphs/nodes/metatype/{metatype_id} | ListNodesByMetatypeID
 [**retrieve_edge**](GraphApi.md#retrieve_edge) | **GET** /containers/{container_id}/graphs/edges/{edge_id} | RetrieveEdge
 [**retrieve_node**](GraphApi.md#retrieve_node) | **GET** /containers/{container_id}/graphs/nodes/{node_id} | RetrieveNode
 
@@ -656,10 +656,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_nodesby_metatype_id**
-> ListNodesResponse list_nodesby_metatype_id(container_id, metatype_id, limit=limit, offset=offset)
+# **list_nodes_by_metatype_id**
+> ListNodesResponse list_nodes_by_metatype_id(container_id, metatype_id, limit=limit, offset=offset)
 
-ListNodesbyMetatypeID
+ListNodesByMetatypeID
 
 List Nodes, filter by MetatypeID
 
@@ -680,11 +680,11 @@ limit = 56 # int |  (optional)
 offset = 56 # int |  (optional)
 
 try:
-    # ListNodesbyMetatypeID
-    api_response = api_instance.list_nodesby_metatype_id(container_id, metatype_id, limit=limit, offset=offset)
+    # ListNodesByMetatypeID
+    api_response = api_instance.list_nodes_by_metatype_id(container_id, metatype_id, limit=limit, offset=offset)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling GraphApi->list_nodesby_metatype_id: %s\n" % e)
+    print("Exception when calling GraphApi->list_nodes_by_metatype_id: %s\n" % e)
 ```
 
 ### Parameters
