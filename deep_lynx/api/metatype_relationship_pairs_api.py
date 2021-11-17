@@ -488,7 +488,7 @@ class MetatypeRelationshipPairsApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str pair_id: (required)
-        :param NewMetatypeRelationshipPairRequest body:
+        :param RelationshipPair body:
         :return: UpdateMetatypeRelationshipPairResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -512,7 +512,7 @@ class MetatypeRelationshipPairsApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str pair_id: (required)
-        :param NewMetatypeRelationshipPairRequest body:
+        :param RelationshipPair body:
         :return: UpdateMetatypeRelationshipPairResponse
                  If the method is called asynchronously,
                  returns the request thread.

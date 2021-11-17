@@ -250,7 +250,7 @@ from pprint import pprint
 api_instance = deep_lynx.MetatypeRelationshipPairsApi(deep_lynx.ApiClient(configuration))
 container_id = 'container_id_example' # str | 
 pair_id = 'pair_id_example' # str | 
-body = deep_lynx.NewMetatypeRelationshipPairRequest() # NewMetatypeRelationshipPairRequest |  (optional)
+body = deep_lynx.RelationshipPair() # RelationshipPair |  (optional)
 
 try:
     # UpdateMetatypeRelationshipPair
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**|  | 
  **pair_id** | **str**|  | 
- **body** | [**NewMetatypeRelationshipPairRequest**](NewMetatypeRelationshipPairRequest.md)|  | [optional] 
+ **body** | [**RelationshipPair**](RelationshipPair.md)|  | [optional] 
 
 ### Return type
 

@@ -4,24 +4,24 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
-**description** | **str** |  | 
-**relationship_type** | **str** |  | 
-**relationship_id** | **str** |  | 
-**origin_metatype_id** | **str** |  | 
-**destination_metatype_id** | **str** |  | 
+**description** | **str** |  | [optional] 
+**relationship_type** | **str** |  | [optional] 
+**relationship_id** | **str** |  | [optional] 
+**origin_metatype_id** | **str** |  | [optional] 
+**destination_metatype_id** | **str** |  | [optional] 
 **id** | **str** |  | 
-**archived** | **bool** |  | 
-**container_id** | **str** |  | 
-**created_at** | **str** |  | 
-**modified_at** | **str** |  | 
-**created_by** | **str** |  | 
-**modified_by** | **str** |  | 
-**origin_metatype_name** | **str** |  | 
-**destination_metatype_name** | **str** |  | 
-**relationship_pair_name** | **str** |  | 
-**destination_metatype** | [**NodeMetatypeBody**](NodeMetatypeBody.md) |  | 
-**origin_metatype** | [**NodeMetatypeBody**](NodeMetatypeBody.md) |  | 
-**relationship** | [**NodeMetatypeBody**](NodeMetatypeBody.md) |  | 
+**archived** | **bool** |  | [optional] 
+**container_id** | **str** |  | [optional] 
+**created_at** | **str** |  | [optional] 
+**modified_at** | **str** |  | [optional] 
+**created_by** | **str** |  | [optional] 
+**modified_by** | **str** |  | [optional] 
+**origin_metatype_name** | **str** |  | [optional] 
+**destination_metatype_name** | **str** |  | [optional] 
+**relationship_pair_name** | **str** |  | [optional] 
+**destination_metatype** | [**DestinationMetatype**](DestinationMetatype.md) |  | [optional] 
+**origin_metatype** | [**OriginMetatype**](OriginMetatype.md) |  | [optional] 
+**relationship** | [**Relationship**](Relationship.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
