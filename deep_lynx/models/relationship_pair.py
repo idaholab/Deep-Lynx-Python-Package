@@ -44,9 +44,9 @@ class RelationshipPair(object):
         'origin_metatype_name': 'str',
         'destination_metatype_name': 'str',
         'relationship_pair_name': 'str',
-        'destination_metatype': 'NodeMetatypeBody',
-        'origin_metatype': 'NodeMetatypeBody',
-        'relationship': 'NodeMetatypeBody'
+        'destination_metatype': 'DestinationMetatype',
+        'origin_metatype': 'OriginMetatype',
+        'relationship': 'Relationship'
     }
 
     attribute_map = {
@@ -94,24 +94,41 @@ class RelationshipPair(object):
         self._relationship = None
         self.discriminator = None
         self.name = name
-        self.description = description
-        self.relationship_type = relationship_type
-        self.relationship_id = relationship_id
-        self.origin_metatype_id = origin_metatype_id
-        self.destination_metatype_id = destination_metatype_id
+        if description is not None:
+            self.description = description
+        if relationship_type is not None:
+            self.relationship_type = relationship_type
+        if relationship_id is not None:
+            self.relationship_id = relationship_id
+        if origin_metatype_id is not None:
+            self.origin_metatype_id = origin_metatype_id
+        if destination_metatype_id is not None:
+            self.destination_metatype_id = destination_metatype_id
         self.id = id
-        self.archived = archived
-        self.container_id = container_id
-        self.created_at = created_at
-        self.modified_at = modified_at
-        self.created_by = created_by
-        self.modified_by = modified_by
-        self.origin_metatype_name = origin_metatype_name
-        self.destination_metatype_name = destination_metatype_name
-        self.relationship_pair_name = relationship_pair_name
-        self.destination_metatype = destination_metatype
-        self.origin_metatype = origin_metatype
-        self.relationship = relationship
+        if archived is not None:
+            self.archived = archived
+        if container_id is not None:
+            self.container_id = container_id
+        if created_at is not None:
+            self.created_at = created_at
+        if modified_at is not None:
+            self.modified_at = modified_at
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
+        if origin_metatype_name is not None:
+            self.origin_metatype_name = origin_metatype_name
+        if destination_metatype_name is not None:
+            self.destination_metatype_name = destination_metatype_name
+        if relationship_pair_name is not None:
+            self.relationship_pair_name = relationship_pair_name
+        if destination_metatype is not None:
+            self.destination_metatype = destination_metatype
+        if origin_metatype is not None:
+            self.origin_metatype = origin_metatype
+        if relationship is not None:
+            self.relationship = relationship
 
     @property
     def name(self):
@@ -154,8 +171,6 @@ class RelationshipPair(object):
         :param description: The description of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 
@@ -177,8 +192,6 @@ class RelationshipPair(object):
         :param relationship_type: The relationship_type of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if relationship_type is None:
-            raise ValueError("Invalid value for `relationship_type`, must not be `None`")  # noqa: E501
 
         self._relationship_type = relationship_type
 
@@ -200,8 +213,6 @@ class RelationshipPair(object):
         :param relationship_id: The relationship_id of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if relationship_id is None:
-            raise ValueError("Invalid value for `relationship_id`, must not be `None`")  # noqa: E501
 
         self._relationship_id = relationship_id
 
@@ -223,8 +234,6 @@ class RelationshipPair(object):
         :param origin_metatype_id: The origin_metatype_id of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if origin_metatype_id is None:
-            raise ValueError("Invalid value for `origin_metatype_id`, must not be `None`")  # noqa: E501
 
         self._origin_metatype_id = origin_metatype_id
 
@@ -246,8 +255,6 @@ class RelationshipPair(object):
         :param destination_metatype_id: The destination_metatype_id of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if destination_metatype_id is None:
-            raise ValueError("Invalid value for `destination_metatype_id`, must not be `None`")  # noqa: E501
 
         self._destination_metatype_id = destination_metatype_id
 
@@ -292,8 +299,6 @@ class RelationshipPair(object):
         :param archived: The archived of this RelationshipPair.  # noqa: E501
         :type: bool
         """
-        if archived is None:
-            raise ValueError("Invalid value for `archived`, must not be `None`")  # noqa: E501
 
         self._archived = archived
 
@@ -315,8 +320,6 @@ class RelationshipPair(object):
         :param container_id: The container_id of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if container_id is None:
-            raise ValueError("Invalid value for `container_id`, must not be `None`")  # noqa: E501
 
         self._container_id = container_id
 
@@ -338,8 +341,6 @@ class RelationshipPair(object):
         :param created_at: The created_at of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -361,8 +362,6 @@ class RelationshipPair(object):
         :param modified_at: The modified_at of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -384,8 +383,6 @@ class RelationshipPair(object):
         :param created_by: The created_by of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -407,8 +404,6 @@ class RelationshipPair(object):
         :param modified_by: The modified_by of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 
@@ -430,8 +425,6 @@ class RelationshipPair(object):
         :param origin_metatype_name: The origin_metatype_name of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if origin_metatype_name is None:
-            raise ValueError("Invalid value for `origin_metatype_name`, must not be `None`")  # noqa: E501
 
         self._origin_metatype_name = origin_metatype_name
 
@@ -453,8 +446,6 @@ class RelationshipPair(object):
         :param destination_metatype_name: The destination_metatype_name of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if destination_metatype_name is None:
-            raise ValueError("Invalid value for `destination_metatype_name`, must not be `None`")  # noqa: E501
 
         self._destination_metatype_name = destination_metatype_name
 
@@ -476,8 +467,6 @@ class RelationshipPair(object):
         :param relationship_pair_name: The relationship_pair_name of this RelationshipPair.  # noqa: E501
         :type: str
         """
-        if relationship_pair_name is None:
-            raise ValueError("Invalid value for `relationship_pair_name`, must not be `None`")  # noqa: E501
 
         self._relationship_pair_name = relationship_pair_name
 
@@ -487,7 +476,7 @@ class RelationshipPair(object):
 
 
         :return: The destination_metatype of this RelationshipPair.  # noqa: E501
-        :rtype: NodeMetatypeBody
+        :rtype: DestinationMetatype
         """
         return self._destination_metatype
 
@@ -497,10 +486,8 @@ class RelationshipPair(object):
 
 
         :param destination_metatype: The destination_metatype of this RelationshipPair.  # noqa: E501
-        :type: NodeMetatypeBody
+        :type: DestinationMetatype
         """
-        if destination_metatype is None:
-            raise ValueError("Invalid value for `destination_metatype`, must not be `None`")  # noqa: E501
 
         self._destination_metatype = destination_metatype
 
@@ -510,7 +497,7 @@ class RelationshipPair(object):
 
 
         :return: The origin_metatype of this RelationshipPair.  # noqa: E501
-        :rtype: NodeMetatypeBody
+        :rtype: OriginMetatype
         """
         return self._origin_metatype
 
@@ -520,10 +507,8 @@ class RelationshipPair(object):
 
 
         :param origin_metatype: The origin_metatype of this RelationshipPair.  # noqa: E501
-        :type: NodeMetatypeBody
+        :type: OriginMetatype
         """
-        if origin_metatype is None:
-            raise ValueError("Invalid value for `origin_metatype`, must not be `None`")  # noqa: E501
 
         self._origin_metatype = origin_metatype
 
@@ -533,7 +518,7 @@ class RelationshipPair(object):
 
 
         :return: The relationship of this RelationshipPair.  # noqa: E501
-        :rtype: NodeMetatypeBody
+        :rtype: Relationship
         """
         return self._relationship
 
@@ -543,10 +528,8 @@ class RelationshipPair(object):
 
 
         :param relationship: The relationship of this RelationshipPair.  # noqa: E501
-        :type: NodeMetatypeBody
+        :type: Relationship
         """
-        if relationship is None:
-            raise ValueError("Invalid value for `relationship`, must not be `None`")  # noqa: E501
 
         self._relationship = relationship
 

@@ -34,7 +34,7 @@ class RelationshipKey(object):
         'data_type': 'str',
         'required': 'bool',
         'cardinality': 'float',
-        'validation': 'Validation',
+        'validation': 'object',
         'unique': 'bool',
         'options': 'list[object]',
         'default_value': 'str',
@@ -87,25 +87,38 @@ class RelationshipKey(object):
         self._created_by = None
         self._modified_by = None
         self.discriminator = None
-        self.name = name
-        self.description = description
-        self.property_name = property_name
-        self.data_type = data_type
-        self.required = required
-        self.cardinality = cardinality
-        self.validation = validation
-        self.unique = unique
+        if name is not None:
+            self.name = name
+        if description is not None:
+            self.description = description
+        if property_name is not None:
+            self.property_name = property_name
+        if data_type is not None:
+            self.data_type = data_type
+        if required is not None:
+            self.required = required
+        if cardinality is not None:
+            self.cardinality = cardinality
+        if validation is not None:
+            self.validation = validation
+        if unique is not None:
+            self.unique = unique
         if options is not None:
             self.options = options
         if default_value is not None:
             self.default_value = default_value
         self.metatype_relationship_id = metatype_relationship_id
         self.id = id
-        self.archived = archived
-        self.created_at = created_at
-        self.modified_at = modified_at
-        self.created_by = created_by
-        self.modified_by = modified_by
+        if archived is not None:
+            self.archived = archived
+        if created_at is not None:
+            self.created_at = created_at
+        if modified_at is not None:
+            self.modified_at = modified_at
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
 
     @property
     def name(self):
@@ -125,8 +138,6 @@ class RelationshipKey(object):
         :param name: The name of this RelationshipKey.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -148,8 +159,6 @@ class RelationshipKey(object):
         :param description: The description of this RelationshipKey.  # noqa: E501
         :type: str
         """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
 
         self._description = description
 
@@ -171,8 +180,6 @@ class RelationshipKey(object):
         :param property_name: The property_name of this RelationshipKey.  # noqa: E501
         :type: str
         """
-        if property_name is None:
-            raise ValueError("Invalid value for `property_name`, must not be `None`")  # noqa: E501
 
         self._property_name = property_name
 
@@ -194,8 +201,6 @@ class RelationshipKey(object):
         :param data_type: The data_type of this RelationshipKey.  # noqa: E501
         :type: str
         """
-        if data_type is None:
-            raise ValueError("Invalid value for `data_type`, must not be `None`")  # noqa: E501
 
         self._data_type = data_type
 
@@ -217,8 +222,6 @@ class RelationshipKey(object):
         :param required: The required of this RelationshipKey.  # noqa: E501
         :type: bool
         """
-        if required is None:
-            raise ValueError("Invalid value for `required`, must not be `None`")  # noqa: E501
 
         self._required = required
 
@@ -240,8 +243,6 @@ class RelationshipKey(object):
         :param cardinality: The cardinality of this RelationshipKey.  # noqa: E501
         :type: float
         """
-        if cardinality is None:
-            raise ValueError("Invalid value for `cardinality`, must not be `None`")  # noqa: E501
 
         self._cardinality = cardinality
 
@@ -251,7 +252,7 @@ class RelationshipKey(object):
 
 
         :return: The validation of this RelationshipKey.  # noqa: E501
-        :rtype: Validation
+        :rtype: object
         """
         return self._validation
 
@@ -261,10 +262,8 @@ class RelationshipKey(object):
 
 
         :param validation: The validation of this RelationshipKey.  # noqa: E501
-        :type: Validation
+        :type: object
         """
-        if validation is None:
-            raise ValueError("Invalid value for `validation`, must not be `None`")  # noqa: E501
 
         self._validation = validation
 
@@ -286,8 +285,6 @@ class RelationshipKey(object):
         :param unique: The unique of this RelationshipKey.  # noqa: E501
         :type: bool
         """
-        if unique is None:
-            raise ValueError("Invalid value for `unique`, must not be `None`")  # noqa: E501
 
         self._unique = unique
 
@@ -397,8 +394,6 @@ class RelationshipKey(object):
         :param archived: The archived of this RelationshipKey.  # noqa: E501
         :type: bool
         """
-        if archived is None:
-            raise ValueError("Invalid value for `archived`, must not be `None`")  # noqa: E501
 
         self._archived = archived
 
@@ -420,8 +415,6 @@ class RelationshipKey(object):
         :param created_at: The created_at of this RelationshipKey.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -443,8 +436,6 @@ class RelationshipKey(object):
         :param modified_at: The modified_at of this RelationshipKey.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -466,8 +457,6 @@ class RelationshipKey(object):
         :param created_by: The created_by of this RelationshipKey.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -489,8 +478,6 @@ class RelationshipKey(object):
         :param modified_by: The modified_by of this RelationshipKey.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 

@@ -1328,13 +1328,13 @@ class GraphApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_nodesby_metatype_id(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """ListNodesbyMetatypeID  # noqa: E501
+    def list_nodes_by_metatype_id(self, container_id, metatype_id, **kwargs):  # noqa: E501
+        """ListNodesByMetatypeID  # noqa: E501
 
         List Nodes, filter by MetatypeID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_nodesby_metatype_id(container_id, metatype_id, async_req=True)
+        >>> thread = api.list_nodes_by_metatype_id(container_id, metatype_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1348,18 +1348,18 @@ class GraphApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.list_nodesby_metatype_id_with_http_info(container_id, metatype_id, **kwargs)  # noqa: E501
+            return self.list_nodes_by_metatype_id_with_http_info(container_id, metatype_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.list_nodesby_metatype_id_with_http_info(container_id, metatype_id, **kwargs)  # noqa: E501
+            (data) = self.list_nodes_by_metatype_id_with_http_info(container_id, metatype_id, **kwargs)  # noqa: E501
             return data
 
-    def list_nodesby_metatype_id_with_http_info(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """ListNodesbyMetatypeID  # noqa: E501
+    def list_nodes_by_metatype_id_with_http_info(self, container_id, metatype_id, **kwargs):  # noqa: E501
+        """ListNodesByMetatypeID  # noqa: E501
 
         List Nodes, filter by MetatypeID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_nodesby_metatype_id_with_http_info(container_id, metatype_id, async_req=True)
+        >>> thread = api.list_nodes_by_metatype_id_with_http_info(container_id, metatype_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1383,18 +1383,18 @@ class GraphApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_nodesby_metatype_id" % key
+                    " to method list_nodes_by_metatype_id" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `list_nodesby_metatype_id`")  # noqa: E501
+            raise ValueError("Missing the required parameter `container_id` when calling `list_nodes_by_metatype_id`")  # noqa: E501
         # verify the required parameter 'metatype_id' is set
         if ('metatype_id' not in params or
                 params['metatype_id'] is None):
-            raise ValueError("Missing the required parameter `metatype_id` when calling `list_nodesby_metatype_id`")  # noqa: E501
+            raise ValueError("Missing the required parameter `metatype_id` when calling `list_nodes_by_metatype_id`")  # noqa: E501
 
         collection_formats = {}
 

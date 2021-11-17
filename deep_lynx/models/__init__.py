@@ -56,6 +56,7 @@ from deep_lynx.models.data_source_config import DataSourceConfig
 from deep_lynx.models.data_source_id_files_body import DataSourceIdFilesBody
 from deep_lynx.models.data_source_import import DataSourceImport
 from deep_lynx.models.data_staging import DataStaging
+from deep_lynx.models.destination_metatype import DestinationMetatype
 from deep_lynx.models.edge import Edge
 from deep_lynx.models.error_model import ErrorModel
 from deep_lynx.models.error_response import ErrorResponse
@@ -122,6 +123,7 @@ from deep_lynx.models.node import Node
 from deep_lynx.models.node_metatype_body import NodeMetatypeBody
 from deep_lynx.models.not_found404 import NotFound404
 from deep_lynx.models.one_ofinline_response200 import OneOfinlineResponse200
+from deep_lynx.models.origin_metatype import OriginMetatype
 from deep_lynx.models.prompt import Prompt
 from deep_lynx.models.rsa_cancel_request import RSACancelRequest
 from deep_lynx.models.rsa_init_request import RSAInitRequest
@@ -129,6 +131,7 @@ from deep_lynx.models.rsa_response import RSAResponse
 from deep_lynx.models.rsa_status_request import RSAStatusRequest
 from deep_lynx.models.rsa_status_response import RSAStatusResponse
 from deep_lynx.models.rsa_verify_request import RSAVerifyRequest
+from deep_lynx.models.relationship import Relationship
 from deep_lynx.models.relationship_key import RelationshipKey
 from deep_lynx.models.relationship_pair import RelationshipPair
 from deep_lynx.models.required_method import RequiredMethod
