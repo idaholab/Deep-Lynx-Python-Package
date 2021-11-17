@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "deep_lynx"
-VERSION = "1.0.0"
+VERSION = "0.1.0"
 # To install the library, run the following
 #
 # python setup.py install
@@ -23,17 +23,21 @@ VERSION = "1.0.0"
 
 REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 
+with open("README.md", 'r') as f:
+    long_description = f.read()
+
 setup(
     name=NAME,
     version=VERSION,
-    description="Deep Lynx",
-    author_email="",
-    url="",
+    description="Deep Lynx Python SDK",
+    author="Jeren Browning",
+    author_email="jeren.browning@inl.gov",
+    url="https://github.com/idaholab/Deep-Lynx-Python-Package",
     keywords=["Swagger", "Deep Lynx"],
+    license="MIT",
     install_requires=REQUIRES,
     packages=find_packages(),
     include_package_data=True,
-    long_description="""\
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
-    """
+    long_description_content_type='text/markdown',
+    long_description=long_description
 )
