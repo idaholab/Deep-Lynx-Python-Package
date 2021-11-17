@@ -33,7 +33,7 @@ class UsersApi(object):
         self.api_client = api_client
 
     def accept_container_invite(self, token, **kwargs):  # noqa: E501
-        """AcceptContainerInvite  # noqa: E501
+        """Accept Container Invite  # noqa: E501
 
         Accepts a container invite for the current user. The token received in the container invite previously must be attached to this request as a query parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -55,7 +55,7 @@ class UsersApi(object):
             return data
 
     def accept_container_invite_with_http_info(self, token, **kwargs):  # noqa: E501
-        """AcceptContainerInvite  # noqa: E501
+        """Accept Container Invite  # noqa: E501
 
         Accepts a container invite for the current user. The token received in the container invite previously must be attached to this request as a query parameter.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -109,7 +109,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/users/invite', 'GET',
@@ -128,7 +128,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def assign_user_role(self, body, container_id, **kwargs):  # noqa: E501
-        """AssignUserRole  # noqa: E501
+        """Assign User Role  # noqa: E501
 
         Assign a role to a user, roles must consist of role name and domain  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -151,7 +151,7 @@ class UsersApi(object):
             return data
 
     def assign_user_role_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
-        """AssignUserRole  # noqa: E501
+        """Assign User Role  # noqa: E501
 
         Assign a role to a user, roles must consist of role name and domain  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -216,7 +216,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/users/roles', 'POST',
@@ -235,7 +235,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def delete_user(self, user_id, **kwargs):  # noqa: E501
-        """DeleteUser  # noqa: E501
+        """Delete User  # noqa: E501
 
         Deletes the specified user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -257,7 +257,7 @@ class UsersApi(object):
             return data
 
     def delete_user_with_http_info(self, user_id, **kwargs):  # noqa: E501
-        """DeleteUser  # noqa: E501
+        """Delete User  # noqa: E501
 
         Deletes the specified user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -311,7 +311,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/users/{user_id}', 'DELETE',
@@ -330,7 +330,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def invite_user_to_container(self, container_id, **kwargs):  # noqa: E501
-        """InviteUserToContainer  # noqa: E501
+        """Invite User to Container  # noqa: E501
 
         Create a new user using the username_password identity type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -353,7 +353,7 @@ class UsersApi(object):
             return data
 
     def invite_user_to_container_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """InviteUserToContainer  # noqa: E501
+        """Invite User to Container  # noqa: E501
 
         Create a new user using the username_password identity type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -414,7 +414,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/users/invite', 'POST',
@@ -433,7 +433,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def list_invited_users_for_container(self, container_id, **kwargs):  # noqa: E501
-        """ListInvitedUsersForContainer  # noqa: E501
+        """List Invited Users for Container  # noqa: E501
 
         List all invitations to container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -455,7 +455,7 @@ class UsersApi(object):
             return data
 
     def list_invited_users_for_container_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ListInvitedUsersForContainer  # noqa: E501
+        """List Invited Users for Container  # noqa: E501
 
         List all invitations to container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -509,7 +509,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/users/invite', 'GET',
@@ -528,7 +528,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def list_outstanding_invites(self, **kwargs):  # noqa: E501
-        """ListOutstandingInvites  # noqa: E501
+        """List Outstanding Invites  # noqa: E501
 
         Lists the outstanding container invites for the current user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -549,7 +549,7 @@ class UsersApi(object):
             return data
 
     def list_outstanding_invites_with_http_info(self, **kwargs):  # noqa: E501
-        """ListOutstandingInvites  # noqa: E501
+        """List Outstanding Invites  # noqa: E501
 
         Lists the outstanding container invites for the current user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -596,7 +596,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/users/invites', 'GET',
@@ -615,7 +615,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def list_user_permissions(self, **kwargs):  # noqa: E501
-        """ListUserPermissions  # noqa: E501
+        """List User Permissions  # noqa: E501
 
         List permissions for the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -636,7 +636,7 @@ class UsersApi(object):
             return data
 
     def list_user_permissions_with_http_info(self, **kwargs):  # noqa: E501
-        """ListUserPermissions  # noqa: E501
+        """List User Permissions  # noqa: E501
 
         List permissions for the user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -683,7 +683,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/users/permissions', 'GET',
@@ -702,7 +702,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def list_users(self, **kwargs):  # noqa: E501
-        """ListUsers  # noqa: E501
+        """List Users  # noqa: E501
 
         List users.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -729,7 +729,7 @@ class UsersApi(object):
             return data
 
     def list_users_with_http_info(self, **kwargs):  # noqa: E501
-        """ListUsers  # noqa: E501
+        """List Users  # noqa: E501
 
         List users.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -794,7 +794,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/users', 'GET',
@@ -813,7 +813,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def list_users_for_container(self, container_id, **kwargs):  # noqa: E501
-        """ListUsersForContainer  # noqa: E501
+        """List Users for Container  # noqa: E501
 
         List Users for container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -837,7 +837,7 @@ class UsersApi(object):
             return data
 
     def list_users_for_container_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ListUsersForContainer  # noqa: E501
+        """List Users for Container  # noqa: E501
 
         List Users for container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -897,7 +897,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/users', 'GET',
@@ -916,7 +916,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def list_users_roles(self, container_id, user_id, **kwargs):  # noqa: E501
-        """ListUsersRoles  # noqa: E501
+        """List User's Roles  # noqa: E501
 
         List Users' roles  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -939,7 +939,7 @@ class UsersApi(object):
             return data
 
     def list_users_roles_with_http_info(self, container_id, user_id, **kwargs):  # noqa: E501
-        """ListUsersRoles  # noqa: E501
+        """List User's Roles  # noqa: E501
 
         List Users' roles  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1000,7 +1000,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/users/{user_id}/roles', 'GET',
@@ -1019,7 +1019,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def retrieve_user(self, container_id, user_id, **kwargs):  # noqa: E501
-        """RetrieveUser  # noqa: E501
+        """Retrieve User  # noqa: E501
 
         Retrieve a user by ID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1042,7 +1042,7 @@ class UsersApi(object):
             return data
 
     def retrieve_user_with_http_info(self, container_id, user_id, **kwargs):  # noqa: E501
-        """RetrieveUser  # noqa: E501
+        """Retrieve User  # noqa: E501
 
         Retrieve a user by ID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1103,7 +1103,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/users/{user_id}', 'GET',
@@ -1122,7 +1122,7 @@ class UsersApi(object):
             collection_formats=collection_formats)
 
     def update_user(self, user_id, **kwargs):  # noqa: E501
-        """UpdateUser  # noqa: E501
+        """Update User  # noqa: E501
 
         Updates the specified user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1145,7 +1145,7 @@ class UsersApi(object):
             return data
 
     def update_user_with_http_info(self, user_id, **kwargs):  # noqa: E501
-        """UpdateUser  # noqa: E501
+        """Update User  # noqa: E501
 
         Updates the specified user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1206,7 +1206,7 @@ class UsersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/users/{user_id}', 'PUT',

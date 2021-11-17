@@ -33,7 +33,7 @@ class ContainersApi(object):
         self.api_client = api_client
 
     def archive_container(self, container_id, **kwargs):  # noqa: E501
-        """ArchiveContainer  # noqa: E501
+        """Archive Container  # noqa: E501
 
         Archives a Container. This is preferred over deletion as deletion has a cascading effect on the deleted type's keys, relationships, and relationship keys. When in doubt, archive over delete. We'd rather have tombstones than cremating the type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -56,7 +56,7 @@ class ContainersApi(object):
             return data
 
     def archive_container_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ArchiveContainer  # noqa: E501
+        """Archive Container  # noqa: E501
 
         Archives a Container. This is preferred over deletion as deletion has a cascading effect on the deleted type's keys, relationships, and relationship keys. When in doubt, archive over delete. We'd rather have tombstones than cremating the type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -113,7 +113,7 @@ class ContainersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}', 'DELETE',
@@ -132,7 +132,7 @@ class ContainersApi(object):
             collection_formats=collection_formats)
 
     def container_batch_update(self, body, **kwargs):  # noqa: E501
-        """ContainerBatchUpdate  # noqa: E501
+        """Container Batch Update  # noqa: E501
 
         Accepts an array of container objects - will attempt to update all of them in a single transaction. If the update fails, none of them will go through.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -141,7 +141,7 @@ class ContainersApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[BatchContainerUpdateRequest] body: (required)
+        :param list[BatchContainerUpdateRequestInner] body: (required)
         :return: BatchUpdateContainerResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -154,7 +154,7 @@ class ContainersApi(object):
             return data
 
     def container_batch_update_with_http_info(self, body, **kwargs):  # noqa: E501
-        """ContainerBatchUpdate  # noqa: E501
+        """Container Batch Update  # noqa: E501
 
         Accepts an array of container objects - will attempt to update all of them in a single transaction. If the update fails, none of them will go through.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -163,7 +163,7 @@ class ContainersApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param list[BatchContainerUpdateRequest] body: (required)
+        :param list[BatchContainerUpdateRequestInner] body: (required)
         :return: BatchUpdateContainerResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -212,7 +212,7 @@ class ContainersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers', 'PUT',
@@ -231,7 +231,7 @@ class ContainersApi(object):
             collection_formats=collection_formats)
 
     def create_container(self, body, **kwargs):  # noqa: E501
-        """CreateContainer  # noqa: E501
+        """Create Container  # noqa: E501
 
         Creates a new container object. Containers are the root level object and are considered to contain both the ontology(in form of Metatypes, Metatype Keys, and MetatypeRelationships) as well as the data stored under that ontology.  Endpoint will accept both a single container request object, or an array of container request objects  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -253,7 +253,7 @@ class ContainersApi(object):
             return data
 
     def create_container_with_http_info(self, body, **kwargs):  # noqa: E501
-        """CreateContainer  # noqa: E501
+        """Create Container  # noqa: E501
 
         Creates a new container object. Containers are the root level object and are considered to contain both the ontology(in form of Metatypes, Metatype Keys, and MetatypeRelationships) as well as the data stored under that ontology.  Endpoint will accept both a single container request object, or an array of container request objects  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -311,7 +311,7 @@ class ContainersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers', 'POST',
@@ -329,22 +329,21 @@ class ContainersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def import_container(self, content_type, **kwargs):  # noqa: E501
-        """ImportContainer  # noqa: E501
+    def import_container(self, name, description, data_versioning_enabled, path, file, **kwargs):  # noqa: E501
+        """Import Container  # noqa: E501
 
         An optional query param `dryrun` may be included with a value of `true` in order to return a HTML formatted string explaining the name and description of the container along with the number of metatypes, metatype relationships, and metatype keys to be created. This request uses a form-data body. If the ontology to be imported is being referenced via url, provide the url via a `path` field. Otherwise a local file may be provided. A file takes precedence over a `path` value if both are provided.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.import_container(content_type, async_req=True)
+        >>> thread = api.import_container(name, description, data_versioning_enabled, path, file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
-        :param str name:
-        :param str description:
-        :param bool data_versioning_enabled:
-        :param str path:
-        :param str file:
+        :param str name: (required)
+        :param str description: (required)
+        :param bool data_versioning_enabled: (required)
+        :param str path: (required)
+        :param str file: (required)
         :param bool dryrun: If true returns a description of the container that will be created and its contents.
         :return: ContainerImportResponse
                  If the method is called asynchronously,
@@ -352,34 +351,33 @@ class ContainersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.import_container_with_http_info(content_type, **kwargs)  # noqa: E501
+            return self.import_container_with_http_info(name, description, data_versioning_enabled, path, file, **kwargs)  # noqa: E501
         else:
-            (data) = self.import_container_with_http_info(content_type, **kwargs)  # noqa: E501
+            (data) = self.import_container_with_http_info(name, description, data_versioning_enabled, path, file, **kwargs)  # noqa: E501
             return data
 
-    def import_container_with_http_info(self, content_type, **kwargs):  # noqa: E501
-        """ImportContainer  # noqa: E501
+    def import_container_with_http_info(self, name, description, data_versioning_enabled, path, file, **kwargs):  # noqa: E501
+        """Import Container  # noqa: E501
 
         An optional query param `dryrun` may be included with a value of `true` in order to return a HTML formatted string explaining the name and description of the container along with the number of metatypes, metatype relationships, and metatype keys to be created. This request uses a form-data body. If the ontology to be imported is being referenced via url, provide the url via a `path` field. Otherwise a local file may be provided. A file takes precedence over a `path` value if both are provided.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.import_container_with_http_info(content_type, async_req=True)
+        >>> thread = api.import_container_with_http_info(name, description, data_versioning_enabled, path, file, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
-        :param str name:
-        :param str description:
-        :param bool data_versioning_enabled:
-        :param str path:
-        :param str file:
+        :param str name: (required)
+        :param str description: (required)
+        :param bool data_versioning_enabled: (required)
+        :param str path: (required)
+        :param str file: (required)
         :param bool dryrun: If true returns a description of the container that will be created and its contents.
         :return: ContainerImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['content_type', 'name', 'description', 'data_versioning_enabled', 'path', 'file', 'dryrun']  # noqa: E501
+        all_params = ['name', 'description', 'data_versioning_enabled', 'path', 'file', 'dryrun']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -394,10 +392,26 @@ class ContainersApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'content_type' is set
-        if ('content_type' not in params or
-                params['content_type'] is None):
-            raise ValueError("Missing the required parameter `content_type` when calling `import_container`")  # noqa: E501
+        # verify the required parameter 'name' is set
+        if ('name' not in params or
+                params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `import_container`")  # noqa: E501
+        # verify the required parameter 'description' is set
+        if ('description' not in params or
+                params['description'] is None):
+            raise ValueError("Missing the required parameter `description` when calling `import_container`")  # noqa: E501
+        # verify the required parameter 'data_versioning_enabled' is set
+        if ('data_versioning_enabled' not in params or
+                params['data_versioning_enabled'] is None):
+            raise ValueError("Missing the required parameter `data_versioning_enabled` when calling `import_container`")  # noqa: E501
+        # verify the required parameter 'path' is set
+        if ('path' not in params or
+                params['path'] is None):
+            raise ValueError("Missing the required parameter `path` when calling `import_container`")  # noqa: E501
+        # verify the required parameter 'file' is set
+        if ('file' not in params or
+                params['file'] is None):
+            raise ValueError("Missing the required parameter `file` when calling `import_container`")  # noqa: E501
 
         collection_formats = {}
 
@@ -408,8 +422,6 @@ class ContainersApi(object):
             query_params.append(('dryrun', params['dryrun']))  # noqa: E501
 
         header_params = {}
-        if 'content_type' in params:
-            header_params['Content-Type'] = params['content_type']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -431,10 +443,10 @@ class ContainersApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/import', 'POST',
@@ -453,7 +465,7 @@ class ContainersApi(object):
             collection_formats=collection_formats)
 
     def list_containers(self, **kwargs):  # noqa: E501
-        """ListContainers  # noqa: E501
+        """List Containers  # noqa: E501
 
         List all containers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -474,7 +486,7 @@ class ContainersApi(object):
             return data
 
     def list_containers_with_http_info(self, **kwargs):  # noqa: E501
-        """ListContainers  # noqa: E501
+        """List Containers  # noqa: E501
 
         List all containers.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -521,7 +533,7 @@ class ContainersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers', 'GET',
@@ -540,7 +552,7 @@ class ContainersApi(object):
             collection_formats=collection_formats)
 
     def repair_container_permissions(self, container_id, **kwargs):  # noqa: E501
-        """RepairContainerPermissions  # noqa: E501
+        """Repair Container Permissions  # noqa: E501
 
         Repairs a container's permission set  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -562,7 +574,7 @@ class ContainersApi(object):
             return data
 
     def repair_container_permissions_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """RepairContainerPermissions  # noqa: E501
+        """Repair Container Permissions  # noqa: E501
 
         Repairs a container's permission set  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -616,7 +628,7 @@ class ContainersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/permissions', 'POST',
@@ -635,7 +647,7 @@ class ContainersApi(object):
             collection_formats=collection_formats)
 
     def retrieve_container(self, container_id, **kwargs):  # noqa: E501
-        """RetrieveContainer  # noqa: E501
+        """Retrieve Container  # noqa: E501
 
         Retrieve container by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -657,7 +669,7 @@ class ContainersApi(object):
             return data
 
     def retrieve_container_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """RetrieveContainer  # noqa: E501
+        """Retrieve Container  # noqa: E501
 
         Retrieve container by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -711,7 +723,7 @@ class ContainersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}', 'GET',
@@ -730,7 +742,7 @@ class ContainersApi(object):
             collection_formats=collection_formats)
 
     def set_container_active(self, container_id, **kwargs):  # noqa: E501
-        """SetContainerActive  # noqa: E501
+        """Set Container Active  # noqa: E501
 
         Unarchives a Container. This is the only way to update this value of a container via API.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -752,7 +764,7 @@ class ContainersApi(object):
             return data
 
     def set_container_active_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """SetContainerActive  # noqa: E501
+        """Set Container Active  # noqa: E501
 
         Unarchives a Container. This is the only way to update this value of a container via API.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -806,7 +818,7 @@ class ContainersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/active', 'POST',
@@ -825,7 +837,7 @@ class ContainersApi(object):
             collection_formats=collection_formats)
 
     def update_container(self, body, container_id, **kwargs):  # noqa: E501
-        """UpdateContainer  # noqa: E501
+        """Update Container  # noqa: E501
 
         Updates the container. This will fail if a container already exists with the proposed updated name.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -848,7 +860,7 @@ class ContainersApi(object):
             return data
 
     def update_container_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
-        """UpdateContainer  # noqa: E501
+        """Update Container  # noqa: E501
 
         Updates the container. This will fail if a container already exists with the proposed updated name.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -913,7 +925,7 @@ class ContainersApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}', 'PUT',
@@ -931,57 +943,55 @@ class ContainersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_container_import(self, content_type, container_id, **kwargs):  # noqa: E501
-        """UpdateContainerImport  # noqa: E501
+    def update_container_import(self, name, description, data_versioning_enabled, path, file, container_id, **kwargs):  # noqa: E501
+        """Update Container Import  # noqa: E501
 
         Updates an existing container via an ontology file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_container_import(content_type, container_id, async_req=True)
+        >>> thread = api.update_container_import(name, description, data_versioning_enabled, path, file, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
+        :param str name: (required)
+        :param str description: (required)
+        :param bool data_versioning_enabled: (required)
+        :param str path: (required)
+        :param str file: (required)
         :param str container_id: (required)
-        :param str name:
-        :param str description:
-        :param bool data_versioning_enabled:
-        :param str path:
-        :param str file:
         :return: ContainerImportUpdateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_container_import_with_http_info(content_type, container_id, **kwargs)  # noqa: E501
+            return self.update_container_import_with_http_info(name, description, data_versioning_enabled, path, file, container_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_container_import_with_http_info(content_type, container_id, **kwargs)  # noqa: E501
+            (data) = self.update_container_import_with_http_info(name, description, data_versioning_enabled, path, file, container_id, **kwargs)  # noqa: E501
             return data
 
-    def update_container_import_with_http_info(self, content_type, container_id, **kwargs):  # noqa: E501
-        """UpdateContainerImport  # noqa: E501
+    def update_container_import_with_http_info(self, name, description, data_versioning_enabled, path, file, container_id, **kwargs):  # noqa: E501
+        """Update Container Import  # noqa: E501
 
         Updates an existing container via an ontology file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_container_import_with_http_info(content_type, container_id, async_req=True)
+        >>> thread = api.update_container_import_with_http_info(name, description, data_versioning_enabled, path, file, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
+        :param str name: (required)
+        :param str description: (required)
+        :param bool data_versioning_enabled: (required)
+        :param str path: (required)
+        :param str file: (required)
         :param str container_id: (required)
-        :param str name:
-        :param str description:
-        :param bool data_versioning_enabled:
-        :param str path:
-        :param str file:
         :return: ContainerImportUpdateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['content_type', 'container_id', 'name', 'description', 'data_versioning_enabled', 'path', 'file']  # noqa: E501
+        all_params = ['name', 'description', 'data_versioning_enabled', 'path', 'file', 'container_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -996,10 +1006,26 @@ class ContainersApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'content_type' is set
-        if ('content_type' not in params or
-                params['content_type'] is None):
-            raise ValueError("Missing the required parameter `content_type` when calling `update_container_import`")  # noqa: E501
+        # verify the required parameter 'name' is set
+        if ('name' not in params or
+                params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `update_container_import`")  # noqa: E501
+        # verify the required parameter 'description' is set
+        if ('description' not in params or
+                params['description'] is None):
+            raise ValueError("Missing the required parameter `description` when calling `update_container_import`")  # noqa: E501
+        # verify the required parameter 'data_versioning_enabled' is set
+        if ('data_versioning_enabled' not in params or
+                params['data_versioning_enabled'] is None):
+            raise ValueError("Missing the required parameter `data_versioning_enabled` when calling `update_container_import`")  # noqa: E501
+        # verify the required parameter 'path' is set
+        if ('path' not in params or
+                params['path'] is None):
+            raise ValueError("Missing the required parameter `path` when calling `update_container_import`")  # noqa: E501
+        # verify the required parameter 'file' is set
+        if ('file' not in params or
+                params['file'] is None):
+            raise ValueError("Missing the required parameter `file` when calling `update_container_import`")  # noqa: E501
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
@@ -1014,8 +1040,6 @@ class ContainersApi(object):
         query_params = []
 
         header_params = {}
-        if 'content_type' in params:
-            header_params['Content-Type'] = params['content_type']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -1037,10 +1061,10 @@ class ContainersApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/import/{container_id}', 'PUT',

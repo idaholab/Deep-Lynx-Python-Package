@@ -33,7 +33,7 @@ class MetatypeRelationshipPairsApi(object):
         self.api_client = api_client
 
     def archive_metatype_relationship_pair(self, container_id, pair_id, **kwargs):  # noqa: E501
-        """ArchiveMetatypeRelationshipPair  # noqa: E501
+        """Archive Metatype Relationship Pair  # noqa: E501
 
         Archives a Metatype Relationship Pair.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -56,7 +56,7 @@ class MetatypeRelationshipPairsApi(object):
             return data
 
     def archive_metatype_relationship_pair_with_http_info(self, container_id, pair_id, **kwargs):  # noqa: E501
-        """ArchiveMetatypeRelationshipPair  # noqa: E501
+        """Archive Metatype Relationship Pair  # noqa: E501
 
         Archives a Metatype Relationship Pair.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -117,7 +117,7 @@ class MetatypeRelationshipPairsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationship_pairs/{pair_id}', 'DELETE',
@@ -136,7 +136,7 @@ class MetatypeRelationshipPairsApi(object):
             collection_formats=collection_formats)
 
     def create_metatype_relationship_pair(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateMetatypeRelationshipPair  # noqa: E501
+        """Create Metatype Relationship Pair  # noqa: E501
 
         Create a new Metaype Relationship Pair. Describes the connection between two metatypes by connecting them using a Metatype Relationship.  Pass in an array for bulk creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -145,7 +145,7 @@ class MetatypeRelationshipPairsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewMetatypeRelationshipPairRequest body: (required)
+        :param CreateMetatypeRelationshipPairRequest body: (required)
         :param str container_id: (required)
         :return: CreateMetatypeRelationshipPairsResponse
                  If the method is called asynchronously,
@@ -159,7 +159,7 @@ class MetatypeRelationshipPairsApi(object):
             return data
 
     def create_metatype_relationship_pair_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateMetatypeRelationshipPair  # noqa: E501
+        """Create Metatype Relationship Pair  # noqa: E501
 
         Create a new Metaype Relationship Pair. Describes the connection between two metatypes by connecting them using a Metatype Relationship.  Pass in an array for bulk creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -168,7 +168,7 @@ class MetatypeRelationshipPairsApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewMetatypeRelationshipPairRequest body: (required)
+        :param CreateMetatypeRelationshipPairRequest body: (required)
         :param str container_id: (required)
         :return: CreateMetatypeRelationshipPairsResponse
                  If the method is called asynchronously,
@@ -224,7 +224,7 @@ class MetatypeRelationshipPairsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationship_pairs', 'POST',
@@ -243,7 +243,7 @@ class MetatypeRelationshipPairsApi(object):
             collection_formats=collection_formats)
 
     def list_metatype_relationship_pairs(self, container_id, **kwargs):  # noqa: E501
-        """ListMetatypeRelationshipPairs  # noqa: E501
+        """List Metatype Relationship Pairs  # noqa: E501
 
         List all Metatype Relationship Pairs for current container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -274,7 +274,7 @@ class MetatypeRelationshipPairsApi(object):
             return data
 
     def list_metatype_relationship_pairs_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ListMetatypeRelationshipPairs  # noqa: E501
+        """List Metatype Relationship Pairs  # noqa: E501
 
         List all Metatype Relationship Pairs for current container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -355,7 +355,7 @@ class MetatypeRelationshipPairsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationship_pairs', 'GET',
@@ -374,7 +374,7 @@ class MetatypeRelationshipPairsApi(object):
             collection_formats=collection_formats)
 
     def retrieve_metatype_relationship_pair(self, container_id, pair_id, **kwargs):  # noqa: E501
-        """RetrieveMetatypeRelationshipPair  # noqa: E501
+        """Retrieve Metatype Relationship Pair  # noqa: E501
 
         Retrieves a single Metatype Relationship Pair.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -397,7 +397,7 @@ class MetatypeRelationshipPairsApi(object):
             return data
 
     def retrieve_metatype_relationship_pair_with_http_info(self, container_id, pair_id, **kwargs):  # noqa: E501
-        """RetrieveMetatypeRelationshipPair  # noqa: E501
+        """Retrieve Metatype Relationship Pair  # noqa: E501
 
         Retrieves a single Metatype Relationship Pair.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -458,7 +458,7 @@ class MetatypeRelationshipPairsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationship_pairs/{pair_id}', 'GET',
@@ -477,7 +477,7 @@ class MetatypeRelationshipPairsApi(object):
             collection_formats=collection_formats)
 
     def update_metatype_relationship_pair(self, container_id, pair_id, **kwargs):  # noqa: E501
-        """UpdateMetatypeRelationshipPair  # noqa: E501
+        """Update Metaype Relationship Pair  # noqa: E501
 
         Updates the specified metatype relationship pair.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -501,7 +501,7 @@ class MetatypeRelationshipPairsApi(object):
             return data
 
     def update_metatype_relationship_pair_with_http_info(self, container_id, pair_id, **kwargs):  # noqa: E501
-        """UpdateMetatypeRelationshipPair  # noqa: E501
+        """Update Metaype Relationship Pair  # noqa: E501
 
         Updates the specified metatype relationship pair.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -569,7 +569,7 @@ class MetatypeRelationshipPairsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationship_pairs/{pair_id}', 'PUT',

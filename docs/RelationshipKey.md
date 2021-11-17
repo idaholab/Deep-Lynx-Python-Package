@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **data_type** | **str** |  | [optional] 
 **required** | **bool** |  | [optional] 
 **cardinality** | **float** |  | [optional] 
-**validation** | **object** |  | [optional] 
+**validation** | [**KeyValidation**](KeyValidation.md) |  | [optional] 
 **unique** | **bool** |  | [optional] 
 **options** | **list[object]** |  | [optional] 
 **default_value** | **str** |  | [optional] 

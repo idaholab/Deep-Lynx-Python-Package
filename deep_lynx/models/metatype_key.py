@@ -35,14 +35,14 @@ class MetatypeKey(object):
         'required': 'bool',
         'metatype_id': 'str',
         'id': 'str',
-        'options': 'str',
+        'options': 'list[object]',
         'default_value': 'str',
         'archived': 'bool',
         'created_at': 'str',
         'modified_at': 'str',
         'created_by': 'str',
         'modified_by': 'str',
-        'validation': 'Validation'
+        'validation': 'KeyValidation'
     }
 
     attribute_map = {
@@ -83,21 +83,30 @@ class MetatypeKey(object):
         self.discriminator = None
         self.name = name
         self.description = description
-        self.property_name = property_name
+        if property_name is not None:
+            self.property_name = property_name
         self.data_type = data_type
-        self.required = required
+        if required is not None:
+            self.required = required
         self.metatype_id = metatype_id
-        self.id = id
+        if id is not None:
+            self.id = id
         if options is not None:
             self.options = options
         if default_value is not None:
             self.default_value = default_value
-        self.archived = archived
-        self.created_at = created_at
-        self.modified_at = modified_at
-        self.created_by = created_by
-        self.modified_by = modified_by
-        self.validation = validation
+        if archived is not None:
+            self.archived = archived
+        if created_at is not None:
+            self.created_at = created_at
+        if modified_at is not None:
+            self.modified_at = modified_at
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
+        if validation is not None:
+            self.validation = validation
 
     @property
     def name(self):
@@ -163,8 +172,6 @@ class MetatypeKey(object):
         :param property_name: The property_name of this MetatypeKey.  # noqa: E501
         :type: str
         """
-        if property_name is None:
-            raise ValueError("Invalid value for `property_name`, must not be `None`")  # noqa: E501
 
         self._property_name = property_name
 
@@ -209,8 +216,6 @@ class MetatypeKey(object):
         :param required: The required of this MetatypeKey.  # noqa: E501
         :type: bool
         """
-        if required is None:
-            raise ValueError("Invalid value for `required`, must not be `None`")  # noqa: E501
 
         self._required = required
 
@@ -255,8 +260,6 @@ class MetatypeKey(object):
         :param id: The id of this MetatypeKey.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -266,7 +269,7 @@ class MetatypeKey(object):
 
 
         :return: The options of this MetatypeKey.  # noqa: E501
-        :rtype: str
+        :rtype: list[object]
         """
         return self._options
 
@@ -276,7 +279,7 @@ class MetatypeKey(object):
 
 
         :param options: The options of this MetatypeKey.  # noqa: E501
-        :type: str
+        :type: list[object]
         """
 
         self._options = options
@@ -320,8 +323,6 @@ class MetatypeKey(object):
         :param archived: The archived of this MetatypeKey.  # noqa: E501
         :type: bool
         """
-        if archived is None:
-            raise ValueError("Invalid value for `archived`, must not be `None`")  # noqa: E501
 
         self._archived = archived
 
@@ -343,8 +344,6 @@ class MetatypeKey(object):
         :param created_at: The created_at of this MetatypeKey.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -366,8 +365,6 @@ class MetatypeKey(object):
         :param modified_at: The modified_at of this MetatypeKey.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -389,8 +386,6 @@ class MetatypeKey(object):
         :param created_by: The created_by of this MetatypeKey.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -412,8 +407,6 @@ class MetatypeKey(object):
         :param modified_by: The modified_by of this MetatypeKey.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 
@@ -423,7 +416,7 @@ class MetatypeKey(object):
 
 
         :return: The validation of this MetatypeKey.  # noqa: E501
-        :rtype: Validation
+        :rtype: KeyValidation
         """
         return self._validation
 
@@ -433,10 +426,8 @@ class MetatypeKey(object):
 
 
         :param validation: The validation of this MetatypeKey.  # noqa: E501
-        :type: Validation
+        :type: KeyValidation
         """
-        if validation is None:
-            raise ValueError("Invalid value for `validation`, must not be `None`")  # noqa: E501
 
         self._validation = validation
 

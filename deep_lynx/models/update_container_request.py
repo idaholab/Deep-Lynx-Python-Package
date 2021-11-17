@@ -30,7 +30,7 @@ class UpdateContainerRequest(object):
     swagger_types = {
         'name': 'str',
         'description': 'str',
-        'config': 'ContainerConfig'
+        'config': 'UpdateContainerRequestConfig'
     }
 
     attribute_map = {
@@ -101,7 +101,7 @@ class UpdateContainerRequest(object):
 
 
         :return: The config of this UpdateContainerRequest.  # noqa: E501
-        :rtype: ContainerConfig
+        :rtype: UpdateContainerRequestConfig
         """
         return self._config
 
@@ -111,7 +111,7 @@ class UpdateContainerRequest(object):
 
 
         :param config: The config of this UpdateContainerRequest.  # noqa: E501
-        :type: ContainerConfig
+        :type: UpdateContainerRequestConfig
         """
 
         self._config = config

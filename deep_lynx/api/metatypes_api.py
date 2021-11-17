@@ -33,7 +33,7 @@ class MetatypesApi(object):
         self.api_client = api_client
 
     def archive_metatype(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """ArchiveMetatype  # noqa: E501
+        """Archive Metatype  # noqa: E501
 
         Archives the metatype. This is preferred over deletion as deletion has a cascading effect on the deleted metatype's keys, relationships, and relationship keys. When in doubt, archive over delete. We'd rather have tombstones than cremating the metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -56,7 +56,7 @@ class MetatypesApi(object):
             return data
 
     def archive_metatype_with_http_info(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """ArchiveMetatype  # noqa: E501
+        """Archive Metatype  # noqa: E501
 
         Archives the metatype. This is preferred over deletion as deletion has a cascading effect on the deleted metatype's keys, relationships, and relationship keys. When in doubt, archive over delete. We'd rather have tombstones than cremating the metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -117,7 +117,7 @@ class MetatypesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}', 'DELETE',
@@ -136,7 +136,7 @@ class MetatypesApi(object):
             collection_formats=collection_formats)
 
     def create_metatype(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateMetatype  # noqa: E501
+        """Create Metatype  # noqa: E501
 
         Create a new metatype. Pass in an array for bulk creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -145,7 +145,7 @@ class MetatypesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewMetatypeRequest body: (required)
+        :param CreateMetatypeRequest body: (required)
         :param str container_id: (required)
         :return: CreateMetatypesResponse
                  If the method is called asynchronously,
@@ -159,7 +159,7 @@ class MetatypesApi(object):
             return data
 
     def create_metatype_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateMetatype  # noqa: E501
+        """Create Metatype  # noqa: E501
 
         Create a new metatype. Pass in an array for bulk creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -168,7 +168,7 @@ class MetatypesApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewMetatypeRequest body: (required)
+        :param CreateMetatypeRequest body: (required)
         :param str container_id: (required)
         :return: CreateMetatypesResponse
                  If the method is called asynchronously,
@@ -224,7 +224,7 @@ class MetatypesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes', 'POST',
@@ -243,7 +243,7 @@ class MetatypesApi(object):
             collection_formats=collection_formats)
 
     def list_metatypes(self, container_id, **kwargs):  # noqa: E501
-        """ListMetatypes  # noqa: E501
+        """List Metatypes  # noqa: E501
 
         List all metatypes that the container has access to.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -273,7 +273,7 @@ class MetatypesApi(object):
             return data
 
     def list_metatypes_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ListMetatypes  # noqa: E501
+        """List Metatypes  # noqa: E501
 
         List all metatypes that the container has access to.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -351,7 +351,7 @@ class MetatypesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes', 'GET',
@@ -370,7 +370,7 @@ class MetatypesApi(object):
             collection_formats=collection_formats)
 
     def retrieve_metaype(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """RetrieveMetaype  # noqa: E501
+        """Retrieve Metatype  # noqa: E501
 
         Retrieves a single metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -393,7 +393,7 @@ class MetatypesApi(object):
             return data
 
     def retrieve_metaype_with_http_info(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """RetrieveMetaype  # noqa: E501
+        """Retrieve Metatype  # noqa: E501
 
         Retrieves a single metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -454,7 +454,7 @@ class MetatypesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}', 'GET',
@@ -473,7 +473,7 @@ class MetatypesApi(object):
             collection_formats=collection_formats)
 
     def update_metatype(self, body, container_id, metatype_id, **kwargs):  # noqa: E501
-        """UpdateMetatype  # noqa: E501
+        """Update Metatype  # noqa: E501
 
         Update a single Metatype in storage. Will fail if the updated name has already been taken.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -497,7 +497,7 @@ class MetatypesApi(object):
             return data
 
     def update_metatype_with_http_info(self, body, container_id, metatype_id, **kwargs):  # noqa: E501
-        """UpdateMetatype  # noqa: E501
+        """Update Metatype  # noqa: E501
 
         Update a single Metatype in storage. Will fail if the updated name has already been taken.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -569,7 +569,7 @@ class MetatypesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}', 'PUT',

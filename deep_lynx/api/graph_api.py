@@ -33,7 +33,7 @@ class GraphApi(object):
         self.api_client = api_client
 
     def archive_edge(self, container_id, edge_id, **kwargs):  # noqa: E501
-        """ArchiveEdge  # noqa: E501
+        """Archive Edge  # noqa: E501
 
         Archives an edge  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -56,7 +56,7 @@ class GraphApi(object):
             return data
 
     def archive_edge_with_http_info(self, container_id, edge_id, **kwargs):  # noqa: E501
-        """ArchiveEdge  # noqa: E501
+        """Archive Edge  # noqa: E501
 
         Archives an edge  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -117,7 +117,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/edges/{edge_id}', 'DELETE',
@@ -136,7 +136,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def archive_node(self, container_id, node_id, **kwargs):  # noqa: E501
-        """ArchiveNode  # noqa: E501
+        """Archive Node  # noqa: E501
 
         Archives a node  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -159,7 +159,7 @@ class GraphApi(object):
             return data
 
     def archive_node_with_http_info(self, container_id, node_id, **kwargs):  # noqa: E501
-        """ArchiveNode  # noqa: E501
+        """Archive Node  # noqa: E501
 
         Archives a node  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -220,7 +220,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/nodes/{node_id}', 'DELETE',
@@ -239,7 +239,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def attach_edge_file(self, container_id, file_id, edge_id, **kwargs):  # noqa: E501
-        """AttachEdgeFile  # noqa: E501
+        """Attach Edge File  # noqa: E501
 
         Attach a file to an edge.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -263,7 +263,7 @@ class GraphApi(object):
             return data
 
     def attach_edge_file_with_http_info(self, container_id, file_id, edge_id, **kwargs):  # noqa: E501
-        """AttachEdgeFile  # noqa: E501
+        """Attach Edge File  # noqa: E501
 
         Attach a file to an edge.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -331,7 +331,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/edges/{edge_id}/files/{file_id}', 'PUT',
@@ -350,7 +350,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def attach_node_file(self, container_id, node_id, file_id, **kwargs):  # noqa: E501
-        """AttachNodeFile  # noqa: E501
+        """Attach Node File  # noqa: E501
 
         Attach a file to a node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -374,7 +374,7 @@ class GraphApi(object):
             return data
 
     def attach_node_file_with_http_info(self, container_id, node_id, file_id, **kwargs):  # noqa: E501
-        """AttachNodeFile  # noqa: E501
+        """Attach Node File  # noqa: E501
 
         Attach a file to a node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -442,7 +442,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/nodes/{node_id}/files/{file_id}', 'PUT',
@@ -461,7 +461,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def create_or_update_edges(self, container_id, **kwargs):  # noqa: E501
-        """CreateOrUpdateEdges  # noqa: E501
+        """Create or Update Edges  # noqa: E501
 
         This endpoint will either create new edges or update edges if a `modified_at` property with a valid DateTime is passed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -484,7 +484,7 @@ class GraphApi(object):
             return data
 
     def create_or_update_edges_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """CreateOrUpdateEdges  # noqa: E501
+        """Create or Update Edges  # noqa: E501
 
         This endpoint will either create new edges or update edges if a `modified_at` property with a valid DateTime is passed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -545,7 +545,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/edges', 'POST',
@@ -564,7 +564,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def create_or_update_nodes(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateOrUpdateNodes  # noqa: E501
+        """Create Or Update Nodes  # noqa: E501
 
         This endpoint will either create new nodes or update nodes if a `modified_at` property with a valid DateTime is passed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -587,7 +587,7 @@ class GraphApi(object):
             return data
 
     def create_or_update_nodes_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateOrUpdateNodes  # noqa: E501
+        """Create Or Update Nodes  # noqa: E501
 
         This endpoint will either create new nodes or update nodes if a `modified_at` property with a valid DateTime is passed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -652,7 +652,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/nodes', 'POST',
@@ -671,7 +671,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def delete_node_file(self, container_id, node_id, file_id, **kwargs):  # noqa: E501
-        """DeleteNodeFile  # noqa: E501
+        """Detach Node File  # noqa: E501
 
         Detach file from node  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -695,7 +695,7 @@ class GraphApi(object):
             return data
 
     def delete_node_file_with_http_info(self, container_id, node_id, file_id, **kwargs):  # noqa: E501
-        """DeleteNodeFile  # noqa: E501
+        """Detach Node File  # noqa: E501
 
         Detach file from node  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -763,7 +763,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/nodes/{node_id}/files/{file_id}', 'DELETE',
@@ -782,7 +782,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def detach_node_file(self, container_id, file_id, edge_id, **kwargs):  # noqa: E501
-        """DetachNodeFile  # noqa: E501
+        """Detach Node File  # noqa: E501
 
         Detach file from an edge.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -806,7 +806,7 @@ class GraphApi(object):
             return data
 
     def detach_node_file_with_http_info(self, container_id, file_id, edge_id, **kwargs):  # noqa: E501
-        """DetachNodeFile  # noqa: E501
+        """Detach Node File  # noqa: E501
 
         Detach file from an edge.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -874,7 +874,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/edges/{edge_id}/files/{file_id}', 'DELETE',
@@ -893,7 +893,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def list_edge_files(self, container_id, edge_id, **kwargs):  # noqa: E501
-        """ListEdgeFiles  # noqa: E501
+        """List Edge Files  # noqa: E501
 
         Lists all attached files for edge.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -916,7 +916,7 @@ class GraphApi(object):
             return data
 
     def list_edge_files_with_http_info(self, container_id, edge_id, **kwargs):  # noqa: E501
-        """ListEdgeFiles  # noqa: E501
+        """List Edge Files  # noqa: E501
 
         Lists all attached files for edge.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -977,7 +977,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/edges/{edge_id}/files', 'GET',
@@ -996,7 +996,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def list_edges(self, container_id, **kwargs):  # noqa: E501
-        """ListEdges  # noqa: E501
+        """List Edges  # noqa: E501
 
         List Edges from storage  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1024,7 +1024,7 @@ class GraphApi(object):
             return data
 
     def list_edges_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ListEdges  # noqa: E501
+        """List Edges  # noqa: E501
 
         List Edges from storage  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1096,7 +1096,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/edges', 'GET',
@@ -1115,7 +1115,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def list_node_files(self, container_id, node_id, **kwargs):  # noqa: E501
-        """ListNodeFiles  # noqa: E501
+        """List Node Files  # noqa: E501
 
         Lists all attached files for node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1138,7 +1138,7 @@ class GraphApi(object):
             return data
 
     def list_node_files_with_http_info(self, container_id, node_id, **kwargs):  # noqa: E501
-        """ListNodeFiles  # noqa: E501
+        """List Node Files  # noqa: E501
 
         Lists all attached files for node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1199,7 +1199,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/nodes/{node_id}/files', 'GET',
@@ -1218,7 +1218,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def list_nodes(self, container_id, **kwargs):  # noqa: E501
-        """ListNodes  # noqa: E501
+        """List Nodes  # noqa: E501
 
         List nodes  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1244,7 +1244,7 @@ class GraphApi(object):
             return data
 
     def list_nodes_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ListNodes  # noqa: E501
+        """List Nodes  # noqa: E501
 
         List nodes  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1310,7 +1310,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/nodes', 'GET',
@@ -1329,7 +1329,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def list_nodes_by_metatype_id(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """ListNodesByMetatypeID  # noqa: E501
+        """List Nodes By Metatype ID  # noqa: E501
 
         List Nodes, filter by MetatypeID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1342,7 +1342,7 @@ class GraphApi(object):
         :param str metatype_id: (required)
         :param int limit:
         :param int offset:
-        :return: ListNodesResponse
+        :return: ListNodesByMetatypeResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1354,7 +1354,7 @@ class GraphApi(object):
             return data
 
     def list_nodes_by_metatype_id_with_http_info(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """ListNodesByMetatypeID  # noqa: E501
+        """List Nodes By Metatype ID  # noqa: E501
 
         List Nodes, filter by MetatypeID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1367,7 +1367,7 @@ class GraphApi(object):
         :param str metatype_id: (required)
         :param int limit:
         :param int offset:
-        :return: ListNodesResponse
+        :return: ListNodesByMetatypeResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1421,7 +1421,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/nodes/metatype/{metatype_id}', 'GET',
@@ -1431,7 +1431,7 @@ class GraphApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ListNodesResponse',  # noqa: E501
+            response_type='ListNodesByMetatypeResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1440,7 +1440,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def retrieve_edge(self, container_id, edge_id, **kwargs):  # noqa: E501
-        """RetrieveEdge  # noqa: E501
+        """Retrieve Edge  # noqa: E501
 
         Retrieve a single edge  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1463,7 +1463,7 @@ class GraphApi(object):
             return data
 
     def retrieve_edge_with_http_info(self, container_id, edge_id, **kwargs):  # noqa: E501
-        """RetrieveEdge  # noqa: E501
+        """Retrieve Edge  # noqa: E501
 
         Retrieve a single edge  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1524,7 +1524,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/edges/{edge_id}', 'GET',
@@ -1543,7 +1543,7 @@ class GraphApi(object):
             collection_formats=collection_formats)
 
     def retrieve_node(self, container_id, node_id, **kwargs):  # noqa: E501
-        """RetrieveNode  # noqa: E501
+        """Retrieve Node  # noqa: E501
 
         Retrieve a single node from storage.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1566,7 +1566,7 @@ class GraphApi(object):
             return data
 
     def retrieve_node_with_http_info(self, container_id, node_id, **kwargs):  # noqa: E501
-        """RetrieveNode  # noqa: E501
+        """Retrieve Node  # noqa: E501
 
         Retrieve a single node from storage.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1627,7 +1627,7 @@ class GraphApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/graphs/nodes/{node_id}', 'GET',

@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**archive_metatype**](MetatypesApi.md#archive_metatype) | **DELETE** /containers/{container_id}/metatypes/{metatype_id} | ArchiveMetatype
-[**create_metatype**](MetatypesApi.md#create_metatype) | **POST** /containers/{container_id}/metatypes | CreateMetatype
-[**list_metatypes**](MetatypesApi.md#list_metatypes) | **GET** /containers/{container_id}/metatypes | ListMetatypes
-[**retrieve_metaype**](MetatypesApi.md#retrieve_metaype) | **GET** /containers/{container_id}/metatypes/{metatype_id} | RetrieveMetaype
-[**update_metatype**](MetatypesApi.md#update_metatype) | **PUT** /containers/{container_id}/metatypes/{metatype_id} | UpdateMetatype
+[**archive_metatype**](MetatypesApi.md#archive_metatype) | **DELETE** /containers/{container_id}/metatypes/{metatype_id} | Archive Metatype
+[**create_metatype**](MetatypesApi.md#create_metatype) | **POST** /containers/{container_id}/metatypes | Create Metatype
+[**list_metatypes**](MetatypesApi.md#list_metatypes) | **GET** /containers/{container_id}/metatypes | List Metatypes
+[**retrieve_metaype**](MetatypesApi.md#retrieve_metaype) | **GET** /containers/{container_id}/metatypes/{metatype_id} | Retrieve Metatype
+[**update_metatype**](MetatypesApi.md#update_metatype) | **PUT** /containers/{container_id}/metatypes/{metatype_id} | Update Metatype
 
 # **archive_metatype**
 > Generic200Response archive_metatype(container_id, metatype_id)
 
-ArchiveMetatype
+Archive Metatype
 
 Archives the metatype. This is preferred over deletion as deletion has a cascading effect on the deleted metatype's keys, relationships, and relationship keys. When in doubt, archive over delete. We'd rather have tombstones than cremating the metatype.
 
@@ -32,7 +32,7 @@ container_id = 'container_id_example' # str |
 metatype_id = 'metatype_id_example' # str | 
 
 try:
-    # ArchiveMetatype
+    # Archive Metatype
     api_response = api_instance.archive_metatype(container_id, metatype_id)
     pprint(api_response)
 except ApiException as e:
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 # **create_metatype**
 > CreateMetatypesResponse create_metatype(body, container_id)
 
-CreateMetatype
+Create Metatype
 
 Create a new metatype. Pass in an array for bulk creation.
 
@@ -79,11 +79,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.MetatypesApi(deep_lynx.ApiClient(configuration))
-body = deep_lynx.NewMetatypeRequest() # NewMetatypeRequest | 
+body = deep_lynx.CreateMetatypeRequest() # CreateMetatypeRequest | 
 container_id = 'container_id_example' # str | 
 
 try:
-    # CreateMetatype
+    # Create Metatype
     api_response = api_instance.create_metatype(body, container_id)
     pprint(api_response)
 except ApiException as e:
@@ -94,7 +94,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewMetatypeRequest**](NewMetatypeRequest.md)|  | 
+ **body** | [**CreateMetatypeRequest**](CreateMetatypeRequest.md)|  | 
  **container_id** | **str**|  | 
 
 ### Return type
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 # **list_metatypes**
 > ListMetatypesResponse list_metatypes(container_id, limit=limit, offset=offset, name=name, description=description, count=count, load_keys=load_keys, sort_by=sort_by, sort_desc=sort_desc)
 
-ListMetatypes
+List Metatypes
 
 List all metatypes that the container has access to. 
 
@@ -141,7 +141,7 @@ sort_by = 'sort_by_example' # str | Supply the name of a metatype attribute (nam
 sort_desc = 'sort_desc_example' # str | Set true to sort descending (optional)
 
 try:
-    # ListMetatypes
+    # List Metatypes
     api_response = api_instance.list_metatypes(container_id, limit=limit, offset=offset, name=name, description=description, count=count, load_keys=load_keys, sort_by=sort_by, sort_desc=sort_desc)
     pprint(api_response)
 except ApiException as e:
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **retrieve_metaype**
 > GetMetatypeResponse retrieve_metaype(container_id, metatype_id)
 
-RetrieveMetaype
+Retrieve Metatype
 
 Retrieves a single metatype.
 
@@ -199,7 +199,7 @@ container_id = 'container_id_example' # str |
 metatype_id = 'metatype_id_example' # str | 
 
 try:
-    # RetrieveMetaype
+    # Retrieve Metatype
     api_response = api_instance.retrieve_metaype(container_id, metatype_id)
     pprint(api_response)
 except ApiException as e:
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 # **update_metatype**
 > UpdateMetatypeResponse update_metatype(body, container_id, metatype_id)
 
-UpdateMetatype
+Update Metatype
 
 Update a single Metatype in storage. Will fail if the updated name has already been taken.
 
@@ -251,7 +251,7 @@ container_id = 'container_id_example' # str |
 metatype_id = 'metatype_id_example' # str | 
 
 try:
-    # UpdateMetatype
+    # Update Metatype
     api_response = api_instance.update_metatype(body, container_id, metatype_id)
     pprint(api_response)
 except ApiException as e:
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

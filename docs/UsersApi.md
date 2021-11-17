@@ -4,23 +4,23 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**accept_container_invite**](UsersApi.md#accept_container_invite) | **GET** /users/invite | AcceptContainerInvite
-[**assign_user_role**](UsersApi.md#assign_user_role) | **POST** /containers/{container_id}/users/roles | AssignUserRole
-[**delete_user**](UsersApi.md#delete_user) | **DELETE** /users/{user_id} | DeleteUser
-[**invite_user_to_container**](UsersApi.md#invite_user_to_container) | **POST** /containers/{container_id}/users/invite | InviteUserToContainer
-[**list_invited_users_for_container**](UsersApi.md#list_invited_users_for_container) | **GET** /containers/{container_id}/users/invite | ListInvitedUsersForContainer
-[**list_outstanding_invites**](UsersApi.md#list_outstanding_invites) | **GET** /users/invites | ListOutstandingInvites
-[**list_user_permissions**](UsersApi.md#list_user_permissions) | **GET** /users/permissions | ListUserPermissions
-[**list_users**](UsersApi.md#list_users) | **GET** /users | ListUsers
-[**list_users_for_container**](UsersApi.md#list_users_for_container) | **GET** /containers/{container_id}/users | ListUsersForContainer
-[**list_users_roles**](UsersApi.md#list_users_roles) | **GET** /containers/{container_id}/users/{user_id}/roles | ListUsersRoles
-[**retrieve_user**](UsersApi.md#retrieve_user) | **GET** /containers/{container_id}/users/{user_id} | RetrieveUser
-[**update_user**](UsersApi.md#update_user) | **PUT** /users/{user_id} | UpdateUser
+[**accept_container_invite**](UsersApi.md#accept_container_invite) | **GET** /users/invite | Accept Container Invite
+[**assign_user_role**](UsersApi.md#assign_user_role) | **POST** /containers/{container_id}/users/roles | Assign User Role
+[**delete_user**](UsersApi.md#delete_user) | **DELETE** /users/{user_id} | Delete User
+[**invite_user_to_container**](UsersApi.md#invite_user_to_container) | **POST** /containers/{container_id}/users/invite | Invite User to Container
+[**list_invited_users_for_container**](UsersApi.md#list_invited_users_for_container) | **GET** /containers/{container_id}/users/invite | List Invited Users for Container
+[**list_outstanding_invites**](UsersApi.md#list_outstanding_invites) | **GET** /users/invites | List Outstanding Invites
+[**list_user_permissions**](UsersApi.md#list_user_permissions) | **GET** /users/permissions | List User Permissions
+[**list_users**](UsersApi.md#list_users) | **GET** /users | List Users
+[**list_users_for_container**](UsersApi.md#list_users_for_container) | **GET** /containers/{container_id}/users | List Users for Container
+[**list_users_roles**](UsersApi.md#list_users_roles) | **GET** /containers/{container_id}/users/{user_id}/roles | List User&#x27;s Roles
+[**retrieve_user**](UsersApi.md#retrieve_user) | **GET** /containers/{container_id}/users/{user_id} | Retrieve User
+[**update_user**](UsersApi.md#update_user) | **PUT** /users/{user_id} | Update User
 
 # **accept_container_invite**
 > Generic200Response accept_container_invite(token)
 
-AcceptContainerInvite
+Accept Container Invite
 
 Accepts a container invite for the current user. The token received in the container invite previously must be attached to this request as a query parameter.
 
@@ -38,7 +38,7 @@ api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
 token = 'token_example' # str | the token supplied in the container invite
 
 try:
-    # AcceptContainerInvite
+    # Accept Container Invite
     api_response = api_instance.accept_container_invite(token)
     pprint(api_response)
 except ApiException as e:
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 # **assign_user_role**
 > Generic200Response assign_user_role(body, container_id)
 
-AssignUserRole
+Assign User Role
 
 Assign a role to a user, roles must consist of role name and domain
 
@@ -88,7 +88,7 @@ body = deep_lynx.AssignRoleRequest() # AssignRoleRequest |
 container_id = 'container_id_example' # str | 
 
 try:
-    # AssignUserRole
+    # Assign User Role
     api_response = api_instance.assign_user_role(body, container_id)
     pprint(api_response)
 except ApiException as e:
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
 # **delete_user**
 > Generic200Response delete_user(user_id)
 
-DeleteUser
+Delete User
 
 Deletes the specified user.
 
@@ -138,7 +138,7 @@ api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
 user_id = 'user_id_example' # str | 
 
 try:
-    # DeleteUser
+    # Delete User
     api_response = api_instance.delete_user(user_id)
     pprint(api_response)
 except ApiException as e:
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 # **invite_user_to_container**
 > Generic200Response invite_user_to_container(container_id, body=body)
 
-InviteUserToContainer
+Invite User to Container
 
 Create a new user using the username_password identity type.
 
@@ -188,7 +188,7 @@ container_id = 'container_id_example' # str |
 body = deep_lynx.ContainerInvite() # ContainerInvite |  (optional)
 
 try:
-    # InviteUserToContainer
+    # Invite User to Container
     api_response = api_instance.invite_user_to_container(container_id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 # **list_invited_users_for_container**
 > ListContainerInvitesResponse list_invited_users_for_container(container_id)
 
-ListInvitedUsersForContainer
+List Invited Users for Container
 
 List all invitations to container.
 
@@ -238,7 +238,7 @@ api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
 container_id = 'container_id_example' # str | 
 
 try:
-    # ListInvitedUsersForContainer
+    # List Invited Users for Container
     api_response = api_instance.list_invited_users_for_container(container_id)
     pprint(api_response)
 except ApiException as e:
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 # **list_outstanding_invites**
 > ListUserInvitesResponse list_outstanding_invites()
 
-ListOutstandingInvites
+List Outstanding Invites
 
 Lists the outstanding container invites for the current user.
 
@@ -286,7 +286,7 @@ from pprint import pprint
 api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
 
 try:
-    # ListOutstandingInvites
+    # List Outstanding Invites
     api_response = api_instance.list_outstanding_invites()
     pprint(api_response)
 except ApiException as e:
@@ -302,7 +302,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -314,7 +314,7 @@ This endpoint does not need any parameter.
 # **list_user_permissions**
 > ListUserPermissionsResponse list_user_permissions()
 
-ListUserPermissions
+List User Permissions
 
 List permissions for the user.
 
@@ -331,7 +331,7 @@ from pprint import pprint
 api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
 
 try:
-    # ListUserPermissions
+    # List User Permissions
     api_response = api_instance.list_user_permissions()
     pprint(api_response)
 except ApiException as e:
@@ -347,7 +347,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -359,7 +359,7 @@ This endpoint does not need any parameter.
 # **list_users**
 > ListUsersResponse list_users(count=count, load_keys=load_keys, limit=limit, offset=offset, sort_by=sort_by, sort_desc=sort_desc)
 
-ListUsers
+List Users
 
 List users.
 
@@ -382,7 +382,7 @@ sort_by = 'sort_by_example' # str | column to sort results by (optional)
 sort_desc = true # bool | boolean indicating if results should be in descending order (optional)
 
 try:
-    # ListUsers
+    # List Users
     api_response = api_instance.list_users(count=count, load_keys=load_keys, limit=limit, offset=offset, sort_by=sort_by, sort_desc=sort_desc)
     pprint(api_response)
 except ApiException as e:
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 # **list_users_for_container**
 > ListUsersForContainerResponse list_users_for_container(container_id, limit=limit, offset=offset)
 
-ListUsersForContainer
+List Users for Container
 
 List Users for container.
 
@@ -438,7 +438,7 @@ limit = 56 # int |  (optional)
 offset = 56 # int |  (optional)
 
 try:
-    # ListUsersForContainer
+    # List Users for Container
     api_response = api_instance.list_users_for_container(container_id, limit=limit, offset=offset)
     pprint(api_response)
 except ApiException as e:
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 # **list_users_roles**
 > ListUserRoles list_users_roles(container_id, user_id)
 
-ListUsersRoles
+List User's Roles
 
 List Users' roles
 
@@ -490,7 +490,7 @@ container_id = 'container_id_example' # str |
 user_id = 'user_id_example' # str | 
 
 try:
-    # ListUsersRoles
+    # List User's Roles
     api_response = api_instance.list_users_roles(container_id, user_id)
     pprint(api_response)
 except ApiException as e:
@@ -510,7 +510,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -522,7 +522,7 @@ Name | Type | Description  | Notes
 # **retrieve_user**
 > GetUserResponse retrieve_user(container_id, user_id)
 
-RetrieveUser
+Retrieve User
 
 Retrieve a user by ID
 
@@ -541,7 +541,7 @@ container_id = 'container_id_example' # str |
 user_id = 'user_id_example' # str | 
 
 try:
-    # RetrieveUser
+    # Retrieve User
     api_response = api_instance.retrieve_user(container_id, user_id)
     pprint(api_response)
 except ApiException as e:
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -573,7 +573,7 @@ Name | Type | Description  | Notes
 # **update_user**
 > Generic200Response update_user(user_id, body=body)
 
-UpdateUser
+Update User
 
 Updates the specified user.
 
@@ -592,7 +592,7 @@ user_id = 'user_id_example' # str |
 body = deep_lynx.User() # User |  (optional)
 
 try:
-    # UpdateUser
+    # Update User
     api_response = api_instance.update_user(user_id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -612,7 +612,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

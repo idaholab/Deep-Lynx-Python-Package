@@ -33,7 +33,7 @@ class DataTypeMappingsApi(object):
         self.api_client = api_client
 
     def create_transformation(self, body, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """CreateTransformation  # noqa: E501
+        """Create Data Type Mapping's Transformations  # noqa: E501
 
         Create a transformation for the type mapping.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -58,7 +58,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def create_transformation_with_http_info(self, body, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """CreateTransformation  # noqa: E501
+        """Create Data Type Mapping's Transformations  # noqa: E501
 
         Create a transformation for the type mapping.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -137,7 +137,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations', 'POST',
@@ -156,7 +156,7 @@ class DataTypeMappingsApi(object):
             collection_formats=collection_formats)
 
     def delete_data_type_mapping(self, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """DeleteDataTypeMapping  # noqa: E501
+        """Delete Data Type Mapping  # noqa: E501
 
         Permanently remove data type mapping.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -180,7 +180,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def delete_data_type_mapping_with_http_info(self, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """DeleteDataTypeMapping  # noqa: E501
+        """Delete Data Type Mapping  # noqa: E501
 
         Permanently remove data type mapping.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -248,7 +248,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}', 'DELETE',
@@ -267,7 +267,7 @@ class DataTypeMappingsApi(object):
             collection_formats=collection_formats)
 
     def delete_transformation(self, container_id, data_source_id, mapping_id, transformation_id, **kwargs):  # noqa: E501
-        """DeleteTransformation  # noqa: E501
+        """Delete Data Type Mapping's Transformations  # noqa: E501
 
         Delete a transformation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -292,7 +292,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def delete_transformation_with_http_info(self, container_id, data_source_id, mapping_id, transformation_id, **kwargs):  # noqa: E501
-        """DeleteTransformation  # noqa: E501
+        """Delete Data Type Mapping's Transformations  # noqa: E501
 
         Delete a transformation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -367,7 +367,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id}', 'DELETE',
@@ -386,7 +386,7 @@ class DataTypeMappingsApi(object):
             collection_formats=collection_formats)
 
     def export_type_mappings(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ExportTypeMappings  # noqa: E501
+        """Export Type Mappings  # noqa: E501
 
         Export type mappings for a datasource. Providing a JSON body is optional. If provided, the mapping_ids may be specified to indicate certain type mapping IDs to return. Additionally, a target data source may be provided to which the mappings will be copied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -410,7 +410,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def export_type_mappings_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ExportTypeMappings  # noqa: E501
+        """Export Type Mappings  # noqa: E501
 
         Export type mappings for a datasource. Providing a JSON body is optional. If provided, the mapping_ids may be specified to indicate certain type mapping IDs to return. Additionally, a target data source may be provided to which the mappings will be copied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -478,7 +478,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/export', 'POST',
@@ -496,51 +496,49 @@ class DataTypeMappingsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def import_data_type_mappings(self, content_type, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ImportDataTypeMappings  # noqa: E501
+    def import_data_type_mappings(self, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Import Data Type Mappings  # noqa: E501
 
         Import type mappings for a datasource. Accepts either a JSON body or actual JSON file. The payload should be an array of type mapping classes, previously generated using the export route.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.import_data_type_mappings(content_type, container_id, data_source_id, async_req=True)
+        >>> thread = api.import_data_type_mappings(container_id, data_source_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
         :param str container_id: (required)
         :param str data_source_id: (required)
-        :param str file:
-        :return: list[GetDataTypeMappingResponse]
+        :param list[object] body:
+        :return: ImportDataTypeMappingResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.import_data_type_mappings_with_http_info(content_type, container_id, data_source_id, **kwargs)  # noqa: E501
+            return self.import_data_type_mappings_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.import_data_type_mappings_with_http_info(content_type, container_id, data_source_id, **kwargs)  # noqa: E501
+            (data) = self.import_data_type_mappings_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
             return data
 
-    def import_data_type_mappings_with_http_info(self, content_type, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ImportDataTypeMappings  # noqa: E501
+    def import_data_type_mappings_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Import Data Type Mappings  # noqa: E501
 
         Import type mappings for a datasource. Accepts either a JSON body or actual JSON file. The payload should be an array of type mapping classes, previously generated using the export route.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.import_data_type_mappings_with_http_info(content_type, container_id, data_source_id, async_req=True)
+        >>> thread = api.import_data_type_mappings_with_http_info(container_id, data_source_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
         :param str container_id: (required)
         :param str data_source_id: (required)
-        :param str file:
-        :return: list[GetDataTypeMappingResponse]
+        :param list[object] body:
+        :return: ImportDataTypeMappingResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['content_type', 'container_id', 'data_source_id', 'file']  # noqa: E501
+        all_params = ['container_id', 'data_source_id', 'body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -555,10 +553,6 @@ class DataTypeMappingsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'content_type' is set
-        if ('content_type' not in params or
-                params['content_type'] is None):
-            raise ValueError("Missing the required parameter `content_type` when calling `import_data_type_mappings`")  # noqa: E501
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
@@ -579,8 +573,6 @@ class DataTypeMappingsApi(object):
         query_params = []
 
         header_params = {}
-        if 'content_type' in params:
-            header_params['Content-Type'] = params['content_type']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -588,16 +580,18 @@ class DataTypeMappingsApi(object):
             form_params.append(('file', params['file']))  # noqa: E501
 
         body_params = None
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['application/json', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/import', 'POST',
@@ -607,7 +601,120 @@ class DataTypeMappingsApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[GetDataTypeMappingResponse]',  # noqa: E501
+            response_type='ImportDataTypeMappingResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def import_data_type_mappings(self, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Import Data Type Mappings  # noqa: E501
+
+        Import type mappings for a datasource. Accepts either a JSON body or actual JSON file. The payload should be an array of type mapping classes, previously generated using the export route.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.import_data_type_mappings(container_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str data_source_id: (required)
+        :param str file:
+        :return: ImportDataTypeMappingResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.import_data_type_mappings_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.import_data_type_mappings_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
+            return data
+
+    def import_data_type_mappings_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Import Data Type Mappings  # noqa: E501
+
+        Import type mappings for a datasource. Accepts either a JSON body or actual JSON file. The payload should be an array of type mapping classes, previously generated using the export route.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.import_data_type_mappings_with_http_info(container_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str data_source_id: (required)
+        :param str file:
+        :return: ImportDataTypeMappingResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'data_source_id', 'file']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method import_data_type_mappings" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `import_data_type_mappings`")  # noqa: E501
+        # verify the required parameter 'data_source_id' is set
+        if ('data_source_id' not in params or
+                params['data_source_id'] is None):
+            raise ValueError("Missing the required parameter `data_source_id` when calling `import_data_type_mappings`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'data_source_id' in params:
+            path_params['data_source_id'] = params['data_source_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'file' in params:
+            form_params.append(('file', params['file']))  # noqa: E501
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/import/datasources/{data_source_id}/mappings/import', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ImportDataTypeMappingResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -616,7 +723,7 @@ class DataTypeMappingsApi(object):
             collection_formats=collection_formats)
 
     def list_data_type_mappings(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ListDataTypeMappings  # noqa: E501
+        """List Data Type Mappings  # noqa: E501
 
         Lists data type mappings for the data source  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -647,7 +754,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def list_data_type_mappings_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ListDataTypeMappings  # noqa: E501
+        """List Data Type Mappings  # noqa: E501
 
         Lists data type mappings for the data source  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -732,7 +839,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings', 'GET',
@@ -751,7 +858,7 @@ class DataTypeMappingsApi(object):
             collection_formats=collection_formats)
 
     def list_transformations(self, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """ListTransformations  # noqa: E501
+        """List Data Type Mapping's Transformations  # noqa: E501
 
         List transformations for a type mapping from storage.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -775,7 +882,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def list_transformations_with_http_info(self, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """ListTransformations  # noqa: E501
+        """List Data Type Mapping's Transformations  # noqa: E501
 
         List transformations for a type mapping from storage.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -843,7 +950,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations', 'GET',
@@ -862,7 +969,7 @@ class DataTypeMappingsApi(object):
             collection_formats=collection_formats)
 
     def retrieve_data_type_mapping(self, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """RetrieveDataTypeMapping  # noqa: E501
+        """Retrieve Data Type Mapping  # noqa: E501
 
         Retrieve a data type mapping  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -886,7 +993,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def retrieve_data_type_mapping_with_http_info(self, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """RetrieveDataTypeMapping  # noqa: E501
+        """Retrieve Data Type Mapping  # noqa: E501
 
         Retrieve a data type mapping  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -954,7 +1061,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}', 'GET',
@@ -973,7 +1080,7 @@ class DataTypeMappingsApi(object):
             collection_formats=collection_formats)
 
     def update_data_type_mapping(self, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """UpdateDataTypeMapping  # noqa: E501
+        """Update Data Type Mapping  # noqa: E501
 
         Updates a data type mapping.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -998,7 +1105,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def update_data_type_mapping_with_http_info(self, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
-        """UpdateDataTypeMapping  # noqa: E501
+        """Update Data Type Mapping  # noqa: E501
 
         Updates a data type mapping.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1073,7 +1180,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}', 'PUT',
@@ -1092,7 +1199,7 @@ class DataTypeMappingsApi(object):
             collection_formats=collection_formats)
 
     def update_transformation(self, body, container_id, data_source_id, mapping_id, transformation_id, **kwargs):  # noqa: E501
-        """UpdateTransformation  # noqa: E501
+        """Update Data Type Mapping's Transformations  # noqa: E501
 
         Update a transformation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1118,7 +1225,7 @@ class DataTypeMappingsApi(object):
             return data
 
     def update_transformation_with_http_info(self, body, container_id, data_source_id, mapping_id, transformation_id, **kwargs):  # noqa: E501
-        """UpdateTransformation  # noqa: E501
+        """Update Data Type Mapping's Transformations  # noqa: E501
 
         Update a transformation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1204,7 +1311,7 @@ class DataTypeMappingsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id}', 'PUT',

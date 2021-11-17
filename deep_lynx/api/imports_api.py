@@ -32,53 +32,51 @@ class ImportsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_data_to_import(self, content_type, container_id, import_id, data_source_id, **kwargs):  # noqa: E501
-        """AddDataToImport  # noqa: E501
+    def add_data_to_import(self, container_id, import_id, data_source_id, **kwargs):  # noqa: E501
+        """Add Data to Import  # noqa: E501
 
         Adds data to an existing import. Accepts an array of JSON objects or a file in JSON or CSV format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_data_to_import(content_type, container_id, import_id, data_source_id, async_req=True)
+        >>> thread = api.add_data_to_import(container_id, import_id, data_source_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
         :param str container_id: (required)
         :param str import_id: (required)
         :param str data_source_id: (required)
-        :param str file:
+        :param list[object] body:
         :return: AddDataToImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_data_to_import_with_http_info(content_type, container_id, import_id, data_source_id, **kwargs)  # noqa: E501
+            return self.add_data_to_import_with_http_info(container_id, import_id, data_source_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_data_to_import_with_http_info(content_type, container_id, import_id, data_source_id, **kwargs)  # noqa: E501
+            (data) = self.add_data_to_import_with_http_info(container_id, import_id, data_source_id, **kwargs)  # noqa: E501
             return data
 
-    def add_data_to_import_with_http_info(self, content_type, container_id, import_id, data_source_id, **kwargs):  # noqa: E501
-        """AddDataToImport  # noqa: E501
+    def add_data_to_import_with_http_info(self, container_id, import_id, data_source_id, **kwargs):  # noqa: E501
+        """Add Data to Import  # noqa: E501
 
         Adds data to an existing import. Accepts an array of JSON objects or a file in JSON or CSV format.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_data_to_import_with_http_info(content_type, container_id, import_id, data_source_id, async_req=True)
+        >>> thread = api.add_data_to_import_with_http_info(container_id, import_id, data_source_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
         :param str container_id: (required)
         :param str import_id: (required)
         :param str data_source_id: (required)
-        :param str file:
+        :param list[object] body:
         :return: AddDataToImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['content_type', 'container_id', 'import_id', 'data_source_id', 'file']  # noqa: E501
+        all_params = ['container_id', 'import_id', 'data_source_id', 'body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -93,10 +91,6 @@ class ImportsApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'content_type' is set
-        if ('content_type' not in params or
-                params['content_type'] is None):
-            raise ValueError("Missing the required parameter `content_type` when calling `add_data_to_import`")  # noqa: E501
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
@@ -123,8 +117,6 @@ class ImportsApi(object):
         query_params = []
 
         header_params = {}
-        if 'content_type' in params:
-            header_params['Content-Type'] = params['content_type']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -132,16 +124,139 @@ class ImportsApi(object):
             form_params.append(('file', params['file']))  # noqa: E501
 
         body_params = None
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['application/json', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/datasources/{data_source_id}/imports/{import_id}/data', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='AddDataToImportResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def add_data_to_import(self, container_id, import_id, data_source_id, **kwargs):  # noqa: E501
+        """Add Data to Import  # noqa: E501
+
+        Adds data to an existing import. Accepts an array of JSON objects or a file in JSON or CSV format.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_data_to_import(container_id, import_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str import_id: (required)
+        :param str data_source_id: (required)
+        :param str file:
+        :return: AddDataToImportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.add_data_to_import_with_http_info(container_id, import_id, data_source_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.add_data_to_import_with_http_info(container_id, import_id, data_source_id, **kwargs)  # noqa: E501
+            return data
+
+    def add_data_to_import_with_http_info(self, container_id, import_id, data_source_id, **kwargs):  # noqa: E501
+        """Add Data to Import  # noqa: E501
+
+        Adds data to an existing import. Accepts an array of JSON objects or a file in JSON or CSV format.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.add_data_to_import_with_http_info(container_id, import_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str import_id: (required)
+        :param str data_source_id: (required)
+        :param str file:
+        :return: AddDataToImportResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'import_id', 'data_source_id', 'file']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method add_data_to_import" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `add_data_to_import`")  # noqa: E501
+        # verify the required parameter 'import_id' is set
+        if ('import_id' not in params or
+                params['import_id'] is None):
+            raise ValueError("Missing the required parameter `import_id` when calling `add_data_to_import`")  # noqa: E501
+        # verify the required parameter 'data_source_id' is set
+        if ('data_source_id' not in params or
+                params['data_source_id'] is None):
+            raise ValueError("Missing the required parameter `data_source_id` when calling `add_data_to_import`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'import_id' in params:
+            path_params['import_id'] = params['import_id']  # noqa: E501
+        if 'data_source_id' in params:
+            path_params['data_source_id'] = params['data_source_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+        if 'file' in params:
+            form_params.append(('file', params['file']))  # noqa: E501
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/datasources/{data_source_id}/imports/{import_id}/data', 'POST',
@@ -160,7 +275,7 @@ class ImportsApi(object):
             collection_formats=collection_formats)
 
     def create_import(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """CreateImport  # noqa: E501
+        """Create Import  # noqa: E501
 
         Creates a new import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -171,7 +286,7 @@ class ImportsApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str data_source_id: (required)
-        :param ContainersDatasourcesImportsRequest body:
+        :param DataSourceIdImportsBody body:
         :return: CreateImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -184,7 +299,7 @@ class ImportsApi(object):
             return data
 
     def create_import_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """CreateImport  # noqa: E501
+        """Create Import  # noqa: E501
 
         Creates a new import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -195,7 +310,7 @@ class ImportsApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str data_source_id: (required)
-        :param ContainersDatasourcesImportsRequest body:
+        :param DataSourceIdImportsBody body:
         :return: CreateImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -252,7 +367,7 @@ class ImportsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/datasources/{data_source_id}/imports', 'POST',
@@ -271,7 +386,7 @@ class ImportsApi(object):
             collection_formats=collection_formats)
 
     def delete_import(self, container_id, import_id, **kwargs):  # noqa: E501
-        """DeleteImport  # noqa: E501
+        """Delete Import  # noqa: E501
 
         Delete import will delete an import ONLY IF the import has not been processed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -294,7 +409,7 @@ class ImportsApi(object):
             return data
 
     def delete_import_with_http_info(self, container_id, import_id, **kwargs):  # noqa: E501
-        """DeleteImport  # noqa: E501
+        """Delete Import  # noqa: E501
 
         Delete import will delete an import ONLY IF the import has not been processed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -351,7 +466,7 @@ class ImportsApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/imports/{import_id}', 'DELETE',
@@ -370,7 +485,7 @@ class ImportsApi(object):
             collection_formats=collection_formats)
 
     def delete_import_data(self, container_id, import_id, data_id, **kwargs):  # noqa: E501
-        """DeleteImportData  # noqa: E501
+        """Delete Import Data  # noqa: E501
 
         Delete a single piece of data from an import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -394,7 +509,7 @@ class ImportsApi(object):
             return data
 
     def delete_import_data_with_http_info(self, container_id, import_id, data_id, **kwargs):  # noqa: E501
-        """DeleteImportData  # noqa: E501
+        """Delete Import Data  # noqa: E501
 
         Delete a single piece of data from an import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -462,7 +577,7 @@ class ImportsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/imports/{import_id}/data/{data_id}', 'DELETE',
@@ -481,7 +596,7 @@ class ImportsApi(object):
             collection_formats=collection_formats)
 
     def list_imports_data(self, container_id, import_id, **kwargs):  # noqa: E501
-        """ListImportsData  # noqa: E501
+        """List Import's Data  # noqa: E501
 
         List the data for an import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -509,7 +624,7 @@ class ImportsApi(object):
             return data
 
     def list_imports_data_with_http_info(self, container_id, import_id, **kwargs):  # noqa: E501
-        """ListImportsData  # noqa: E501
+        """List Import's Data  # noqa: E501
 
         List the data for an import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -585,7 +700,7 @@ class ImportsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/imports/{import_id}/data', 'GET',
@@ -604,7 +719,7 @@ class ImportsApi(object):
             collection_formats=collection_formats)
 
     def retrieve_import_data(self, container_id, import_id, data_id, **kwargs):  # noqa: E501
-        """RetrieveImportData  # noqa: E501
+        """Retrieve Import Data  # noqa: E501
 
         Retrieve a single piece of data from an import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -628,7 +743,7 @@ class ImportsApi(object):
             return data
 
     def retrieve_import_data_with_http_info(self, container_id, import_id, data_id, **kwargs):  # noqa: E501
-        """RetrieveImportData  # noqa: E501
+        """Retrieve Import Data  # noqa: E501
 
         Retrieve a single piece of data from an import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -696,7 +811,7 @@ class ImportsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/imports/{import_id}/data/{data_id}', 'GET',
@@ -715,7 +830,7 @@ class ImportsApi(object):
             collection_formats=collection_formats)
 
     def update_import_data(self, container_id, import_id, data_id, **kwargs):  # noqa: E501
-        """UpdateImportData  # noqa: E501
+        """Update Import Data  # noqa: E501
 
         Update the data of an existing import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -740,7 +855,7 @@ class ImportsApi(object):
             return data
 
     def update_import_data_with_http_info(self, container_id, import_id, data_id, **kwargs):  # noqa: E501
-        """UpdateImportData  # noqa: E501
+        """Update Import Data  # noqa: E501
 
         Update the data of an existing import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -815,7 +930,7 @@ class ImportsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/imports/{import_id}/data/{data_id}', 'PUT',

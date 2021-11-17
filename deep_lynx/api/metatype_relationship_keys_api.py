@@ -33,7 +33,7 @@ class MetatypeRelationshipKeysApi(object):
         self.api_client = api_client
 
     def archive_metatype_relationship_key(self, container_id, relationship_id, key_id, **kwargs):  # noqa: E501
-        """ArchiveMetatypeRelationshipKey  # noqa: E501
+        """Archive Metatype Relationship Key  # noqa: E501
 
         Archives a Metatype Relationship Key.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -57,7 +57,7 @@ class MetatypeRelationshipKeysApi(object):
             return data
 
     def archive_metatype_relationship_key_with_http_info(self, container_id, relationship_id, key_id, **kwargs):  # noqa: E501
-        """ArchiveMetatypeRelationshipKey  # noqa: E501
+        """Archive Metatype Relationship Key  # noqa: E501
 
         Archives a Metatype Relationship Key.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -125,7 +125,7 @@ class MetatypeRelationshipKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationships/{relationship_id}/keys/{key_id}', 'DELETE',
@@ -144,7 +144,7 @@ class MetatypeRelationshipKeysApi(object):
             collection_formats=collection_formats)
 
     def create_metatype_relationship_key(self, body, container_id, relationship_id, **kwargs):  # noqa: E501
-        """CreateMetatypeRelationshipKey  # noqa: E501
+        """Create Metatype Relationship Key  # noqa: E501
 
         Creates a new key for a metatype relationship. Keys consist of a unique key name (unique to the metatype relationship), key type, default values, and allowed values. Of those, only the first two are required.  The `dataType` field accepts only one of the following values: number, string, date, boolean, enumeration, file.   The fields `defaultValue` and `options` will only accept an array of the following types: string, boolean, number, float.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -153,7 +153,7 @@ class MetatypeRelationshipKeysApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewMetatypeRelationshipKeyRequest body: (required)
+        :param CreateMetatypeRelationshipKeyRequest body: (required)
         :param str container_id: (required)
         :param str relationship_id: (required)
         :return: CreateMetatypeRelationshipKeysResponse
@@ -168,7 +168,7 @@ class MetatypeRelationshipKeysApi(object):
             return data
 
     def create_metatype_relationship_key_with_http_info(self, body, container_id, relationship_id, **kwargs):  # noqa: E501
-        """CreateMetatypeRelationshipKey  # noqa: E501
+        """Create Metatype Relationship Key  # noqa: E501
 
         Creates a new key for a metatype relationship. Keys consist of a unique key name (unique to the metatype relationship), key type, default values, and allowed values. Of those, only the first two are required.  The `dataType` field accepts only one of the following values: number, string, date, boolean, enumeration, file.   The fields `defaultValue` and `options` will only accept an array of the following types: string, boolean, number, float.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -177,7 +177,7 @@ class MetatypeRelationshipKeysApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewMetatypeRelationshipKeyRequest body: (required)
+        :param CreateMetatypeRelationshipKeyRequest body: (required)
         :param str container_id: (required)
         :param str relationship_id: (required)
         :return: CreateMetatypeRelationshipKeysResponse
@@ -240,7 +240,7 @@ class MetatypeRelationshipKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationships/{relationship_id}/keys', 'POST',
@@ -259,7 +259,7 @@ class MetatypeRelationshipKeysApi(object):
             collection_formats=collection_formats)
 
     def list_metatype_relationship_keys(self, container_id, relationship_id, **kwargs):  # noqa: E501
-        """ListMetatypeRelationshipKeys  # noqa: E501
+        """List Metatype Relationship Keys  # noqa: E501
 
         Retrieves all keys for a Metatype Relationship.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -282,7 +282,7 @@ class MetatypeRelationshipKeysApi(object):
             return data
 
     def list_metatype_relationship_keys_with_http_info(self, container_id, relationship_id, **kwargs):  # noqa: E501
-        """ListMetatypeRelationshipKeys  # noqa: E501
+        """List Metatype Relationship Keys  # noqa: E501
 
         Retrieves all keys for a Metatype Relationship.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -343,7 +343,7 @@ class MetatypeRelationshipKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationships/{relationship_id}/keys', 'GET',
@@ -362,7 +362,7 @@ class MetatypeRelationshipKeysApi(object):
             collection_formats=collection_formats)
 
     def retrieve_metatype_relationship_key(self, container_id, relationship_id, key_id, **kwargs):  # noqa: E501
-        """RetrieveMetatypeRelationshipKey  # noqa: E501
+        """Retrieve Metatype Relationship Key  # noqa: E501
 
         Retrieve a single key for a Metatype Relationship by id.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -386,7 +386,7 @@ class MetatypeRelationshipKeysApi(object):
             return data
 
     def retrieve_metatype_relationship_key_with_http_info(self, container_id, relationship_id, key_id, **kwargs):  # noqa: E501
-        """RetrieveMetatypeRelationshipKey  # noqa: E501
+        """Retrieve Metatype Relationship Key  # noqa: E501
 
         Retrieve a single key for a Metatype Relationship by id.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -454,7 +454,7 @@ class MetatypeRelationshipKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationships/{relationship_id}/keys/{key_id}', 'GET',
@@ -473,7 +473,7 @@ class MetatypeRelationshipKeysApi(object):
             collection_formats=collection_formats)
 
     def update_metatype_relationship_key(self, body, container_id, relationship_id, key_id, **kwargs):  # noqa: E501
-        """UpdateMetatypeRelationshipKey  # noqa: E501
+        """Update Metaype Relationship Key  # noqa: E501
 
         Updates a Metatype Relationship key. The update must follow the same format as creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -498,7 +498,7 @@ class MetatypeRelationshipKeysApi(object):
             return data
 
     def update_metatype_relationship_key_with_http_info(self, body, container_id, relationship_id, key_id, **kwargs):  # noqa: E501
-        """UpdateMetatypeRelationshipKey  # noqa: E501
+        """Update Metaype Relationship Key  # noqa: E501
 
         Updates a Metatype Relationship key. The update must follow the same format as creation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -577,7 +577,7 @@ class MetatypeRelationshipKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatype_relationships/{relationship_id}/keys/{key_id}', 'PUT',

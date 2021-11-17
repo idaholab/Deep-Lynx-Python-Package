@@ -44,9 +44,9 @@ class RelationshipPair(object):
         'origin_metatype_name': 'str',
         'destination_metatype_name': 'str',
         'relationship_pair_name': 'str',
-        'destination_metatype': 'DestinationMetatype',
-        'origin_metatype': 'OriginMetatype',
-        'relationship': 'Relationship'
+        'destination_metatype': 'RelationshipPairDestinationMetatype',
+        'origin_metatype': 'RelationshipPairDestinationMetatype',
+        'relationship': 'RelationshipPairDestinationMetatype'
     }
 
     attribute_map = {
@@ -476,7 +476,7 @@ class RelationshipPair(object):
 
 
         :return: The destination_metatype of this RelationshipPair.  # noqa: E501
-        :rtype: DestinationMetatype
+        :rtype: RelationshipPairDestinationMetatype
         """
         return self._destination_metatype
 
@@ -486,7 +486,7 @@ class RelationshipPair(object):
 
 
         :param destination_metatype: The destination_metatype of this RelationshipPair.  # noqa: E501
-        :type: DestinationMetatype
+        :type: RelationshipPairDestinationMetatype
         """
 
         self._destination_metatype = destination_metatype
@@ -497,7 +497,7 @@ class RelationshipPair(object):
 
 
         :return: The origin_metatype of this RelationshipPair.  # noqa: E501
-        :rtype: OriginMetatype
+        :rtype: RelationshipPairDestinationMetatype
         """
         return self._origin_metatype
 
@@ -507,7 +507,7 @@ class RelationshipPair(object):
 
 
         :param origin_metatype: The origin_metatype of this RelationshipPair.  # noqa: E501
-        :type: OriginMetatype
+        :type: RelationshipPairDestinationMetatype
         """
 
         self._origin_metatype = origin_metatype
@@ -518,7 +518,7 @@ class RelationshipPair(object):
 
 
         :return: The relationship of this RelationshipPair.  # noqa: E501
-        :rtype: Relationship
+        :rtype: RelationshipPairDestinationMetatype
         """
         return self._relationship
 
@@ -528,7 +528,7 @@ class RelationshipPair(object):
 
 
         :param relationship: The relationship of this RelationshipPair.  # noqa: E501
-        :type: Relationship
+        :type: RelationshipPairDestinationMetatype
         """
 
         self._relationship = relationship

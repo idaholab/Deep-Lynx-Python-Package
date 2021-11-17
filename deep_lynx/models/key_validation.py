@@ -45,9 +45,12 @@ class KeyValidation(object):
         self._min = None
         self._max = None
         self.discriminator = None
-        self.regex = regex
-        self.min = min
-        self.max = max
+        if regex is not None:
+            self.regex = regex
+        if min is not None:
+            self.min = min
+        if max is not None:
+            self.max = max
 
     @property
     def regex(self):
@@ -67,8 +70,6 @@ class KeyValidation(object):
         :param regex: The regex of this KeyValidation.  # noqa: E501
         :type: str
         """
-        if regex is None:
-            raise ValueError("Invalid value for `regex`, must not be `None`")  # noqa: E501
 
         self._regex = regex
 
@@ -90,8 +91,6 @@ class KeyValidation(object):
         :param min: The min of this KeyValidation.  # noqa: E501
         :type: int
         """
-        if min is None:
-            raise ValueError("Invalid value for `min`, must not be `None`")  # noqa: E501
 
         self._min = min
 
@@ -113,8 +112,6 @@ class KeyValidation(object):
         :param max: The max of this KeyValidation.  # noqa: E501
         :type: int
         """
-        if max is None:
-            raise ValueError("Invalid value for `max`, must not be `None`")  # noqa: E501
 
         self._max = max
 

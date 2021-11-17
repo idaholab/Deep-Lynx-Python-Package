@@ -33,7 +33,7 @@ class EventsApi(object):
         self.api_client = api_client
 
     def create_registered_event(self, body, **kwargs):  # noqa: E501
-        """CreateRegisteredEvent  # noqa: E501
+        """Create Registered Event  # noqa: E501
 
         Create new registered event. An `app_name`, `app_url`, and `event_type` must be provided. Either a `container_id` or `data_source_id` must also be provided.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -55,7 +55,7 @@ class EventsApi(object):
             return data
 
     def create_registered_event_with_http_info(self, body, **kwargs):  # noqa: E501
-        """CreateRegisteredEvent  # noqa: E501
+        """Create Registered Event  # noqa: E501
 
         Create new registered event. An `app_name`, `app_url`, and `event_type` must be provided. Either a `container_id` or `data_source_id` must also be provided.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -113,7 +113,7 @@ class EventsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/events', 'POST',
@@ -132,7 +132,7 @@ class EventsApi(object):
             collection_formats=collection_formats)
 
     def delete_registered_event(self, event_id, **kwargs):  # noqa: E501
-        """DeleteRegisteredEvent  # noqa: E501
+        """Delete Registered Event  # noqa: E501
 
         Delete a registered event.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -154,7 +154,7 @@ class EventsApi(object):
             return data
 
     def delete_registered_event_with_http_info(self, event_id, **kwargs):  # noqa: E501
-        """DeleteRegisteredEvent  # noqa: E501
+        """Delete Registered Event  # noqa: E501
 
         Delete a registered event.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -208,7 +208,7 @@ class EventsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/events/{event_id}', 'DELETE',
@@ -227,7 +227,7 @@ class EventsApi(object):
             collection_formats=collection_formats)
 
     def list_registered_events(self, **kwargs):  # noqa: E501
-        """ListRegisteredEvents  # noqa: E501
+        """List Registered Events  # noqa: E501
 
         Lists all registered events  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -248,7 +248,7 @@ class EventsApi(object):
             return data
 
     def list_registered_events_with_http_info(self, **kwargs):  # noqa: E501
-        """ListRegisteredEvents  # noqa: E501
+        """List Registered Events  # noqa: E501
 
         Lists all registered events  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -295,7 +295,7 @@ class EventsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/events', 'GET',
@@ -314,7 +314,7 @@ class EventsApi(object):
             collection_formats=collection_formats)
 
     def retrieve_registered_event(self, event_id, **kwargs):  # noqa: E501
-        """RetrieveRegisteredEvent  # noqa: E501
+        """Retrieve Registered Event  # noqa: E501
 
         Retrieve a registered event  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -336,7 +336,7 @@ class EventsApi(object):
             return data
 
     def retrieve_registered_event_with_http_info(self, event_id, **kwargs):  # noqa: E501
-        """RetrieveRegisteredEvent  # noqa: E501
+        """Retrieve Registered Event  # noqa: E501
 
         Retrieve a registered event  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -390,7 +390,7 @@ class EventsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/events/{event_id}', 'GET',
@@ -409,7 +409,7 @@ class EventsApi(object):
             collection_formats=collection_formats)
 
     def update_registered_event(self, event_id, **kwargs):  # noqa: E501
-        """UpdateRegisteredEvent  # noqa: E501
+        """Update Registered Event  # noqa: E501
 
         Update a registered event. If the `active` query paramter is provided with a value of true or false, the event will be activated/deactivated.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -433,7 +433,7 @@ class EventsApi(object):
             return data
 
     def update_registered_event_with_http_info(self, event_id, **kwargs):  # noqa: E501
-        """UpdateRegisteredEvent  # noqa: E501
+        """Update Registered Event  # noqa: E501
 
         Update a registered event. If the `active` query paramter is provided with a value of true or false, the event will be activated/deactivated.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -497,7 +497,7 @@ class EventsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/events/{event_id}', 'PUT',

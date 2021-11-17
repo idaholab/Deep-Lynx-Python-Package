@@ -33,7 +33,7 @@ class DataExportApi(object):
         self.api_client = api_client
 
     def create_data_export(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateDataExport  # noqa: E501
+        """Create Data Export  # noqa: E501
 
         Create a new data export with the included configuration. Configuration values may be encrypted depending on the adapter you've choosen. See the readme for the exporters for more information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -42,7 +42,7 @@ class DataExportApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewDataExportRequest body: (required)
+        :param CreateDataExportRequest body: (required)
         :param str container_id: (required)
         :return: Generic200Response
                  If the method is called asynchronously,
@@ -56,7 +56,7 @@ class DataExportApi(object):
             return data
 
     def create_data_export_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateDataExport  # noqa: E501
+        """Create Data Export  # noqa: E501
 
         Create a new data export with the included configuration. Configuration values may be encrypted depending on the adapter you've choosen. See the readme for the exporters for more information.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -65,7 +65,7 @@ class DataExportApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewDataExportRequest body: (required)
+        :param CreateDataExportRequest body: (required)
         :param str container_id: (required)
         :return: Generic200Response
                  If the method is called asynchronously,
@@ -121,7 +121,7 @@ class DataExportApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/data/export', 'POST',
@@ -140,7 +140,7 @@ class DataExportApi(object):
             collection_formats=collection_formats)
 
     def delete_data_export(self, container_id, export_id, **kwargs):  # noqa: E501
-        """DeleteDataExport  # noqa: E501
+        """Delete Data Export  # noqa: E501
 
         Deletes a data export record. This does not guarantee the export will stop immediately.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -163,7 +163,7 @@ class DataExportApi(object):
             return data
 
     def delete_data_export_with_http_info(self, container_id, export_id, **kwargs):  # noqa: E501
-        """DeleteDataExport  # noqa: E501
+        """Delete Data Export  # noqa: E501
 
         Deletes a data export record. This does not guarantee the export will stop immediately.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -224,7 +224,7 @@ class DataExportApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/data/export/{export_id}', 'DELETE',
@@ -243,7 +243,7 @@ class DataExportApi(object):
             collection_formats=collection_formats)
 
     def list_data_exports(self, container_id, **kwargs):  # noqa: E501
-        """ListDataExports  # noqa: E501
+        """List Data Exports  # noqa: E501
 
         List data exports for the container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -270,7 +270,7 @@ class DataExportApi(object):
             return data
 
     def list_data_exports_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ListDataExports  # noqa: E501
+        """List Data Exports  # noqa: E501
 
         List data exports for the container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -339,7 +339,7 @@ class DataExportApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/data/export', 'GET',
@@ -358,7 +358,7 @@ class DataExportApi(object):
             collection_formats=collection_formats)
 
     def retrieve_data_export(self, container_id, export_id, **kwargs):  # noqa: E501
-        """RetrieveDataExport  # noqa: E501
+        """Retrieve Data Export  # noqa: E501
 
         Fetch a data export record by ID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -381,7 +381,7 @@ class DataExportApi(object):
             return data
 
     def retrieve_data_export_with_http_info(self, container_id, export_id, **kwargs):  # noqa: E501
-        """RetrieveDataExport  # noqa: E501
+        """Retrieve Data Export  # noqa: E501
 
         Fetch a data export record by ID  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -442,7 +442,7 @@ class DataExportApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/data/export/{export_id}', 'GET',
@@ -461,7 +461,7 @@ class DataExportApi(object):
             collection_formats=collection_formats)
 
     def start_data_export(self, container_id, export_id, **kwargs):  # noqa: E501
-        """StartDataExport  # noqa: E501
+        """Start Data Export  # noqa: E501
 
         Start or restart a data export by id.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -484,7 +484,7 @@ class DataExportApi(object):
             return data
 
     def start_data_export_with_http_info(self, container_id, export_id, **kwargs):  # noqa: E501
-        """StartDataExport  # noqa: E501
+        """Start Data Export  # noqa: E501
 
         Start or restart a data export by id.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -545,7 +545,7 @@ class DataExportApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/data/export/{export_id}', 'POST',
@@ -564,7 +564,7 @@ class DataExportApi(object):
             collection_formats=collection_formats)
 
     def stop_data_export(self, container_id, export_id, **kwargs):  # noqa: E501
-        """StopDataExport  # noqa: E501
+        """Stop Data Export  # noqa: E501
 
         Stops a data export. Please note that this just sends a **stop** signal. The application's export adapter determines how to handle the said signal. In some cases the export stopping might not be immediate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -587,7 +587,7 @@ class DataExportApi(object):
             return data
 
     def stop_data_export_with_http_info(self, container_id, export_id, **kwargs):  # noqa: E501
-        """StopDataExport  # noqa: E501
+        """Stop Data Export  # noqa: E501
 
         Stops a data export. Please note that this just sends a **stop** signal. The application's export adapter determines how to handle the said signal. In some cases the export stopping might not be immediate.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -648,7 +648,7 @@ class DataExportApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/data/export/{export_id}', 'PUT',

@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**archive_metatype_relationship**](MetatypeRelationshipsApi.md#archive_metatype_relationship) | **DELETE** /containers/{container_id}/metatype_relationships/{relationship_id} | ArchiveMetatypeRelationship
-[**create_metatype_relationship**](MetatypeRelationshipsApi.md#create_metatype_relationship) | **POST** /containers/{container_id}/metatype_relationships | CreateMetatypeRelationship
-[**list_metatype_relationships**](MetatypeRelationshipsApi.md#list_metatype_relationships) | **GET** /containers/{container_id}/metatype_relationships | ListMetatypeRelationships
-[**retrieve_metatype_relationship**](MetatypeRelationshipsApi.md#retrieve_metatype_relationship) | **GET** /containers/{container_id}/metatype_relationships/{relationship_id} | RetrieveMetatypeRelationship
-[**update_metatype_relationship**](MetatypeRelationshipsApi.md#update_metatype_relationship) | **PUT** /containers/{container_id}/metatype_relationships/{relationship_id} | UpdateMetatypeRelationship
+[**archive_metatype_relationship**](MetatypeRelationshipsApi.md#archive_metatype_relationship) | **DELETE** /containers/{container_id}/metatype_relationships/{relationship_id} | Archive Metatype Relationship
+[**create_metatype_relationship**](MetatypeRelationshipsApi.md#create_metatype_relationship) | **POST** /containers/{container_id}/metatype_relationships | Create Metatype Relationship
+[**list_metatype_relationships**](MetatypeRelationshipsApi.md#list_metatype_relationships) | **GET** /containers/{container_id}/metatype_relationships | List Metatype Relationships
+[**retrieve_metatype_relationship**](MetatypeRelationshipsApi.md#retrieve_metatype_relationship) | **GET** /containers/{container_id}/metatype_relationships/{relationship_id} | Retrieve Metatype Relationship
+[**update_metatype_relationship**](MetatypeRelationshipsApi.md#update_metatype_relationship) | **PUT** /containers/{container_id}/metatype_relationships/{relationship_id} | Update Metatype Relationship
 
 # **archive_metatype_relationship**
 > Generic200Response archive_metatype_relationship(container_id, relationship_id)
 
-ArchiveMetatypeRelationship
+Archive Metatype Relationship
 
 Archive the metatype relationship.
 
@@ -32,7 +32,7 @@ container_id = 'container_id_example' # str |
 relationship_id = 'relationship_id_example' # str | 
 
 try:
-    # ArchiveMetatypeRelationship
+    # Archive Metatype Relationship
     api_response = api_instance.archive_metatype_relationship(container_id, relationship_id)
     pprint(api_response)
 except ApiException as e:
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 # **create_metatype_relationship**
 > CreateMetatypeRelationshipsResponse create_metatype_relationship(body, container_id)
 
-CreateMetatypeRelationship
+Create Metatype Relationship
 
 Create a new metatype relationship. Describes the connection that could exist between two metatypes and acts as a vehicle for relationship specific keys.  Pass in an array for bulk creation.
 
@@ -79,11 +79,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.MetatypeRelationshipsApi(deep_lynx.ApiClient(configuration))
-body = deep_lynx.NewMetatypeRelationshipRequest() # NewMetatypeRelationshipRequest | 
+body = deep_lynx.CreateMetatypeRelationshipRequest() # CreateMetatypeRelationshipRequest | 
 container_id = 'container_id_example' # str | 
 
 try:
-    # CreateMetatypeRelationship
+    # Create Metatype Relationship
     api_response = api_instance.create_metatype_relationship(body, container_id)
     pprint(api_response)
 except ApiException as e:
@@ -94,7 +94,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewMetatypeRelationshipRequest**](NewMetatypeRelationshipRequest.md)|  | 
+ **body** | [**CreateMetatypeRelationshipRequest**](CreateMetatypeRelationshipRequest.md)|  | 
  **container_id** | **str**|  | 
 
 ### Return type
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 # **list_metatype_relationships**
 > ListMetatypeRelationshipsResponse list_metatype_relationships(container_id, limit=limit, offset=offset, name=name, description=description, count=count, load_keys=load_keys, sort_by=sort_by, sort_desc=sort_desc)
 
-ListMetatypeRelationships
+List Metatype Relationships
 
 List metatype relationships. Describes the connection between two metatypes and acts as a vehicle for relationship specific keys.
 
@@ -141,7 +141,7 @@ sort_by = 'sort_by_example' # str | Supply the name of a metatype relationship a
 sort_desc = 'sort_desc_example' # str | Set true to sort descending (optional)
 
 try:
-    # ListMetatypeRelationships
+    # List Metatype Relationships
     api_response = api_instance.list_metatype_relationships(container_id, limit=limit, offset=offset, name=name, description=description, count=count, load_keys=load_keys, sort_by=sort_by, sort_desc=sort_desc)
     pprint(api_response)
 except ApiException as e:
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **retrieve_metatype_relationship**
 > GetMetatypeRelationshipResponse retrieve_metatype_relationship(container_id, relationship_id)
 
-RetrieveMetatypeRelationship
+Retrieve Metatype Relationship
 
 Retrieve a single Metatype Relationship.
 
@@ -199,7 +199,7 @@ container_id = 'container_id_example' # str |
 relationship_id = 'relationship_id_example' # str | 
 
 try:
-    # RetrieveMetatypeRelationship
+    # Retrieve Metatype Relationship
     api_response = api_instance.retrieve_metatype_relationship(container_id, relationship_id)
     pprint(api_response)
 except ApiException as e:
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 # **update_metatype_relationship**
 > UpdateMetatypeRelationshipResponse update_metatype_relationship(body, container_id, relationship_id)
 
-UpdateMetatypeRelationship
+Update Metatype Relationship
 
 Updates the specified metatype relationship.
 
@@ -251,7 +251,7 @@ container_id = 'container_id_example' # str |
 relationship_id = 'relationship_id_example' # str | 
 
 try:
-    # UpdateMetatypeRelationship
+    # Update Metatype Relationship
     api_response = api_instance.update_metatype_relationship(body, container_id, relationship_id)
     pprint(api_response)
 except ApiException as e:
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

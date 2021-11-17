@@ -4,21 +4,21 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_transformation**](DataTypeMappingsApi.md#create_transformation) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations | CreateTransformation
-[**delete_data_type_mapping**](DataTypeMappingsApi.md#delete_data_type_mapping) | **DELETE** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | DeleteDataTypeMapping
-[**delete_transformation**](DataTypeMappingsApi.md#delete_transformation) | **DELETE** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id} | DeleteTransformation
-[**export_type_mappings**](DataTypeMappingsApi.md#export_type_mappings) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/mappings/export | ExportTypeMappings
-[**import_data_type_mappings**](DataTypeMappingsApi.md#import_data_type_mappings) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/mappings/import | ImportDataTypeMappings
-[**list_data_type_mappings**](DataTypeMappingsApi.md#list_data_type_mappings) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/mappings | ListDataTypeMappings
-[**list_transformations**](DataTypeMappingsApi.md#list_transformations) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations | ListTransformations
-[**retrieve_data_type_mapping**](DataTypeMappingsApi.md#retrieve_data_type_mapping) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | RetrieveDataTypeMapping
-[**update_data_type_mapping**](DataTypeMappingsApi.md#update_data_type_mapping) | **PUT** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | UpdateDataTypeMapping
-[**update_transformation**](DataTypeMappingsApi.md#update_transformation) | **PUT** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id} | UpdateTransformation
+[**create_transformation**](DataTypeMappingsApi.md#create_transformation) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations | Create Data Type Mapping&#x27;s Transformations
+[**delete_data_type_mapping**](DataTypeMappingsApi.md#delete_data_type_mapping) | **DELETE** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | Delete Data Type Mapping
+[**delete_transformation**](DataTypeMappingsApi.md#delete_transformation) | **DELETE** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id} | Delete Data Type Mapping&#x27;s Transformations
+[**export_type_mappings**](DataTypeMappingsApi.md#export_type_mappings) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/mappings/export | Export Type Mappings
+[**import_data_type_mappings**](DataTypeMappingsApi.md#import_data_type_mappings) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/mappings/import | Import Data Type Mappings
+[**list_data_type_mappings**](DataTypeMappingsApi.md#list_data_type_mappings) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/mappings | List Data Type Mappings
+[**list_transformations**](DataTypeMappingsApi.md#list_transformations) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations | List Data Type Mapping&#x27;s Transformations
+[**retrieve_data_type_mapping**](DataTypeMappingsApi.md#retrieve_data_type_mapping) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | Retrieve Data Type Mapping
+[**update_data_type_mapping**](DataTypeMappingsApi.md#update_data_type_mapping) | **PUT** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | Update Data Type Mapping
+[**update_transformation**](DataTypeMappingsApi.md#update_transformation) | **PUT** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id} | Update Data Type Mapping&#x27;s Transformations
 
 # **create_transformation**
 > CreateTransformationResponse create_transformation(body, container_id, data_source_id, mapping_id)
 
-CreateTransformation
+Create Data Type Mapping's Transformations
 
 Create a transformation for the type mapping.
 
@@ -39,7 +39,7 @@ data_source_id = 'data_source_id_example' # str |
 mapping_id = 'mapping_id_example' # str | 
 
 try:
-    # CreateTransformation
+    # Create Data Type Mapping's Transformations
     api_response = api_instance.create_transformation(body, container_id, data_source_id, mapping_id)
     pprint(api_response)
 except ApiException as e:
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 # **delete_data_type_mapping**
 > Generic200Response delete_data_type_mapping(container_id, data_source_id, mapping_id)
 
-DeleteDataTypeMapping
+Delete Data Type Mapping
 
 Permanently remove data type mapping.
 
@@ -93,7 +93,7 @@ data_source_id = 'data_source_id_example' # str |
 mapping_id = 'mapping_id_example' # str | 
 
 try:
-    # DeleteDataTypeMapping
+    # Delete Data Type Mapping
     api_response = api_instance.delete_data_type_mapping(container_id, data_source_id, mapping_id)
     pprint(api_response)
 except ApiException as e:
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 # **delete_transformation**
 > Generic200Response delete_transformation(container_id, data_source_id, mapping_id, transformation_id)
 
-DeleteTransformation
+Delete Data Type Mapping's Transformations
 
 Delete a transformation.
 
@@ -147,7 +147,7 @@ mapping_id = 'mapping_id_example' # str |
 transformation_id = 'transformation_id_example' # str | 
 
 try:
-    # DeleteTransformation
+    # Delete Data Type Mapping's Transformations
     api_response = api_instance.delete_transformation(container_id, data_source_id, mapping_id, transformation_id)
     pprint(api_response)
 except ApiException as e:
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 # **export_type_mappings**
 > list[TypeMapping] export_type_mappings(container_id, data_source_id, body=body)
 
-ExportTypeMappings
+Export Type Mappings
 
 Export type mappings for a datasource. Providing a JSON body is optional. If provided, the mapping_ids may be specified to indicate certain type mapping IDs to return. Additionally, a target data source may be provided to which the mappings will be copied.
 
@@ -201,7 +201,7 @@ data_source_id = 'data_source_id_example' # str |
 body = deep_lynx.TypeMappingExportPayload() # TypeMappingExportPayload |  (optional)
 
 try:
-    # ExportTypeMappings
+    # Export Type Mappings
     api_response = api_instance.export_type_mappings(container_id, data_source_id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -232,9 +232,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_data_type_mappings**
-> list[GetDataTypeMappingResponse] import_data_type_mappings(content_type, container_id, data_source_id, file=file)
+> ImportDataTypeMappingResponse import_data_type_mappings(container_id, data_source_id, body=body)
 
-ImportDataTypeMappings
+Import Data Type Mappings
 
 Import type mappings for a datasource. Accepts either a JSON body or actual JSON file. The payload should be an array of type mapping classes, previously generated using the export route.
 
@@ -249,14 +249,13 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.DataTypeMappingsApi(deep_lynx.ApiClient(configuration))
-content_type = 'content_type_example' # str | 
 container_id = 'container_id_example' # str | 
 data_source_id = 'data_source_id_example' # str | 
-file = 'file_example' # str |  (optional)
+body = NULL # list[object] |  (optional)
 
 try:
-    # ImportDataTypeMappings
-    api_response = api_instance.import_data_type_mappings(content_type, container_id, data_source_id, file=file)
+    # Import Data Type Mappings
+    api_response = api_instance.import_data_type_mappings(container_id, data_source_id, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DataTypeMappingsApi->import_data_type_mappings: %s\n" % e)
@@ -266,22 +265,21 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **str**|  | 
  **container_id** | **str**|  | 
  **data_source_id** | **str**|  | 
- **file** | **str**|  | [optional] 
+ **body** | [**list[object]**](object.md)|  | [optional] 
 
 ### Return type
 
-[**list[GetDataTypeMappingResponse]**](GetDataTypeMappingResponse.md)
+[**ImportDataTypeMappingResponse**](ImportDataTypeMappingResponse.md)
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -289,7 +287,7 @@ Name | Type | Description  | Notes
 # **list_data_type_mappings**
 > ListDataTypeMappingResponse list_data_type_mappings(container_id, data_source_id, limit=limit, offset=offset, needs_transformations=needs_transformations, count=count, sort_by=sort_by, sort_desc=sort_desc, resulting_metatype_name=resulting_metatype_name, resulting_metatype_relationship_name=resulting_metatype_relationship_name)
 
-ListDataTypeMappings
+List Data Type Mappings
 
 Lists data type mappings for the data source
 
@@ -316,7 +314,7 @@ resulting_metatype_name = 'resulting_metatype_name_example' # str | if supplied,
 resulting_metatype_relationship_name = 'resulting_metatype_relationship_name_example' # str | if supplied, filters returned transformations by those that produce the resulting metatype relationship (optional)
 
 try:
-    # ListDataTypeMappings
+    # List Data Type Mappings
     api_response = api_instance.list_data_type_mappings(container_id, data_source_id, limit=limit, offset=offset, needs_transformations=needs_transformations, count=count, sort_by=sort_by, sort_desc=sort_desc, resulting_metatype_name=resulting_metatype_name, resulting_metatype_relationship_name=resulting_metatype_relationship_name)
     pprint(api_response)
 except ApiException as e:
@@ -344,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -356,7 +354,7 @@ Name | Type | Description  | Notes
 # **list_transformations**
 > ListTransformationResponse list_transformations(container_id, data_source_id, mapping_id)
 
-ListTransformations
+List Data Type Mapping's Transformations
 
 List transformations for a type mapping from storage.
 
@@ -376,7 +374,7 @@ data_source_id = 'data_source_id_example' # str |
 mapping_id = 'mapping_id_example' # str | 
 
 try:
-    # ListTransformations
+    # List Data Type Mapping's Transformations
     api_response = api_instance.list_transformations(container_id, data_source_id, mapping_id)
     pprint(api_response)
 except ApiException as e:
@@ -397,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -409,7 +407,7 @@ Name | Type | Description  | Notes
 # **retrieve_data_type_mapping**
 > GetDataTypeMappingResponse retrieve_data_type_mapping(container_id, data_source_id, mapping_id)
 
-RetrieveDataTypeMapping
+Retrieve Data Type Mapping
 
 Retrieve a data type mapping
 
@@ -429,7 +427,7 @@ data_source_id = 'data_source_id_example' # str |
 mapping_id = 'mapping_id_example' # str | 
 
 try:
-    # RetrieveDataTypeMapping
+    # Retrieve Data Type Mapping
     api_response = api_instance.retrieve_data_type_mapping(container_id, data_source_id, mapping_id)
     pprint(api_response)
 except ApiException as e:
@@ -450,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -462,7 +460,7 @@ Name | Type | Description  | Notes
 # **update_data_type_mapping**
 > UpdateDataTypeMappingResponse update_data_type_mapping(container_id, data_source_id, mapping_id, body=body)
 
-UpdateDataTypeMapping
+Update Data Type Mapping
 
 Updates a data type mapping.
 
@@ -483,7 +481,7 @@ mapping_id = 'mapping_id_example' # str |
 body = deep_lynx.TypeMapping() # TypeMapping |  (optional)
 
 try:
-    # UpdateDataTypeMapping
+    # Update Data Type Mapping
     api_response = api_instance.update_data_type_mapping(container_id, data_source_id, mapping_id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -505,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -517,7 +515,7 @@ Name | Type | Description  | Notes
 # **update_transformation**
 > UpdateTransformationResponse update_transformation(body, container_id, data_source_id, mapping_id, transformation_id)
 
-UpdateTransformation
+Update Data Type Mapping's Transformations
 
 Update a transformation.
 
@@ -539,7 +537,7 @@ mapping_id = 'mapping_id_example' # str |
 transformation_id = 'transformation_id_example' # str | 
 
 try:
-    # UpdateTransformation
+    # Update Data Type Mapping's Transformations
     api_response = api_instance.update_transformation(body, container_id, data_source_id, mapping_id, transformation_id)
     pprint(api_response)
 except ApiException as e:
@@ -562,7 +560,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

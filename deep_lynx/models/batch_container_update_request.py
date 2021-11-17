@@ -28,95 +28,14 @@ class BatchContainerUpdateRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'name': 'str',
-        'description': 'str',
-        'id': 'str'
     }
 
     attribute_map = {
-        'name': 'name',
-        'description': 'description',
-        'id': 'id'
     }
 
-    def __init__(self, name=None, description=None, id=None):  # noqa: E501
+    def __init__(self):  # noqa: E501
         """BatchContainerUpdateRequest - a model defined in Swagger"""  # noqa: E501
-        self._name = None
-        self._description = None
-        self._id = None
         self.discriminator = None
-        self.name = name
-        self.description = description
-        self.id = id
-
-    @property
-    def name(self):
-        """Gets the name of this BatchContainerUpdateRequest.  # noqa: E501
-
-
-        :return: The name of this BatchContainerUpdateRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this BatchContainerUpdateRequest.
-
-
-        :param name: The name of this BatchContainerUpdateRequest.  # noqa: E501
-        :type: str
-        """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def description(self):
-        """Gets the description of this BatchContainerUpdateRequest.  # noqa: E501
-
-
-        :return: The description of this BatchContainerUpdateRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this BatchContainerUpdateRequest.
-
-
-        :param description: The description of this BatchContainerUpdateRequest.  # noqa: E501
-        :type: str
-        """
-        if description is None:
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
-
-        self._description = description
-
-    @property
-    def id(self):
-        """Gets the id of this BatchContainerUpdateRequest.  # noqa: E501
-
-
-        :return: The id of this BatchContainerUpdateRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this BatchContainerUpdateRequest.
-
-
-        :param id: The id of this BatchContainerUpdateRequest.  # noqa: E501
-        :type: str
-        """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

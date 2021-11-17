@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **origin_metatype_name** | **str** |  | [optional] 
 **destination_metatype_name** | **str** |  | [optional] 
 **relationship_pair_name** | **str** |  | [optional] 
-**destination_metatype** | [**DestinationMetatype**](DestinationMetatype.md) |  | [optional] 
-**origin_metatype** | [**OriginMetatype**](OriginMetatype.md) |  | [optional] 
-**relationship** | [**Relationship**](Relationship.md) |  | [optional] 
+**destination_metatype** | [**RelationshipPairDestinationMetatype**](RelationshipPairDestinationMetatype.md) |  | [optional] 
+**origin_metatype** | [**RelationshipPairDestinationMetatype**](RelationshipPairDestinationMetatype.md) |  | [optional] 
+**relationship** | [**RelationshipPairDestinationMetatype**](RelationshipPairDestinationMetatype.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

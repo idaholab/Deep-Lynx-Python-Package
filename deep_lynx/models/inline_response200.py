@@ -28,14 +28,40 @@ class InlineResponse200(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'data': 'object'
     }
 
     attribute_map = {
+        'data': 'data'
     }
 
-    def __init__(self):  # noqa: E501
+    def __init__(self, data=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger"""  # noqa: E501
+        self._data = None
         self.discriminator = None
+        if data is not None:
+            self.data = data
+
+    @property
+    def data(self):
+        """Gets the data of this InlineResponse200.  # noqa: E501
+
+
+        :return: The data of this InlineResponse200.  # noqa: E501
+        :rtype: object
+        """
+        return self._data
+
+    @data.setter
+    def data(self, data):
+        """Sets the data of this InlineResponse200.
+
+
+        :param data: The data of this InlineResponse200.  # noqa: E501
+        :type: object
+        """
+
+        self._data = data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

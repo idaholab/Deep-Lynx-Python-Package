@@ -33,7 +33,7 @@ class DataSourcesApi(object):
         self.api_client = api_client
 
     def archive_data_source(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ArchiveDataSource  # noqa: E501
+        """Archive Data Source  # noqa: E501
 
         Archive a data source, with options to permanently remove it (and associated data).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -59,7 +59,7 @@ class DataSourcesApi(object):
             return data
 
     def archive_data_source_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ArchiveDataSource  # noqa: E501
+        """Archive Data Source  # noqa: E501
 
         Archive a data source, with options to permanently remove it (and associated data).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -129,7 +129,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}', 'DELETE',
@@ -148,7 +148,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def create_data_source(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateDataSource  # noqa: E501
+        """Create Data Source  # noqa: E501
 
         Create new datasource. Supported data source types are `http`, `standard` (or `manual`), `jazz`, and `aveva`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -171,7 +171,7 @@ class DataSourcesApi(object):
             return data
 
     def create_data_source_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
-        """CreateDataSource  # noqa: E501
+        """Create Data Source  # noqa: E501
 
         Create new datasource. Supported data source types are `http`, `standard` (or `manual`), `jazz`, and `aveva`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -236,7 +236,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources', 'POST',
@@ -255,7 +255,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def create_manual_import(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
-        """CreateManualImport  # noqa: E501
+        """Create Manual Import  # noqa: E501
 
         Create a manual import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -279,7 +279,7 @@ class DataSourcesApi(object):
             return data
 
     def create_manual_import_with_http_info(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
-        """CreateManualImport  # noqa: E501
+        """Create Manual Import  # noqa: E501
 
         Create a manual import.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -351,7 +351,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/imports', 'POST',
@@ -370,7 +370,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def download_file(self, container_id, file_id, **kwargs):  # noqa: E501
-        """DownloadFile  # noqa: E501
+        """Download File  # noqa: E501
 
         Downloads a previously uploaded file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -393,7 +393,7 @@ class DataSourcesApi(object):
             return data
 
     def download_file_with_http_info(self, container_id, file_id, **kwargs):  # noqa: E501
-        """DownloadFile  # noqa: E501
+        """Download File  # noqa: E501
 
         Downloads a previously uploaded file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -450,7 +450,7 @@ class DataSourcesApi(object):
 
         body_params = None
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/files/{file_id}/download', 'GET',
@@ -469,7 +469,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def list_data_sources(self, container_id, **kwargs):  # noqa: E501
-        """ListDataSources  # noqa: E501
+        """List Data Sources  # noqa: E501
 
         List the datasources for the container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -491,7 +491,7 @@ class DataSourcesApi(object):
             return data
 
     def list_data_sources_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """ListDataSources  # noqa: E501
+        """List Data Sources  # noqa: E501
 
         List the datasources for the container.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -545,7 +545,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources', 'GET',
@@ -564,7 +564,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def list_imports_for_data_source(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ListImportsForDataSource  # noqa: E501
+        """List Imports for Data Source  # noqa: E501
 
         List the imports for the datasource.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -587,7 +587,7 @@ class DataSourcesApi(object):
             return data
 
     def list_imports_for_data_source_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """ListImportsForDataSource  # noqa: E501
+        """List Imports for Data Source  # noqa: E501
 
         List the imports for the datasource.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -648,7 +648,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/imports', 'GET',
@@ -667,7 +667,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def retrieve_data_source(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """RetrieveDataSource  # noqa: E501
+        """Retrieve Data Source  # noqa: E501
 
         Retrieve a single data source by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -690,7 +690,7 @@ class DataSourcesApi(object):
             return data
 
     def retrieve_data_source_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """RetrieveDataSource  # noqa: E501
+        """Retrieve Data Source  # noqa: E501
 
         Retrieve a single data source by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -751,7 +751,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}', 'GET',
@@ -770,7 +770,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def retrieve_file(self, container_id, file_id, **kwargs):  # noqa: E501
-        """RetrieveFile  # noqa: E501
+        """Retrieve File  # noqa: E501
 
         Get information about a file by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -793,7 +793,7 @@ class DataSourcesApi(object):
             return data
 
     def retrieve_file_with_http_info(self, container_id, file_id, **kwargs):  # noqa: E501
-        """RetrieveFile  # noqa: E501
+        """Retrieve File  # noqa: E501
 
         Get information about a file by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -854,7 +854,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/files/{file_id}', 'GET',
@@ -873,7 +873,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def set_data_source_active(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """SetDataSourceActive  # noqa: E501
+        """Set Data Source Active  # noqa: E501
 
         Sets a data source active.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -896,7 +896,7 @@ class DataSourcesApi(object):
             return data
 
     def set_data_source_active_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """SetDataSourceActive  # noqa: E501
+        """Set Data Source Active  # noqa: E501
 
         Sets a data source active.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -957,7 +957,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/active', 'POST',
@@ -976,7 +976,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def set_data_source_configuration(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
-        """SetDataSourceConfiguration  # noqa: E501
+        """Set Data Source Configuration  # noqa: E501
 
         Updates a data source's configuration in storage. Note that this request body's structure must match that of the data source's adapter type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1000,7 +1000,7 @@ class DataSourcesApi(object):
             return data
 
     def set_data_source_configuration_with_http_info(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
-        """SetDataSourceConfiguration  # noqa: E501
+        """Set Data Source Configuration  # noqa: E501
 
         Updates a data source's configuration in storage. Note that this request body's structure must match that of the data source's adapter type.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1072,7 +1072,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}', 'PUT',
@@ -1091,7 +1091,7 @@ class DataSourcesApi(object):
             collection_formats=collection_formats)
 
     def set_data_source_inactive(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """SetDataSourceInactive  # noqa: E501
+        """Set Data Source Inactive  # noqa: E501
 
         Sets a data source inactive.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1114,7 +1114,7 @@ class DataSourcesApi(object):
             return data
 
     def set_data_source_inactive_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """SetDataSourceInactive  # noqa: E501
+        """Set Data Source Inactive  # noqa: E501
 
         Sets a data source inactive.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1175,7 +1175,7 @@ class DataSourcesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/active', 'DELETE',
@@ -1193,51 +1193,49 @@ class DataSourcesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def upload_file(self, content_type, container_id, data_source_id, **kwargs):  # noqa: E501
-        """UploadFile  # noqa: E501
+    def upload_file(self, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Upload File  # noqa: E501
 
         Uploads a file and metadata to Deep Lynx. This endpoint will accept multiple files and multiple metadata properties as form values. If metadata (additional key value pairs) are provided, an import is created for the data source in addition to the file upload. Transformations can be applied to this import to create nodes and edges in the graph with metadata for the uploaded file(s).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.upload_file(content_type, container_id, data_source_id, async_req=True)
+        >>> thread = api.upload_file(container_id, data_source_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
         :param str container_id: (required)
         :param str data_source_id: (required)
         :param str file:
-        :return: InlineResponse200
+        :return: UploadFileResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.upload_file_with_http_info(content_type, container_id, data_source_id, **kwargs)  # noqa: E501
+            return self.upload_file_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.upload_file_with_http_info(content_type, container_id, data_source_id, **kwargs)  # noqa: E501
+            (data) = self.upload_file_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
             return data
 
-    def upload_file_with_http_info(self, content_type, container_id, data_source_id, **kwargs):  # noqa: E501
-        """UploadFile  # noqa: E501
+    def upload_file_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Upload File  # noqa: E501
 
         Uploads a file and metadata to Deep Lynx. This endpoint will accept multiple files and multiple metadata properties as form values. If metadata (additional key value pairs) are provided, an import is created for the data source in addition to the file upload. Transformations can be applied to this import to create nodes and edges in the graph with metadata for the uploaded file(s).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.upload_file_with_http_info(content_type, container_id, data_source_id, async_req=True)
+        >>> thread = api.upload_file_with_http_info(container_id, data_source_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str content_type: (required)
         :param str container_id: (required)
         :param str data_source_id: (required)
         :param str file:
-        :return: InlineResponse200
+        :return: UploadFileResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['content_type', 'container_id', 'data_source_id', 'file']  # noqa: E501
+        all_params = ['container_id', 'data_source_id', 'file']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1252,10 +1250,6 @@ class DataSourcesApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'content_type' is set
-        if ('content_type' not in params or
-                params['content_type'] is None):
-            raise ValueError("Missing the required parameter `content_type` when calling `upload_file`")  # noqa: E501
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
@@ -1276,8 +1270,6 @@ class DataSourcesApi(object):
         query_params = []
 
         header_params = {}
-        if 'content_type' in params:
-            header_params['Content-Type'] = params['content_type']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -1291,10 +1283,10 @@ class DataSourcesApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/x-www-form-urlencoded'])  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/import/datasources/{data_source_id}/files', 'POST',
@@ -1304,7 +1296,7 @@ class DataSourcesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='UploadFileResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

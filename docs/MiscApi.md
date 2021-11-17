@@ -42,7 +42,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

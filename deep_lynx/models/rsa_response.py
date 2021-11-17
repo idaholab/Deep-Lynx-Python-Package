@@ -28,7 +28,7 @@ class RSAResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'value': 'Value',
+        'value': 'RSAResponseValue',
         'is_error': 'bool'
     }
 
@@ -53,7 +53,7 @@ class RSAResponse(object):
 
 
         :return: The value of this RSAResponse.  # noqa: E501
-        :rtype: Value
+        :rtype: RSAResponseValue
         """
         return self._value
 
@@ -63,7 +63,7 @@ class RSAResponse(object):
 
 
         :param value: The value of this RSAResponse.  # noqa: E501
-        :type: Value
+        :type: RSAResponseValue
         """
 
         self._value = value

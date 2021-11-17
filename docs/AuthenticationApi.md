@@ -4,18 +4,18 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**exchange_o_auth_token**](AuthenticationApi.md#exchange_o_auth_token) | **POST** /oauth/exchange | ExchangeOAuthToken
-[**post_containers_container_id_metatypes_metatype_id**](AuthenticationApi.md#post_containers_container_id_metatypes_metatype_id) | **POST** /containers/{container_id}/metatypes/{metatype_id} | post-containers-container_id-metatypes-metatype_id
-[**post_rsa_cancel**](AuthenticationApi.md#post_rsa_cancel) | **POST** /rsa/cancel | post-rsa-cancel
-[**post_rsa_initialize**](AuthenticationApi.md#post_rsa_initialize) | **POST** /rsa/initialize | post-rsa-initialize
-[**post_rsa_status**](AuthenticationApi.md#post_rsa_status) | **POST** /rsa/status | post-rsa-status
-[**post_rsa_verify**](AuthenticationApi.md#post_rsa_verify) | **POST** /rsa/verify | post-rsa-verify
-[**retrieve_o_auth_token**](AuthenticationApi.md#retrieve_o_auth_token) | **GET** /oauth/token | RetrieveOAuthToken
+[**exchange_o_auth_token**](AuthenticationApi.md#exchange_o_auth_token) | **POST** /oauth/exchange | Exchange OAuth Token
+[**post_containers_container_id_metatypes_metatype_id**](AuthenticationApi.md#post_containers_container_id_metatypes_metatype_id) | **POST** /containers/{container_id}/metatypes/{metatype_id} | Validate Metatype Properties
+[**post_rsa_cancel**](AuthenticationApi.md#post_rsa_cancel) | **POST** /rsa/cancel | RSA Cancel
+[**post_rsa_initialize**](AuthenticationApi.md#post_rsa_initialize) | **POST** /rsa/initialize | RSA Initialize
+[**post_rsa_status**](AuthenticationApi.md#post_rsa_status) | **POST** /rsa/status | RSA Status
+[**post_rsa_verify**](AuthenticationApi.md#post_rsa_verify) | **POST** /rsa/verify | RSA Verify
+[**retrieve_o_auth_token**](AuthenticationApi.md#retrieve_o_auth_token) | **GET** /oauth/token | Retrieve OAuth Token
 
 # **exchange_o_auth_token**
 > str exchange_o_auth_token(body=body)
 
-ExchangeOAuthToken
+Exchange OAuth Token
 
 Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see Deep Lynx documentation for details.
 
@@ -33,7 +33,7 @@ api_instance = deep_lynx.AuthenticationApi(deep_lynx.ApiClient(configuration))
 body = deep_lynx.TokenExchangeRequest() # TokenExchangeRequest |  (optional)
 
 try:
-    # ExchangeOAuthToken
+    # Exchange OAuth Token
     api_response = api_instance.exchange_o_auth_token(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 # **post_containers_container_id_metatypes_metatype_id**
 > ValidateMetatypePropertiesResponse post_containers_container_id_metatypes_metatype_id(container_id, metatype_id, body=body)
 
-post-containers-container_id-metatypes-metatype_id
+Validate Metatype Properties
 
 Returns any errors associated with the intended properties or keys for a metatype or else the data itself if no errors are present.
 
@@ -84,7 +84,7 @@ metatype_id = 'metatype_id_example' # str |
 body = NULL # object |  (optional)
 
 try:
-    # post-containers-container_id-metatypes-metatype_id
+    # Validate Metatype Properties
     api_response = api_instance.post_containers_container_id_metatypes_metatype_id(container_id, metatype_id, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 # **post_rsa_cancel**
 > RSAResponse post_rsa_cancel(body=body)
 
-post-rsa-cancel
+RSA Cancel
 
 Cancels an RSA authentication attempt
 
@@ -135,7 +135,7 @@ api_instance = deep_lynx.AuthenticationApi(deep_lynx.ApiClient(configuration))
 body = deep_lynx.RSACancelRequest() # RSACancelRequest |  (optional)
 
 try:
-    # post-rsa-cancel
+    # RSA Cancel
     api_response = api_instance.post_rsa_cancel(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 # **post_rsa_initialize**
 > RSAResponse post_rsa_initialize(body=body)
 
-post-rsa-initialize
+RSA Initialize
 
 Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request,  or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request.  The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).
 
@@ -184,7 +184,7 @@ api_instance = deep_lynx.AuthenticationApi(deep_lynx.ApiClient(configuration))
 body = deep_lynx.RSAInitRequest() # RSAInitRequest |  (optional)
 
 try:
-    # post-rsa-initialize
+    # RSA Initialize
     api_response = api_instance.post_rsa_initialize(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -203,7 +203,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 # **post_rsa_status**
 > RSAStatusResponse post_rsa_status(body=body)
 
-post-rsa-status
+RSA Status
 
 Returns the status of an RSA authentication attempt
 
@@ -233,7 +233,7 @@ api_instance = deep_lynx.AuthenticationApi(deep_lynx.ApiClient(configuration))
 body = deep_lynx.RSAStatusRequest() # RSAStatusRequest |  (optional)
 
 try:
-    # post-rsa-status
+    # RSA Status
     api_response = api_instance.post_rsa_status(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 # **post_rsa_verify**
 > RSAResponse post_rsa_verify(body=body)
 
-post-rsa-verify
+RSA Verify
 
 Provides RSA with the user's SecurID to complete authentication
 
@@ -282,7 +282,7 @@ api_instance = deep_lynx.AuthenticationApi(deep_lynx.ApiClient(configuration))
 body = deep_lynx.RSAVerifyRequest() # RSAVerifyRequest |  (optional)
 
 try:
-    # post-rsa-verify
+    # RSA Verify
     api_response = api_instance.post_rsa_verify(body=body)
     pprint(api_response)
 except ApiException as e:
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 # **retrieve_o_auth_token**
 > str retrieve_o_auth_token(x_api_key, x_api_secret, x_api_expiry=x_api_expiry)
 
-RetrieveOAuthToken
+Retrieve OAuth Token
 
 Returns an OAuth token. The API key and secret must be supplied.
 
@@ -333,7 +333,7 @@ x_api_secret = 'x_api_secret_example' # str | The API secret
 x_api_expiry = 'x_api_expiry_example' # str | The API expiry date (optional)
 
 try:
-    # RetrieveOAuthToken
+    # Retrieve OAuth Token
     api_response = api_instance.retrieve_o_auth_token(x_api_key, x_api_secret, x_api_expiry=x_api_expiry)
     pprint(api_response)
 except ApiException as e:
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 

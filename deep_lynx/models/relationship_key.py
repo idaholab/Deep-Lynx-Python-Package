@@ -34,7 +34,7 @@ class RelationshipKey(object):
         'data_type': 'str',
         'required': 'bool',
         'cardinality': 'float',
-        'validation': 'object',
+        'validation': 'KeyValidation',
         'unique': 'bool',
         'options': 'list[object]',
         'default_value': 'str',
@@ -252,7 +252,7 @@ class RelationshipKey(object):
 
 
         :return: The validation of this RelationshipKey.  # noqa: E501
-        :rtype: object
+        :rtype: KeyValidation
         """
         return self._validation
 
@@ -262,7 +262,7 @@ class RelationshipKey(object):
 
 
         :param validation: The validation of this RelationshipKey.  # noqa: E501
-        :type: object
+        :type: KeyValidation
         """
 
         self._validation = validation

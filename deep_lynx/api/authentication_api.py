@@ -33,7 +33,7 @@ class AuthenticationApi(object):
         self.api_client = api_client
 
     def exchange_o_auth_token(self, **kwargs):  # noqa: E501
-        """ExchangeOAuthToken  # noqa: E501
+        """Exchange OAuth Token  # noqa: E501
 
         Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see Deep Lynx documentation for details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -55,7 +55,7 @@ class AuthenticationApi(object):
             return data
 
     def exchange_o_auth_token_with_http_info(self, **kwargs):  # noqa: E501
-        """ExchangeOAuthToken  # noqa: E501
+        """Exchange OAuth Token  # noqa: E501
 
         Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see Deep Lynx documentation for details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -109,7 +109,7 @@ class AuthenticationApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/oauth/exchange', 'POST',
@@ -128,7 +128,7 @@ class AuthenticationApi(object):
             collection_formats=collection_formats)
 
     def post_containers_container_id_metatypes_metatype_id(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """post-containers-container_id-metatypes-metatype_id  # noqa: E501
+        """Validate Metatype Properties  # noqa: E501
 
         Returns any errors associated with the intended properties or keys for a metatype or else the data itself if no errors are present.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -152,7 +152,7 @@ class AuthenticationApi(object):
             return data
 
     def post_containers_container_id_metatypes_metatype_id_with_http_info(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """post-containers-container_id-metatypes-metatype_id  # noqa: E501
+        """Validate Metatype Properties  # noqa: E501
 
         Returns any errors associated with the intended properties or keys for a metatype or else the data itself if no errors are present.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -220,7 +220,7 @@ class AuthenticationApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}', 'POST',
@@ -239,7 +239,7 @@ class AuthenticationApi(object):
             collection_formats=collection_formats)
 
     def post_rsa_cancel(self, **kwargs):  # noqa: E501
-        """post-rsa-cancel  # noqa: E501
+        """RSA Cancel  # noqa: E501
 
         Cancels an RSA authentication attempt  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -261,7 +261,7 @@ class AuthenticationApi(object):
             return data
 
     def post_rsa_cancel_with_http_info(self, **kwargs):  # noqa: E501
-        """post-rsa-cancel  # noqa: E501
+        """RSA Cancel  # noqa: E501
 
         Cancels an RSA authentication attempt  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -315,7 +315,7 @@ class AuthenticationApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/rsa/cancel', 'POST',
@@ -334,7 +334,7 @@ class AuthenticationApi(object):
             collection_formats=collection_formats)
 
     def post_rsa_initialize(self, **kwargs):  # noqa: E501
-        """post-rsa-initialize  # noqa: E501
+        """RSA Initialize  # noqa: E501
 
         Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request,  or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request.  The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -356,7 +356,7 @@ class AuthenticationApi(object):
             return data
 
     def post_rsa_initialize_with_http_info(self, **kwargs):  # noqa: E501
-        """post-rsa-initialize  # noqa: E501
+        """RSA Initialize  # noqa: E501
 
         Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request,  or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request.  The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -410,7 +410,7 @@ class AuthenticationApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/rsa/initialize', 'POST',
@@ -429,7 +429,7 @@ class AuthenticationApi(object):
             collection_formats=collection_formats)
 
     def post_rsa_status(self, **kwargs):  # noqa: E501
-        """post-rsa-status  # noqa: E501
+        """RSA Status  # noqa: E501
 
         Returns the status of an RSA authentication attempt  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -451,7 +451,7 @@ class AuthenticationApi(object):
             return data
 
     def post_rsa_status_with_http_info(self, **kwargs):  # noqa: E501
-        """post-rsa-status  # noqa: E501
+        """RSA Status  # noqa: E501
 
         Returns the status of an RSA authentication attempt  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -505,7 +505,7 @@ class AuthenticationApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/rsa/status', 'POST',
@@ -524,7 +524,7 @@ class AuthenticationApi(object):
             collection_formats=collection_formats)
 
     def post_rsa_verify(self, **kwargs):  # noqa: E501
-        """post-rsa-verify  # noqa: E501
+        """RSA Verify  # noqa: E501
 
         Provides RSA with the user's SecurID to complete authentication  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -546,7 +546,7 @@ class AuthenticationApi(object):
             return data
 
     def post_rsa_verify_with_http_info(self, **kwargs):  # noqa: E501
-        """post-rsa-verify  # noqa: E501
+        """RSA Verify  # noqa: E501
 
         Provides RSA with the user's SecurID to complete authentication  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -600,7 +600,7 @@ class AuthenticationApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/rsa/verify', 'POST',
@@ -619,7 +619,7 @@ class AuthenticationApi(object):
             collection_formats=collection_formats)
 
     def retrieve_o_auth_token(self, x_api_key, x_api_secret, **kwargs):  # noqa: E501
-        """RetrieveOAuthToken  # noqa: E501
+        """Retrieve OAuth Token  # noqa: E501
 
         Returns an OAuth token. The API key and secret must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -643,7 +643,7 @@ class AuthenticationApi(object):
             return data
 
     def retrieve_o_auth_token_with_http_info(self, x_api_key, x_api_secret, **kwargs):  # noqa: E501
-        """RetrieveOAuthToken  # noqa: E501
+        """Retrieve OAuth Token  # noqa: E501
 
         Returns an OAuth token. The API key and secret must be supplied.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -707,7 +707,7 @@ class AuthenticationApi(object):
             ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/oauth/token', 'GET',

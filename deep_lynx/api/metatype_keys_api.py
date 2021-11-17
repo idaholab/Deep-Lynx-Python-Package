@@ -33,7 +33,7 @@ class MetatypeKeysApi(object):
         self.api_client = api_client
 
     def archive_metatype_key(self, container_id, metatype_id, key_id, **kwargs):  # noqa: E501
-        """ArchiveMetatypeKey  # noqa: E501
+        """Archive Metatype Key  # noqa: E501
 
         Archiving the metatype key prevents any new types from implementing the key. It *does not remove key/value pairs on existing types*. We highly recommend you archive type keys instead of deleting them so that previous data is not affected.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -57,7 +57,7 @@ class MetatypeKeysApi(object):
             return data
 
     def archive_metatype_key_with_http_info(self, container_id, metatype_id, key_id, **kwargs):  # noqa: E501
-        """ArchiveMetatypeKey  # noqa: E501
+        """Archive Metatype Key  # noqa: E501
 
         Archiving the metatype key prevents any new types from implementing the key. It *does not remove key/value pairs on existing types*. We highly recommend you archive type keys instead of deleting them so that previous data is not affected.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -125,7 +125,7 @@ class MetatypeKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}/keys/{key_id}', 'DELETE',
@@ -144,7 +144,7 @@ class MetatypeKeysApi(object):
             collection_formats=collection_formats)
 
     def create_metatype_key(self, body, container_id, metatype_id, **kwargs):  # noqa: E501
-        """CreateMetatypeKey  # noqa: E501
+        """Create Metatype Key  # noqa: E501
 
         Creates a new key for a metatype. Keys consist of a unique key name (unique to the metatype only), key type, default values, and allowed values. Of those, only the first two are required.  The `dataType` field accepts only one of the following values: number, string, date, boolean, enumeration, file.   The fields `defaultValue` and `options` will only accept an array of the following types: string, boolean, number, float.  Pass in an array for bulk creation.  Currently the validation and cardinality functionality of keys are NOT checked at data insertion.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -153,7 +153,7 @@ class MetatypeKeysApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewMetatypeKeyRequest body: (required)
+        :param CreateMetatypeKeyRequest body: (required)
         :param str container_id: (required)
         :param str metatype_id: (required)
         :return: CreateMetatypeKeysResponse
@@ -168,7 +168,7 @@ class MetatypeKeysApi(object):
             return data
 
     def create_metatype_key_with_http_info(self, body, container_id, metatype_id, **kwargs):  # noqa: E501
-        """CreateMetatypeKey  # noqa: E501
+        """Create Metatype Key  # noqa: E501
 
         Creates a new key for a metatype. Keys consist of a unique key name (unique to the metatype only), key type, default values, and allowed values. Of those, only the first two are required.  The `dataType` field accepts only one of the following values: number, string, date, boolean, enumeration, file.   The fields `defaultValue` and `options` will only accept an array of the following types: string, boolean, number, float.  Pass in an array for bulk creation.  Currently the validation and cardinality functionality of keys are NOT checked at data insertion.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -177,7 +177,7 @@ class MetatypeKeysApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param NewMetatypeKeyRequest body: (required)
+        :param CreateMetatypeKeyRequest body: (required)
         :param str container_id: (required)
         :param str metatype_id: (required)
         :return: CreateMetatypeKeysResponse
@@ -240,7 +240,7 @@ class MetatypeKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}/keys', 'POST',
@@ -259,7 +259,7 @@ class MetatypeKeysApi(object):
             collection_formats=collection_formats)
 
     def list_metatypes_keys(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """ListMetatypesKeys  # noqa: E501
+        """List Metatype's Keys  # noqa: E501
 
         Lists all currently valid and available keys for the metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -282,7 +282,7 @@ class MetatypeKeysApi(object):
             return data
 
     def list_metatypes_keys_with_http_info(self, container_id, metatype_id, **kwargs):  # noqa: E501
-        """ListMetatypesKeys  # noqa: E501
+        """List Metatype's Keys  # noqa: E501
 
         Lists all currently valid and available keys for the metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -343,7 +343,7 @@ class MetatypeKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}/keys', 'GET',
@@ -362,7 +362,7 @@ class MetatypeKeysApi(object):
             collection_formats=collection_formats)
 
     def retrieve_metatype_key(self, container_id, metatype_id, key_id, **kwargs):  # noqa: E501
-        """RetrieveMetatypeKey  # noqa: E501
+        """Retrieve Metatype Key  # noqa: E501
 
         Retrieve the specified key for the metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -386,7 +386,7 @@ class MetatypeKeysApi(object):
             return data
 
     def retrieve_metatype_key_with_http_info(self, container_id, metatype_id, key_id, **kwargs):  # noqa: E501
-        """RetrieveMetatypeKey  # noqa: E501
+        """Retrieve Metatype Key  # noqa: E501
 
         Retrieve the specified key for the metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -454,7 +454,7 @@ class MetatypeKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}/keys/{key_id}', 'GET',
@@ -473,7 +473,7 @@ class MetatypeKeysApi(object):
             collection_formats=collection_formats)
 
     def update_metatype_key(self, body, container_id, metatype_id, key_id, **kwargs):  # noqa: E501
-        """UpdateMetatypeKey  # noqa: E501
+        """Update Metatype Key  # noqa: E501
 
         Updates a single key for a metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -482,7 +482,7 @@ class MetatypeKeysApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateMetatypeKeyRequest body: (required)
+        :param MetatypeKey body: (required)
         :param str container_id: (required)
         :param str metatype_id: (required)
         :param str key_id: (required)
@@ -498,7 +498,7 @@ class MetatypeKeysApi(object):
             return data
 
     def update_metatype_key_with_http_info(self, body, container_id, metatype_id, key_id, **kwargs):  # noqa: E501
-        """UpdateMetatypeKey  # noqa: E501
+        """Update Metatype Key  # noqa: E501
 
         Updates a single key for a metatype.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -507,7 +507,7 @@ class MetatypeKeysApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param UpdateMetatypeKeyRequest body: (required)
+        :param MetatypeKey body: (required)
         :param str container_id: (required)
         :param str metatype_id: (required)
         :param str key_id: (required)
@@ -577,7 +577,7 @@ class MetatypeKeysApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['httpBearer']  # noqa: E501
+        auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/containers/{container_id}/metatypes/{metatype_id}/keys/{key_id}', 'PUT',

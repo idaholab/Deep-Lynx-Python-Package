@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_registered_event**](EventsApi.md#create_registered_event) | **POST** /events | CreateRegisteredEvent
-[**delete_registered_event**](EventsApi.md#delete_registered_event) | **DELETE** /events/{event_id} | DeleteRegisteredEvent
-[**list_registered_events**](EventsApi.md#list_registered_events) | **GET** /events | ListRegisteredEvents
-[**retrieve_registered_event**](EventsApi.md#retrieve_registered_event) | **GET** /events/{event_id} | RetrieveRegisteredEvent
-[**update_registered_event**](EventsApi.md#update_registered_event) | **PUT** /events/{event_id} | UpdateRegisteredEvent
+[**create_registered_event**](EventsApi.md#create_registered_event) | **POST** /events | Create Registered Event
+[**delete_registered_event**](EventsApi.md#delete_registered_event) | **DELETE** /events/{event_id} | Delete Registered Event
+[**list_registered_events**](EventsApi.md#list_registered_events) | **GET** /events | List Registered Events
+[**retrieve_registered_event**](EventsApi.md#retrieve_registered_event) | **GET** /events/{event_id} | Retrieve Registered Event
+[**update_registered_event**](EventsApi.md#update_registered_event) | **PUT** /events/{event_id} | Update Registered Event
 
 # **create_registered_event**
 > CreateEventResponse create_registered_event(body)
 
-CreateRegisteredEvent
+Create Registered Event
 
 Create new registered event. An `app_name`, `app_url`, and `event_type` must be provided. Either a `container_id` or `data_source_id` must also be provided.
 
@@ -31,7 +31,7 @@ api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
 body = deep_lynx.CreateRegisteredEventRequest() # CreateRegisteredEventRequest | 
 
 try:
-    # CreateRegisteredEvent
+    # Create Registered Event
     api_response = api_instance.create_registered_event(body)
     pprint(api_response)
 except ApiException as e:
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 # **delete_registered_event**
 > Generic200Response delete_registered_event(event_id)
 
-DeleteRegisteredEvent
+Delete Registered Event
 
 Delete a registered event.
 
@@ -80,7 +80,7 @@ api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
 event_id = 'event_id_example' # str | 
 
 try:
-    # DeleteRegisteredEvent
+    # Delete Registered Event
     api_response = api_instance.delete_registered_event(event_id)
     pprint(api_response)
 except ApiException as e:
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 # **list_registered_events**
 > ListEventsResponse list_registered_events()
 
-ListRegisteredEvents
+List Registered Events
 
 Lists all registered events
 
@@ -128,7 +128,7 @@ from pprint import pprint
 api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
 
 try:
-    # ListRegisteredEvents
+    # List Registered Events
     api_response = api_instance.list_registered_events()
     pprint(api_response)
 except ApiException as e:
@@ -144,7 +144,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -156,7 +156,7 @@ This endpoint does not need any parameter.
 # **retrieve_registered_event**
 > GetEventResponse retrieve_registered_event(event_id)
 
-RetrieveRegisteredEvent
+Retrieve Registered Event
 
 Retrieve a registered event
 
@@ -174,7 +174,7 @@ api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
 event_id = 'event_id_example' # str | 
 
 try:
-    # RetrieveRegisteredEvent
+    # Retrieve Registered Event
     api_response = api_instance.retrieve_registered_event(event_id)
     pprint(api_response)
 except ApiException as e:
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 # **update_registered_event**
 > Generic200Response update_registered_event(event_id, body=body, active=active)
 
-UpdateRegisteredEvent
+Update Registered Event
 
 Update a registered event. If the `active` query paramter is provided with a value of true or false, the event will be activated/deactivated.
 
@@ -225,7 +225,7 @@ body = deep_lynx.UpdateRegisteredEventRequest() # UpdateRegisteredEventRequest |
 active = true # bool |  (optional)
 
 try:
-    # UpdateRegisteredEvent
+    # Update Registered Event
     api_response = api_instance.update_registered_event(event_id, body=body, active=active)
     pprint(api_response)
 except ApiException as e:
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[httpBearer](../README.md#httpBearer)
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
