@@ -30,6 +30,7 @@ from deep_lynx.api.metatype_relationship_pairs_api import MetatypeRelationshipPa
 from deep_lynx.api.metatype_relationships_api import MetatypeRelationshipsApi
 from deep_lynx.api.metatypes_api import MetatypesApi
 from deep_lynx.api.misc_api import MiscApi
+from deep_lynx.api.tasks_api import TasksApi
 from deep_lynx.api.users_api import UsersApi
 # import ApiClient
 from deep_lynx.api_client import ApiClient
@@ -69,6 +70,7 @@ from deep_lynx.models.create_metatypes_response import CreateMetatypesResponse
 from deep_lynx.models.create_or_update_edges_request import CreateOrUpdateEdgesRequest
 from deep_lynx.models.create_or_update_nodes_request import CreateOrUpdateNodesRequest
 from deep_lynx.models.create_registered_event_request import CreateRegisteredEventRequest
+from deep_lynx.models.create_task_response import CreateTaskResponse
 from deep_lynx.models.create_transformation_response import CreateTransformationResponse
 from deep_lynx.models.create_type_mapping_transformations_request import CreateTypeMappingTransformationsRequest
 from deep_lynx.models.data_export_config import DataExportConfig
@@ -101,6 +103,7 @@ from deep_lynx.models.get_metatype_relationship_pair_response import GetMetatype
 from deep_lynx.models.get_metatype_relationship_response import GetMetatypeRelationshipResponse
 from deep_lynx.models.get_metatype_response import GetMetatypeResponse
 from deep_lynx.models.get_node_response import GetNodeResponse
+from deep_lynx.models.get_task_response import GetTaskResponse
 from deep_lynx.models.get_user_response import GetUserResponse
 from deep_lynx.models.import_data_type_mapping_response import ImportDataTypeMappingResponse
 from deep_lynx.models.import_data_type_mapping_response_inner import ImportDataTypeMappingResponseInner
@@ -126,6 +129,7 @@ from deep_lynx.models.list_metatypes_response import ListMetatypesResponse
 from deep_lynx.models.list_node_files import ListNodeFiles
 from deep_lynx.models.list_nodes_by_metatype_response import ListNodesByMetatypeResponse
 from deep_lynx.models.list_nodes_response import ListNodesResponse
+from deep_lynx.models.list_tasks_response import ListTasksResponse
 from deep_lynx.models.list_transformation_response import ListTransformationResponse
 from deep_lynx.models.list_user_invites_response import ListUserInvitesResponse
 from deep_lynx.models.list_user_permissions_response import ListUserPermissionsResponse
@@ -157,6 +161,8 @@ from deep_lynx.models.rsa_verify_request import RSAVerifyRequest
 from deep_lynx.models.relationship_key import RelationshipKey
 from deep_lynx.models.relationship_pair import RelationshipPair
 from deep_lynx.models.relationship_pair_destination_metatype import RelationshipPairDestinationMetatype
+from deep_lynx.models.task import Task
+from deep_lynx.models.task_config import TaskConfig
 from deep_lynx.models.token_exchange_request import TokenExchangeRequest
 from deep_lynx.models.transformation import Transformation
 from deep_lynx.models.transformation_condition import TransformationCondition
@@ -177,6 +183,7 @@ from deep_lynx.models.update_metatype_relationship_response import UpdateMetatyp
 from deep_lynx.models.update_metatype_request import UpdateMetatypeRequest
 from deep_lynx.models.update_metatype_response import UpdateMetatypeResponse
 from deep_lynx.models.update_registered_event_request import UpdateRegisteredEventRequest
+from deep_lynx.models.update_task_response import UpdateTaskResponse
 from deep_lynx.models.update_transformation_response import UpdateTransformationResponse
 from deep_lynx.models.upload_file_response import UploadFileResponse
 from deep_lynx.models.user import User
