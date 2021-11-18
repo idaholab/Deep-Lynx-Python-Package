@@ -42,8 +42,10 @@ class BatchUpdateContainerResponse(object):
         self._value = None
         self._is_error = None
         self.discriminator = None
-        self.value = value
-        self.is_error = is_error
+        if value is not None:
+            self.value = value
+        if is_error is not None:
+            self.is_error = is_error
 
     @property
     def value(self):
@@ -63,8 +65,6 @@ class BatchUpdateContainerResponse(object):
         :param value: The value of this BatchUpdateContainerResponse.  # noqa: E501
         :type: list[Container]
         """
-        if value is None:
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
 
@@ -86,8 +86,6 @@ class BatchUpdateContainerResponse(object):
         :param is_error: The is_error of this BatchUpdateContainerResponse.  # noqa: E501
         :type: bool
         """
-        if is_error is None:
-            raise ValueError("Invalid value for `is_error`, must not be `None`")  # noqa: E501
 
         self._is_error = is_error
 

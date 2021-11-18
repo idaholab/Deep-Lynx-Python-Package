@@ -94,8 +94,10 @@ class User(object):
         self.active = active
         self.reset_required = reset_required
         self.email_valid = email_valid
-        self.permissions = permissions
-        self.roles = roles
+        if permissions is not None:
+            self.permissions = permissions
+        if roles is not None:
+            self.roles = roles
         self.id = id
         if identity_provider_id is not None:
             self.identity_provider_id = identity_provider_id
@@ -291,8 +293,6 @@ class User(object):
         :param permissions: The permissions of this User.  # noqa: E501
         :type: list[object]
         """
-        if permissions is None:
-            raise ValueError("Invalid value for `permissions`, must not be `None`")  # noqa: E501
 
         self._permissions = permissions
 
@@ -314,8 +314,6 @@ class User(object):
         :param roles: The roles of this User.  # noqa: E501
         :type: list[object]
         """
-        if roles is None:
-            raise ValueError("Invalid value for `roles`, must not be `None`")  # noqa: E501
 
         self._roles = roles
 

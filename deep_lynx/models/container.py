@@ -31,48 +31,54 @@ class Container(object):
         'name': 'str',
         'description': 'str',
         'id': 'str',
-        'archived': 'bool',
         'created_at': 'str',
         'modified_at': 'str',
         'created_by': 'str',
         'modified_by': 'str',
-        'config': 'ContainerConfig'
+        'config': 'ContainerConfig',
+        'deleted_at': 'str'
     }
 
     attribute_map = {
         'name': 'name',
         'description': 'description',
         'id': 'id',
-        'archived': 'archived',
         'created_at': 'created_at',
         'modified_at': 'modified_at',
         'created_by': 'created_by',
         'modified_by': 'modified_by',
-        'config': 'config'
+        'config': 'config',
+        'deleted_at': 'deleted_at'
     }
 
-    def __init__(self, name=None, description=None, id=None, archived=None, created_at=None, modified_at=None, created_by=None, modified_by=None, config=None):  # noqa: E501
+    def __init__(self, name=None, description=None, id=None, created_at=None, modified_at=None, created_by=None, modified_by=None, config=None, deleted_at=None):  # noqa: E501
         """Container - a model defined in Swagger"""  # noqa: E501
         self._name = None
         self._description = None
         self._id = None
-        self._archived = None
         self._created_at = None
         self._modified_at = None
         self._created_by = None
         self._modified_by = None
         self._config = None
+        self._deleted_at = None
         self.discriminator = None
         self.name = name
         self.description = description
-        self.id = id
-        self.archived = archived
-        self.created_at = created_at
-        self.modified_at = modified_at
-        self.created_by = created_by
-        self.modified_by = modified_by
+        if id is not None:
+            self.id = id
+        if created_at is not None:
+            self.created_at = created_at
+        if modified_at is not None:
+            self.modified_at = modified_at
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
         if config is not None:
             self.config = config
+        if deleted_at is not None:
+            self.deleted_at = deleted_at
 
     @property
     def name(self):
@@ -138,33 +144,8 @@ class Container(object):
         :param id: The id of this Container.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
-
-    @property
-    def archived(self):
-        """Gets the archived of this Container.  # noqa: E501
-
-
-        :return: The archived of this Container.  # noqa: E501
-        :rtype: bool
-        """
-        return self._archived
-
-    @archived.setter
-    def archived(self, archived):
-        """Sets the archived of this Container.
-
-
-        :param archived: The archived of this Container.  # noqa: E501
-        :type: bool
-        """
-        if archived is None:
-            raise ValueError("Invalid value for `archived`, must not be `None`")  # noqa: E501
-
-        self._archived = archived
 
     @property
     def created_at(self):
@@ -184,8 +165,6 @@ class Container(object):
         :param created_at: The created_at of this Container.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -207,8 +186,6 @@ class Container(object):
         :param modified_at: The modified_at of this Container.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -230,8 +207,6 @@ class Container(object):
         :param created_by: The created_by of this Container.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -253,8 +228,6 @@ class Container(object):
         :param modified_by: The modified_by of this Container.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 
@@ -278,6 +251,27 @@ class Container(object):
         """
 
         self._config = config
+
+    @property
+    def deleted_at(self):
+        """Gets the deleted_at of this Container.  # noqa: E501
+
+
+        :return: The deleted_at of this Container.  # noqa: E501
+        :rtype: str
+        """
+        return self._deleted_at
+
+    @deleted_at.setter
+    def deleted_at(self, deleted_at):
+        """Sets the deleted_at of this Container.
+
+
+        :param deleted_at: The deleted_at of this Container.  # noqa: E501
+        :type: str
+        """
+
+        self._deleted_at = deleted_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

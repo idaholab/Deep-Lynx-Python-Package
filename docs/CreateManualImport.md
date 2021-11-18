@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **str** |  | 
-**id** | **str** |  | 
-**data_source_id** | **str** |  | 
-**created_at** | **str** |  | 
-**modified_at** | **str** |  | 
-**created_by** | **str** |  | 
-**modified_by** | **str** |  | 
+**status** | **str** |  | [optional] 
+**id** | **str** |  | [optional] 
+**data_source_id** | **str** |  | [optional] 
+**created_at** | **str** |  | [optional] 
+**modified_at** | **str** |  | [optional] 
+**created_by** | **str** |  | [optional] 
+**modified_by** | **str** |  | [optional] 
 **reference** | **str** |  | [optional] 
 **status_message** | **str** |  | [optional] 
 

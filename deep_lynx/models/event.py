@@ -69,8 +69,10 @@ class Event(object):
         self._created_by = None
         self._modified_by = None
         self.discriminator = None
-        self.active = active
-        self.id = id
+        if active is not None:
+            self.active = active
+        if id is not None:
+            self.id = id
         self.app_name = app_name
         self.app_url = app_url
         if data_source_id is not None:
@@ -78,10 +80,14 @@ class Event(object):
         if container_id is not None:
             self.container_id = container_id
         self.event_type = event_type
-        self.created_at = created_at
-        self.modified_at = modified_at
-        self.created_by = created_by
-        self.modified_by = modified_by
+        if created_at is not None:
+            self.created_at = created_at
+        if modified_at is not None:
+            self.modified_at = modified_at
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
 
     @property
     def active(self):
@@ -101,8 +107,6 @@ class Event(object):
         :param active: The active of this Event.  # noqa: E501
         :type: bool
         """
-        if active is None:
-            raise ValueError("Invalid value for `active`, must not be `None`")  # noqa: E501
 
         self._active = active
 
@@ -124,8 +128,6 @@ class Event(object):
         :param id: The id of this Event.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -258,8 +260,6 @@ class Event(object):
         :param created_at: The created_at of this Event.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -281,8 +281,6 @@ class Event(object):
         :param modified_at: The modified_at of this Event.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -304,8 +302,6 @@ class Event(object):
         :param created_by: The created_by of this Event.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -327,8 +323,6 @@ class Event(object):
         :param modified_by: The modified_by of this Event.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 

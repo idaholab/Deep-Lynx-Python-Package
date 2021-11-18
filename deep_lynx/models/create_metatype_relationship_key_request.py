@@ -69,13 +69,18 @@ class CreateMetatypeRelationshipKeyRequest(object):
         self.name = name
         if required is not None:
             self.required = required
-        self.property_name = property_name
+        if property_name is not None:
+            self.property_name = property_name
         self.description = description
         self.data_type = data_type
-        self.cardinality = cardinality
-        self.validation = validation
-        self.unique = unique
-        self.options = options
+        if cardinality is not None:
+            self.cardinality = cardinality
+        if validation is not None:
+            self.validation = validation
+        if unique is not None:
+            self.unique = unique
+        if options is not None:
+            self.options = options
         if default_value is not None:
             self.default_value = default_value
 
@@ -141,8 +146,6 @@ class CreateMetatypeRelationshipKeyRequest(object):
         :param property_name: The property_name of this CreateMetatypeRelationshipKeyRequest.  # noqa: E501
         :type: str
         """
-        if property_name is None:
-            raise ValueError("Invalid value for `property_name`, must not be `None`")  # noqa: E501
 
         self._property_name = property_name
 
@@ -210,8 +213,6 @@ class CreateMetatypeRelationshipKeyRequest(object):
         :param cardinality: The cardinality of this CreateMetatypeRelationshipKeyRequest.  # noqa: E501
         :type: int
         """
-        if cardinality is None:
-            raise ValueError("Invalid value for `cardinality`, must not be `None`")  # noqa: E501
 
         self._cardinality = cardinality
 
@@ -233,8 +234,6 @@ class CreateMetatypeRelationshipKeyRequest(object):
         :param validation: The validation of this CreateMetatypeRelationshipKeyRequest.  # noqa: E501
         :type: KeyValidation
         """
-        if validation is None:
-            raise ValueError("Invalid value for `validation`, must not be `None`")  # noqa: E501
 
         self._validation = validation
 
@@ -256,8 +255,6 @@ class CreateMetatypeRelationshipKeyRequest(object):
         :param unique: The unique of this CreateMetatypeRelationshipKeyRequest.  # noqa: E501
         :type: bool
         """
-        if unique is None:
-            raise ValueError("Invalid value for `unique`, must not be `None`")  # noqa: E501
 
         self._unique = unique
 
@@ -279,8 +276,6 @@ class CreateMetatypeRelationshipKeyRequest(object):
         :param options: The options of this CreateMetatypeRelationshipKeyRequest.  # noqa: E501
         :type: list[str]
         """
-        if options is None:
-            raise ValueError("Invalid value for `options`, must not be `None`")  # noqa: E501
 
         self._options = options
 

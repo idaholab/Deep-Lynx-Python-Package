@@ -63,13 +63,20 @@ class CreateManualImport(object):
         self._reference = None
         self._status_message = None
         self.discriminator = None
-        self.status = status
-        self.id = id
-        self.data_source_id = data_source_id
-        self.created_at = created_at
-        self.modified_at = modified_at
-        self.created_by = created_by
-        self.modified_by = modified_by
+        if status is not None:
+            self.status = status
+        if id is not None:
+            self.id = id
+        if data_source_id is not None:
+            self.data_source_id = data_source_id
+        if created_at is not None:
+            self.created_at = created_at
+        if modified_at is not None:
+            self.modified_at = modified_at
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
         if reference is not None:
             self.reference = reference
         if status_message is not None:
@@ -93,8 +100,6 @@ class CreateManualImport(object):
         :param status: The status of this CreateManualImport.  # noqa: E501
         :type: str
         """
-        if status is None:
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -116,8 +121,6 @@ class CreateManualImport(object):
         :param id: The id of this CreateManualImport.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -139,8 +142,6 @@ class CreateManualImport(object):
         :param data_source_id: The data_source_id of this CreateManualImport.  # noqa: E501
         :type: str
         """
-        if data_source_id is None:
-            raise ValueError("Invalid value for `data_source_id`, must not be `None`")  # noqa: E501
 
         self._data_source_id = data_source_id
 
@@ -162,8 +163,6 @@ class CreateManualImport(object):
         :param created_at: The created_at of this CreateManualImport.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -185,8 +184,6 @@ class CreateManualImport(object):
         :param modified_at: The modified_at of this CreateManualImport.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -208,8 +205,6 @@ class CreateManualImport(object):
         :param created_by: The created_by of this CreateManualImport.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -231,8 +226,6 @@ class CreateManualImport(object):
         :param modified_by: The modified_by of this CreateManualImport.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 

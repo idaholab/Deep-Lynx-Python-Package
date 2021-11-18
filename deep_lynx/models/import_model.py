@@ -68,14 +68,20 @@ class ImportModel(object):
         self.discriminator = None
         if errors is not None:
             self.errors = errors
-        self.data_source_config = data_source_config
-        self.id = id
+        if data_source_config is not None:
+            self.data_source_config = data_source_config
+        if id is not None:
+            self.id = id
         self.data_source_id = data_source_id
         self.import_id = import_id
-        self.data = data
-        self.inserted_at = inserted_at
-        self.created_at = created_at
-        self.shape_hash = shape_hash
+        if data is not None:
+            self.data = data
+        if inserted_at is not None:
+            self.inserted_at = inserted_at
+        if created_at is not None:
+            self.created_at = created_at
+        if shape_hash is not None:
+            self.shape_hash = shape_hash
         if container_id is not None:
             self.container_id = container_id
 
@@ -118,8 +124,6 @@ class ImportModel(object):
         :param data_source_config: The data_source_config of this ImportModel.  # noqa: E501
         :type: DataSourceConfig
         """
-        if data_source_config is None:
-            raise ValueError("Invalid value for `data_source_config`, must not be `None`")  # noqa: E501
 
         self._data_source_config = data_source_config
 
@@ -141,8 +145,6 @@ class ImportModel(object):
         :param id: The id of this ImportModel.  # noqa: E501
         :type: float
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -210,8 +212,6 @@ class ImportModel(object):
         :param data: The data of this ImportModel.  # noqa: E501
         :type: object
         """
-        if data is None:
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 
@@ -233,8 +233,6 @@ class ImportModel(object):
         :param inserted_at: The inserted_at of this ImportModel.  # noqa: E501
         :type: str
         """
-        if inserted_at is None:
-            raise ValueError("Invalid value for `inserted_at`, must not be `None`")  # noqa: E501
 
         self._inserted_at = inserted_at
 
@@ -256,8 +254,6 @@ class ImportModel(object):
         :param created_at: The created_at of this ImportModel.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -279,8 +275,6 @@ class ImportModel(object):
         :param shape_hash: The shape_hash of this ImportModel.  # noqa: E501
         :type: str
         """
-        if shape_hash is None:
-            raise ValueError("Invalid value for `shape_hash`, must not be `None`")  # noqa: E501
 
         self._shape_hash = shape_hash
 

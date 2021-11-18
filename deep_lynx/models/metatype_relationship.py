@@ -68,13 +68,20 @@ class MetatypeRelationship(object):
         self.discriminator = None
         self.name = name
         self.description = description
-        self.container_id = container_id
-        self.id = id
-        self.archived = archived
-        self.created_at = created_at
-        self.modified_at = modified_at
-        self.created_by = created_by
-        self.modified_by = modified_by
+        if container_id is not None:
+            self.container_id = container_id
+        if id is not None:
+            self.id = id
+        if archived is not None:
+            self.archived = archived
+        if created_at is not None:
+            self.created_at = created_at
+        if modified_at is not None:
+            self.modified_at = modified_at
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
         if keys is not None:
             self.keys = keys
 
@@ -142,8 +149,6 @@ class MetatypeRelationship(object):
         :param container_id: The container_id of this MetatypeRelationship.  # noqa: E501
         :type: str
         """
-        if container_id is None:
-            raise ValueError("Invalid value for `container_id`, must not be `None`")  # noqa: E501
 
         self._container_id = container_id
 
@@ -165,8 +170,6 @@ class MetatypeRelationship(object):
         :param id: The id of this MetatypeRelationship.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -188,8 +191,6 @@ class MetatypeRelationship(object):
         :param archived: The archived of this MetatypeRelationship.  # noqa: E501
         :type: bool
         """
-        if archived is None:
-            raise ValueError("Invalid value for `archived`, must not be `None`")  # noqa: E501
 
         self._archived = archived
 
@@ -211,8 +212,6 @@ class MetatypeRelationship(object):
         :param created_at: The created_at of this MetatypeRelationship.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -234,8 +233,6 @@ class MetatypeRelationship(object):
         :param modified_at: The modified_at of this MetatypeRelationship.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -257,8 +254,6 @@ class MetatypeRelationship(object):
         :param created_by: The created_by of this MetatypeRelationship.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -280,8 +275,6 @@ class MetatypeRelationship(object):
         :param modified_by: The modified_by of this MetatypeRelationship.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 

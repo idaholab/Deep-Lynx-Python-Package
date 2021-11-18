@@ -31,28 +31,50 @@ class DataStaging(object):
         'data_source_id': 'str',
         'import_id': 'str',
         'data': 'object',
-        'shape_hash': 'str'
+        'shape_hash': 'str',
+        'id': 'str',
+        'errors': 'str',
+        'inserted_at': 'str',
+        'created_at': 'str'
     }
 
     attribute_map = {
         'data_source_id': 'data_source_id',
         'import_id': 'import_id',
         'data': 'data',
-        'shape_hash': 'shape_hash'
+        'shape_hash': 'shape_hash',
+        'id': 'id',
+        'errors': 'errors',
+        'inserted_at': 'inserted_at',
+        'created_at': 'created_at'
     }
 
-    def __init__(self, data_source_id=None, import_id=None, data=None, shape_hash=None):  # noqa: E501
+    def __init__(self, data_source_id=None, import_id=None, data=None, shape_hash=None, id=None, errors=None, inserted_at=None, created_at=None):  # noqa: E501
         """DataStaging - a model defined in Swagger"""  # noqa: E501
         self._data_source_id = None
         self._import_id = None
         self._data = None
         self._shape_hash = None
+        self._id = None
+        self._errors = None
+        self._inserted_at = None
+        self._created_at = None
         self.discriminator = None
-        self.data_source_id = data_source_id
+        if data_source_id is not None:
+            self.data_source_id = data_source_id
         self.import_id = import_id
-        self.data = data
+        if data is not None:
+            self.data = data
         if shape_hash is not None:
             self.shape_hash = shape_hash
+        if id is not None:
+            self.id = id
+        if errors is not None:
+            self.errors = errors
+        if inserted_at is not None:
+            self.inserted_at = inserted_at
+        if created_at is not None:
+            self.created_at = created_at
 
     @property
     def data_source_id(self):
@@ -72,8 +94,6 @@ class DataStaging(object):
         :param data_source_id: The data_source_id of this DataStaging.  # noqa: E501
         :type: str
         """
-        if data_source_id is None:
-            raise ValueError("Invalid value for `data_source_id`, must not be `None`")  # noqa: E501
 
         self._data_source_id = data_source_id
 
@@ -118,8 +138,6 @@ class DataStaging(object):
         :param data: The data of this DataStaging.  # noqa: E501
         :type: object
         """
-        if data is None:
-            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 
@@ -143,6 +161,90 @@ class DataStaging(object):
         """
 
         self._shape_hash = shape_hash
+
+    @property
+    def id(self):
+        """Gets the id of this DataStaging.  # noqa: E501
+
+
+        :return: The id of this DataStaging.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this DataStaging.
+
+
+        :param id: The id of this DataStaging.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
+    def errors(self):
+        """Gets the errors of this DataStaging.  # noqa: E501
+
+
+        :return: The errors of this DataStaging.  # noqa: E501
+        :rtype: str
+        """
+        return self._errors
+
+    @errors.setter
+    def errors(self, errors):
+        """Sets the errors of this DataStaging.
+
+
+        :param errors: The errors of this DataStaging.  # noqa: E501
+        :type: str
+        """
+
+        self._errors = errors
+
+    @property
+    def inserted_at(self):
+        """Gets the inserted_at of this DataStaging.  # noqa: E501
+
+
+        :return: The inserted_at of this DataStaging.  # noqa: E501
+        :rtype: str
+        """
+        return self._inserted_at
+
+    @inserted_at.setter
+    def inserted_at(self, inserted_at):
+        """Sets the inserted_at of this DataStaging.
+
+
+        :param inserted_at: The inserted_at of this DataStaging.  # noqa: E501
+        :type: str
+        """
+
+        self._inserted_at = inserted_at
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this DataStaging.  # noqa: E501
+
+
+        :return: The created_at of this DataStaging.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this DataStaging.
+
+
+        :param created_at: The created_at of this DataStaging.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
 
     def to_dict(self):
         """Returns the model properties as a dict"""

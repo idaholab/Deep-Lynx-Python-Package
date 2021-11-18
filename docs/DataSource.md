@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **adapter_type** | **str** |  | 
-**status** | **str** |  | 
+**status** | **str** |  | [optional] 
 **active** | **bool** |  | 
 **config** | [**DataSourceConfig**](DataSourceConfig.md) |  | [optional] 
 **id** | **str** |  | [optional] 

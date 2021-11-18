@@ -79,7 +79,8 @@ class DataSource(object):
         self._status_message = None
         self.discriminator = None
         self.adapter_type = adapter_type
-        self.status = status
+        if status is not None:
+            self.status = status
         self.active = active
         if config is not None:
             self.config = config
@@ -143,8 +144,6 @@ class DataSource(object):
         :param status: The status of this DataSource.  # noqa: E501
         :type: str
         """
-        if status is None:
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 

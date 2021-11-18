@@ -76,8 +76,10 @@ class CreateOrUpdateEdgesRequest(object):
         self.data_source_id = data_source_id
         self.origin_id = origin_id
         self.destination_id = destination_id
-        self.origin_original_id = origin_original_id
-        self.destination_original_id = destination_original_id
+        if origin_original_id is not None:
+            self.origin_original_id = origin_original_id
+        if destination_original_id is not None:
+            self.destination_original_id = destination_original_id
         self.relationship_pair_id = relationship_pair_id
         if origin_data_source_id is not None:
             self.origin_data_source_id = origin_data_source_id
@@ -87,7 +89,8 @@ class CreateOrUpdateEdgesRequest(object):
             self.destination_metatype_id = destination_metatype_id
         if origin_metatype_id is not None:
             self.origin_metatype_id = origin_metatype_id
-        self.properties = properties
+        if properties is not None:
+            self.properties = properties
 
     @property
     def container_id(self):
@@ -199,8 +202,6 @@ class CreateOrUpdateEdgesRequest(object):
         :param origin_original_id: The origin_original_id of this CreateOrUpdateEdgesRequest.  # noqa: E501
         :type: str
         """
-        if origin_original_id is None:
-            raise ValueError("Invalid value for `origin_original_id`, must not be `None`")  # noqa: E501
 
         self._origin_original_id = origin_original_id
 
@@ -222,8 +223,6 @@ class CreateOrUpdateEdgesRequest(object):
         :param destination_original_id: The destination_original_id of this CreateOrUpdateEdgesRequest.  # noqa: E501
         :type: str
         """
-        if destination_original_id is None:
-            raise ValueError("Invalid value for `destination_original_id`, must not be `None`")  # noqa: E501
 
         self._destination_original_id = destination_original_id
 
@@ -352,8 +351,6 @@ class CreateOrUpdateEdgesRequest(object):
         :param properties: The properties of this CreateOrUpdateEdgesRequest.  # noqa: E501
         :type: object
         """
-        if properties is None:
-            raise ValueError("Invalid value for `properties`, must not be `None`")  # noqa: E501
 
         self._properties = properties
 

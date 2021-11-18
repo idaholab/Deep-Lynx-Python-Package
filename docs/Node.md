@@ -3,24 +3,23 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**properties** | **object** |  | 
-**id** | **str** |  | 
+**id** | **str** |  | [optional] 
 **container_id** | **str** |  | 
+**metatype_id** | **str** |  | [optional] 
 **metatype** | [**NodeMetatypeBody**](NodeMetatypeBody.md) |  | [optional] 
-**metatype_name** | **str** |  | 
-**graph_id** | **str** |  | 
-**archived** | **bool** |  | 
-**created_at** | **str** |  | 
+**metatype_name** | **str** |  | [optional] 
+**data_source_id** | **str** |  | [optional] 
+**import_data_id** | **str** |  | [optional] 
+**data_staging_id** | **float** |  | [optional] 
+**type_mapping_transformation_id** | **str** |  | [optional] 
+**original_data_id** | **str** |  | [optional] 
+**properties** | **object** |  | [optional] 
+**metadata** | **object** |  | [optional] 
+**created_at** | **str** |  | [optional] 
 **modified_at** | **str** |  | [optional] 
-**original_data_id** | **str** |  | 
-**data_source_id** | **str** |  | 
 **deleted_at** | **str** |  | [optional] 
-**data_staging_id** | **float** |  | 
-**import_data_id** | **str** |  | 
-**type_mapping_transformation_id** | **str** |  | 
-**composite_original_id** | **str** |  | 
-**created_by** | **str** |  | 
-**modified_by** | **str** |  | 
+**created_by** | **str** |  | [optional] 
+**modified_by** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

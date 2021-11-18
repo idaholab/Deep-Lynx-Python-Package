@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **active** | **bool** |  | 
 **reset_required** | **bool** |  | 
 **email_valid** | **bool** |  | 
-**permissions** | **list[object]** |  | 
-**roles** | **list[object]** |  | 
+**permissions** | **list[object]** |  | [optional] 
+**roles** | **list[object]** |  | [optional] 
 **id** | **str** |  | 
 **identity_provider_id** | **str** |  | [optional] 
 **created_at** | **str** |  | [optional] 

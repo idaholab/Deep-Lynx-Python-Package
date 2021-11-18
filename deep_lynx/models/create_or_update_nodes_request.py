@@ -61,7 +61,8 @@ class CreateOrUpdateNodesRequest(object):
             self.original_data_id = original_data_id
         self.data_source_id = data_source_id
         self.metatype_id = metatype_id
-        self.properties = properties
+        if properties is not None:
+            self.properties = properties
 
     @property
     def id(self):
@@ -194,8 +195,6 @@ class CreateOrUpdateNodesRequest(object):
         :param properties: The properties of this CreateOrUpdateNodesRequest.  # noqa: E501
         :type: object
         """
-        if properties is None:
-            raise ValueError("Invalid value for `properties`, must not be `None`")  # noqa: E501
 
         self._properties = properties
 

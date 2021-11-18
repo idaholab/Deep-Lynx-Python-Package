@@ -28,133 +28,127 @@ class Edge(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'properties': 'object',
         'id': 'str',
         'container_id': 'str',
         'relationship_pair_id': 'str',
-        'graph_id': 'str',
-        'origin_node_id': 'str',
+        'data_source_id': 'str',
+        'import_data_id': 'str',
+        'data_staging_id': 'str',
+        'type_mapping_transformation_id': 'str',
+        'origin_id': 'str',
+        'destination_id': 'str',
+        'origin_original_id': 'str',
+        'origin_data_source_id': 'str',
+        'origin_metatype_id': 'str',
+        'destination_original_id': 'str',
+        'destination_data_source_id': 'str',
+        'destination_metatype_id': 'str',
         'destination_node_id': 'str',
-        'archived': 'bool',
+        'properties': 'object',
+        'metadata': 'object',
         'created_at': 'str',
         'modified_at': 'str',
-        'original_data_id': 'str',
-        'data_source_id': 'str',
-        'origin_node_original_id': 'str',
-        'destination_node_original_id': 'str',
         'deleted_at': 'str',
-        'data_staging_id': 'float',
-        'import_data_id': 'str',
-        'type_mapping_transformation_id': 'str',
-        'composite_original_id': 'object',
-        'origin_node_composite_original_id': 'str',
-        'destination_node_composite_original_id': 'str',
         'created_by': 'str',
         'modified_by': 'str'
     }
 
     attribute_map = {
-        'properties': 'properties',
         'id': 'id',
         'container_id': 'container_id',
         'relationship_pair_id': 'relationship_pair_id',
-        'graph_id': 'graph_id',
-        'origin_node_id': 'origin_node_id',
+        'data_source_id': 'data_source_id',
+        'import_data_id': 'import_data_id',
+        'data_staging_id': 'data_staging_id',
+        'type_mapping_transformation_id': 'type_mapping_transformation_id',
+        'origin_id': 'origin_id',
+        'destination_id': 'destination_id',
+        'origin_original_id': 'origin_original_id',
+        'origin_data_source_id': 'origin_data_source_id',
+        'origin_metatype_id': 'origin_metatype_id',
+        'destination_original_id': 'destination_original_id',
+        'destination_data_source_id': 'destination_data_source_id',
+        'destination_metatype_id': 'destination_metatype_id',
         'destination_node_id': 'destination_node_id',
-        'archived': 'archived',
+        'properties': 'properties',
+        'metadata': 'metadata',
         'created_at': 'created_at',
         'modified_at': 'modified_at',
-        'original_data_id': 'original_data_id',
-        'data_source_id': 'data_source_id',
-        'origin_node_original_id': 'origin_node_original_id',
-        'destination_node_original_id': 'destination_node_original_id',
         'deleted_at': 'deleted_at',
-        'data_staging_id': 'data_staging_id',
-        'import_data_id': 'import_data_id',
-        'type_mapping_transformation_id': 'type_mapping_transformation_id',
-        'composite_original_id': 'composite_original_id',
-        'origin_node_composite_original_id': 'origin_node_composite_original_id',
-        'destination_node_composite_original_id': 'destination_node_composite_original_id',
         'created_by': 'created_by',
         'modified_by': 'modified_by'
     }
 
-    def __init__(self, properties=None, id=None, container_id=None, relationship_pair_id=None, graph_id=None, origin_node_id=None, destination_node_id=None, archived=None, created_at=None, modified_at=None, original_data_id=None, data_source_id=None, origin_node_original_id=None, destination_node_original_id=None, deleted_at=None, data_staging_id=None, import_data_id=None, type_mapping_transformation_id=None, composite_original_id=None, origin_node_composite_original_id=None, destination_node_composite_original_id=None, created_by=None, modified_by=None):  # noqa: E501
+    def __init__(self, id=None, container_id=None, relationship_pair_id=None, data_source_id=None, import_data_id=None, data_staging_id=None, type_mapping_transformation_id=None, origin_id=None, destination_id=None, origin_original_id=None, origin_data_source_id=None, origin_metatype_id=None, destination_original_id=None, destination_data_source_id=None, destination_metatype_id=None, destination_node_id=None, properties=None, metadata=None, created_at=None, modified_at=None, deleted_at=None, created_by=None, modified_by=None):  # noqa: E501
         """Edge - a model defined in Swagger"""  # noqa: E501
-        self._properties = None
         self._id = None
         self._container_id = None
         self._relationship_pair_id = None
-        self._graph_id = None
-        self._origin_node_id = None
+        self._data_source_id = None
+        self._import_data_id = None
+        self._data_staging_id = None
+        self._type_mapping_transformation_id = None
+        self._origin_id = None
+        self._destination_id = None
+        self._origin_original_id = None
+        self._origin_data_source_id = None
+        self._origin_metatype_id = None
+        self._destination_original_id = None
+        self._destination_data_source_id = None
+        self._destination_metatype_id = None
         self._destination_node_id = None
-        self._archived = None
+        self._properties = None
+        self._metadata = None
         self._created_at = None
         self._modified_at = None
-        self._original_data_id = None
-        self._data_source_id = None
-        self._origin_node_original_id = None
-        self._destination_node_original_id = None
         self._deleted_at = None
-        self._data_staging_id = None
-        self._import_data_id = None
-        self._type_mapping_transformation_id = None
-        self._composite_original_id = None
-        self._origin_node_composite_original_id = None
-        self._destination_node_composite_original_id = None
         self._created_by = None
         self._modified_by = None
         self.discriminator = None
-        self.properties = properties
-        self.id = id
+        if id is not None:
+            self.id = id
         self.container_id = container_id
         self.relationship_pair_id = relationship_pair_id
-        self.graph_id = graph_id
-        self.origin_node_id = origin_node_id
-        self.destination_node_id = destination_node_id
-        self.archived = archived
-        self.created_at = created_at
+        if data_source_id is not None:
+            self.data_source_id = data_source_id
+        if import_data_id is not None:
+            self.import_data_id = import_data_id
+        if data_staging_id is not None:
+            self.data_staging_id = data_staging_id
+        if type_mapping_transformation_id is not None:
+            self.type_mapping_transformation_id = type_mapping_transformation_id
+        if origin_id is not None:
+            self.origin_id = origin_id
+        if destination_id is not None:
+            self.destination_id = destination_id
+        if origin_original_id is not None:
+            self.origin_original_id = origin_original_id
+        if origin_data_source_id is not None:
+            self.origin_data_source_id = origin_data_source_id
+        if origin_metatype_id is not None:
+            self.origin_metatype_id = origin_metatype_id
+        if destination_original_id is not None:
+            self.destination_original_id = destination_original_id
+        if destination_data_source_id is not None:
+            self.destination_data_source_id = destination_data_source_id
+        if destination_metatype_id is not None:
+            self.destination_metatype_id = destination_metatype_id
+        if destination_node_id is not None:
+            self.destination_node_id = destination_node_id
+        if properties is not None:
+            self.properties = properties
+        if metadata is not None:
+            self.metadata = metadata
+        if created_at is not None:
+            self.created_at = created_at
         if modified_at is not None:
             self.modified_at = modified_at
-        if original_data_id is not None:
-            self.original_data_id = original_data_id
-        self.data_source_id = data_source_id
-        self.origin_node_original_id = origin_node_original_id
-        self.destination_node_original_id = destination_node_original_id
         if deleted_at is not None:
             self.deleted_at = deleted_at
-        self.data_staging_id = data_staging_id
-        self.import_data_id = import_data_id
-        self.type_mapping_transformation_id = type_mapping_transformation_id
-        if composite_original_id is not None:
-            self.composite_original_id = composite_original_id
-        self.origin_node_composite_original_id = origin_node_composite_original_id
-        self.destination_node_composite_original_id = destination_node_composite_original_id
-        self.created_by = created_by
-        self.modified_by = modified_by
-
-    @property
-    def properties(self):
-        """Gets the properties of this Edge.  # noqa: E501
-
-
-        :return: The properties of this Edge.  # noqa: E501
-        :rtype: object
-        """
-        return self._properties
-
-    @properties.setter
-    def properties(self, properties):
-        """Sets the properties of this Edge.
-
-
-        :param properties: The properties of this Edge.  # noqa: E501
-        :type: object
-        """
-        if properties is None:
-            raise ValueError("Invalid value for `properties`, must not be `None`")  # noqa: E501
-
-        self._properties = properties
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
 
     @property
     def id(self):
@@ -174,8 +168,6 @@ class Edge(object):
         :param id: The id of this Edge.  # noqa: E501
         :type: str
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -226,50 +218,256 @@ class Edge(object):
         self._relationship_pair_id = relationship_pair_id
 
     @property
-    def graph_id(self):
-        """Gets the graph_id of this Edge.  # noqa: E501
+    def data_source_id(self):
+        """Gets the data_source_id of this Edge.  # noqa: E501
 
 
-        :return: The graph_id of this Edge.  # noqa: E501
+        :return: The data_source_id of this Edge.  # noqa: E501
         :rtype: str
         """
-        return self._graph_id
+        return self._data_source_id
 
-    @graph_id.setter
-    def graph_id(self, graph_id):
-        """Sets the graph_id of this Edge.
+    @data_source_id.setter
+    def data_source_id(self, data_source_id):
+        """Sets the data_source_id of this Edge.
 
 
-        :param graph_id: The graph_id of this Edge.  # noqa: E501
+        :param data_source_id: The data_source_id of this Edge.  # noqa: E501
         :type: str
         """
-        if graph_id is None:
-            raise ValueError("Invalid value for `graph_id`, must not be `None`")  # noqa: E501
 
-        self._graph_id = graph_id
+        self._data_source_id = data_source_id
 
     @property
-    def origin_node_id(self):
-        """Gets the origin_node_id of this Edge.  # noqa: E501
+    def import_data_id(self):
+        """Gets the import_data_id of this Edge.  # noqa: E501
 
 
-        :return: The origin_node_id of this Edge.  # noqa: E501
+        :return: The import_data_id of this Edge.  # noqa: E501
         :rtype: str
         """
-        return self._origin_node_id
+        return self._import_data_id
 
-    @origin_node_id.setter
-    def origin_node_id(self, origin_node_id):
-        """Sets the origin_node_id of this Edge.
+    @import_data_id.setter
+    def import_data_id(self, import_data_id):
+        """Sets the import_data_id of this Edge.
 
 
-        :param origin_node_id: The origin_node_id of this Edge.  # noqa: E501
+        :param import_data_id: The import_data_id of this Edge.  # noqa: E501
         :type: str
         """
-        if origin_node_id is None:
-            raise ValueError("Invalid value for `origin_node_id`, must not be `None`")  # noqa: E501
 
-        self._origin_node_id = origin_node_id
+        self._import_data_id = import_data_id
+
+    @property
+    def data_staging_id(self):
+        """Gets the data_staging_id of this Edge.  # noqa: E501
+
+
+        :return: The data_staging_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_staging_id
+
+    @data_staging_id.setter
+    def data_staging_id(self, data_staging_id):
+        """Sets the data_staging_id of this Edge.
+
+
+        :param data_staging_id: The data_staging_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._data_staging_id = data_staging_id
+
+    @property
+    def type_mapping_transformation_id(self):
+        """Gets the type_mapping_transformation_id of this Edge.  # noqa: E501
+
+
+        :return: The type_mapping_transformation_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._type_mapping_transformation_id
+
+    @type_mapping_transformation_id.setter
+    def type_mapping_transformation_id(self, type_mapping_transformation_id):
+        """Sets the type_mapping_transformation_id of this Edge.
+
+
+        :param type_mapping_transformation_id: The type_mapping_transformation_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._type_mapping_transformation_id = type_mapping_transformation_id
+
+    @property
+    def origin_id(self):
+        """Gets the origin_id of this Edge.  # noqa: E501
+
+
+        :return: The origin_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_id
+
+    @origin_id.setter
+    def origin_id(self, origin_id):
+        """Sets the origin_id of this Edge.
+
+
+        :param origin_id: The origin_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_id = origin_id
+
+    @property
+    def destination_id(self):
+        """Gets the destination_id of this Edge.  # noqa: E501
+
+
+        :return: The destination_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_id
+
+    @destination_id.setter
+    def destination_id(self, destination_id):
+        """Sets the destination_id of this Edge.
+
+
+        :param destination_id: The destination_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_id = destination_id
+
+    @property
+    def origin_original_id(self):
+        """Gets the origin_original_id of this Edge.  # noqa: E501
+
+
+        :return: The origin_original_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_original_id
+
+    @origin_original_id.setter
+    def origin_original_id(self, origin_original_id):
+        """Sets the origin_original_id of this Edge.
+
+
+        :param origin_original_id: The origin_original_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_original_id = origin_original_id
+
+    @property
+    def origin_data_source_id(self):
+        """Gets the origin_data_source_id of this Edge.  # noqa: E501
+
+
+        :return: The origin_data_source_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_data_source_id
+
+    @origin_data_source_id.setter
+    def origin_data_source_id(self, origin_data_source_id):
+        """Sets the origin_data_source_id of this Edge.
+
+
+        :param origin_data_source_id: The origin_data_source_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_data_source_id = origin_data_source_id
+
+    @property
+    def origin_metatype_id(self):
+        """Gets the origin_metatype_id of this Edge.  # noqa: E501
+
+
+        :return: The origin_metatype_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_metatype_id
+
+    @origin_metatype_id.setter
+    def origin_metatype_id(self, origin_metatype_id):
+        """Sets the origin_metatype_id of this Edge.
+
+
+        :param origin_metatype_id: The origin_metatype_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_metatype_id = origin_metatype_id
+
+    @property
+    def destination_original_id(self):
+        """Gets the destination_original_id of this Edge.  # noqa: E501
+
+
+        :return: The destination_original_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_original_id
+
+    @destination_original_id.setter
+    def destination_original_id(self, destination_original_id):
+        """Sets the destination_original_id of this Edge.
+
+
+        :param destination_original_id: The destination_original_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_original_id = destination_original_id
+
+    @property
+    def destination_data_source_id(self):
+        """Gets the destination_data_source_id of this Edge.  # noqa: E501
+
+
+        :return: The destination_data_source_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_data_source_id
+
+    @destination_data_source_id.setter
+    def destination_data_source_id(self, destination_data_source_id):
+        """Sets the destination_data_source_id of this Edge.
+
+
+        :param destination_data_source_id: The destination_data_source_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_data_source_id = destination_data_source_id
+
+    @property
+    def destination_metatype_id(self):
+        """Gets the destination_metatype_id of this Edge.  # noqa: E501
+
+
+        :return: The destination_metatype_id of this Edge.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_metatype_id
+
+    @destination_metatype_id.setter
+    def destination_metatype_id(self, destination_metatype_id):
+        """Sets the destination_metatype_id of this Edge.
+
+
+        :param destination_metatype_id: The destination_metatype_id of this Edge.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_metatype_id = destination_metatype_id
 
     @property
     def destination_node_id(self):
@@ -289,33 +487,50 @@ class Edge(object):
         :param destination_node_id: The destination_node_id of this Edge.  # noqa: E501
         :type: str
         """
-        if destination_node_id is None:
-            raise ValueError("Invalid value for `destination_node_id`, must not be `None`")  # noqa: E501
 
         self._destination_node_id = destination_node_id
 
     @property
-    def archived(self):
-        """Gets the archived of this Edge.  # noqa: E501
+    def properties(self):
+        """Gets the properties of this Edge.  # noqa: E501
 
 
-        :return: The archived of this Edge.  # noqa: E501
-        :rtype: bool
+        :return: The properties of this Edge.  # noqa: E501
+        :rtype: object
         """
-        return self._archived
+        return self._properties
 
-    @archived.setter
-    def archived(self, archived):
-        """Sets the archived of this Edge.
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this Edge.
 
 
-        :param archived: The archived of this Edge.  # noqa: E501
-        :type: bool
+        :param properties: The properties of this Edge.  # noqa: E501
+        :type: object
         """
-        if archived is None:
-            raise ValueError("Invalid value for `archived`, must not be `None`")  # noqa: E501
 
-        self._archived = archived
+        self._properties = properties
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this Edge.  # noqa: E501
+
+
+        :return: The metadata of this Edge.  # noqa: E501
+        :rtype: object
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this Edge.
+
+
+        :param metadata: The metadata of this Edge.  # noqa: E501
+        :type: object
+        """
+
+        self._metadata = metadata
 
     @property
     def created_at(self):
@@ -335,8 +550,6 @@ class Edge(object):
         :param created_at: The created_at of this Edge.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
         self._created_at = created_at
 
@@ -362,96 +575,6 @@ class Edge(object):
         self._modified_at = modified_at
 
     @property
-    def original_data_id(self):
-        """Gets the original_data_id of this Edge.  # noqa: E501
-
-
-        :return: The original_data_id of this Edge.  # noqa: E501
-        :rtype: str
-        """
-        return self._original_data_id
-
-    @original_data_id.setter
-    def original_data_id(self, original_data_id):
-        """Sets the original_data_id of this Edge.
-
-
-        :param original_data_id: The original_data_id of this Edge.  # noqa: E501
-        :type: str
-        """
-
-        self._original_data_id = original_data_id
-
-    @property
-    def data_source_id(self):
-        """Gets the data_source_id of this Edge.  # noqa: E501
-
-
-        :return: The data_source_id of this Edge.  # noqa: E501
-        :rtype: str
-        """
-        return self._data_source_id
-
-    @data_source_id.setter
-    def data_source_id(self, data_source_id):
-        """Sets the data_source_id of this Edge.
-
-
-        :param data_source_id: The data_source_id of this Edge.  # noqa: E501
-        :type: str
-        """
-        if data_source_id is None:
-            raise ValueError("Invalid value for `data_source_id`, must not be `None`")  # noqa: E501
-
-        self._data_source_id = data_source_id
-
-    @property
-    def origin_node_original_id(self):
-        """Gets the origin_node_original_id of this Edge.  # noqa: E501
-
-
-        :return: The origin_node_original_id of this Edge.  # noqa: E501
-        :rtype: str
-        """
-        return self._origin_node_original_id
-
-    @origin_node_original_id.setter
-    def origin_node_original_id(self, origin_node_original_id):
-        """Sets the origin_node_original_id of this Edge.
-
-
-        :param origin_node_original_id: The origin_node_original_id of this Edge.  # noqa: E501
-        :type: str
-        """
-        if origin_node_original_id is None:
-            raise ValueError("Invalid value for `origin_node_original_id`, must not be `None`")  # noqa: E501
-
-        self._origin_node_original_id = origin_node_original_id
-
-    @property
-    def destination_node_original_id(self):
-        """Gets the destination_node_original_id of this Edge.  # noqa: E501
-
-
-        :return: The destination_node_original_id of this Edge.  # noqa: E501
-        :rtype: str
-        """
-        return self._destination_node_original_id
-
-    @destination_node_original_id.setter
-    def destination_node_original_id(self, destination_node_original_id):
-        """Sets the destination_node_original_id of this Edge.
-
-
-        :param destination_node_original_id: The destination_node_original_id of this Edge.  # noqa: E501
-        :type: str
-        """
-        if destination_node_original_id is None:
-            raise ValueError("Invalid value for `destination_node_original_id`, must not be `None`")  # noqa: E501
-
-        self._destination_node_original_id = destination_node_original_id
-
-    @property
     def deleted_at(self):
         """Gets the deleted_at of this Edge.  # noqa: E501
 
@@ -473,142 +596,6 @@ class Edge(object):
         self._deleted_at = deleted_at
 
     @property
-    def data_staging_id(self):
-        """Gets the data_staging_id of this Edge.  # noqa: E501
-
-
-        :return: The data_staging_id of this Edge.  # noqa: E501
-        :rtype: float
-        """
-        return self._data_staging_id
-
-    @data_staging_id.setter
-    def data_staging_id(self, data_staging_id):
-        """Sets the data_staging_id of this Edge.
-
-
-        :param data_staging_id: The data_staging_id of this Edge.  # noqa: E501
-        :type: float
-        """
-        if data_staging_id is None:
-            raise ValueError("Invalid value for `data_staging_id`, must not be `None`")  # noqa: E501
-
-        self._data_staging_id = data_staging_id
-
-    @property
-    def import_data_id(self):
-        """Gets the import_data_id of this Edge.  # noqa: E501
-
-
-        :return: The import_data_id of this Edge.  # noqa: E501
-        :rtype: str
-        """
-        return self._import_data_id
-
-    @import_data_id.setter
-    def import_data_id(self, import_data_id):
-        """Sets the import_data_id of this Edge.
-
-
-        :param import_data_id: The import_data_id of this Edge.  # noqa: E501
-        :type: str
-        """
-        if import_data_id is None:
-            raise ValueError("Invalid value for `import_data_id`, must not be `None`")  # noqa: E501
-
-        self._import_data_id = import_data_id
-
-    @property
-    def type_mapping_transformation_id(self):
-        """Gets the type_mapping_transformation_id of this Edge.  # noqa: E501
-
-
-        :return: The type_mapping_transformation_id of this Edge.  # noqa: E501
-        :rtype: str
-        """
-        return self._type_mapping_transformation_id
-
-    @type_mapping_transformation_id.setter
-    def type_mapping_transformation_id(self, type_mapping_transformation_id):
-        """Sets the type_mapping_transformation_id of this Edge.
-
-
-        :param type_mapping_transformation_id: The type_mapping_transformation_id of this Edge.  # noqa: E501
-        :type: str
-        """
-        if type_mapping_transformation_id is None:
-            raise ValueError("Invalid value for `type_mapping_transformation_id`, must not be `None`")  # noqa: E501
-
-        self._type_mapping_transformation_id = type_mapping_transformation_id
-
-    @property
-    def composite_original_id(self):
-        """Gets the composite_original_id of this Edge.  # noqa: E501
-
-
-        :return: The composite_original_id of this Edge.  # noqa: E501
-        :rtype: object
-        """
-        return self._composite_original_id
-
-    @composite_original_id.setter
-    def composite_original_id(self, composite_original_id):
-        """Sets the composite_original_id of this Edge.
-
-
-        :param composite_original_id: The composite_original_id of this Edge.  # noqa: E501
-        :type: object
-        """
-
-        self._composite_original_id = composite_original_id
-
-    @property
-    def origin_node_composite_original_id(self):
-        """Gets the origin_node_composite_original_id of this Edge.  # noqa: E501
-
-
-        :return: The origin_node_composite_original_id of this Edge.  # noqa: E501
-        :rtype: str
-        """
-        return self._origin_node_composite_original_id
-
-    @origin_node_composite_original_id.setter
-    def origin_node_composite_original_id(self, origin_node_composite_original_id):
-        """Sets the origin_node_composite_original_id of this Edge.
-
-
-        :param origin_node_composite_original_id: The origin_node_composite_original_id of this Edge.  # noqa: E501
-        :type: str
-        """
-        if origin_node_composite_original_id is None:
-            raise ValueError("Invalid value for `origin_node_composite_original_id`, must not be `None`")  # noqa: E501
-
-        self._origin_node_composite_original_id = origin_node_composite_original_id
-
-    @property
-    def destination_node_composite_original_id(self):
-        """Gets the destination_node_composite_original_id of this Edge.  # noqa: E501
-
-
-        :return: The destination_node_composite_original_id of this Edge.  # noqa: E501
-        :rtype: str
-        """
-        return self._destination_node_composite_original_id
-
-    @destination_node_composite_original_id.setter
-    def destination_node_composite_original_id(self, destination_node_composite_original_id):
-        """Sets the destination_node_composite_original_id of this Edge.
-
-
-        :param destination_node_composite_original_id: The destination_node_composite_original_id of this Edge.  # noqa: E501
-        :type: str
-        """
-        if destination_node_composite_original_id is None:
-            raise ValueError("Invalid value for `destination_node_composite_original_id`, must not be `None`")  # noqa: E501
-
-        self._destination_node_composite_original_id = destination_node_composite_original_id
-
-    @property
     def created_by(self):
         """Gets the created_by of this Edge.  # noqa: E501
 
@@ -626,8 +613,6 @@ class Edge(object):
         :param created_by: The created_by of this Edge.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
 
         self._created_by = created_by
 
@@ -649,8 +634,6 @@ class Edge(object):
         :param modified_by: The modified_by of this Edge.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 
