@@ -34,7 +34,12 @@ class Task(object):
         'status': 'str',
         'query': 'str',
         'data': 'object',
-        'config': 'TaskConfig'
+        'config': 'TaskConfig',
+        'status_message': 'str',
+        'created_at': 'str',
+        'modified_at': 'str',
+        'created_by': 'str',
+        'modified_by': 'str'
     }
 
     attribute_map = {
@@ -44,10 +49,15 @@ class Task(object):
         'status': 'status',
         'query': 'query',
         'data': 'data',
-        'config': 'config'
+        'config': 'config',
+        'status_message': 'status_message',
+        'created_at': 'created_at',
+        'modified_at': 'modified_at',
+        'created_by': 'created_by',
+        'modified_by': 'modified_by'
     }
 
-    def __init__(self, id=None, container_id=None, task_type=None, status=None, query=None, data=None, config=None):  # noqa: E501
+    def __init__(self, id=None, container_id=None, task_type=None, status=None, query=None, data=None, config=None, status_message=None, created_at=None, modified_at=None, created_by=None, modified_by=None):  # noqa: E501
         """Task - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._container_id = None
@@ -56,6 +66,11 @@ class Task(object):
         self._query = None
         self._data = None
         self._config = None
+        self._status_message = None
+        self._created_at = None
+        self._modified_at = None
+        self._created_by = None
+        self._modified_by = None
         self.discriminator = None
         if id is not None:
             self.id = id
@@ -71,6 +86,16 @@ class Task(object):
             self.data = data
         if config is not None:
             self.config = config
+        if status_message is not None:
+            self.status_message = status_message
+        if created_at is not None:
+            self.created_at = created_at
+        if modified_at is not None:
+            self.modified_at = modified_at
+        if created_by is not None:
+            self.created_by = created_by
+        if modified_by is not None:
+            self.modified_by = modified_by
 
     @property
     def id(self):
@@ -218,6 +243,111 @@ class Task(object):
         """
 
         self._config = config
+
+    @property
+    def status_message(self):
+        """Gets the status_message of this Task.  # noqa: E501
+
+
+        :return: The status_message of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._status_message
+
+    @status_message.setter
+    def status_message(self, status_message):
+        """Sets the status_message of this Task.
+
+
+        :param status_message: The status_message of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._status_message = status_message
+
+    @property
+    def created_at(self):
+        """Gets the created_at of this Task.  # noqa: E501
+
+
+        :return: The created_at of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_at
+
+    @created_at.setter
+    def created_at(self, created_at):
+        """Sets the created_at of this Task.
+
+
+        :param created_at: The created_at of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._created_at = created_at
+
+    @property
+    def modified_at(self):
+        """Gets the modified_at of this Task.  # noqa: E501
+
+
+        :return: The modified_at of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._modified_at
+
+    @modified_at.setter
+    def modified_at(self, modified_at):
+        """Sets the modified_at of this Task.
+
+
+        :param modified_at: The modified_at of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._modified_at = modified_at
+
+    @property
+    def created_by(self):
+        """Gets the created_by of this Task.  # noqa: E501
+
+
+        :return: The created_by of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_by
+
+    @created_by.setter
+    def created_by(self, created_by):
+        """Sets the created_by of this Task.
+
+
+        :param created_by: The created_by of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._created_by = created_by
+
+    @property
+    def modified_by(self):
+        """Gets the modified_by of this Task.  # noqa: E501
+
+
+        :return: The modified_by of this Task.  # noqa: E501
+        :rtype: str
+        """
+        return self._modified_by
+
+    @modified_by.setter
+    def modified_by(self, modified_by):
+        """Sets the modified_by of this Task.
+
+
+        :param modified_by: The modified_by of this Task.  # noqa: E501
+        :type: str
+        """
+
+        self._modified_by = modified_by
 
     def to_dict(self):
         """Returns the model properties as a dict"""
