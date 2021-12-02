@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**list_metatypes**](MetatypesApi.md#list_metatypes) | **GET** /containers/{container_id}/metatypes | List Metatypes
 [**retrieve_metaype**](MetatypesApi.md#retrieve_metaype) | **GET** /containers/{container_id}/metatypes/{metatype_id} | Retrieve Metatype
 [**update_metatype**](MetatypesApi.md#update_metatype) | **PUT** /containers/{container_id}/metatypes/{metatype_id} | Update Metatype
+[**validate_metatype_properties**](MetatypesApi.md#validate_metatype_properties) | **POST** /containers/{container_id}/metatypes/{metatype_id} | Validate Metatype Properties
 
 # **archive_metatype**
 > Generic200Response archive_metatype(container_id, metatype_id)
@@ -269,6 +270,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UpdateMetatypeResponse**](UpdateMetatypeResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **validate_metatype_properties**
+> ValidateMetatypePropertiesResponse validate_metatype_properties(container_id, metatype_id, body=body)
+
+Validate Metatype Properties
+
+Returns any errors associated with the intended properties or keys for a metatype or else the data itself if no errors are present.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.MetatypesApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+metatype_id = 'metatype_id_example' # str | 
+body = NULL # object |  (optional)
+
+try:
+    # Validate Metatype Properties
+    api_response = api_instance.validate_metatype_properties(container_id, metatype_id, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MetatypesApi->validate_metatype_properties: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **metatype_id** | **str**|  | 
+ **body** | [**object**](object.md)|  | [optional] 
+
+### Return type
+
+[**ValidateMetatypePropertiesResponse**](ValidateMetatypePropertiesResponse.md)
 
 ### Authorization
 

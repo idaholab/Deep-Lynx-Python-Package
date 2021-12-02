@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost:8090*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**exchange_o_auth_token**](AuthenticationApi.md#exchange_o_auth_token) | **POST** /oauth/exchange | Exchange OAuth Token
-[**post_containers_container_id_metatypes_metatype_id**](AuthenticationApi.md#post_containers_container_id_metatypes_metatype_id) | **POST** /containers/{container_id}/metatypes/{metatype_id} | Validate Metatype Properties
 [**retrieve_o_auth_token**](AuthenticationApi.md#retrieve_o_auth_token) | **GET** /oauth/token | Retrieve OAuth Token
 [**rsa_cancel**](AuthenticationApi.md#rsa_cancel) | **POST** /rsa/cancel | RSA Cancel
 [**rsa_initialize**](AuthenticationApi.md#rsa_initialize) | **POST** /rsa/initialize | RSA Initialize
@@ -49,59 +48,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **str**
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **post_containers_container_id_metatypes_metatype_id**
-> ValidateMetatypePropertiesResponse post_containers_container_id_metatypes_metatype_id(container_id, metatype_id, body=body)
-
-Validate Metatype Properties
-
-Returns any errors associated with the intended properties or keys for a metatype or else the data itself if no errors are present.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import deep_lynx
-from deep_lynx.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = deep_lynx.AuthenticationApi(deep_lynx.ApiClient(configuration))
-container_id = 'container_id_example' # str | 
-metatype_id = 'metatype_id_example' # str | 
-body = NULL # object |  (optional)
-
-try:
-    # Validate Metatype Properties
-    api_response = api_instance.post_containers_container_id_metatypes_metatype_id(container_id, metatype_id, body=body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AuthenticationApi->post_containers_container_id_metatypes_metatype_id: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **container_id** | **str**|  | 
- **metatype_id** | **str**|  | 
- **body** | [**object**](object.md)|  | [optional] 
-
-### Return type
-
-[**ValidateMetatypePropertiesResponse**](ValidateMetatypePropertiesResponse.md)
 
 ### Authorization
 
