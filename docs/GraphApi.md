@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 Create or Update Edges
 
-This endpoint will either create new edges or update edges if a `modified_at` property with a valid DateTime is passed.
+This endpoint will attempt to create a connection between two nodes. You can either pass in the node's Deep Lynx IDs, or the node's original id, metatype id, and data source id to create these edges.
 
 ### Example
 ```python
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 Create Or Update Nodes
 
-This endpoint will either create new nodes or update nodes if a `modified_at` property with a valid DateTime is passed.
+This endpoint will either create new nodes or update nodes if one with the same original_id is passed.
 
 ### Example
 ```python

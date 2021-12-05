@@ -1196,7 +1196,7 @@ class DataSourcesApi(object):
     def upload_file(self, container_id, data_source_id, **kwargs):  # noqa: E501
         """Upload File  # noqa: E501
 
-        Uploads a file and metadata to Deep Lynx. This endpoint will accept multiple files and multiple metadata properties as form values. If metadata (additional key value pairs) are provided, an import is created for the data source in addition to the file upload. Transformations can be applied to this import to create nodes and edges in the graph with metadata for the uploaded file(s).  # noqa: E501
+        Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.upload_file(container_id, data_source_id, async_req=True)
@@ -1206,6 +1206,7 @@ class DataSourcesApi(object):
         :param str container_id: (required)
         :param str data_source_id: (required)
         :param str file:
+        :param str import_id: You can attach the metadata to an existing import if desired.
         :return: UploadFileResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1220,7 +1221,7 @@ class DataSourcesApi(object):
     def upload_file_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
         """Upload File  # noqa: E501
 
-        Uploads a file and metadata to Deep Lynx. This endpoint will accept multiple files and multiple metadata properties as form values. If metadata (additional key value pairs) are provided, an import is created for the data source in addition to the file upload. Transformations can be applied to this import to create nodes and edges in the graph with metadata for the uploaded file(s).  # noqa: E501
+        Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.upload_file_with_http_info(container_id, data_source_id, async_req=True)
@@ -1230,12 +1231,13 @@ class DataSourcesApi(object):
         :param str container_id: (required)
         :param str data_source_id: (required)
         :param str file:
+        :param str import_id: You can attach the metadata to an existing import if desired.
         :return: UploadFileResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['container_id', 'data_source_id', 'file']  # noqa: E501
+        all_params = ['container_id', 'data_source_id', 'file', 'import_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1268,6 +1270,8 @@ class DataSourcesApi(object):
             path_params['data_source_id'] = params['data_source_id']  # noqa: E501
 
         query_params = []
+        if 'import_id' in params:
+            query_params.append(('importID', params['import_id']))  # noqa: E501
 
         header_params = {}
 

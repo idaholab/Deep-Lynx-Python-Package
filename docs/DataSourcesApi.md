@@ -586,11 +586,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_file**
-> UploadFileResponse upload_file(container_id, data_source_id, file=file)
+> UploadFileResponse upload_file(container_id, data_source_id, file=file, import_id=import_id)
 
 Upload File
 
-Uploads a file and metadata to Deep Lynx. This endpoint will accept multiple files and multiple metadata properties as form values. If metadata (additional key value pairs) are provided, an import is created for the data source in addition to the file upload. Transformations can be applied to this import to create nodes and edges in the graph with metadata for the uploaded file(s).
+Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.
 
 ### Example
 ```python
@@ -606,10 +606,11 @@ api_instance = deep_lynx.DataSourcesApi(deep_lynx.ApiClient(configuration))
 container_id = 'container_id_example' # str | 
 data_source_id = 'data_source_id_example' # str | 
 file = 'file_example' # str |  (optional)
+import_id = 'import_id_example' # str | You can attach the metadata to an existing import if desired. (optional)
 
 try:
     # Upload File
-    api_response = api_instance.upload_file(container_id, data_source_id, file=file)
+    api_response = api_instance.upload_file(container_id, data_source_id, file=file, import_id=import_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DataSourcesApi->upload_file: %s\n" % e)
@@ -622,6 +623,7 @@ Name | Type | Description  | Notes
  **container_id** | **str**|  | 
  **data_source_id** | **str**|  | 
  **file** | **str**|  | [optional] 
+ **import_id** | **str**| You can attach the metadata to an existing import if desired. | [optional] 
 
 ### Return type
 

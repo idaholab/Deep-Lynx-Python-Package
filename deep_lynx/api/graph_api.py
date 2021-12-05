@@ -463,7 +463,7 @@ class GraphApi(object):
     def create_or_update_edges(self, container_id, **kwargs):  # noqa: E501
         """Create or Update Edges  # noqa: E501
 
-        This endpoint will either create new edges or update edges if a `modified_at` property with a valid DateTime is passed.  # noqa: E501
+        This endpoint will attempt to create a connection between two nodes. You can either pass in the node's Deep Lynx IDs, or the node's original id, metatype id, and data source id to create these edges.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_or_update_edges(container_id, async_req=True)
@@ -486,7 +486,7 @@ class GraphApi(object):
     def create_or_update_edges_with_http_info(self, container_id, **kwargs):  # noqa: E501
         """Create or Update Edges  # noqa: E501
 
-        This endpoint will either create new edges or update edges if a `modified_at` property with a valid DateTime is passed.  # noqa: E501
+        This endpoint will attempt to create a connection between two nodes. You can either pass in the node's Deep Lynx IDs, or the node's original id, metatype id, and data source id to create these edges.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_or_update_edges_with_http_info(container_id, async_req=True)
@@ -566,7 +566,7 @@ class GraphApi(object):
     def create_or_update_nodes(self, body, container_id, **kwargs):  # noqa: E501
         """Create Or Update Nodes  # noqa: E501
 
-        This endpoint will either create new nodes or update nodes if a `modified_at` property with a valid DateTime is passed.  # noqa: E501
+        This endpoint will either create new nodes or update nodes if one with the same original_id is passed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_or_update_nodes(body, container_id, async_req=True)
@@ -589,7 +589,7 @@ class GraphApi(object):
     def create_or_update_nodes_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
         """Create Or Update Nodes  # noqa: E501
 
-        This endpoint will either create new nodes or update nodes if a `modified_at` property with a valid DateTime is passed.  # noqa: E501
+        This endpoint will either create new nodes or update nodes if one with the same original_id is passed.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_or_update_nodes_with_http_info(body, container_id, async_req=True)
