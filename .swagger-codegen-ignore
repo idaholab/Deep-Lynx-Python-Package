@@ -22,7 +22,7 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-README.md
+docs/README.md
 test-requirements.txt
 test/test_create_manual_import.py
 .env-sample
