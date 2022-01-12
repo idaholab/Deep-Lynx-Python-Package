@@ -32,39 +32,39 @@ class EventsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_registered_event(self, body, **kwargs):  # noqa: E501
-        """Create Registered Event  # noqa: E501
+    def create_event(self, body, **kwargs):  # noqa: E501
+        """Create Event  # noqa: E501
 
-        Create new registered event. An `app_name`, `app_url`, and `event_type` must be provided. Either a `container_id` or `data_source_id` must also be provided.  # noqa: E501
+        Create new event  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_registered_event(body, async_req=True)
+        >>> thread = api.create_event(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CreateRegisteredEventRequest body: (required)
+        :param CreateEventRequest body: (required)
         :return: CreateEventResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_registered_event_with_http_info(body, **kwargs)  # noqa: E501
+            return self.create_event_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_registered_event_with_http_info(body, **kwargs)  # noqa: E501
+            (data) = self.create_event_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def create_registered_event_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Create Registered Event  # noqa: E501
+    def create_event_with_http_info(self, body, **kwargs):  # noqa: E501
+        """Create Event  # noqa: E501
 
-        Create new registered event. An `app_name`, `app_url`, and `event_type` must be provided. Either a `container_id` or `data_source_id` must also be provided.  # noqa: E501
+        Create new event  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_registered_event_with_http_info(body, async_req=True)
+        >>> thread = api.create_event_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CreateRegisteredEventRequest body: (required)
+        :param CreateEventRequest body: (required)
         :return: CreateEventResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -81,14 +81,14 @@ class EventsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_registered_event" % key
+                    " to method create_event" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `create_registered_event`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `create_event`")  # noqa: E501
 
         collection_formats = {}
 
@@ -131,45 +131,45 @@ class EventsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_registered_event(self, event_id, **kwargs):  # noqa: E501
-        """Delete Registered Event  # noqa: E501
+    def create_event_action(self, **kwargs):  # noqa: E501
+        """Create Event Action  # noqa: E501
 
-        Delete a registered event.  # noqa: E501
+        Create an event action  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_registered_event(event_id, async_req=True)
+        >>> thread = api.create_event_action(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str event_id: (required)
-        :return: Generic200Response
+        :param CreateEventActionRequest body:
+        :return: CreateEventActionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_registered_event_with_http_info(event_id, **kwargs)  # noqa: E501
+            return self.create_event_action_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.delete_registered_event_with_http_info(event_id, **kwargs)  # noqa: E501
+            (data) = self.create_event_action_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def delete_registered_event_with_http_info(self, event_id, **kwargs):  # noqa: E501
-        """Delete Registered Event  # noqa: E501
+    def create_event_action_with_http_info(self, **kwargs):  # noqa: E501
+        """Create Event Action  # noqa: E501
 
-        Delete a registered event.  # noqa: E501
+        Create an event action  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_registered_event_with_http_info(event_id, async_req=True)
+        >>> thread = api.create_event_action_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str event_id: (required)
-        :return: Generic200Response
+        :param CreateEventActionRequest body:
+        :return: CreateEventActionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['event_id']  # noqa: E501
+        all_params = ['body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -180,20 +180,115 @@ class EventsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_registered_event" % key
+                    " to method create_event_action" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'event_id' is set
-        if ('event_id' not in params or
-                params['event_id'] is None):
-            raise ValueError("Missing the required parameter `event_id` when calling `delete_registered_event`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'event_id' in params:
-            path_params['event_id'] = params['event_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/event_actions', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CreateEventActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_event_action(self, action_id, **kwargs):  # noqa: E501
+        """Delete Event Action  # noqa: E501
+
+        Delete an event action  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_event_action(action_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str action_id: (required)
+        :return: Generic200Response
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.delete_event_action_with_http_info(action_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_event_action_with_http_info(action_id, **kwargs)  # noqa: E501
+            return data
+
+    def delete_event_action_with_http_info(self, action_id, **kwargs):  # noqa: E501
+        """Delete Event Action  # noqa: E501
+
+        Delete an event action  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.delete_event_action_with_http_info(action_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str action_id: (required)
+        :return: Generic200Response
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['action_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_event_action" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'action_id' is set
+        if ('action_id' not in params or
+                params['action_id'] is None):
+            raise ValueError("Missing the required parameter `action_id` when calling `delete_event_action`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'action_id' in params:
+            path_params['action_id'] = params['action_id']  # noqa: E501
 
         query_params = []
 
@@ -211,7 +306,7 @@ class EventsApi(object):
         auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/events/{event_id}', 'DELETE',
+            '/event_actions/{action_id}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -226,13 +321,187 @@ class EventsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_registered_events(self, **kwargs):  # noqa: E501
-        """List Registered Events  # noqa: E501
+    def list_event_action_statuses(self, **kwargs):  # noqa: E501
+        """List Event Action Statuses  # noqa: E501
 
-        Lists all registered events  # noqa: E501
+        List all event action statuses  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_registered_events(async_req=True)
+        >>> thread = api.list_event_action_statuses(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ListEventActionStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.list_event_action_statuses_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.list_event_action_statuses_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def list_event_action_statuses_with_http_info(self, **kwargs):  # noqa: E501
+        """List Event Action Statuses  # noqa: E501
+
+        List all event action statuses  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_event_action_statuses_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ListEventActionStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_event_action_statuses" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/event_action_status', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ListEventActionStatusResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_event_actions(self, **kwargs):  # noqa: E501
+        """List Event Actions  # noqa: E501
+
+        Lists all event actions  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_event_actions(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ListEventActionResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.list_event_actions_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.list_event_actions_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def list_event_actions_with_http_info(self, **kwargs):  # noqa: E501
+        """List Event Actions  # noqa: E501
+
+        Lists all event actions  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_event_actions_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :return: ListEventActionResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_event_actions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/event_actions', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ListEventActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_events(self, **kwargs):  # noqa: E501
+        """List Events  # noqa: E501
+
+        Lists all events  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_events(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -242,18 +511,18 @@ class EventsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.list_registered_events_with_http_info(**kwargs)  # noqa: E501
+            return self.list_events_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.list_registered_events_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.list_events_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def list_registered_events_with_http_info(self, **kwargs):  # noqa: E501
-        """List Registered Events  # noqa: E501
+    def list_events_with_http_info(self, **kwargs):  # noqa: E501
+        """List Events  # noqa: E501
 
-        Lists all registered events  # noqa: E501
+        Lists all events  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_registered_events_with_http_info(async_req=True)
+        >>> thread = api.list_events_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -273,7 +542,7 @@ class EventsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_registered_events" % key
+                    " to method list_events" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -313,13 +582,13 @@ class EventsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def retrieve_registered_event(self, event_id, **kwargs):  # noqa: E501
-        """Retrieve Registered Event  # noqa: E501
+    def retrieve_event(self, event_id, **kwargs):  # noqa: E501
+        """Retrieve Event  # noqa: E501
 
-        Retrieve a registered event  # noqa: E501
+        Retrieve an event  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.retrieve_registered_event(event_id, async_req=True)
+        >>> thread = api.retrieve_event(event_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -330,18 +599,18 @@ class EventsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.retrieve_registered_event_with_http_info(event_id, **kwargs)  # noqa: E501
+            return self.retrieve_event_with_http_info(event_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.retrieve_registered_event_with_http_info(event_id, **kwargs)  # noqa: E501
+            (data) = self.retrieve_event_with_http_info(event_id, **kwargs)  # noqa: E501
             return data
 
-    def retrieve_registered_event_with_http_info(self, event_id, **kwargs):  # noqa: E501
-        """Retrieve Registered Event  # noqa: E501
+    def retrieve_event_with_http_info(self, event_id, **kwargs):  # noqa: E501
+        """Retrieve Event  # noqa: E501
 
-        Retrieve a registered event  # noqa: E501
+        Retrieve an event  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.retrieve_registered_event_with_http_info(event_id, async_req=True)
+        >>> thread = api.retrieve_event_with_http_info(event_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -362,14 +631,14 @@ class EventsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method retrieve_registered_event" % key
+                    " to method retrieve_event" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'event_id' is set
         if ('event_id' not in params or
                 params['event_id'] is None):
-            raise ValueError("Missing the required parameter `event_id` when calling `retrieve_registered_event`")  # noqa: E501
+            raise ValueError("Missing the required parameter `event_id` when calling `retrieve_event`")  # noqa: E501
 
         collection_formats = {}
 
@@ -408,49 +677,45 @@ class EventsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_registered_event(self, event_id, **kwargs):  # noqa: E501
-        """Update Registered Event  # noqa: E501
+    def retrieve_event_action(self, action_id, **kwargs):  # noqa: E501
+        """Retrieve Event Action  # noqa: E501
 
-        Update a registered event. If the `active` query paramter is provided with a value of true or false, the event will be activated/deactivated.  # noqa: E501
+        Retrieve an event action  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_registered_event(event_id, async_req=True)
+        >>> thread = api.retrieve_event_action(action_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str event_id: (required)
-        :param UpdateRegisteredEventRequest body:
-        :param bool active:
-        :return: Generic200Response
+        :param str action_id: (required)
+        :return: GetEventActionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_registered_event_with_http_info(event_id, **kwargs)  # noqa: E501
+            return self.retrieve_event_action_with_http_info(action_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_registered_event_with_http_info(event_id, **kwargs)  # noqa: E501
+            (data) = self.retrieve_event_action_with_http_info(action_id, **kwargs)  # noqa: E501
             return data
 
-    def update_registered_event_with_http_info(self, event_id, **kwargs):  # noqa: E501
-        """Update Registered Event  # noqa: E501
+    def retrieve_event_action_with_http_info(self, action_id, **kwargs):  # noqa: E501
+        """Retrieve Event Action  # noqa: E501
 
-        Update a registered event. If the `active` query paramter is provided with a value of true or false, the event will be activated/deactivated.  # noqa: E501
+        Retrieve an event action  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_registered_event_with_http_info(event_id, async_req=True)
+        >>> thread = api.retrieve_event_action_with_http_info(action_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str event_id: (required)
-        :param UpdateRegisteredEventRequest body:
-        :param bool active:
-        :return: Generic200Response
+        :param str action_id: (required)
+        :return: GetEventActionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['event_id', 'body', 'active']  # noqa: E501
+        all_params = ['action_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -461,20 +726,214 @@ class EventsApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_registered_event" % key
+                    " to method retrieve_event_action" % key
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'event_id' is set
-        if ('event_id' not in params or
-                params['event_id'] is None):
-            raise ValueError("Missing the required parameter `event_id` when calling `update_registered_event`")  # noqa: E501
+        # verify the required parameter 'action_id' is set
+        if ('action_id' not in params or
+                params['action_id'] is None):
+            raise ValueError("Missing the required parameter `action_id` when calling `retrieve_event_action`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'event_id' in params:
-            path_params['event_id'] = params['event_id']  # noqa: E501
+        if 'action_id' in params:
+            path_params['action_id'] = params['action_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/event_actions/{action_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetEventActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def retrieve_event_action_status(self, status_id, **kwargs):  # noqa: E501
+        """Retrieve Event Action Status  # noqa: E501
+
+        Retrieve an event action status  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.retrieve_event_action_status(status_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str status_id: (required)
+        :return: GetEventActionStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.retrieve_event_action_status_with_http_info(status_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.retrieve_event_action_status_with_http_info(status_id, **kwargs)  # noqa: E501
+            return data
+
+    def retrieve_event_action_status_with_http_info(self, status_id, **kwargs):  # noqa: E501
+        """Retrieve Event Action Status  # noqa: E501
+
+        Retrieve an event action status  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.retrieve_event_action_status_with_http_info(status_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str status_id: (required)
+        :return: GetEventActionStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['status_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method retrieve_event_action_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'status_id' is set
+        if ('status_id' not in params or
+                params['status_id'] is None):
+            raise ValueError("Missing the required parameter `status_id` when calling `retrieve_event_action_status`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'status_id' in params:
+            path_params['status_id'] = params['status_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/event_action_status/{status_id}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetEventActionStatusResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_event_action(self, action_id, **kwargs):  # noqa: E501
+        """Update Event Action  # noqa: E501
+
+        Update an event action  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_event_action(action_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str action_id: (required)
+        :param CreateEventActionRequest body:
+        :param bool active: Sets the event action active or inactive
+        :return: UpdateEventActionResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_event_action_with_http_info(action_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_event_action_with_http_info(action_id, **kwargs)  # noqa: E501
+            return data
+
+    def update_event_action_with_http_info(self, action_id, **kwargs):  # noqa: E501
+        """Update Event Action  # noqa: E501
+
+        Update an event action  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_event_action_with_http_info(action_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str action_id: (required)
+        :param CreateEventActionRequest body:
+        :param bool active: Sets the event action active or inactive
+        :return: UpdateEventActionResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['action_id', 'body', 'active']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_event_action" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'action_id' is set
+        if ('action_id' not in params or
+                params['action_id'] is None):
+            raise ValueError("Missing the required parameter `action_id` when calling `update_event_action`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'action_id' in params:
+            path_params['action_id'] = params['action_id']  # noqa: E501
 
         query_params = []
         if 'active' in params:
@@ -500,14 +959,117 @@ class EventsApi(object):
         auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/events/{event_id}', 'PUT',
+            '/event_actions/{action_id}', 'PUT',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='Generic200Response',  # noqa: E501
+            response_type='UpdateEventActionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_event_action_status(self, status_id, **kwargs):  # noqa: E501
+        """Update Event Action Status  # noqa: E501
+
+        Update an event action status  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_event_action_status(status_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str status_id: (required)
+        :param UpdateEventActionStatusRequest body:
+        :return: UpdateEventActionStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_event_action_status_with_http_info(status_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_event_action_status_with_http_info(status_id, **kwargs)  # noqa: E501
+            return data
+
+    def update_event_action_status_with_http_info(self, status_id, **kwargs):  # noqa: E501
+        """Update Event Action Status  # noqa: E501
+
+        Update an event action status  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_event_action_status_with_http_info(status_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str status_id: (required)
+        :param UpdateEventActionStatusRequest body:
+        :return: UpdateEventActionStatusResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['status_id', 'body']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_event_action_status" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'status_id' is set
+        if ('status_id' not in params or
+                params['status_id'] is None):
+            raise ValueError("Missing the required parameter `status_id` when calling `update_event_action_status`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'status_id' in params:
+            path_params['status_id'] = params['status_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/event_action_status/{status_id}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='UpdateEventActionStatusResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

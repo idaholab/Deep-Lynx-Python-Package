@@ -31,6 +31,9 @@ from deep_lynx.models.create_data_export_request import CreateDataExportRequest
 from deep_lynx.models.create_data_source_config import CreateDataSourceConfig
 from deep_lynx.models.create_data_source_request import CreateDataSourceRequest
 from deep_lynx.models.create_data_sources_response import CreateDataSourcesResponse
+from deep_lynx.models.create_event_action_request import CreateEventActionRequest
+from deep_lynx.models.create_event_action_response import CreateEventActionResponse
+from deep_lynx.models.create_event_request import CreateEventRequest
 from deep_lynx.models.create_event_response import CreateEventResponse
 from deep_lynx.models.create_import_response import CreateImportResponse
 from deep_lynx.models.create_manual_import import CreateManualImport
@@ -47,7 +50,6 @@ from deep_lynx.models.create_metatype_request import CreateMetatypeRequest
 from deep_lynx.models.create_metatypes_response import CreateMetatypesResponse
 from deep_lynx.models.create_or_update_edges_request import CreateOrUpdateEdgesRequest
 from deep_lynx.models.create_or_update_nodes_request import CreateOrUpdateNodesRequest
-from deep_lynx.models.create_registered_event_request import CreateRegisteredEventRequest
 from deep_lynx.models.create_task_response import CreateTaskResponse
 from deep_lynx.models.create_transformation_response import CreateTransformationResponse
 from deep_lynx.models.create_type_mapping_transformations_request import CreateTypeMappingTransformationsRequest
@@ -62,6 +64,8 @@ from deep_lynx.models.edge import Edge
 from deep_lynx.models.error_model import ErrorModel
 from deep_lynx.models.error_response import ErrorResponse
 from deep_lynx.models.event import Event
+from deep_lynx.models.event_action import EventAction
+from deep_lynx.models.event_action_status import EventActionStatus
 from deep_lynx.models.exporter import Exporter
 from deep_lynx.models.exporter_config import ExporterConfig
 from deep_lynx.models.file_info import FileInfo
@@ -72,6 +76,8 @@ from deep_lynx.models.get_data_export_response import GetDataExportResponse
 from deep_lynx.models.get_data_source_response import GetDataSourceResponse
 from deep_lynx.models.get_data_type_mapping_response import GetDataTypeMappingResponse
 from deep_lynx.models.get_edge_response import GetEdgeResponse
+from deep_lynx.models.get_event_action_response import GetEventActionResponse
+from deep_lynx.models.get_event_action_status_response import GetEventActionStatusResponse
 from deep_lynx.models.get_event_response import GetEventResponse
 from deep_lynx.models.get_file_info_response import GetFileInfoResponse
 from deep_lynx.models.get_import_data_response import GetImportDataResponse
@@ -97,6 +103,8 @@ from deep_lynx.models.list_data_sources_response import ListDataSourcesResponse
 from deep_lynx.models.list_data_type_mapping_response import ListDataTypeMappingResponse
 from deep_lynx.models.list_edge_files import ListEdgeFiles
 from deep_lynx.models.list_edges_response import ListEdgesResponse
+from deep_lynx.models.list_event_action_response import ListEventActionResponse
+from deep_lynx.models.list_event_action_status_response import ListEventActionStatusResponse
 from deep_lynx.models.list_events_response import ListEventsResponse
 from deep_lynx.models.list_import_data_response import ListImportDataResponse
 from deep_lynx.models.list_metatype_keys_response import ListMetatypeKeysResponse
@@ -152,6 +160,9 @@ from deep_lynx.models.update_container_request_config import UpdateContainerRequ
 from deep_lynx.models.update_container_response import UpdateContainerResponse
 from deep_lynx.models.update_data_source_response import UpdateDataSourceResponse
 from deep_lynx.models.update_data_type_mapping_response import UpdateDataTypeMappingResponse
+from deep_lynx.models.update_event_action_response import UpdateEventActionResponse
+from deep_lynx.models.update_event_action_status_request import UpdateEventActionStatusRequest
+from deep_lynx.models.update_event_action_status_response import UpdateEventActionStatusResponse
 from deep_lynx.models.update_import_data_response import UpdateImportDataResponse
 from deep_lynx.models.update_metatype_key_response import UpdateMetatypeKeyResponse
 from deep_lynx.models.update_metatype_relationship_key_response import UpdateMetatypeRelationshipKeyResponse
@@ -160,7 +171,6 @@ from deep_lynx.models.update_metatype_relationship_request import UpdateMetatype
 from deep_lynx.models.update_metatype_relationship_response import UpdateMetatypeRelationshipResponse
 from deep_lynx.models.update_metatype_request import UpdateMetatypeRequest
 from deep_lynx.models.update_metatype_response import UpdateMetatypeResponse
-from deep_lynx.models.update_registered_event_request import UpdateRegisteredEventRequest
 from deep_lynx.models.update_task_response import UpdateTaskResponse
 from deep_lynx.models.update_transformation_response import UpdateTransformationResponse
 from deep_lynx.models.upload_file_response import UploadFileResponse
