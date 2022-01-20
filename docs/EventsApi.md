@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_event_action**
-> CreateEventActionResponse create_event_action(body=body)
+> CreateEventActionResponse create_event_action(body)
 
 Create Event Action
 
@@ -83,11 +83,11 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
-body = deep_lynx.CreateEventActionRequest() # CreateEventActionRequest |  (optional)
+body = deep_lynx.CreateEventActionRequest() # CreateEventActionRequest | 
 
 try:
     # Create Event Action
-    api_response = api_instance.create_event_action(body=body)
+    api_response = api_instance.create_event_action(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EventsApi->create_event_action: %s\n" % e)
@@ -97,7 +97,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CreateEventActionRequest**](CreateEventActionRequest.md)|  | [optional] 
+ **body** | [**CreateEventActionRequest**](CreateEventActionRequest.md)|  | 
 
 ### Return type
 

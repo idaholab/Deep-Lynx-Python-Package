@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_edges**
-> ListEdgesResponse list_edges(container_id, limit=limit, offset=offset, origin_id=origin_id, destination_id=destination_id, relationship_pair_id=relationship_pair_id, relationship_pair_name=relationship_pair_name)
+> ListEdgesResponse list_edges(container_id, limit=limit, offset=offset, origin_id=origin_id, destination_id=destination_id, relationship_pair_id=relationship_pair_id, relationship_pair_name=relationship_pair_name, data_source_id=data_source_id, load_relationship_pairs=load_relationship_pairs)
 
 List Edges
 
@@ -512,10 +512,12 @@ origin_id = 'origin_id_example' # str |  (optional)
 destination_id = 'destination_id_example' # str |  (optional)
 relationship_pair_id = 'relationship_pair_id_example' # str |  (optional)
 relationship_pair_name = 'relationship_pair_name_example' # str |  (optional)
+data_source_id = 'data_source_id_example' # str |  (optional)
+load_relationship_pairs = 'load_relationship_pairs_example' # str |  (optional)
 
 try:
     # List Edges
-    api_response = api_instance.list_edges(container_id, limit=limit, offset=offset, origin_id=origin_id, destination_id=destination_id, relationship_pair_id=relationship_pair_id, relationship_pair_name=relationship_pair_name)
+    api_response = api_instance.list_edges(container_id, limit=limit, offset=offset, origin_id=origin_id, destination_id=destination_id, relationship_pair_id=relationship_pair_id, relationship_pair_name=relationship_pair_name, data_source_id=data_source_id, load_relationship_pairs=load_relationship_pairs)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling GraphApi->list_edges: %s\n" % e)
@@ -532,6 +534,8 @@ Name | Type | Description  | Notes
  **destination_id** | **str**|  | [optional] 
  **relationship_pair_id** | **str**|  | [optional] 
  **relationship_pair_name** | **str**|  | [optional] 
+ **data_source_id** | **str**|  | [optional] 
+ **load_relationship_pairs** | **str**|  | [optional] 
 
 ### Return type
 
@@ -600,7 +604,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_nodes**
-> ListNodesResponse list_nodes(container_id, limit=limit, offset=offset, transformation_id=transformation_id, metatype_id=metatype_id)
+> ListNodesResponse list_nodes(container_id, limit=limit, offset=offset, transformation_id=transformation_id, metatype_id=metatype_id, data_source_id=data_source_id)
 
 List Nodes
 
@@ -622,10 +626,11 @@ limit = 56 # int |  (optional)
 offset = 56 # int |  (optional)
 transformation_id = 'transformation_id_example' # str | Return only nodes for the selected type transformation (optional)
 metatype_id = 'metatype_id_example' # str | Return only nodes for the selected metatype (optional)
+data_source_id = 'data_source_id_example' # str | Return only nodes for the selected datasource (optional)
 
 try:
     # List Nodes
-    api_response = api_instance.list_nodes(container_id, limit=limit, offset=offset, transformation_id=transformation_id, metatype_id=metatype_id)
+    api_response = api_instance.list_nodes(container_id, limit=limit, offset=offset, transformation_id=transformation_id, metatype_id=metatype_id, data_source_id=data_source_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling GraphApi->list_nodes: %s\n" % e)
@@ -640,6 +645,7 @@ Name | Type | Description  | Notes
  **offset** | **int**|  | [optional] 
  **transformation_id** | **str**| Return only nodes for the selected type transformation | [optional] 
  **metatype_id** | **str**| Return only nodes for the selected metatype | [optional] 
+ **data_source_id** | **str**| Return only nodes for the selected datasource | [optional] 
 
 ### Return type
 

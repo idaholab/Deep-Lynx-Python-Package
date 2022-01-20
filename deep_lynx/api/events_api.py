@@ -131,39 +131,39 @@ class EventsApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_event_action(self, **kwargs):  # noqa: E501
+    def create_event_action(self, body, **kwargs):  # noqa: E501
         """Create Event Action  # noqa: E501
 
         Create an event action  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_event_action(async_req=True)
+        >>> thread = api.create_event_action(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CreateEventActionRequest body:
+        :param CreateEventActionRequest body: (required)
         :return: CreateEventActionResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_event_action_with_http_info(**kwargs)  # noqa: E501
+            return self.create_event_action_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_event_action_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.create_event_action_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def create_event_action_with_http_info(self, **kwargs):  # noqa: E501
+    def create_event_action_with_http_info(self, body, **kwargs):  # noqa: E501
         """Create Event Action  # noqa: E501
 
         Create an event action  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_event_action_with_http_info(async_req=True)
+        >>> thread = api.create_event_action_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param CreateEventActionRequest body:
+        :param CreateEventActionRequest body: (required)
         :return: CreateEventActionResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -184,6 +184,10 @@ class EventsApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_event_action`")  # noqa: E501
 
         collection_formats = {}
 
