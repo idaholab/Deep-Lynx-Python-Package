@@ -28,76 +28,24 @@ class UpdateEventActionStatusRequest(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'event_id': 'str',
-        'event_action_id': 'str',
         'status': 'str',
         'status_message': 'str'
     }
 
     attribute_map = {
-        'event_id': 'event_id',
-        'event_action_id': 'event_action_id',
         'status': 'status',
         'status_message': 'status_message'
     }
 
-    def __init__(self, event_id=None, event_action_id=None, status=None, status_message=None):  # noqa: E501
+    def __init__(self, status=None, status_message=None):  # noqa: E501
         """UpdateEventActionStatusRequest - a model defined in Swagger"""  # noqa: E501
-        self._event_id = None
-        self._event_action_id = None
         self._status = None
         self._status_message = None
         self.discriminator = None
-        if event_id is not None:
-            self.event_id = event_id
-        if event_action_id is not None:
-            self.event_action_id = event_action_id
         if status is not None:
             self.status = status
         if status_message is not None:
             self.status_message = status_message
-
-    @property
-    def event_id(self):
-        """Gets the event_id of this UpdateEventActionStatusRequest.  # noqa: E501
-
-
-        :return: The event_id of this UpdateEventActionStatusRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._event_id
-
-    @event_id.setter
-    def event_id(self, event_id):
-        """Sets the event_id of this UpdateEventActionStatusRequest.
-
-
-        :param event_id: The event_id of this UpdateEventActionStatusRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._event_id = event_id
-
-    @property
-    def event_action_id(self):
-        """Gets the event_action_id of this UpdateEventActionStatusRequest.  # noqa: E501
-
-
-        :return: The event_action_id of this UpdateEventActionStatusRequest.  # noqa: E501
-        :rtype: str
-        """
-        return self._event_action_id
-
-    @event_action_id.setter
-    def event_action_id(self, event_action_id):
-        """Sets the event_action_id of this UpdateEventActionStatusRequest.
-
-
-        :param event_action_id: The event_action_id of this UpdateEventActionStatusRequest.  # noqa: E501
-        :type: str
-        """
-
-        self._event_action_id = event_action_id
 
     @property
     def status(self):

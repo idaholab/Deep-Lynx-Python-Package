@@ -29,40 +29,39 @@ class EventActionStatus(object):
     """
     swagger_types = {
         'id': 'str',
-        'event_id': 'str',
         'event_action_id': 'str',
         'status': 'str',
         'status_message': 'str',
         'created_at': 'str',
         'modified_at': 'str',
-        'modified_by': 'str'
+        'modified_by': 'str',
+        'event': 'Event'
     }
 
     attribute_map = {
         'id': 'id',
-        'event_id': 'event_id',
         'event_action_id': 'event_action_id',
         'status': 'status',
         'status_message': 'status_message',
         'created_at': 'created_at',
         'modified_at': 'modified_at',
-        'modified_by': 'modified_by'
+        'modified_by': 'modified_by',
+        'event': 'event'
     }
 
-    def __init__(self, id=None, event_id=None, event_action_id=None, status=None, status_message=None, created_at=None, modified_at=None, modified_by=None):  # noqa: E501
+    def __init__(self, id=None, event_action_id=None, status=None, status_message=None, created_at=None, modified_at=None, modified_by=None, event=None):  # noqa: E501
         """EventActionStatus - a model defined in Swagger"""  # noqa: E501
         self._id = None
-        self._event_id = None
         self._event_action_id = None
         self._status = None
         self._status_message = None
         self._created_at = None
         self._modified_at = None
         self._modified_by = None
+        self._event = None
         self.discriminator = None
         if id is not None:
             self.id = id
-        self.event_id = event_id
         self.event_action_id = event_action_id
         if status is not None:
             self.status = status
@@ -74,6 +73,8 @@ class EventActionStatus(object):
             self.modified_at = modified_at
         if modified_by is not None:
             self.modified_by = modified_by
+        if event is not None:
+            self.event = event
 
     @property
     def id(self):
@@ -95,29 +96,6 @@ class EventActionStatus(object):
         """
 
         self._id = id
-
-    @property
-    def event_id(self):
-        """Gets the event_id of this EventActionStatus.  # noqa: E501
-
-
-        :return: The event_id of this EventActionStatus.  # noqa: E501
-        :rtype: str
-        """
-        return self._event_id
-
-    @event_id.setter
-    def event_id(self, event_id):
-        """Sets the event_id of this EventActionStatus.
-
-
-        :param event_id: The event_id of this EventActionStatus.  # noqa: E501
-        :type: str
-        """
-        if event_id is None:
-            raise ValueError("Invalid value for `event_id`, must not be `None`")  # noqa: E501
-
-        self._event_id = event_id
 
     @property
     def event_action_id(self):
@@ -246,6 +224,27 @@ class EventActionStatus(object):
         """
 
         self._modified_by = modified_by
+
+    @property
+    def event(self):
+        """Gets the event of this EventActionStatus.  # noqa: E501
+
+
+        :return: The event of this EventActionStatus.  # noqa: E501
+        :rtype: Event
+        """
+        return self._event
+
+    @event.setter
+    def event(self, event):
+        """Sets the event of this EventActionStatus.
+
+
+        :param event: The event of this EventActionStatus.  # noqa: E501
+        :type: Event
+        """
+
+        self._event = event
 
     def to_dict(self):
         """Returns the model properties as a dict"""

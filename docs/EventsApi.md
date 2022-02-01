@@ -9,8 +9,6 @@ Method | HTTP request | Description
 [**delete_event_action**](EventsApi.md#delete_event_action) | **DELETE** /event_actions/{action_id} | Delete Event Action
 [**list_event_action_statuses**](EventsApi.md#list_event_action_statuses) | **GET** /event_action_status | List Event Action Statuses
 [**list_event_actions**](EventsApi.md#list_event_actions) | **GET** /event_actions | List Event Actions
-[**list_events**](EventsApi.md#list_events) | **GET** /events | List Events
-[**retrieve_event**](EventsApi.md#retrieve_event) | **GET** /events/{event_id} | Retrieve Event
 [**retrieve_event_action**](EventsApi.md#retrieve_event_action) | **GET** /event_actions/{action_id} | Retrieve Event Action
 [**retrieve_event_action_status**](EventsApi.md#retrieve_event_action_status) | **GET** /event_action_status/{status_id} | Retrieve Event Action Status
 [**update_event_action**](EventsApi.md#update_event_action) | **PUT** /event_actions/{action_id} | Update Event Action
@@ -164,7 +162,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_event_action_statuses**
-> ListEventActionStatusResponse list_event_action_statuses()
+> ListEventActionStatusResponse list_event_action_statuses(event_id=event_id)
 
 List Event Action Statuses
 
@@ -181,17 +179,21 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
+event_id = 'event_id_example' # str | Filter returned statuses by the event ID (optional)
 
 try:
     # List Event Action Statuses
-    api_response = api_instance.list_event_action_statuses()
+    api_response = api_instance.list_event_action_statuses(event_id=event_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EventsApi->list_event_action_statuses: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **event_id** | **str**| Filter returned statuses by the event ID | [optional] 
 
 ### Return type
 
@@ -241,100 +243,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ListEventActionResponse**](ListEventActionResponse.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **list_events**
-> ListEventsResponse list_events()
-
-List Events
-
-Lists all events
-
-### Example
-```python
-from __future__ import print_function
-import time
-import deep_lynx
-from deep_lynx.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
-
-try:
-    # List Events
-    api_response = api_instance.list_events()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EventsApi->list_events: %s\n" % e)
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ListEventsResponse**](ListEventsResponse.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **retrieve_event**
-> GetEventResponse retrieve_event(event_id)
-
-Retrieve Event
-
-Retrieve an event
-
-### Example
-```python
-from __future__ import print_function
-import time
-import deep_lynx
-from deep_lynx.rest import ApiException
-from pprint import pprint
-
-
-# create an instance of the API class
-api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
-event_id = 'event_id_example' # str | 
-
-try:
-    # Retrieve Event
-    api_response = api_instance.retrieve_event(event_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling EventsApi->retrieve_event: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **event_id** | **str**|  | 
-
-### Return type
-
-[**GetEventResponse**](GetEventResponse.md)
 
 ### Authorization
 

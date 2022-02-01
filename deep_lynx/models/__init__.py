@@ -78,7 +78,6 @@ from deep_lynx.models.get_data_type_mapping_response import GetDataTypeMappingRe
 from deep_lynx.models.get_edge_response import GetEdgeResponse
 from deep_lynx.models.get_event_action_response import GetEventActionResponse
 from deep_lynx.models.get_event_action_status_response import GetEventActionStatusResponse
-from deep_lynx.models.get_event_response import GetEventResponse
 from deep_lynx.models.get_file_info_response import GetFileInfoResponse
 from deep_lynx.models.get_import_data_response import GetImportDataResponse
 from deep_lynx.models.get_metatype_key_response import GetMetatypeKeyResponse
@@ -105,7 +104,6 @@ from deep_lynx.models.list_edge_files import ListEdgeFiles
 from deep_lynx.models.list_edges_response import ListEdgesResponse
 from deep_lynx.models.list_event_action_response import ListEventActionResponse
 from deep_lynx.models.list_event_action_status_response import ListEventActionStatusResponse
-from deep_lynx.models.list_events_response import ListEventsResponse
 from deep_lynx.models.list_import_data_response import ListImportDataResponse
 from deep_lynx.models.list_metatype_keys_response import ListMetatypeKeysResponse
 from deep_lynx.models.list_metatype_relationship_keys_response import ListMetatypeRelationshipKeysResponse

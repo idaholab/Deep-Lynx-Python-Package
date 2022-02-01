@@ -1012,8 +1012,6 @@ class GraphApi(object):
         :param str destination_id:
         :param str relationship_pair_id:
         :param str relationship_pair_name:
-        :param str data_source_id:
-        :param str load_relationship_pairs:
         :return: ListEdgesResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1042,14 +1040,12 @@ class GraphApi(object):
         :param str destination_id:
         :param str relationship_pair_id:
         :param str relationship_pair_name:
-        :param str data_source_id:
-        :param str load_relationship_pairs:
         :return: ListEdgesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['container_id', 'limit', 'offset', 'origin_id', 'destination_id', 'relationship_pair_id', 'relationship_pair_name', 'data_source_id', 'load_relationship_pairs']  # noqa: E501
+        all_params = ['container_id', 'limit', 'offset', 'origin_id', 'destination_id', 'relationship_pair_id', 'relationship_pair_name']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1088,10 +1084,6 @@ class GraphApi(object):
             query_params.append(('relationshipPairID', params['relationship_pair_id']))  # noqa: E501
         if 'relationship_pair_name' in params:
             query_params.append(('relationshipPairName', params['relationship_pair_name']))  # noqa: E501
-        if 'data_source_id' in params:
-            query_params.append(('dataSourceID', params['data_source_id']))  # noqa: E501
-        if 'load_relationship_pairs' in params:
-            query_params.append(('loadRelationshipPairs', params['load_relationship_pairs']))  # noqa: E501
 
         header_params = {}
 
@@ -1240,7 +1232,6 @@ class GraphApi(object):
         :param int offset:
         :param str transformation_id: Return only nodes for the selected type transformation
         :param str metatype_id: Return only nodes for the selected metatype
-        :param str data_source_id: Return only nodes for the selected datasource
         :return: ListNodesResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1267,13 +1258,12 @@ class GraphApi(object):
         :param int offset:
         :param str transformation_id: Return only nodes for the selected type transformation
         :param str metatype_id: Return only nodes for the selected metatype
-        :param str data_source_id: Return only nodes for the selected datasource
         :return: ListNodesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['container_id', 'limit', 'offset', 'transformation_id', 'metatype_id', 'data_source_id']  # noqa: E501
+        all_params = ['container_id', 'limit', 'offset', 'transformation_id', 'metatype_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1308,8 +1298,6 @@ class GraphApi(object):
             query_params.append(('transformationID', params['transformation_id']))  # noqa: E501
         if 'metatype_id' in params:
             query_params.append(('metatypeID', params['metatype_id']))  # noqa: E501
-        if 'data_source_id' in params:
-            query_params.append(('dataSourceID', params['data_source_id']))  # noqa: E501
 
         header_params = {}
 
