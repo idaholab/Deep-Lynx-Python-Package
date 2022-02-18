@@ -1,4 +1,4 @@
-# InlineResponse2002Value
+# InlineResponse2001Value
 
 ## Properties
 Name | Type | Description | Notes

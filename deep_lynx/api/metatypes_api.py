@@ -599,7 +599,7 @@ class MetatypesApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str metatype_id: (required)
-        :param object body:
+        :param ValidateMetatypePropertiesRequest body:
         :return: ValidateMetatypePropertiesResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -623,7 +623,7 @@ class MetatypesApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str metatype_id: (required)
-        :param object body:
+        :param ValidateMetatypePropertiesRequest body:
         :return: ValidateMetatypePropertiesResponse
                  If the method is called asynchronously,
                  returns the request thread.

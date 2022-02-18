@@ -1,14 +1,9 @@
-# InlineResponse2002Value
+# ValidateMetatypePropertiesRequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**container_id** | **str** |  | 
-**name** | **str** |  | 
-**changelist_id** | **str** |  | 
-**created_by** | **str** |  | 
-**created_at** | **str** |  | 
+**property_name_here** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

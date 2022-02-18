@@ -41,14 +41,12 @@ from deep_lynx.models.assign_role_request import AssignRoleRequest
 from deep_lynx.models.batch_container_update_request import BatchContainerUpdateRequest
 from deep_lynx.models.batch_container_update_request_inner import BatchContainerUpdateRequestInner
 from deep_lynx.models.batch_update_container_response import BatchUpdateContainerResponse
-from deep_lynx.models.changelists_changelist_id_body import ChangelistsChangelistIdBody
 from deep_lynx.models.container import Container
 from deep_lynx.models.container_config import ContainerConfig
 from deep_lynx.models.container_import_request import ContainerImportRequest
 from deep_lynx.models.container_import_response import ContainerImportResponse
 from deep_lynx.models.container_import_update_response import ContainerImportUpdateResponse
 from deep_lynx.models.container_invite import ContainerInvite
-from deep_lynx.models.containerscontainer_idontologychangelistschangelist_id_changelist import ContainerscontainerIdontologychangelistschangelistIdChangelist
 from deep_lynx.models.create_container_request import CreateContainerRequest
 from deep_lynx.models.create_container_response import CreateContainerResponse
 from deep_lynx.models.create_data_export_request import CreateDataExportRequest
@@ -118,15 +116,10 @@ from deep_lynx.models.import_id_data_body import ImportIdDataBody
 from deep_lynx.models.import_model import ImportModel
 from deep_lynx.models.inline_response200 import InlineResponse200
 from deep_lynx.models.inline_response2001 import InlineResponse2001
+from deep_lynx.models.inline_response2001_value import InlineResponse2001Value
 from deep_lynx.models.inline_response2002 import InlineResponse2002
 from deep_lynx.models.inline_response2002_value import InlineResponse2002Value
-from deep_lynx.models.inline_response2003 import InlineResponse2003
-from deep_lynx.models.inline_response2003_value import InlineResponse2003Value
-from deep_lynx.models.inline_response2004 import InlineResponse2004
-from deep_lynx.models.inline_response2004_value import InlineResponse2004Value
 from deep_lynx.models.key_validation import KeyValidation
-from deep_lynx.models.list_changelist_response import ListChangelistResponse
-from deep_lynx.models.list_changelist_response_value import ListChangelistResponseValue
 from deep_lynx.models.list_container_invites_response import ListContainerInvitesResponse
 from deep_lynx.models.list_container_response import ListContainerResponse
 from deep_lynx.models.list_data_exports_response import ListDataExportsResponse
@@ -161,7 +154,6 @@ from deep_lynx.models.node import Node
 from deep_lynx.models.node_metatype_body import NodeMetatypeBody
 from deep_lynx.models.not_found404 import NotFound404
 from deep_lynx.models.one_of_upload_file_response import OneOfUploadFileResponse
-from deep_lynx.models.ontology_changelists_body import OntologyChangelistsBody
 from deep_lynx.models.rsa_cancel_request import RSACancelRequest
 from deep_lynx.models.rsa_init_request import RSAInitRequest
 from deep_lynx.models.rsa_response import RSAResponse
@@ -179,8 +171,6 @@ from deep_lynx.models.rsa_verify_request import RSAVerifyRequest
 from deep_lynx.models.relationship_key import RelationshipKey
 from deep_lynx.models.relationship_pair import RelationshipPair
 from deep_lynx.models.relationship_pair_destination_metatype import RelationshipPairDestinationMetatype
-from deep_lynx.models.retrieve_changelist_response import RetrieveChangelistResponse
-from deep_lynx.models.retrieve_changelist_response_value import RetrieveChangelistResponseValue
 from deep_lynx.models.task import Task
 from deep_lynx.models.task_config import TaskConfig
 from deep_lynx.models.token_exchange_request import TokenExchangeRequest
@@ -210,4 +200,5 @@ from deep_lynx.models.update_transformation_response import UpdateTransformation
 from deep_lynx.models.upload_file_response import UploadFileResponse
 from deep_lynx.models.user import User
 from deep_lynx.models.user_key import UserKey
+from deep_lynx.models.validate_metatype_properties_request import ValidateMetatypePropertiesRequest
 from deep_lynx.models.validate_metatype_properties_response import ValidateMetatypePropertiesResponse

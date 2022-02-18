@@ -131,47 +131,47 @@ class ContainersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def apply_changelist(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Apply Changelist  # noqa: E501
+    def approve_ontology_version(self, container_id, ontology_version_id, **kwargs):  # noqa: E501
+        """Approve Ontology Version  # noqa: E501
 
-        Applies changelist to the ontology, creates a new ontology version.  # noqa: E501
+        Approves an ontology version  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.apply_changelist(container_id, changelist_id, async_req=True)
+        >>> thread = api.approve_ontology_version(container_id, ontology_version_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str container_id: (required)
-        :param str changelist_id: (required)
+        :param str ontology_version_id: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.apply_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
+            return self.approve_ontology_version_with_http_info(container_id, ontology_version_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.apply_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
+            (data) = self.approve_ontology_version_with_http_info(container_id, ontology_version_id, **kwargs)  # noqa: E501
             return data
 
-    def apply_changelist_with_http_info(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Apply Changelist  # noqa: E501
+    def approve_ontology_version_with_http_info(self, container_id, ontology_version_id, **kwargs):  # noqa: E501
+        """Approve Ontology Version  # noqa: E501
 
-        Applies changelist to the ontology, creates a new ontology version.  # noqa: E501
+        Approves an ontology version  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.apply_changelist_with_http_info(container_id, changelist_id, async_req=True)
+        >>> thread = api.approve_ontology_version_with_http_info(container_id, ontology_version_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str container_id: (required)
-        :param str changelist_id: (required)
+        :param str ontology_version_id: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['container_id', 'changelist_id']  # noqa: E501
+        all_params = ['container_id', 'ontology_version_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -182,26 +182,26 @@ class ContainersApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method apply_changelist" % key
+                    " to method approve_ontology_version" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `apply_changelist`")  # noqa: E501
-        # verify the required parameter 'changelist_id' is set
-        if ('changelist_id' not in params or
-                params['changelist_id'] is None):
-            raise ValueError("Missing the required parameter `changelist_id` when calling `apply_changelist`")  # noqa: E501
+            raise ValueError("Missing the required parameter `container_id` when calling `approve_ontology_version`")  # noqa: E501
+        # verify the required parameter 'ontology_version_id' is set
+        if ('ontology_version_id' not in params or
+                params['ontology_version_id'] is None):
+            raise ValueError("Missing the required parameter `ontology_version_id` when calling `approve_ontology_version`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'container_id' in params:
             path_params['container_id'] = params['container_id']  # noqa: E501
-        if 'changelist_id' in params:
-            path_params['changelistID'] = params['changelist_id']  # noqa: E501
+        if 'ontology_version_id' in params:
+            path_params['ontology_version_id'] = params['ontology_version_id']  # noqa: E501
 
         query_params = []
 
@@ -215,106 +215,7 @@ class ContainersApi(object):
         auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists/{changelistID}/apply', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def approve_changelist(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Approve Changelist  # noqa: E501
-
-        Approves a changelist  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.approve_changelist(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.approve_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.approve_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-            return data
-
-    def approve_changelist_with_http_info(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Approve Changelist  # noqa: E501
-
-        Approves a changelist  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.approve_changelist_with_http_info(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id', 'changelist_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method approve_changelist" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `approve_changelist`")  # noqa: E501
-        # verify the required parameter 'changelist_id' is set
-        if ('changelist_id' not in params or
-                params['changelist_id'] is None):
-            raise ValueError("Missing the required parameter `changelist_id` when calling `approve_changelist`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-        if 'changelist_id' in params:
-            path_params['changelist_id'] = params['changelist_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists/{changelist_id}/approve', 'POST',
+            '/containers/{container_id}/ontology/versions/{ontology_version_id}/approve', 'PUT',
             path_params,
             query_params,
             header_params,
@@ -626,208 +527,6 @@ class ContainersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_new_changelist(self, container_id, **kwargs):  # noqa: E501
-        """Create New Changelist  # noqa: E501
-
-        Create a new changelist.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_new_changelist(container_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param OntologyChangelistsBody body:
-        :return: InlineResponse2001
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.create_new_changelist_with_http_info(container_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.create_new_changelist_with_http_info(container_id, **kwargs)  # noqa: E501
-            return data
-
-    def create_new_changelist_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """Create New Changelist  # noqa: E501
-
-        Create a new changelist.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_new_changelist_with_http_info(container_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param OntologyChangelistsBody body:
-        :return: InlineResponse2001
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id', 'body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method create_new_changelist" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `create_new_changelist`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def delete_changelist(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Delete Changelist  # noqa: E501
-
-        Deletes a changelist  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_changelist(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.delete_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.delete_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-            return data
-
-    def delete_changelist_with_http_info(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Delete Changelist  # noqa: E501
-
-        Deletes a changelist  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_changelist_with_http_info(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id', 'changelist_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method delete_changelist" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `delete_changelist`")  # noqa: E501
-        # verify the required parameter 'changelist_id' is set
-        if ('changelist_id' not in params or
-                params['changelist_id'] is None):
-            raise ValueError("Missing the required parameter `changelist_id` when calling `delete_changelist`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-        if 'changelist_id' in params:
-            path_params['changelist_id'] = params['changelist_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists/{changelist_id}', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def import_container(self, name, description, data_versioning_enabled, path, file, **kwargs):  # noqa: E501
         """Import Container  # noqa: E501
 
@@ -956,204 +655,6 @@ class ContainersApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='ContainerImportResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_changelist_approvals(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """List Approvals for Changelist  # noqa: E501
-
-        Approves a changelist for application. Note: you must still apply changelist after approval, this does not apply changelist.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_changelist_approvals(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: InlineResponse2002
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_changelist_approvals_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_changelist_approvals_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-            return data
-
-    def list_changelist_approvals_with_http_info(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """List Approvals for Changelist  # noqa: E501
-
-        Approves a changelist for application. Note: you must still apply changelist after approval, this does not apply changelist.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_changelist_approvals_with_http_info(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: InlineResponse2002
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id', 'changelist_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_changelist_approvals" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `list_changelist_approvals`")  # noqa: E501
-        # verify the required parameter 'changelist_id' is set
-        if ('changelist_id' not in params or
-                params['changelist_id'] is None):
-            raise ValueError("Missing the required parameter `changelist_id` when calling `list_changelist_approvals`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-        if 'changelist_id' in params:
-            path_params['changelist_id'] = params['changelist_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists/{changelist_id}/approve', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_changelists(self, container_id, **kwargs):  # noqa: E501
-        """List Changelists  # noqa: E501
-
-        List all changelists for a container. Will eventually support filters.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_changelists(container_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :return: ListChangelistResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_changelists_with_http_info(container_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_changelists_with_http_info(container_id, **kwargs)  # noqa: E501
-            return data
-
-    def list_changelists_with_http_info(self, container_id, **kwargs):  # noqa: E501
-        """List Changelists  # noqa: E501
-
-        List all changelists for a container. Will eventually support filters.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_changelists_with_http_info(container_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :return: ListChangelistResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_changelists" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `list_changelists`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ListChangelistResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1350,7 +851,7 @@ class ContainersApi(object):
 
         :param async_req bool
         :param str container_id: (required)
-        :return: InlineResponse2003
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1372,7 +873,7 @@ class ContainersApi(object):
 
         :param async_req bool
         :param str container_id: (required)
-        :return: InlineResponse2003
+        :return: InlineResponse2001
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1426,7 +927,205 @@ class ContainersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2003',  # noqa: E501
+            response_type='InlineResponse2001',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def publish_ontology_version(self, container_id, ontology_version_id, **kwargs):  # noqa: E501
+        """Publish Ontology Version  # noqa: E501
+
+        Publishes an ontology version  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.publish_ontology_version(container_id, ontology_version_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str ontology_version_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.publish_ontology_version_with_http_info(container_id, ontology_version_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.publish_ontology_version_with_http_info(container_id, ontology_version_id, **kwargs)  # noqa: E501
+            return data
+
+    def publish_ontology_version_with_http_info(self, container_id, ontology_version_id, **kwargs):  # noqa: E501
+        """Publish Ontology Version  # noqa: E501
+
+        Publishes an ontology version  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.publish_ontology_version_with_http_info(container_id, ontology_version_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str ontology_version_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'ontology_version_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method publish_ontology_version" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `publish_ontology_version`")  # noqa: E501
+        # verify the required parameter 'ontology_version_id' is set
+        if ('ontology_version_id' not in params or
+                params['ontology_version_id'] is None):
+            raise ValueError("Missing the required parameter `ontology_version_id` when calling `publish_ontology_version`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'ontology_version_id' in params:
+            path_params['ontology_version_id'] = params['ontology_version_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/ontology/versions/{ontology_version_id}/publish', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def reject_ontology_version_approval(self, container_id, ontology_version_id, **kwargs):  # noqa: E501
+        """Reject Ontology Version Approval  # noqa: E501
+
+        Rejects an ontology version (either in a pending status or after it has been approved).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reject_ontology_version_approval(container_id, ontology_version_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str ontology_version_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.reject_ontology_version_approval_with_http_info(container_id, ontology_version_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.reject_ontology_version_approval_with_http_info(container_id, ontology_version_id, **kwargs)  # noqa: E501
+            return data
+
+    def reject_ontology_version_approval_with_http_info(self, container_id, ontology_version_id, **kwargs):  # noqa: E501
+        """Reject Ontology Version Approval  # noqa: E501
+
+        Rejects an ontology version (either in a pending status or after it has been approved).  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.reject_ontology_version_approval_with_http_info(container_id, ontology_version_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str ontology_version_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'ontology_version_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method reject_ontology_version_approval" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `reject_ontology_version_approval`")  # noqa: E501
+        # verify the required parameter 'ontology_version_id' is set
+        if ('ontology_version_id' not in params or
+                params['ontology_version_id'] is None):
+            raise ValueError("Missing the required parameter `ontology_version_id` when calling `reject_ontology_version_approval`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'ontology_version_id' in params:
+            path_params['ontology_version_id'] = params['ontology_version_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/ontology/versions/{ontology_version_id}/approve', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1522,109 +1221,6 @@ class ContainersApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Generic200Response',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def retrieve_changelist(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Retrieve Changelist  # noqa: E501
-
-        Retrieve a changelist by id.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.retrieve_changelist(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: RetrieveChangelistResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.retrieve_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.retrieve_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-            return data
-
-    def retrieve_changelist_with_http_info(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Retrieve Changelist  # noqa: E501
-
-        Retrieve a changelist by id.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.retrieve_changelist_with_http_info(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: RetrieveChangelistResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id', 'changelist_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method retrieve_changelist" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `retrieve_changelist`")  # noqa: E501
-        # verify the required parameter 'changelist_id' is set
-        if ('changelist_id' not in params or
-                params['changelist_id'] is None):
-            raise ValueError("Missing the required parameter `changelist_id` when calling `retrieve_changelist`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-        if 'changelist_id' in params:
-            path_params['changelist_id'] = params['changelist_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists/{changelist_id}', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='RetrieveChangelistResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1739,7 +1335,7 @@ class ContainersApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str version_id: (required)
-        :return: InlineResponse2004
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1762,7 +1358,7 @@ class ContainersApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str version_id: (required)
-        :return: InlineResponse2004
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1822,106 +1418,7 @@ class ContainersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2004',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def revoke_changelist_approval(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Revoke Changelist Approval  # noqa: E501
-
-        Removes all approvals for changelist.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.revoke_changelist_approval(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.revoke_changelist_approval_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.revoke_changelist_approval_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-            return data
-
-    def revoke_changelist_approval_with_http_info(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Revoke Changelist Approval  # noqa: E501
-
-        Removes all approvals for changelist.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.revoke_changelist_approval_with_http_info(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id', 'changelist_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method revoke_changelist_approval" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `revoke_changelist_approval`")  # noqa: E501
-        # verify the required parameter 'changelist_id' is set
-        if ('changelist_id' not in params or
-                params['changelist_id'] is None):
-            raise ValueError("Missing the required parameter `changelist_id` when calling `revoke_changelist_approval`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-        if 'changelist_id' in params:
-            path_params['changelist_id'] = params['changelist_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists/{changelist_id}/approve', 'DELETE',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='InlineResponse2002',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -2028,6 +1525,105 @@ class ContainersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def send_ontology_version_for_approval(self, container_id, ontology_version_id, **kwargs):  # noqa: E501
+        """Send Ontology Version for Approval  # noqa: E501
+
+        Sends an ontology version to be approved by a container admin  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.send_ontology_version_for_approval(container_id, ontology_version_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str ontology_version_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.send_ontology_version_for_approval_with_http_info(container_id, ontology_version_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.send_ontology_version_for_approval_with_http_info(container_id, ontology_version_id, **kwargs)  # noqa: E501
+            return data
+
+    def send_ontology_version_for_approval_with_http_info(self, container_id, ontology_version_id, **kwargs):  # noqa: E501
+        """Send Ontology Version for Approval  # noqa: E501
+
+        Sends an ontology version to be approved by a container admin  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.send_ontology_version_for_approval_with_http_info(container_id, ontology_version_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str ontology_version_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'ontology_version_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method send_ontology_version_for_approval" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `send_ontology_version_for_approval`")  # noqa: E501
+        # verify the required parameter 'ontology_version_id' is set
+        if ('ontology_version_id' not in params or
+                params['ontology_version_id'] is None):
+            raise ValueError("Missing the required parameter `ontology_version_id` when calling `send_ontology_version_for_approval`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'ontology_version_id' in params:
+            path_params['ontology_version_id'] = params['ontology_version_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/ontology/versions/{ontology_version_id}/approve', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def set_container_active(self, container_id, **kwargs):  # noqa: E501
         """Set Container Active  # noqa: E501
 
@@ -2116,117 +1712,6 @@ class ContainersApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='Generic200Response',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def update_changelist(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Update Changelist  # noqa: E501
-
-        Update a changelist.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_changelist(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :param ChangelistsChangelistIdBody body:
-        :return: InlineResponse2001
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.update_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.update_changelist_with_http_info(container_id, changelist_id, **kwargs)  # noqa: E501
-            return data
-
-    def update_changelist_with_http_info(self, container_id, changelist_id, **kwargs):  # noqa: E501
-        """Update Changelist  # noqa: E501
-
-        Update a changelist.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_changelist_with_http_info(container_id, changelist_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str changelist_id: (required)
-        :param ChangelistsChangelistIdBody body:
-        :return: InlineResponse2001
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id', 'changelist_id', 'body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method update_changelist" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `update_changelist`")  # noqa: E501
-        # verify the required parameter 'changelist_id' is set
-        if ('changelist_id' not in params or
-                params['changelist_id'] is None):
-            raise ValueError("Missing the required parameter `changelist_id` when calling `update_changelist`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-        if 'changelist_id' in params:
-            path_params['changelist_id'] = params['changelist_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/ontology/changelists/{changelist_id}', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

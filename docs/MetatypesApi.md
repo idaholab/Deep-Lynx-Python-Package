@@ -302,7 +302,7 @@ from pprint import pprint
 api_instance = deep_lynx.MetatypesApi(deep_lynx.ApiClient(configuration))
 container_id = 'container_id_example' # str | 
 metatype_id = 'metatype_id_example' # str | 
-body = NULL # object |  (optional)
+body = deep_lynx.ValidateMetatypePropertiesRequest() # ValidateMetatypePropertiesRequest |  (optional)
 
 try:
     # Validate Metatype Properties
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**|  | 
  **metatype_id** | **str**|  | 
- **body** | [**object**](object.md)|  | [optional] 
+ **body** | [**ValidateMetatypePropertiesRequest**](ValidateMetatypePropertiesRequest.md)|  | [optional] 
 
 ### Return type
 
