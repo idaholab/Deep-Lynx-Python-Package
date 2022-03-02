@@ -28,176 +28,1243 @@ class InlineResponse2001Value(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'id': 'str',
-        'container_id': 'str',
-        'name': 'str',
-        'changelist_id': 'str',
-        'created_by': 'str',
-        'created_at': 'str'
+        'origin_properties': 'InlineResponse2001OriginProperties',
+        'edge_properties': 'object',
+        'destination_properties': 'InlineResponse2001OriginProperties',
+        'origin_id': 'str',
+        'origin_container_id': 'str',
+        'origin_data_source_id': 'str',
+        'origin_import_data_id': 'object',
+        'origin_data_staging_id': 'object',
+        'origin_type_mapping_transformation_id': 'object',
+        'origin_original_data_id': 'object',
+        'origin_metadata': 'object',
+        'origin_created_at': 'str',
+        'origin_modified_at': 'str',
+        'origin_deleted_at': 'object',
+        'origin_created_by': 'str',
+        'origin_modified_by': 'str',
+        'origin_metatype_name': 'str',
+        'edge_id': 'str',
+        'edge_container_id': 'str',
+        'edge_relationship_pair_id': 'str',
+        'edge_data_source_id': 'str',
+        'edge_import_data_id': 'object',
+        'edge_data_staging_id': 'object',
+        'edge_type_mapping_transformation_id': 'object',
+        'edge_metadata': 'object',
+        'edge_created_at': 'str',
+        'edge_modified_at': 'str',
+        'edge_deleted_at': 'object',
+        'edge_modified_by': 'str',
+        'edge_created_by': 'str',
+        'destination_id': 'str',
+        'destination_container_id': 'str',
+        'destination_data_source_id': 'str',
+        'destination_import_data_id': 'object',
+        'destination_data_staging_id': 'object',
+        'destination_type_mapping_transformation_id': 'object',
+        'destination_original_data_id': 'object',
+        'destination_metadata': 'object',
+        'destination_created_at': 'str',
+        'destination_modified_at': 'str',
+        'destination_deleted_at': 'object',
+        'destination_created_by': 'str',
+        'destination_modified_by': 'str',
+        'destination_metatype_name': 'str',
+        'lvl': 'float',
+        'metatype_id': 'InlineResponse2001MetatypeId',
+        'destination_metatype_id': 'str'
     }
 
     attribute_map = {
-        'id': 'id',
-        'container_id': 'container_id',
-        'name': 'name',
-        'changelist_id': 'changelist_id',
-        'created_by': 'created_by',
-        'created_at': 'created_at'
+        'origin_properties': 'origin_properties',
+        'edge_properties': 'edge_properties',
+        'destination_properties': 'destination_properties',
+        'origin_id': 'origin_id',
+        'origin_container_id': 'origin_container_id',
+        'origin_data_source_id': 'origin_data_source_id',
+        'origin_import_data_id': 'origin_import_data_id',
+        'origin_data_staging_id': 'origin_data_staging_id',
+        'origin_type_mapping_transformation_id': 'origin_type_mapping_transformation_id',
+        'origin_original_data_id': 'origin_original_data_id',
+        'origin_metadata': 'origin_metadata',
+        'origin_created_at': 'origin_created_at',
+        'origin_modified_at': 'origin_modified_at',
+        'origin_deleted_at': 'origin_deleted_at',
+        'origin_created_by': 'origin_created_by',
+        'origin_modified_by': 'origin_modified_by',
+        'origin_metatype_name': 'origin_metatype_name',
+        'edge_id': 'edge_id',
+        'edge_container_id': 'edge_container_id',
+        'edge_relationship_pair_id': 'edge_relationship_pair_id',
+        'edge_data_source_id': 'edge_data_source_id',
+        'edge_import_data_id': 'edge_import_data_id',
+        'edge_data_staging_id': 'edge_data_staging_id',
+        'edge_type_mapping_transformation_id': 'edge_type_mapping_transformation_id',
+        'edge_metadata': 'edge_metadata',
+        'edge_created_at': 'edge_created_at',
+        'edge_modified_at': 'edge_modified_at',
+        'edge_deleted_at': 'edge_deleted_at',
+        'edge_modified_by': 'edge_modified_by',
+        'edge_created_by': 'edge_created_by',
+        'destination_id': 'destination_id',
+        'destination_container_id': 'destination_container_id',
+        'destination_data_source_id': 'destination_data_source_id',
+        'destination_import_data_id': 'destination_import_data_id',
+        'destination_data_staging_id': 'destination_data_staging_id',
+        'destination_type_mapping_transformation_id': 'destination_type_mapping_transformation_id',
+        'destination_original_data_id': 'destination_original_data_id',
+        'destination_metadata': 'destination_metadata',
+        'destination_created_at': 'destination_created_at',
+        'destination_modified_at': 'destination_modified_at',
+        'destination_deleted_at': 'destination_deleted_at',
+        'destination_created_by': 'destination_created_by',
+        'destination_modified_by': 'destination_modified_by',
+        'destination_metatype_name': 'destination_metatype_name',
+        'lvl': 'lvl',
+        'metatype_id': 'metatype_id',
+        'destination_metatype_id': 'destination_metatype_id'
     }
 
-    def __init__(self, id=None, container_id=None, name=None, changelist_id=None, created_by=None, created_at=None):  # noqa: E501
+    def __init__(self, origin_properties=None, edge_properties=None, destination_properties=None, origin_id=None, origin_container_id=None, origin_data_source_id=None, origin_import_data_id=None, origin_data_staging_id=None, origin_type_mapping_transformation_id=None, origin_original_data_id=None, origin_metadata=None, origin_created_at=None, origin_modified_at=None, origin_deleted_at=None, origin_created_by=None, origin_modified_by=None, origin_metatype_name=None, edge_id=None, edge_container_id=None, edge_relationship_pair_id=None, edge_data_source_id=None, edge_import_data_id=None, edge_data_staging_id=None, edge_type_mapping_transformation_id=None, edge_metadata=None, edge_created_at=None, edge_modified_at=None, edge_deleted_at=None, edge_modified_by=None, edge_created_by=None, destination_id=None, destination_container_id=None, destination_data_source_id=None, destination_import_data_id=None, destination_data_staging_id=None, destination_type_mapping_transformation_id=None, destination_original_data_id=None, destination_metadata=None, destination_created_at=None, destination_modified_at=None, destination_deleted_at=None, destination_created_by=None, destination_modified_by=None, destination_metatype_name=None, lvl=None, metatype_id=None, destination_metatype_id=None):  # noqa: E501
         """InlineResponse2001Value - a model defined in Swagger"""  # noqa: E501
-        self._id = None
-        self._container_id = None
-        self._name = None
-        self._changelist_id = None
-        self._created_by = None
-        self._created_at = None
+        self._origin_properties = None
+        self._edge_properties = None
+        self._destination_properties = None
+        self._origin_id = None
+        self._origin_container_id = None
+        self._origin_data_source_id = None
+        self._origin_import_data_id = None
+        self._origin_data_staging_id = None
+        self._origin_type_mapping_transformation_id = None
+        self._origin_original_data_id = None
+        self._origin_metadata = None
+        self._origin_created_at = None
+        self._origin_modified_at = None
+        self._origin_deleted_at = None
+        self._origin_created_by = None
+        self._origin_modified_by = None
+        self._origin_metatype_name = None
+        self._edge_id = None
+        self._edge_container_id = None
+        self._edge_relationship_pair_id = None
+        self._edge_data_source_id = None
+        self._edge_import_data_id = None
+        self._edge_data_staging_id = None
+        self._edge_type_mapping_transformation_id = None
+        self._edge_metadata = None
+        self._edge_created_at = None
+        self._edge_modified_at = None
+        self._edge_deleted_at = None
+        self._edge_modified_by = None
+        self._edge_created_by = None
+        self._destination_id = None
+        self._destination_container_id = None
+        self._destination_data_source_id = None
+        self._destination_import_data_id = None
+        self._destination_data_staging_id = None
+        self._destination_type_mapping_transformation_id = None
+        self._destination_original_data_id = None
+        self._destination_metadata = None
+        self._destination_created_at = None
+        self._destination_modified_at = None
+        self._destination_deleted_at = None
+        self._destination_created_by = None
+        self._destination_modified_by = None
+        self._destination_metatype_name = None
+        self._lvl = None
+        self._metatype_id = None
+        self._destination_metatype_id = None
         self.discriminator = None
-        self.id = id
-        self.container_id = container_id
-        self.name = name
-        self.changelist_id = changelist_id
-        self.created_by = created_by
-        self.created_at = created_at
+        if origin_properties is not None:
+            self.origin_properties = origin_properties
+        if edge_properties is not None:
+            self.edge_properties = edge_properties
+        if destination_properties is not None:
+            self.destination_properties = destination_properties
+        self.origin_id = origin_id
+        self.origin_container_id = origin_container_id
+        if origin_data_source_id is not None:
+            self.origin_data_source_id = origin_data_source_id
+        if origin_import_data_id is not None:
+            self.origin_import_data_id = origin_import_data_id
+        if origin_data_staging_id is not None:
+            self.origin_data_staging_id = origin_data_staging_id
+        if origin_type_mapping_transformation_id is not None:
+            self.origin_type_mapping_transformation_id = origin_type_mapping_transformation_id
+        if origin_original_data_id is not None:
+            self.origin_original_data_id = origin_original_data_id
+        if origin_metadata is not None:
+            self.origin_metadata = origin_metadata
+        if origin_created_at is not None:
+            self.origin_created_at = origin_created_at
+        if origin_modified_at is not None:
+            self.origin_modified_at = origin_modified_at
+        if origin_deleted_at is not None:
+            self.origin_deleted_at = origin_deleted_at
+        if origin_created_by is not None:
+            self.origin_created_by = origin_created_by
+        if origin_modified_by is not None:
+            self.origin_modified_by = origin_modified_by
+        if origin_metatype_name is not None:
+            self.origin_metatype_name = origin_metatype_name
+        self.edge_id = edge_id
+        self.edge_container_id = edge_container_id
+        if edge_relationship_pair_id is not None:
+            self.edge_relationship_pair_id = edge_relationship_pair_id
+        if edge_data_source_id is not None:
+            self.edge_data_source_id = edge_data_source_id
+        if edge_import_data_id is not None:
+            self.edge_import_data_id = edge_import_data_id
+        if edge_data_staging_id is not None:
+            self.edge_data_staging_id = edge_data_staging_id
+        if edge_type_mapping_transformation_id is not None:
+            self.edge_type_mapping_transformation_id = edge_type_mapping_transformation_id
+        if edge_metadata is not None:
+            self.edge_metadata = edge_metadata
+        if edge_created_at is not None:
+            self.edge_created_at = edge_created_at
+        if edge_modified_at is not None:
+            self.edge_modified_at = edge_modified_at
+        if edge_deleted_at is not None:
+            self.edge_deleted_at = edge_deleted_at
+        if edge_modified_by is not None:
+            self.edge_modified_by = edge_modified_by
+        if edge_created_by is not None:
+            self.edge_created_by = edge_created_by
+        self.destination_id = destination_id
+        self.destination_container_id = destination_container_id
+        if destination_data_source_id is not None:
+            self.destination_data_source_id = destination_data_source_id
+        if destination_import_data_id is not None:
+            self.destination_import_data_id = destination_import_data_id
+        if destination_data_staging_id is not None:
+            self.destination_data_staging_id = destination_data_staging_id
+        if destination_type_mapping_transformation_id is not None:
+            self.destination_type_mapping_transformation_id = destination_type_mapping_transformation_id
+        if destination_original_data_id is not None:
+            self.destination_original_data_id = destination_original_data_id
+        if destination_metadata is not None:
+            self.destination_metadata = destination_metadata
+        if destination_created_at is not None:
+            self.destination_created_at = destination_created_at
+        if destination_modified_at is not None:
+            self.destination_modified_at = destination_modified_at
+        if destination_deleted_at is not None:
+            self.destination_deleted_at = destination_deleted_at
+        if destination_created_by is not None:
+            self.destination_created_by = destination_created_by
+        if destination_modified_by is not None:
+            self.destination_modified_by = destination_modified_by
+        if destination_metatype_name is not None:
+            self.destination_metatype_name = destination_metatype_name
+        self.lvl = lvl
+        if metatype_id is not None:
+            self.metatype_id = metatype_id
+        if destination_metatype_id is not None:
+            self.destination_metatype_id = destination_metatype_id
 
     @property
-    def id(self):
-        """Gets the id of this InlineResponse2001Value.  # noqa: E501
+    def origin_properties(self):
+        """Gets the origin_properties of this InlineResponse2001Value.  # noqa: E501
 
 
-        :return: The id of this InlineResponse2001Value.  # noqa: E501
-        :rtype: str
+        :return: The origin_properties of this InlineResponse2001Value.  # noqa: E501
+        :rtype: InlineResponse2001OriginProperties
         """
-        return self._id
+        return self._origin_properties
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this InlineResponse2001Value.
+    @origin_properties.setter
+    def origin_properties(self, origin_properties):
+        """Sets the origin_properties of this InlineResponse2001Value.
 
 
-        :param id: The id of this InlineResponse2001Value.  # noqa: E501
-        :type: str
+        :param origin_properties: The origin_properties of this InlineResponse2001Value.  # noqa: E501
+        :type: InlineResponse2001OriginProperties
         """
-        if id is None:
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._origin_properties = origin_properties
 
     @property
-    def container_id(self):
-        """Gets the container_id of this InlineResponse2001Value.  # noqa: E501
+    def edge_properties(self):
+        """Gets the edge_properties of this InlineResponse2001Value.  # noqa: E501
 
 
-        :return: The container_id of this InlineResponse2001Value.  # noqa: E501
-        :rtype: str
+        :return: The edge_properties of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
         """
-        return self._container_id
+        return self._edge_properties
 
-    @container_id.setter
-    def container_id(self, container_id):
-        """Sets the container_id of this InlineResponse2001Value.
+    @edge_properties.setter
+    def edge_properties(self, edge_properties):
+        """Sets the edge_properties of this InlineResponse2001Value.
 
 
-        :param container_id: The container_id of this InlineResponse2001Value.  # noqa: E501
-        :type: str
+        :param edge_properties: The edge_properties of this InlineResponse2001Value.  # noqa: E501
+        :type: object
         """
-        if container_id is None:
-            raise ValueError("Invalid value for `container_id`, must not be `None`")  # noqa: E501
 
-        self._container_id = container_id
+        self._edge_properties = edge_properties
 
     @property
-    def name(self):
-        """Gets the name of this InlineResponse2001Value.  # noqa: E501
+    def destination_properties(self):
+        """Gets the destination_properties of this InlineResponse2001Value.  # noqa: E501
 
 
-        :return: The name of this InlineResponse2001Value.  # noqa: E501
-        :rtype: str
+        :return: The destination_properties of this InlineResponse2001Value.  # noqa: E501
+        :rtype: InlineResponse2001OriginProperties
         """
-        return self._name
+        return self._destination_properties
 
-    @name.setter
-    def name(self, name):
-        """Sets the name of this InlineResponse2001Value.
+    @destination_properties.setter
+    def destination_properties(self, destination_properties):
+        """Sets the destination_properties of this InlineResponse2001Value.
 
 
-        :param name: The name of this InlineResponse2001Value.  # noqa: E501
-        :type: str
+        :param destination_properties: The destination_properties of this InlineResponse2001Value.  # noqa: E501
+        :type: InlineResponse2001OriginProperties
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
-        self._name = name
+        self._destination_properties = destination_properties
 
     @property
-    def changelist_id(self):
-        """Gets the changelist_id of this InlineResponse2001Value.  # noqa: E501
+    def origin_id(self):
+        """Gets the origin_id of this InlineResponse2001Value.  # noqa: E501
 
 
-        :return: The changelist_id of this InlineResponse2001Value.  # noqa: E501
+        :return: The origin_id of this InlineResponse2001Value.  # noqa: E501
         :rtype: str
         """
-        return self._changelist_id
+        return self._origin_id
 
-    @changelist_id.setter
-    def changelist_id(self, changelist_id):
-        """Sets the changelist_id of this InlineResponse2001Value.
+    @origin_id.setter
+    def origin_id(self, origin_id):
+        """Sets the origin_id of this InlineResponse2001Value.
 
 
-        :param changelist_id: The changelist_id of this InlineResponse2001Value.  # noqa: E501
+        :param origin_id: The origin_id of this InlineResponse2001Value.  # noqa: E501
         :type: str
         """
-        if changelist_id is None:
-            raise ValueError("Invalid value for `changelist_id`, must not be `None`")  # noqa: E501
+        if origin_id is None:
+            raise ValueError("Invalid value for `origin_id`, must not be `None`")  # noqa: E501
 
-        self._changelist_id = changelist_id
+        self._origin_id = origin_id
 
     @property
-    def created_by(self):
-        """Gets the created_by of this InlineResponse2001Value.  # noqa: E501
+    def origin_container_id(self):
+        """Gets the origin_container_id of this InlineResponse2001Value.  # noqa: E501
 
 
-        :return: The created_by of this InlineResponse2001Value.  # noqa: E501
+        :return: The origin_container_id of this InlineResponse2001Value.  # noqa: E501
         :rtype: str
         """
-        return self._created_by
+        return self._origin_container_id
 
-    @created_by.setter
-    def created_by(self, created_by):
-        """Sets the created_by of this InlineResponse2001Value.
+    @origin_container_id.setter
+    def origin_container_id(self, origin_container_id):
+        """Sets the origin_container_id of this InlineResponse2001Value.
 
 
-        :param created_by: The created_by of this InlineResponse2001Value.  # noqa: E501
+        :param origin_container_id: The origin_container_id of this InlineResponse2001Value.  # noqa: E501
         :type: str
         """
-        if created_by is None:
-            raise ValueError("Invalid value for `created_by`, must not be `None`")  # noqa: E501
+        if origin_container_id is None:
+            raise ValueError("Invalid value for `origin_container_id`, must not be `None`")  # noqa: E501
 
-        self._created_by = created_by
+        self._origin_container_id = origin_container_id
 
     @property
-    def created_at(self):
-        """Gets the created_at of this InlineResponse2001Value.  # noqa: E501
+    def origin_data_source_id(self):
+        """Gets the origin_data_source_id of this InlineResponse2001Value.  # noqa: E501
 
 
-        :return: The created_at of this InlineResponse2001Value.  # noqa: E501
+        :return: The origin_data_source_id of this InlineResponse2001Value.  # noqa: E501
         :rtype: str
         """
-        return self._created_at
+        return self._origin_data_source_id
 
-    @created_at.setter
-    def created_at(self, created_at):
-        """Sets the created_at of this InlineResponse2001Value.
+    @origin_data_source_id.setter
+    def origin_data_source_id(self, origin_data_source_id):
+        """Sets the origin_data_source_id of this InlineResponse2001Value.
 
 
-        :param created_at: The created_at of this InlineResponse2001Value.  # noqa: E501
+        :param origin_data_source_id: The origin_data_source_id of this InlineResponse2001Value.  # noqa: E501
         :type: str
         """
-        if created_at is None:
-            raise ValueError("Invalid value for `created_at`, must not be `None`")  # noqa: E501
 
-        self._created_at = created_at
+        self._origin_data_source_id = origin_data_source_id
+
+    @property
+    def origin_import_data_id(self):
+        """Gets the origin_import_data_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_import_data_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._origin_import_data_id
+
+    @origin_import_data_id.setter
+    def origin_import_data_id(self, origin_import_data_id):
+        """Sets the origin_import_data_id of this InlineResponse2001Value.
+
+
+        :param origin_import_data_id: The origin_import_data_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._origin_import_data_id = origin_import_data_id
+
+    @property
+    def origin_data_staging_id(self):
+        """Gets the origin_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._origin_data_staging_id
+
+    @origin_data_staging_id.setter
+    def origin_data_staging_id(self, origin_data_staging_id):
+        """Sets the origin_data_staging_id of this InlineResponse2001Value.
+
+
+        :param origin_data_staging_id: The origin_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._origin_data_staging_id = origin_data_staging_id
+
+    @property
+    def origin_type_mapping_transformation_id(self):
+        """Gets the origin_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._origin_type_mapping_transformation_id
+
+    @origin_type_mapping_transformation_id.setter
+    def origin_type_mapping_transformation_id(self, origin_type_mapping_transformation_id):
+        """Sets the origin_type_mapping_transformation_id of this InlineResponse2001Value.
+
+
+        :param origin_type_mapping_transformation_id: The origin_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._origin_type_mapping_transformation_id = origin_type_mapping_transformation_id
+
+    @property
+    def origin_original_data_id(self):
+        """Gets the origin_original_data_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_original_data_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._origin_original_data_id
+
+    @origin_original_data_id.setter
+    def origin_original_data_id(self, origin_original_data_id):
+        """Sets the origin_original_data_id of this InlineResponse2001Value.
+
+
+        :param origin_original_data_id: The origin_original_data_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._origin_original_data_id = origin_original_data_id
+
+    @property
+    def origin_metadata(self):
+        """Gets the origin_metadata of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_metadata of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._origin_metadata
+
+    @origin_metadata.setter
+    def origin_metadata(self, origin_metadata):
+        """Sets the origin_metadata of this InlineResponse2001Value.
+
+
+        :param origin_metadata: The origin_metadata of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._origin_metadata = origin_metadata
+
+    @property
+    def origin_created_at(self):
+        """Gets the origin_created_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_created_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_created_at
+
+    @origin_created_at.setter
+    def origin_created_at(self, origin_created_at):
+        """Sets the origin_created_at of this InlineResponse2001Value.
+
+
+        :param origin_created_at: The origin_created_at of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_created_at = origin_created_at
+
+    @property
+    def origin_modified_at(self):
+        """Gets the origin_modified_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_modified_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_modified_at
+
+    @origin_modified_at.setter
+    def origin_modified_at(self, origin_modified_at):
+        """Sets the origin_modified_at of this InlineResponse2001Value.
+
+
+        :param origin_modified_at: The origin_modified_at of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_modified_at = origin_modified_at
+
+    @property
+    def origin_deleted_at(self):
+        """Gets the origin_deleted_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_deleted_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._origin_deleted_at
+
+    @origin_deleted_at.setter
+    def origin_deleted_at(self, origin_deleted_at):
+        """Sets the origin_deleted_at of this InlineResponse2001Value.
+
+
+        :param origin_deleted_at: The origin_deleted_at of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._origin_deleted_at = origin_deleted_at
+
+    @property
+    def origin_created_by(self):
+        """Gets the origin_created_by of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_created_by of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_created_by
+
+    @origin_created_by.setter
+    def origin_created_by(self, origin_created_by):
+        """Sets the origin_created_by of this InlineResponse2001Value.
+
+
+        :param origin_created_by: The origin_created_by of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_created_by = origin_created_by
+
+    @property
+    def origin_modified_by(self):
+        """Gets the origin_modified_by of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_modified_by of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_modified_by
+
+    @origin_modified_by.setter
+    def origin_modified_by(self, origin_modified_by):
+        """Sets the origin_modified_by of this InlineResponse2001Value.
+
+
+        :param origin_modified_by: The origin_modified_by of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_modified_by = origin_modified_by
+
+    @property
+    def origin_metatype_name(self):
+        """Gets the origin_metatype_name of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The origin_metatype_name of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._origin_metatype_name
+
+    @origin_metatype_name.setter
+    def origin_metatype_name(self, origin_metatype_name):
+        """Sets the origin_metatype_name of this InlineResponse2001Value.
+
+
+        :param origin_metatype_name: The origin_metatype_name of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._origin_metatype_name = origin_metatype_name
+
+    @property
+    def edge_id(self):
+        """Gets the edge_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._edge_id
+
+    @edge_id.setter
+    def edge_id(self, edge_id):
+        """Sets the edge_id of this InlineResponse2001Value.
+
+
+        :param edge_id: The edge_id of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+        if edge_id is None:
+            raise ValueError("Invalid value for `edge_id`, must not be `None`")  # noqa: E501
+
+        self._edge_id = edge_id
+
+    @property
+    def edge_container_id(self):
+        """Gets the edge_container_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_container_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._edge_container_id
+
+    @edge_container_id.setter
+    def edge_container_id(self, edge_container_id):
+        """Sets the edge_container_id of this InlineResponse2001Value.
+
+
+        :param edge_container_id: The edge_container_id of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+        if edge_container_id is None:
+            raise ValueError("Invalid value for `edge_container_id`, must not be `None`")  # noqa: E501
+
+        self._edge_container_id = edge_container_id
+
+    @property
+    def edge_relationship_pair_id(self):
+        """Gets the edge_relationship_pair_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_relationship_pair_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._edge_relationship_pair_id
+
+    @edge_relationship_pair_id.setter
+    def edge_relationship_pair_id(self, edge_relationship_pair_id):
+        """Sets the edge_relationship_pair_id of this InlineResponse2001Value.
+
+
+        :param edge_relationship_pair_id: The edge_relationship_pair_id of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._edge_relationship_pair_id = edge_relationship_pair_id
+
+    @property
+    def edge_data_source_id(self):
+        """Gets the edge_data_source_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_data_source_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._edge_data_source_id
+
+    @edge_data_source_id.setter
+    def edge_data_source_id(self, edge_data_source_id):
+        """Sets the edge_data_source_id of this InlineResponse2001Value.
+
+
+        :param edge_data_source_id: The edge_data_source_id of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._edge_data_source_id = edge_data_source_id
+
+    @property
+    def edge_import_data_id(self):
+        """Gets the edge_import_data_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_import_data_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._edge_import_data_id
+
+    @edge_import_data_id.setter
+    def edge_import_data_id(self, edge_import_data_id):
+        """Sets the edge_import_data_id of this InlineResponse2001Value.
+
+
+        :param edge_import_data_id: The edge_import_data_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._edge_import_data_id = edge_import_data_id
+
+    @property
+    def edge_data_staging_id(self):
+        """Gets the edge_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._edge_data_staging_id
+
+    @edge_data_staging_id.setter
+    def edge_data_staging_id(self, edge_data_staging_id):
+        """Sets the edge_data_staging_id of this InlineResponse2001Value.
+
+
+        :param edge_data_staging_id: The edge_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._edge_data_staging_id = edge_data_staging_id
+
+    @property
+    def edge_type_mapping_transformation_id(self):
+        """Gets the edge_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._edge_type_mapping_transformation_id
+
+    @edge_type_mapping_transformation_id.setter
+    def edge_type_mapping_transformation_id(self, edge_type_mapping_transformation_id):
+        """Sets the edge_type_mapping_transformation_id of this InlineResponse2001Value.
+
+
+        :param edge_type_mapping_transformation_id: The edge_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._edge_type_mapping_transformation_id = edge_type_mapping_transformation_id
+
+    @property
+    def edge_metadata(self):
+        """Gets the edge_metadata of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_metadata of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._edge_metadata
+
+    @edge_metadata.setter
+    def edge_metadata(self, edge_metadata):
+        """Sets the edge_metadata of this InlineResponse2001Value.
+
+
+        :param edge_metadata: The edge_metadata of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._edge_metadata = edge_metadata
+
+    @property
+    def edge_created_at(self):
+        """Gets the edge_created_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_created_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._edge_created_at
+
+    @edge_created_at.setter
+    def edge_created_at(self, edge_created_at):
+        """Sets the edge_created_at of this InlineResponse2001Value.
+
+
+        :param edge_created_at: The edge_created_at of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._edge_created_at = edge_created_at
+
+    @property
+    def edge_modified_at(self):
+        """Gets the edge_modified_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_modified_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._edge_modified_at
+
+    @edge_modified_at.setter
+    def edge_modified_at(self, edge_modified_at):
+        """Sets the edge_modified_at of this InlineResponse2001Value.
+
+
+        :param edge_modified_at: The edge_modified_at of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._edge_modified_at = edge_modified_at
+
+    @property
+    def edge_deleted_at(self):
+        """Gets the edge_deleted_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_deleted_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._edge_deleted_at
+
+    @edge_deleted_at.setter
+    def edge_deleted_at(self, edge_deleted_at):
+        """Sets the edge_deleted_at of this InlineResponse2001Value.
+
+
+        :param edge_deleted_at: The edge_deleted_at of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._edge_deleted_at = edge_deleted_at
+
+    @property
+    def edge_modified_by(self):
+        """Gets the edge_modified_by of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_modified_by of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._edge_modified_by
+
+    @edge_modified_by.setter
+    def edge_modified_by(self, edge_modified_by):
+        """Sets the edge_modified_by of this InlineResponse2001Value.
+
+
+        :param edge_modified_by: The edge_modified_by of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._edge_modified_by = edge_modified_by
+
+    @property
+    def edge_created_by(self):
+        """Gets the edge_created_by of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The edge_created_by of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._edge_created_by
+
+    @edge_created_by.setter
+    def edge_created_by(self, edge_created_by):
+        """Sets the edge_created_by of this InlineResponse2001Value.
+
+
+        :param edge_created_by: The edge_created_by of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._edge_created_by = edge_created_by
+
+    @property
+    def destination_id(self):
+        """Gets the destination_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_id
+
+    @destination_id.setter
+    def destination_id(self, destination_id):
+        """Sets the destination_id of this InlineResponse2001Value.
+
+
+        :param destination_id: The destination_id of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+        if destination_id is None:
+            raise ValueError("Invalid value for `destination_id`, must not be `None`")  # noqa: E501
+
+        self._destination_id = destination_id
+
+    @property
+    def destination_container_id(self):
+        """Gets the destination_container_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_container_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_container_id
+
+    @destination_container_id.setter
+    def destination_container_id(self, destination_container_id):
+        """Sets the destination_container_id of this InlineResponse2001Value.
+
+
+        :param destination_container_id: The destination_container_id of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+        if destination_container_id is None:
+            raise ValueError("Invalid value for `destination_container_id`, must not be `None`")  # noqa: E501
+
+        self._destination_container_id = destination_container_id
+
+    @property
+    def destination_data_source_id(self):
+        """Gets the destination_data_source_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_data_source_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_data_source_id
+
+    @destination_data_source_id.setter
+    def destination_data_source_id(self, destination_data_source_id):
+        """Sets the destination_data_source_id of this InlineResponse2001Value.
+
+
+        :param destination_data_source_id: The destination_data_source_id of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_data_source_id = destination_data_source_id
+
+    @property
+    def destination_import_data_id(self):
+        """Gets the destination_import_data_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_import_data_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._destination_import_data_id
+
+    @destination_import_data_id.setter
+    def destination_import_data_id(self, destination_import_data_id):
+        """Sets the destination_import_data_id of this InlineResponse2001Value.
+
+
+        :param destination_import_data_id: The destination_import_data_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._destination_import_data_id = destination_import_data_id
+
+    @property
+    def destination_data_staging_id(self):
+        """Gets the destination_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._destination_data_staging_id
+
+    @destination_data_staging_id.setter
+    def destination_data_staging_id(self, destination_data_staging_id):
+        """Sets the destination_data_staging_id of this InlineResponse2001Value.
+
+
+        :param destination_data_staging_id: The destination_data_staging_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._destination_data_staging_id = destination_data_staging_id
+
+    @property
+    def destination_type_mapping_transformation_id(self):
+        """Gets the destination_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._destination_type_mapping_transformation_id
+
+    @destination_type_mapping_transformation_id.setter
+    def destination_type_mapping_transformation_id(self, destination_type_mapping_transformation_id):
+        """Sets the destination_type_mapping_transformation_id of this InlineResponse2001Value.
+
+
+        :param destination_type_mapping_transformation_id: The destination_type_mapping_transformation_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._destination_type_mapping_transformation_id = destination_type_mapping_transformation_id
+
+    @property
+    def destination_original_data_id(self):
+        """Gets the destination_original_data_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_original_data_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._destination_original_data_id
+
+    @destination_original_data_id.setter
+    def destination_original_data_id(self, destination_original_data_id):
+        """Sets the destination_original_data_id of this InlineResponse2001Value.
+
+
+        :param destination_original_data_id: The destination_original_data_id of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._destination_original_data_id = destination_original_data_id
+
+    @property
+    def destination_metadata(self):
+        """Gets the destination_metadata of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_metadata of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._destination_metadata
+
+    @destination_metadata.setter
+    def destination_metadata(self, destination_metadata):
+        """Sets the destination_metadata of this InlineResponse2001Value.
+
+
+        :param destination_metadata: The destination_metadata of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._destination_metadata = destination_metadata
+
+    @property
+    def destination_created_at(self):
+        """Gets the destination_created_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_created_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_created_at
+
+    @destination_created_at.setter
+    def destination_created_at(self, destination_created_at):
+        """Sets the destination_created_at of this InlineResponse2001Value.
+
+
+        :param destination_created_at: The destination_created_at of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_created_at = destination_created_at
+
+    @property
+    def destination_modified_at(self):
+        """Gets the destination_modified_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_modified_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_modified_at
+
+    @destination_modified_at.setter
+    def destination_modified_at(self, destination_modified_at):
+        """Sets the destination_modified_at of this InlineResponse2001Value.
+
+
+        :param destination_modified_at: The destination_modified_at of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_modified_at = destination_modified_at
+
+    @property
+    def destination_deleted_at(self):
+        """Gets the destination_deleted_at of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_deleted_at of this InlineResponse2001Value.  # noqa: E501
+        :rtype: object
+        """
+        return self._destination_deleted_at
+
+    @destination_deleted_at.setter
+    def destination_deleted_at(self, destination_deleted_at):
+        """Sets the destination_deleted_at of this InlineResponse2001Value.
+
+
+        :param destination_deleted_at: The destination_deleted_at of this InlineResponse2001Value.  # noqa: E501
+        :type: object
+        """
+
+        self._destination_deleted_at = destination_deleted_at
+
+    @property
+    def destination_created_by(self):
+        """Gets the destination_created_by of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_created_by of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_created_by
+
+    @destination_created_by.setter
+    def destination_created_by(self, destination_created_by):
+        """Sets the destination_created_by of this InlineResponse2001Value.
+
+
+        :param destination_created_by: The destination_created_by of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_created_by = destination_created_by
+
+    @property
+    def destination_modified_by(self):
+        """Gets the destination_modified_by of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_modified_by of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_modified_by
+
+    @destination_modified_by.setter
+    def destination_modified_by(self, destination_modified_by):
+        """Sets the destination_modified_by of this InlineResponse2001Value.
+
+
+        :param destination_modified_by: The destination_modified_by of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_modified_by = destination_modified_by
+
+    @property
+    def destination_metatype_name(self):
+        """Gets the destination_metatype_name of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_metatype_name of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_metatype_name
+
+    @destination_metatype_name.setter
+    def destination_metatype_name(self, destination_metatype_name):
+        """Sets the destination_metatype_name of this InlineResponse2001Value.
+
+
+        :param destination_metatype_name: The destination_metatype_name of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_metatype_name = destination_metatype_name
+
+    @property
+    def lvl(self):
+        """Gets the lvl of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The lvl of this InlineResponse2001Value.  # noqa: E501
+        :rtype: float
+        """
+        return self._lvl
+
+    @lvl.setter
+    def lvl(self, lvl):
+        """Sets the lvl of this InlineResponse2001Value.
+
+
+        :param lvl: The lvl of this InlineResponse2001Value.  # noqa: E501
+        :type: float
+        """
+        if lvl is None:
+            raise ValueError("Invalid value for `lvl`, must not be `None`")  # noqa: E501
+
+        self._lvl = lvl
+
+    @property
+    def metatype_id(self):
+        """Gets the metatype_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The metatype_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: InlineResponse2001MetatypeId
+        """
+        return self._metatype_id
+
+    @metatype_id.setter
+    def metatype_id(self, metatype_id):
+        """Sets the metatype_id of this InlineResponse2001Value.
+
+
+        :param metatype_id: The metatype_id of this InlineResponse2001Value.  # noqa: E501
+        :type: InlineResponse2001MetatypeId
+        """
+
+        self._metatype_id = metatype_id
+
+    @property
+    def destination_metatype_id(self):
+        """Gets the destination_metatype_id of this InlineResponse2001Value.  # noqa: E501
+
+
+        :return: The destination_metatype_id of this InlineResponse2001Value.  # noqa: E501
+        :rtype: str
+        """
+        return self._destination_metatype_id
+
+    @destination_metatype_id.setter
+    def destination_metatype_id(self, destination_metatype_id):
+        """Sets the destination_metatype_id of this InlineResponse2001Value.
+
+
+        :param destination_metatype_id: The destination_metatype_id of this InlineResponse2001Value.  # noqa: E501
+        :type: str
+        """
+
+        self._destination_metatype_id = destination_metatype_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""

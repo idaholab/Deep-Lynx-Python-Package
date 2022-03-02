@@ -28,18 +28,24 @@ class InlineResponse2001(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'value': 'list[InlineResponse2001Value]'
+        'value': 'list[InlineResponse2001Value]',
+        'is_error': 'bool'
     }
 
     attribute_map = {
-        'value': 'value'
+        'value': 'value',
+        'is_error': 'isError'
     }
 
-    def __init__(self, value=None):  # noqa: E501
+    def __init__(self, value=None, is_error=None):  # noqa: E501
         """InlineResponse2001 - a model defined in Swagger"""  # noqa: E501
         self._value = None
+        self._is_error = None
         self.discriminator = None
-        self.value = value
+        if value is not None:
+            self.value = value
+        if is_error is not None:
+            self.is_error = is_error
 
     @property
     def value(self):
@@ -59,10 +65,29 @@ class InlineResponse2001(object):
         :param value: The value of this InlineResponse2001.  # noqa: E501
         :type: list[InlineResponse2001Value]
         """
-        if value is None:
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
+
+    @property
+    def is_error(self):
+        """Gets the is_error of this InlineResponse2001.  # noqa: E501
+
+
+        :return: The is_error of this InlineResponse2001.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_error
+
+    @is_error.setter
+    def is_error(self, is_error):
+        """Sets the is_error of this InlineResponse2001.
+
+
+        :param is_error: The is_error of this InlineResponse2001.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_error = is_error
 
     def to_dict(self):
         """Returns the model properties as a dict"""

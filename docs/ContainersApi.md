@@ -426,7 +426,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_ontology_versions**
-> InlineResponse2001 list_ontology_versions(container_id)
+> InlineResponse2002 list_ontology_versions(container_id)
 
 List Ontology Versions
 
@@ -461,7 +461,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_ontology_version**
-> InlineResponse2002 retrieve_ontology_version(container_id, version_id)
+> InlineResponse2003 retrieve_ontology_version(container_id, version_id)
 
 Retrieve Ontology Version
 
@@ -710,7 +710,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

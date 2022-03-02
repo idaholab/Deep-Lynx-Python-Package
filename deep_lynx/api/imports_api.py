@@ -121,7 +121,7 @@ class ImportsApi(object):
         form_params = []
         local_var_files = {}
         if 'file' in params:
-            form_params.append(('file', params['file']))  # noqa: E501
+            local_var_files['file'] = params['file']  # noqa: E501
 
         body_params = None
         if 'body' in params:
@@ -242,7 +242,7 @@ class ImportsApi(object):
         form_params = []
         local_var_files = {}
         if 'file' in params:
-            form_params.append(('file', params['file']))  # noqa: E501
+            local_var_files['file'] = params['file']  # noqa: E501
 
         body_params = None
         if 'body' in params:

@@ -1644,3 +1644,110 @@ class GraphApi(object):
             _preload_content=params.get('_preload_content', True),
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def retrieve_nth_nodes(self, container_id, node_id, **kwargs):  # noqa: E501
+        """Nth Node Query  # noqa: E501
+
+        Retrieve n layers of node-edge relationships given a depth n and an origin node id.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.retrieve_nth_nodes(container_id, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str node_id: (required)
+        :param str depth: Number of layers deep to query. Defaults to 10.
+        :return: InlineResponse2001
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.retrieve_nth_nodes_with_http_info(container_id, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.retrieve_nth_nodes_with_http_info(container_id, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def retrieve_nth_nodes_with_http_info(self, container_id, node_id, **kwargs):  # noqa: E501
+        """Nth Node Query  # noqa: E501
+
+        Retrieve n layers of node-edge relationships given a depth n and an origin node id.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.retrieve_nth_nodes_with_http_info(container_id, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str node_id: (required)
+        :param str depth: Number of layers deep to query. Defaults to 10.
+        :return: InlineResponse2001
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'node_id', 'depth']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method retrieve_nth_nodes" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `retrieve_nth_nodes`")  # noqa: E501
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `retrieve_nth_nodes`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+        if 'depth' in params:
+            query_params.append(('depth', params['depth']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/graphs/nodes/{node_id}/graph', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2001',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)

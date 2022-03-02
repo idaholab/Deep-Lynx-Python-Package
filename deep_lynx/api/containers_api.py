@@ -632,7 +632,7 @@ class ContainersApi(object):
         if 'path' in params:
             form_params.append(('path', params['path']))  # noqa: E501
         if 'file' in params:
-            form_params.append(('file', params['file']))  # noqa: E501
+            local_var_files['file'] = params['file']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
@@ -851,7 +851,7 @@ class ContainersApi(object):
 
         :param async_req bool
         :param str container_id: (required)
-        :return: InlineResponse2001
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -873,7 +873,7 @@ class ContainersApi(object):
 
         :param async_req bool
         :param str container_id: (required)
-        :return: InlineResponse2001
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -927,7 +927,7 @@ class ContainersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2001',  # noqa: E501
+            response_type='InlineResponse2002',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1335,7 +1335,7 @@ class ContainersApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str version_id: (required)
-        :return: InlineResponse2002
+        :return: InlineResponse2003
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1358,7 +1358,7 @@ class ContainersApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str version_id: (required)
-        :return: InlineResponse2002
+        :return: InlineResponse2003
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1418,7 +1418,7 @@ class ContainersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse2002',  # noqa: E501
+            response_type='InlineResponse2003',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1935,7 +1935,7 @@ class ContainersApi(object):
         if 'path' in params:
             form_params.append(('path', params['path']))  # noqa: E501
         if 'file' in params:
-            form_params.append(('file', params['file']))  # noqa: E501
+            local_var_files['file'] = params['file']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`

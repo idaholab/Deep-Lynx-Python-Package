@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**list_nodes_by_metatype_id**](GraphApi.md#list_nodes_by_metatype_id) | **GET** /containers/{container_id}/graphs/nodes/metatype/{metatype_id} | List Nodes By Metatype ID
 [**retrieve_edge**](GraphApi.md#retrieve_edge) | **GET** /containers/{container_id}/graphs/edges/{edge_id} | Retrieve Edge
 [**retrieve_node**](GraphApi.md#retrieve_node) | **GET** /containers/{container_id}/graphs/nodes/{node_id} | Retrieve Node
+[**retrieve_nth_nodes**](GraphApi.md#retrieve_nth_nodes) | **GET** /containers/{container_id}/graphs/nodes/{node_id}/graph | Nth Node Query
 
 # **archive_edge**
 > Generic200Response archive_edge(container_id, edge_id)
@@ -801,6 +802,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetNodeResponse**](GetNodeResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **retrieve_nth_nodes**
+> InlineResponse2001 retrieve_nth_nodes(container_id, node_id, depth=depth)
+
+Nth Node Query
+
+Retrieve n layers of node-edge relationships given a depth n and an origin node id.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.GraphApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+node_id = 'node_id_example' # str | 
+depth = '10' # str | Number of layers deep to query. Defaults to 10. (optional) (default to 10)
+
+try:
+    # Nth Node Query
+    api_response = api_instance.retrieve_nth_nodes(container_id, node_id, depth=depth)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling GraphApi->retrieve_nth_nodes: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **node_id** | **str**|  | 
+ **depth** | **str**| Number of layers deep to query. Defaults to 10. | [optional] [default to 10]
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

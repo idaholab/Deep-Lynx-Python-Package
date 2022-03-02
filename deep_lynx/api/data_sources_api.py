@@ -1196,7 +1196,7 @@ class DataSourcesApi(object):
     def upload_file(self, container_id, data_source_id, **kwargs):  # noqa: E501
         """Upload File  # noqa: E501
 
-        Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
+        Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   This should be a collection of files and normal fields. If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.upload_file(container_id, data_source_id, async_req=True)
@@ -1206,6 +1206,7 @@ class DataSourcesApi(object):
         :param str container_id: (required)
         :param str data_source_id: (required)
         :param str file:
+        :param str metadata:
         :param str import_id: You can attach the metadata to an existing import if desired.
         :return: UploadFileResponse
                  If the method is called asynchronously,
@@ -1221,7 +1222,7 @@ class DataSourcesApi(object):
     def upload_file_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
         """Upload File  # noqa: E501
 
-        Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
+        Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   This should be a collection of files and normal fields. If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.upload_file_with_http_info(container_id, data_source_id, async_req=True)
@@ -1231,13 +1232,14 @@ class DataSourcesApi(object):
         :param str container_id: (required)
         :param str data_source_id: (required)
         :param str file:
+        :param str metadata:
         :param str import_id: You can attach the metadata to an existing import if desired.
         :return: UploadFileResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['container_id', 'data_source_id', 'file', 'import_id']  # noqa: E501
+        all_params = ['container_id', 'data_source_id', 'file', 'metadata', 'import_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1278,7 +1280,9 @@ class DataSourcesApi(object):
         form_params = []
         local_var_files = {}
         if 'file' in params:
-            form_params.append(('file', params['file']))  # noqa: E501
+            local_var_files['file'] = params['file']  # noqa: E501
+        if 'metadata' in params:
+            local_var_files['metadata'] = params['metadata']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
