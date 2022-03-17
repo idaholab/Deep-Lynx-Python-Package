@@ -79,16 +79,21 @@ class FileInfo(object):
             self.metadata = metadata
         self.id = id
         self.file_name = file_name
-        self.file_size = file_size
+        if file_size is not None:
+            self.file_size = file_size
         self.adapter_file_path = adapter_file_path
-        self.adapter = adapter
+        if adapter is not None:
+            self.adapter = adapter
         self.data_source_id = data_source_id
         self.created_at = created_at
-        self.modified_at = modified_at
+        if modified_at is not None:
+            self.modified_at = modified_at
         self.created_by = created_by
-        self.modified_by = modified_by
+        if modified_by is not None:
+            self.modified_by = modified_by
         self.container_id = container_id
-        self.md5hash = md5hash
+        if md5hash is not None:
+            self.md5hash = md5hash
 
     @property
     def metadata(self):
@@ -175,8 +180,6 @@ class FileInfo(object):
         :param file_size: The file_size of this FileInfo.  # noqa: E501
         :type: float
         """
-        if file_size is None:
-            raise ValueError("Invalid value for `file_size`, must not be `None`")  # noqa: E501
 
         self._file_size = file_size
 
@@ -221,8 +224,6 @@ class FileInfo(object):
         :param adapter: The adapter of this FileInfo.  # noqa: E501
         :type: str
         """
-        if adapter is None:
-            raise ValueError("Invalid value for `adapter`, must not be `None`")  # noqa: E501
 
         self._adapter = adapter
 
@@ -290,8 +291,6 @@ class FileInfo(object):
         :param modified_at: The modified_at of this FileInfo.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -336,8 +335,6 @@ class FileInfo(object):
         :param modified_by: The modified_by of this FileInfo.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 
@@ -382,8 +379,6 @@ class FileInfo(object):
         :param md5hash: The md5hash of this FileInfo.  # noqa: E501
         :type: str
         """
-        if md5hash is None:
-            raise ValueError("Invalid value for `md5hash`, must not be `None`")  # noqa: E501
 
         self._md5hash = md5hash
 

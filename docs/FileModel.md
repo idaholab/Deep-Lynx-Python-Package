@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **data_source_id** | **str** |  | 
 **created_at** | **str** |  | 
-**modified_at** | **str** |  | 
+**modified_at** | **str** |  | [optional] 
 **created_by** | **str** |  | 
-**modified_by** | **str** |  | 
+**modified_by** | **str** |  | [optional] 
 **reference** | **str** |  | 
 **status_message** | **str** |  | [optional] 
 

@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_nodes**
-> ListNodesResponse list_nodes(container_id, limit=limit, offset=offset, transformation_id=transformation_id, metatype_id=metatype_id)
+> ListNodesResponse list_nodes(container_id, limit=limit, offset=offset, transformation_id=transformation_id, metatype_id=metatype_id, data_source_id=data_source_id)
 
 List Nodes
 
@@ -623,10 +623,11 @@ limit = 56 # int |  (optional)
 offset = 56 # int |  (optional)
 transformation_id = 'transformation_id_example' # str | Return only nodes for the selected type transformation (optional)
 metatype_id = 'metatype_id_example' # str | Return only nodes for the selected metatype (optional)
+data_source_id = 'data_source_id_example' # str | Return only nodes for the selected datasource (optional)
 
 try:
     # List Nodes
-    api_response = api_instance.list_nodes(container_id, limit=limit, offset=offset, transformation_id=transformation_id, metatype_id=metatype_id)
+    api_response = api_instance.list_nodes(container_id, limit=limit, offset=offset, transformation_id=transformation_id, metatype_id=metatype_id, data_source_id=data_source_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling GraphApi->list_nodes: %s\n" % e)
@@ -641,6 +642,7 @@ Name | Type | Description  | Notes
  **offset** | **int**|  | [optional] 
  **transformation_id** | **str**| Return only nodes for the selected type transformation | [optional] 
  **metatype_id** | **str**| Return only nodes for the selected metatype | [optional] 
+ **data_source_id** | **str**| Return only nodes for the selected datasource | [optional] 
 
 ### Return type
 

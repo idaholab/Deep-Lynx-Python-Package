@@ -67,9 +67,11 @@ class FileModel(object):
         self.id = id
         self.data_source_id = data_source_id
         self.created_at = created_at
-        self.modified_at = modified_at
+        if modified_at is not None:
+            self.modified_at = modified_at
         self.created_by = created_by
-        self.modified_by = modified_by
+        if modified_by is not None:
+            self.modified_by = modified_by
         self.reference = reference
         if status_message is not None:
             self.status_message = status_message
@@ -184,8 +186,6 @@ class FileModel(object):
         :param modified_at: The modified_at of this FileModel.  # noqa: E501
         :type: str
         """
-        if modified_at is None:
-            raise ValueError("Invalid value for `modified_at`, must not be `None`")  # noqa: E501
 
         self._modified_at = modified_at
 
@@ -230,8 +230,6 @@ class FileModel(object):
         :param modified_by: The modified_by of this FileModel.  # noqa: E501
         :type: str
         """
-        if modified_by is None:
-            raise ValueError("Invalid value for `modified_by`, must not be `None`")  # noqa: E501
 
         self._modified_by = modified_by
 
