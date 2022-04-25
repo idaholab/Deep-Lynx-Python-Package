@@ -6,15 +6,23 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**accept_container_invite**](UsersApi.md#accept_container_invite) | **GET** /users/invite | Accept Container Invite
 [**assign_user_role**](UsersApi.md#assign_user_role) | **POST** /containers/{container_id}/users/roles | Assign User Role
+[**create_service_user**](UsersApi.md#create_service_user) | **POST** /containers/{container_id}/service-users | Create Service User
+[**create_service_user_key_pair**](UsersApi.md#create_service_user_key_pair) | **POST** /containers/{container_id}/service-users/{service_user_id}/keys | Create Service User KeyPair
+[**delete_service_user**](UsersApi.md#delete_service_user) | **DELETE** /containers/{container_id}/service-users/{service_user_id} | Delete Service User
+[**delete_service_user_key_pair**](UsersApi.md#delete_service_user_key_pair) | **DELETE** /containers/{container_id}/service-users/{service_user_id}/keys/{key_id} | Delete Service User KeyPair
 [**delete_user**](UsersApi.md#delete_user) | **DELETE** /users/{user_id} | Delete User
+[**get_service_user_permissions**](UsersApi.md#get_service_user_permissions) | **GET** /containers/{container_id}/service-users/{service_user_id}/permissions | Get Service User Permissions
 [**invite_user_to_container**](UsersApi.md#invite_user_to_container) | **POST** /containers/{container_id}/users/invite | Invite User to Container
 [**list_invited_users_for_container**](UsersApi.md#list_invited_users_for_container) | **GET** /containers/{container_id}/users/invite | List Invited Users for Container
 [**list_outstanding_invites**](UsersApi.md#list_outstanding_invites) | **GET** /users/invites | List Outstanding Invites
+[**list_service_user_key_pairs**](UsersApi.md#list_service_user_key_pairs) | **GET** /containers/{container_id}/service-users/{service_user_id}/keys | List Service User KeyPairs
+[**list_service_users**](UsersApi.md#list_service_users) | **GET** /containers/{container_id}/service-users | List Service Users
 [**list_user_permissions**](UsersApi.md#list_user_permissions) | **GET** /users/permissions | List User Permissions
 [**list_users**](UsersApi.md#list_users) | **GET** /users | List Users
 [**list_users_for_container**](UsersApi.md#list_users_for_container) | **GET** /containers/{container_id}/users | List Users for Container
 [**list_users_roles**](UsersApi.md#list_users_roles) | **GET** /containers/{container_id}/users/{user_id}/roles | List User&#x27;s Roles
 [**retrieve_user**](UsersApi.md#retrieve_user) | **GET** /containers/{container_id}/users/{user_id} | Retrieve User
+[**set_service_user_permissions**](UsersApi.md#set_service_user_permissions) | **PUT** /containers/{container_id}/service-users/{service_user_id}/permissions | Set Service User Permissions
 [**update_user**](UsersApi.md#update_user) | **PUT** /users/{user_id} | Update User
 
 # **accept_container_invite**
@@ -117,6 +125,208 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **create_service_user**
+> create_service_user(container_id, body=body)
+
+Create Service User
+
+Creates a new service user for container
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+body = deep_lynx.CreateServiceUser() # CreateServiceUser |  (optional)
+
+try:
+    # Create Service User
+    api_instance.create_service_user(container_id, body=body)
+except ApiException as e:
+    print("Exception when calling UsersApi->create_service_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **body** | [**CreateServiceUser**](CreateServiceUser.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_service_user_key_pair**
+> create_service_user_key_pair(container_id, service_user_id)
+
+Create Service User KeyPair
+
+Creates a new api/secret keypair. This will return the secret as well - this is the only time that you will be able to see the secret.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+service_user_id = 'service_user_id_example' # str | 
+
+try:
+    # Create Service User KeyPair
+    api_instance.create_service_user_key_pair(container_id, service_user_id)
+except ApiException as e:
+    print("Exception when calling UsersApi->create_service_user_key_pair: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **service_user_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_service_user**
+> delete_service_user(container_id, service_user_id)
+
+Delete Service User
+
+Deletes a service user.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+service_user_id = 'service_user_id_example' # str | 
+
+try:
+    # Delete Service User
+    api_instance.delete_service_user(container_id, service_user_id)
+except ApiException as e:
+    print("Exception when calling UsersApi->delete_service_user: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **service_user_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_service_user_key_pair**
+> delete_service_user_key_pair(container_id, service_user_id, key_id)
+
+Delete Service User KeyPair
+
+Delete a service user keypair.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+service_user_id = 'service_user_id_example' # str | 
+key_id = 'key_id_example' # str | 
+
+try:
+    # Delete Service User KeyPair
+    api_instance.delete_service_user_key_pair(container_id, service_user_id, key_id)
+except ApiException as e:
+    print("Exception when calling UsersApi->delete_service_user_key_pair: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **service_user_id** | **str**|  | 
+ **key_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_user**
 > Generic200Response delete_user(user_id)
 
@@ -154,6 +364,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Generic200Response**](Generic200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_service_user_permissions**
+> list[InlineResponse2002] get_service_user_permissions(container_id, service_user_id)
+
+Get Service User Permissions
+
+Get service user permissions.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+service_user_id = 'service_user_id_example' # str | 
+
+try:
+    # Get Service User Permissions
+    api_response = api_instance.get_service_user_permissions(container_id, service_user_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->get_service_user_permissions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **service_user_id** | **str**|  | 
+
+### Return type
+
+[**list[InlineResponse2002]**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -299,6 +560,105 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ListUserInvitesResponse**](ListUserInvitesResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_service_user_key_pairs**
+> list_service_user_key_pairs(container_id, service_user_id)
+
+List Service User KeyPairs
+
+Lists a service user's api/secret keypairs. This lists only the key, not the secret.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+service_user_id = 'service_user_id_example' # str | 
+
+try:
+    # List Service User KeyPairs
+    api_instance.list_service_user_key_pairs(container_id, service_user_id)
+except ApiException as e:
+    print("Exception when calling UsersApi->list_service_user_key_pairs: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **service_user_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_service_users**
+> ListServiceUserResponse list_service_users(container_id)
+
+List Service Users
+
+Retrieve a list of all service users for container
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+
+try:
+    # List Service Users
+    api_response = api_instance.list_service_users(container_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->list_service_users: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+
+### Return type
+
+[**ListServiceUserResponse**](ListServiceUserResponse.md)
 
 ### Authorization
 
@@ -567,6 +927,58 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **set_service_user_permissions**
+> set_service_user_permissions(container_id, service_user_id, body=body)
+
+Set Service User Permissions
+
+Set service user permissions.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+service_user_id = 'service_user_id_example' # str | 
+body = deep_lynx.ServiceUserIdPermissionsBody() # ServiceUserIdPermissionsBody |  (optional)
+
+try:
+    # Set Service User Permissions
+    api_instance.set_service_user_permissions(container_id, service_user_id, body=body)
+except ApiException as e:
+    print("Exception when calling UsersApi->set_service_user_permissions: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **service_user_id** | **str**|  | 
+ **body** | [**ServiceUserIdPermissionsBody**](ServiceUserIdPermissionsBody.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

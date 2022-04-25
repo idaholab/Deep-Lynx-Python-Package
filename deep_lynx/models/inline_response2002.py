@@ -28,41 +28,41 @@ class InlineResponse2002(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'value': 'list[InlineResponse2002Value]'
+        '_0': 'list[object]'
     }
 
     attribute_map = {
-        'value': 'value'
+        '_0': '0'
     }
 
-    def __init__(self, value=None):  # noqa: E501
+    def __init__(self, _0=None):  # noqa: E501
         """InlineResponse2002 - a model defined in Swagger"""  # noqa: E501
-        self._value = None
+        self.__0 = None
         self.discriminator = None
-        self.value = value
+        self._0 = _0
 
     @property
-    def value(self):
-        """Gets the value of this InlineResponse2002.  # noqa: E501
+    def _0(self):
+        """Gets the _0 of this InlineResponse2002.  # noqa: E501
 
 
-        :return: The value of this InlineResponse2002.  # noqa: E501
-        :rtype: list[InlineResponse2002Value]
+        :return: The _0 of this InlineResponse2002.  # noqa: E501
+        :rtype: list[object]
         """
-        return self._value
+        return self.__0
 
-    @value.setter
-    def value(self, value):
-        """Sets the value of this InlineResponse2002.
+    @_0.setter
+    def _0(self, _0):
+        """Sets the _0 of this InlineResponse2002.
 
 
-        :param value: The value of this InlineResponse2002.  # noqa: E501
-        :type: list[InlineResponse2002Value]
+        :param _0: The _0 of this InlineResponse2002.  # noqa: E501
+        :type: list[object]
         """
-        if value is None:
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
+        if _0 is None:
+            raise ValueError("Invalid value for `_0`, must not be `None`")  # noqa: E501
 
-        self._value = value
+        self.__0 = _0
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -20,4 +20,3 @@ from deep_lynx.api.metatypes_api import MetatypesApi
 from deep_lynx.api.misc_api import MiscApi
 from deep_lynx.api.tasks_api import TasksApi
 from deep_lynx.api.users_api import UsersApi
-from deep_lynx.api.default_api import DefaultApi

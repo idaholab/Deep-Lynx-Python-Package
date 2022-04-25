@@ -32,13 +32,13 @@ class DataQueryApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def query_data(self, body, container_id, **kwargs):  # noqa: E501
+    def data_query(self, body, container_id, **kwargs):  # noqa: E501
         """Query Data  # noqa: E501
 
         Query data from your container using GraphQL. You can learn more here - https://gitlab.software.inl.gov/b650/Deep-Lynx/-/wikis/Querying-Data-With-GraphQL  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.query_data(body, container_id, async_req=True)
+        >>> thread = api.data_query(body, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -50,18 +50,18 @@ class DataQueryApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.query_data_with_http_info(body, container_id, **kwargs)  # noqa: E501
+            return self.data_query_with_http_info(body, container_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.query_data_with_http_info(body, container_id, **kwargs)  # noqa: E501
+            (data) = self.data_query_with_http_info(body, container_id, **kwargs)  # noqa: E501
             return data
 
-    def query_data_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
+    def data_query_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
         """Query Data  # noqa: E501
 
         Query data from your container using GraphQL. You can learn more here - https://gitlab.software.inl.gov/b650/Deep-Lynx/-/wikis/Querying-Data-With-GraphQL  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.query_data_with_http_info(body, container_id, async_req=True)
+        >>> thread = api.data_query_with_http_info(body, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -83,18 +83,18 @@ class DataQueryApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method query_data" % key
+                    " to method data_query" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `query_data`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `data_query`")  # noqa: E501
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `query_data`")  # noqa: E501
+            raise ValueError("Missing the required parameter `container_id` when calling `data_query`")  # noqa: E501
 
         collection_formats = {}
 
@@ -139,13 +139,13 @@ class DataQueryApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def query_data(self, body, container_id, **kwargs):  # noqa: E501
+    def data_query(self, body, container_id, **kwargs):  # noqa: E501
         """Query Data  # noqa: E501
 
         Query data from your container using GraphQL. You can learn more here - https://gitlab.software.inl.gov/b650/Deep-Lynx/-/wikis/Querying-Data-With-GraphQL  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.query_data(body, container_id, async_req=True)
+        >>> thread = api.data_query(body, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -157,18 +157,18 @@ class DataQueryApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.query_data_with_http_info(body, container_id, **kwargs)  # noqa: E501
+            return self.data_query_with_http_info(body, container_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.query_data_with_http_info(body, container_id, **kwargs)  # noqa: E501
+            (data) = self.data_query_with_http_info(body, container_id, **kwargs)  # noqa: E501
             return data
 
-    def query_data_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
+    def data_query_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
         """Query Data  # noqa: E501
 
         Query data from your container using GraphQL. You can learn more here - https://gitlab.software.inl.gov/b650/Deep-Lynx/-/wikis/Querying-Data-With-GraphQL  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.query_data_with_http_info(body, container_id, async_req=True)
+        >>> thread = api.data_query_with_http_info(body, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -190,18 +190,18 @@ class DataQueryApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method query_data" % key
+                    " to method data_query" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `query_data`")  # noqa: E501
+            raise ValueError("Missing the required parameter `body` when calling `data_query`")  # noqa: E501
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `query_data`")  # noqa: E501
+            raise ValueError("Missing the required parameter `container_id` when calling `data_query`")  # noqa: E501
 
         collection_formats = {}
 

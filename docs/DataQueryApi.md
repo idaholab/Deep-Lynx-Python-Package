@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**query_data**](DataQueryApi.md#query_data) | **POST** /containers/{container_id}/data | Query Data
+[**data_query**](DataQueryApi.md#data_query) | **POST** /containers/{container_id}/data | Query Data
 [**query_graph**](DataQueryApi.md#query_graph) | **POST** /containers/{container_id}/query | Query Graph (Deprecated)
 
-# **query_data**
-> InlineResponse200 query_data(body, container_id)
+# **data_query**
+> InlineResponse200 data_query(body, container_id)
 
 Query Data
 
@@ -30,10 +30,10 @@ container_id = 'container_id_example' # str |
 
 try:
     # Query Data
-    api_response = api_instance.query_data(body, container_id)
+    api_response = api_instance.data_query(body, container_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DataQueryApi->query_data: %s\n" % e)
+    print("Exception when calling DataQueryApi->data_query: %s\n" % e)
 ```
 
 ### Parameters
