@@ -4,12 +4,14 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id**](DefaultApi.md#get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id) | **GET** /Core.swagger_collection.yaml/paths//containers/{container_id}/graphs/nodes/{node_id} | Nth Node Query
+[**timeseries_node_query**](DefaultApi.md#timeseries_node_query) | **POST** /containers/{container_id}/graphs/nodes/{node_id}/timeseries | Timeseries Node Query
 
-# **get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id**
-> get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id(container_id, node_id)
+# **timeseries_node_query**
+> timeseries_node_query(container_id, node_id)
 
-Nth Node Query
+Timeseries Node Query
+
+This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time sereis data on nodes.
 
 ### Example
 ```python
@@ -26,10 +28,10 @@ container_id = 'container_id_example' # str |
 node_id = 'node_id_example' # str | 
 
 try:
-    # Nth Node Query
-    api_instance.get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id(container_id, node_id)
+    # Timeseries Node Query
+    api_instance.timeseries_node_query(container_id, node_id)
 except ApiException as e:
-    print("Exception when calling DefaultApi->get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id: %s\n" % e)
+    print("Exception when calling DefaultApi->timeseries_node_query: %s\n" % e)
 ```
 
 ### Parameters

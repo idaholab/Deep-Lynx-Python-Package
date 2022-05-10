@@ -32,12 +32,13 @@ class DefaultApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id(self, container_id, node_id, **kwargs):  # noqa: E501
-        """Nth Node Query  # noqa: E501
+    def timeseries_node_query(self, container_id, node_id, **kwargs):  # noqa: E501
+        """Timeseries Node Query  # noqa: E501
 
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time sereis data on nodes.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id(container_id, node_id, async_req=True)
+        >>> thread = api.timeseries_node_query(container_id, node_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -49,17 +50,18 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id_with_http_info(container_id, node_id, **kwargs)  # noqa: E501
+            return self.timeseries_node_query_with_http_info(container_id, node_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id_with_http_info(container_id, node_id, **kwargs)  # noqa: E501
+            (data) = self.timeseries_node_query_with_http_info(container_id, node_id, **kwargs)  # noqa: E501
             return data
 
-    def get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id_with_http_info(self, container_id, node_id, **kwargs):  # noqa: E501
-        """Nth Node Query  # noqa: E501
+    def timeseries_node_query_with_http_info(self, container_id, node_id, **kwargs):  # noqa: E501
+        """Timeseries Node Query  # noqa: E501
 
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time sereis data on nodes.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id_with_http_info(container_id, node_id, async_req=True)
+        >>> thread = api.timeseries_node_query_with_http_info(container_id, node_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -81,18 +83,18 @@ class DefaultApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id" % key
+                    " to method timeseries_node_query" % key
                 )
             params[key] = val
         del params['kwargs']
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id`")  # noqa: E501
+            raise ValueError("Missing the required parameter `container_id` when calling `timeseries_node_query`")  # noqa: E501
         # verify the required parameter 'node_id' is set
         if ('node_id' not in params or
                 params['node_id'] is None):
-            raise ValueError("Missing the required parameter `node_id` when calling `get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id`")  # noqa: E501
+            raise ValueError("Missing the required parameter `node_id` when calling `timeseries_node_query`")  # noqa: E501
 
         collection_formats = {}
 
@@ -114,7 +116,7 @@ class DefaultApi(object):
         auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/Core.swagger_collection.yaml/paths//containers/{container_id}/graphs/nodes/{node_id}', 'GET',
+            '/containers/{container_id}/graphs/nodes/{node_id}/timeseries', 'POST',
             path_params,
             query_params,
             header_params,
