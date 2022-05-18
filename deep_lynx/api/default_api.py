@@ -35,7 +35,7 @@ class DefaultApi(object):
     def timeseries_node_query(self, container_id, node_id, **kwargs):  # noqa: E501
         """Timeseries Node Query  # noqa: E501
 
-        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time sereis data on nodes.  # noqa: E501
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data on nodes.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.timeseries_node_query(container_id, node_id, async_req=True)
@@ -58,7 +58,7 @@ class DefaultApi(object):
     def timeseries_node_query_with_http_info(self, container_id, node_id, **kwargs):  # noqa: E501
         """Timeseries Node Query  # noqa: E501
 
-        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time sereis data on nodes.  # noqa: E501
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data on nodes.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.timeseries_node_query_with_http_info(container_id, node_id, async_req=True)

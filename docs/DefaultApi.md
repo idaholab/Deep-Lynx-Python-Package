@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 Timeseries Node Query
 
-This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time sereis data on nodes.
+This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data on nodes.
 
 ### Example
 ```python
