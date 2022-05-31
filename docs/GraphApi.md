@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**retrieve_edge**](GraphApi.md#retrieve_edge) | **GET** /containers/{container_id}/graphs/edges/{edge_id} | Retrieve Edge
 [**retrieve_node**](GraphApi.md#retrieve_node) | **GET** /containers/{container_id}/graphs/nodes/{node_id} | Retrieve Node
 [**retrieve_nth_nodes**](GraphApi.md#retrieve_nth_nodes) | **GET** /containers/{container_id}/graphs/nodes/{node_id}/graph | Nth Node Query
+[**timeseries_node_query**](GraphApi.md#timeseries_node_query) | **POST** /containers/{container_id}/graphs/nodes/{node_id}/timeseries | Timeseries Node Query
 
 # **archive_edge**
 > Generic200Response archive_edge(container_id, edge_id)
@@ -866,6 +867,56 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **timeseries_node_query**
+> timeseries_node_query(container_id, node_id)
+
+Timeseries Node Query
+
+This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data on nodes.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.GraphApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+node_id = 'node_id_example' # str | 
+
+try:
+    # Timeseries Node Query
+    api_instance.timeseries_node_query(container_id, node_id)
+except ApiException as e:
+    print("Exception when calling GraphApi->timeseries_node_query: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **node_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
