@@ -30,7 +30,7 @@ class ImportModel(object):
     swagger_types = {
         'errors': 'str',
         'data_source_config': 'DataSourceConfig',
-        'id': 'float',
+        'id': 'str',
         'data_source_id': 'str',
         'import_id': 'str',
         'data': 'object',
@@ -133,7 +133,7 @@ class ImportModel(object):
 
 
         :return: The id of this ImportModel.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._id
 
@@ -143,7 +143,7 @@ class ImportModel(object):
 
 
         :param id: The id of this ImportModel.  # noqa: E501
-        :type: float
+        :type: str
         """
 
         self._id = id

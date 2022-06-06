@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **errors** | **str** |  | [optional] 
 **data_source_config** | [**DataSourceConfig**](DataSourceConfig.md) |  | [optional] 
-**id** | **float** |  | [optional] 
+**id** | **str** |  | [optional] 
 **data_source_id** | **str** |  | 
 **import_id** | **str** |  | 
 **data** | **object** |  | [optional] 
