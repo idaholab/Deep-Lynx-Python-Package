@@ -8,6 +8,7 @@ from deep_lynx.api.containers_api import ContainersApi
 from deep_lynx.api.data_export_api import DataExportApi
 from deep_lynx.api.data_query_api import DataQueryApi
 from deep_lynx.api.data_sources_api import DataSourcesApi
+from deep_lynx.api.data_targets_api import DataTargetsApi
 from deep_lynx.api.data_type_mappings_api import DataTypeMappingsApi
 from deep_lynx.api.events_api import EventsApi
 from deep_lynx.api.graph_api import GraphApi
@@ -19,4 +20,5 @@ from deep_lynx.api.metatype_relationships_api import MetatypeRelationshipsApi
 from deep_lynx.api.metatypes_api import MetatypesApi
 from deep_lynx.api.misc_api import MiscApi
 from deep_lynx.api.tasks_api import TasksApi
+from deep_lynx.api.time_series_api import TimeSeriesApi
 from deep_lynx.api.users_api import UsersApi
