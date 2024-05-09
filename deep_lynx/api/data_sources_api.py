@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -150,7 +150,7 @@ class DataSourcesApi(object):
     def create_data_source(self, body, container_id, **kwargs):  # noqa: E501
         """Create Data Source  # noqa: E501
 
-        Create new datasource. Supported data source types are `http`, `standard` (or `manual`), `jazz`, and `aveva`.  # noqa: E501
+        Create new datasource. Supported data source types are `http`, `standard` (or `manual`), `p6`, `aveva`, and `timeseries`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_data_source(body, container_id, async_req=True)
@@ -173,7 +173,7 @@ class DataSourcesApi(object):
     def create_data_source_with_http_info(self, body, container_id, **kwargs):  # noqa: E501
         """Create Data Source  # noqa: E501
 
-        Create new datasource. Supported data source types are `http`, `standard` (or `manual`), `jazz`, and `aveva`.  # noqa: E501
+        Create new datasource. Supported data source types are `http`, `standard` (or `manual`), `p6`, `aveva`, and `timeseries`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_data_source_with_http_info(body, container_id, async_req=True)
@@ -369,6 +369,109 @@ class DataSourcesApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def download_data_source(self, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Download Timeseries Data Source  # noqa: E501
+
+        Download a Timeseries Data Source by ID. Output is a CSV file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.download_data_source(container_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str data_source_id: (required)
+        :return: GetDataSourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.download_data_source_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.download_data_source_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
+            return data
+
+    def download_data_source_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Download Timeseries Data Source  # noqa: E501
+
+        Download a Timeseries Data Source by ID. Output is a CSV file.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.download_data_source_with_http_info(container_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str data_source_id: (required)
+        :return: GetDataSourceResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'data_source_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method download_data_source" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `download_data_source`")  # noqa: E501
+        # verify the required parameter 'data_source_id' is set
+        if ('data_source_id' not in params or
+                params['data_source_id'] is None):
+            raise ValueError("Missing the required parameter `data_source_id` when calling `download_data_source`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'data_source_id' in params:
+            path_params['data_source_id'] = params['data_source_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/import/datasources/{data_source_id}/download', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='GetDataSourceResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def download_file(self, container_id, file_id, **kwargs):  # noqa: E501
         """Download File  # noqa: E501
 
@@ -381,7 +484,7 @@ class DataSourcesApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str file_id: (required)
-        :return: None
+        :return: file
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -404,7 +507,7 @@ class DataSourcesApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str file_id: (required)
-        :return: None
+        :return: file
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -449,6 +552,10 @@ class DataSourcesApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/octet-stream'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['BearerAuth']  # noqa: E501
 
@@ -460,7 +567,7 @@ class DataSourcesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='file',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -479,6 +586,10 @@ class DataSourcesApi(object):
 
         :param async_req bool
         :param str container_id: (required)
+        :param bool decrypted: Return decrypted data sources. Requires read-write permissions on data.
+        :param bool timeseries: Return timeseries data sources (true) or non-timeseries data sources (false)
+        :param bool count: Return the count of data sources
+        :param bool archived: Return data sources marked as archived
         :return: ListDataSourcesResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -501,12 +612,16 @@ class DataSourcesApi(object):
 
         :param async_req bool
         :param str container_id: (required)
+        :param bool decrypted: Return decrypted data sources. Requires read-write permissions on data.
+        :param bool timeseries: Return timeseries data sources (true) or non-timeseries data sources (false)
+        :param bool count: Return the count of data sources
+        :param bool archived: Return data sources marked as archived
         :return: ListDataSourcesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['container_id']  # noqa: E501
+        all_params = ['container_id', 'decrypted', 'timeseries', 'count', 'archived']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -533,6 +648,14 @@ class DataSourcesApi(object):
             path_params['container_id'] = params['container_id']  # noqa: E501
 
         query_params = []
+        if 'decrypted' in params:
+            query_params.append(('decrypted', params['decrypted']))  # noqa: E501
+        if 'timeseries' in params:
+            query_params.append(('timeseries', params['timeseries']))  # noqa: E501
+        if 'count' in params:
+            query_params.append(('count', params['count']))  # noqa: E501
+        if 'archived' in params:
+            query_params.append(('archived', params['archived']))  # noqa: E501
 
         header_params = {}
 
@@ -1196,7 +1319,7 @@ class DataSourcesApi(object):
     def upload_file(self, container_id, data_source_id, **kwargs):  # noqa: E501
         """Upload File  # noqa: E501
 
-        Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   This should be a collection of files and normal fields. If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
+        Uploads a file and it's metadata to DeepLynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself. This should be a collection of files and normal fields. If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once DeepLynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well. NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then DeepLynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.upload_file(container_id, data_source_id, async_req=True)
@@ -1222,7 +1345,7 @@ class DataSourcesApi(object):
     def upload_file_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
         """Upload File  # noqa: E501
 
-        Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   This should be a collection of files and normal fields. If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
+        Uploads a file and it's metadata to DeepLynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself. This should be a collection of files and normal fields. If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once DeepLynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well. NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then DeepLynx will attempt to split up your metadata into its parts instead of treating it like a whole object.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.upload_file_with_http_info(container_id, data_source_id, async_req=True)

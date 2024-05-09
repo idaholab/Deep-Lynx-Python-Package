@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.graph_api import GraphApi  # noqa: E501
-from swagger_client.rest import ApiException
+import deep_lynx
+from deep_lynx.api.graph_api import GraphApi  # noqa: E501
+from deep_lynx.rest import ApiException
 
 
 class TestGraphApi(unittest.TestCase):
@@ -31,105 +31,133 @@ class TestGraphApi(unittest.TestCase):
     def test_archive_edge(self):
         """Test case for archive_edge
 
-        ArchiveEdge  # noqa: E501
+        Archive Edge  # noqa: E501
         """
         pass
 
     def test_archive_node(self):
         """Test case for archive_node
 
-        ArchiveNode  # noqa: E501
+        Archive Node  # noqa: E501
         """
         pass
 
     def test_attach_edge_file(self):
         """Test case for attach_edge_file
 
-        AttachEdgeFile  # noqa: E501
+        Attach Edge File  # noqa: E501
         """
         pass
 
     def test_attach_node_file(self):
         """Test case for attach_node_file
 
-        AttachNodeFile  # noqa: E501
+        Attach Node File  # noqa: E501
         """
         pass
 
     def test_create_or_update_edges(self):
         """Test case for create_or_update_edges
 
-        CreateOrUpdateEdges  # noqa: E501
+        Create or Update Edges  # noqa: E501
         """
         pass
 
     def test_create_or_update_nodes(self):
         """Test case for create_or_update_nodes
 
-        CreateOrUpdateNodes  # noqa: E501
+        Create Or Update Nodes  # noqa: E501
         """
         pass
 
     def test_delete_node_file(self):
         """Test case for delete_node_file
 
-        DeleteNodeFile  # noqa: E501
+        Detach Node File  # noqa: E501
         """
         pass
 
     def test_detach_node_file(self):
         """Test case for detach_node_file
 
-        DetachNodeFile  # noqa: E501
+        Detach Node File  # noqa: E501
         """
         pass
 
     def test_list_edge_files(self):
         """Test case for list_edge_files
 
-        ListEdgeFiles  # noqa: E501
+        List Edge Files  # noqa: E501
         """
         pass
 
     def test_list_edges(self):
         """Test case for list_edges
 
-        ListEdges  # noqa: E501
+        List Edges  # noqa: E501
+        """
+        pass
+
+    def test_list_edges_for_node_ids(self):
+        """Test case for list_edges_for_node_ids
+
+        List Edges for Node IDs  # noqa: E501
         """
         pass
 
     def test_list_node_files(self):
         """Test case for list_node_files
 
-        ListNodeFiles  # noqa: E501
+        List Node Files  # noqa: E501
         """
         pass
 
     def test_list_nodes(self):
         """Test case for list_nodes
 
-        ListNodes  # noqa: E501
+        List Nodes  # noqa: E501
         """
         pass
 
-    def test_list_nodesby_metatype_id(self):
-        """Test case for list_nodesby_metatype_id
+    def test_list_nodes_by_metatype_id(self):
+        """Test case for list_nodes_by_metatype_id
 
-        ListNodesbyMetatypeID  # noqa: E501
+        List Nodes By Metatype ID  # noqa: E501
         """
         pass
 
     def test_retrieve_edge(self):
         """Test case for retrieve_edge
 
-        RetrieveEdge  # noqa: E501
+        Retrieve Edge  # noqa: E501
         """
         pass
 
     def test_retrieve_node(self):
         """Test case for retrieve_node
 
-        RetrieveNode  # noqa: E501
+        Retrieve Node  # noqa: E501
+        """
+        pass
+
+    def test_retrieve_nth_nodes(self):
+        """Test case for retrieve_nth_nodes
+
+        Nth Node Query  # noqa: E501
+        """
+        pass
+
+    def test_timeseries_data_source_query(self):
+        """Test case for timeseries_data_source_query
+
+        Timeseries Data Source Query  # noqa: E501
+        """
+        pass
+
+    def test_timeseries_node_query(self):
+        """Test case for timeseries_node_query
+
+        Timeseries Node Query  # noqa: E501
         """
         pass
 

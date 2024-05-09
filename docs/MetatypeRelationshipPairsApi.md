@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 Create Metatype Relationship Pair
 
-Create a new Metaype Relationship Pair. Describes the connection between two metatypes by connecting them using a Metatype Relationship.  Pass in an array for bulk creation.
+Create a new Metaype Relationship Pair. Describes the connection between two metatypes by connecting them using a Metatype Relationship. Pass in an array for bulk creation.
 
 ### Example
 ```python

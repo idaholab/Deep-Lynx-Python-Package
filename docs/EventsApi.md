@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_event_actions**
-> ListEventActionResponse list_event_actions()
+> ListEventActionResponse list_event_actions(deleted=deleted)
 
 List Event Actions
 
@@ -228,17 +228,21 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.EventsApi(deep_lynx.ApiClient(configuration))
+deleted = false # bool | boolean indicating if we should return deleted event actions (optional) (default to false)
 
 try:
     # List Event Actions
-    api_response = api_instance.list_event_actions()
+    api_response = api_instance.list_event_actions(deleted=deleted)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling EventsApi->list_event_actions: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deleted** | **bool**| boolean indicating if we should return deleted event actions | [optional] [default to false]
 
 ### Return type
 

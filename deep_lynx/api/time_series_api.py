@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -32,47 +32,394 @@ class TimeSeriesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def timeseries_node_query(self, container_id, node_id, **kwargs):  # noqa: E501
-        """Timeseries Node Query  # noqa: E501
+    def timeseries_data_source_query(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Timeseries Data Source Query  # noqa: E501
 
-        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data on nodes.  # noqa: E501
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data without requiring attachment to a node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timeseries_node_query(container_id, node_id, async_req=True)
+        >>> thread = api.timeseries_data_source_query(body, container_id, data_source_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param object body: (required)
         :param str container_id: (required)
-        :param str node_id: (required)
-        :return: None
+        :param str data_source_id: (required)
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.timeseries_node_query_with_http_info(container_id, node_id, **kwargs)  # noqa: E501
+            return self.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.timeseries_node_query_with_http_info(container_id, node_id, **kwargs)  # noqa: E501
+            (data) = self.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, **kwargs)  # noqa: E501
             return data
 
-    def timeseries_node_query_with_http_info(self, container_id, node_id, **kwargs):  # noqa: E501
-        """Timeseries Node Query  # noqa: E501
+    def timeseries_data_source_query_with_http_info(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Timeseries Data Source Query  # noqa: E501
 
-        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data on nodes.  # noqa: E501
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data without requiring attachment to a node.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.timeseries_node_query_with_http_info(container_id, node_id, async_req=True)
+        >>> thread = api.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
+        :param object body: (required)
         :param str container_id: (required)
-        :param str node_id: (required)
-        :return: None
+        :param str data_source_id: (required)
+        :return: InlineResponse2002
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['container_id', 'node_id']  # noqa: E501
+        all_params = ['body', 'container_id', 'data_source_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method timeseries_data_source_query" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `timeseries_data_source_query`")  # noqa: E501
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `timeseries_data_source_query`")  # noqa: E501
+        # verify the required parameter 'data_source_id' is set
+        if ('data_source_id' not in params or
+                params['data_source_id'] is None):
+            raise ValueError("Missing the required parameter `data_source_id` when calling `timeseries_data_source_query`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'data_source_id' in params:
+            path_params['data_source_id'] = params['data_source_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'text/plain', 'application/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/import/datasources/{data_source_id}/data', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2002',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def timeseries_data_source_query(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Timeseries Data Source Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data without requiring attachment to a node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_data_source_query(body, container_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str data_source_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, **kwargs)  # noqa: E501
+            return data
+
+    def timeseries_data_source_query_with_http_info(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Timeseries Data Source Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data without requiring attachment to a node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str data_source_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'container_id', 'data_source_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method timeseries_data_source_query" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `timeseries_data_source_query`")  # noqa: E501
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `timeseries_data_source_query`")  # noqa: E501
+        # verify the required parameter 'data_source_id' is set
+        if ('data_source_id' not in params or
+                params['data_source_id'] is None):
+            raise ValueError("Missing the required parameter `data_source_id` when calling `timeseries_data_source_query`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'data_source_id' in params:
+            path_params['data_source_id'] = params['data_source_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'text/plain', 'application/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/import/datasources/{data_source_id}/data', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2002',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def timeseries_data_source_query(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Timeseries Data Source Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data without requiring attachment to a node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_data_source_query(body, container_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str data_source_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, **kwargs)  # noqa: E501
+            return data
+
+    def timeseries_data_source_query_with_http_info(self, body, container_id, data_source_id, **kwargs):  # noqa: E501
+        """Timeseries Data Source Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data without requiring attachment to a node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_data_source_query_with_http_info(body, container_id, data_source_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str data_source_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'container_id', 'data_source_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method timeseries_data_source_query" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `timeseries_data_source_query`")  # noqa: E501
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `timeseries_data_source_query`")  # noqa: E501
+        # verify the required parameter 'data_source_id' is set
+        if ('data_source_id' not in params or
+                params['data_source_id'] is None):
+            raise ValueError("Missing the required parameter `data_source_id` when calling `timeseries_data_source_query`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'data_source_id' in params:
+            path_params['data_source_id'] = params['data_source_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'text/plain', 'application/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/import/datasources/{data_source_id}/data', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2002',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def timeseries_node_query(self, body, container_id, node_id, **kwargs):  # noqa: E501
+        """Timeseries Node Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data that is attached to a specific node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_node_query(body, container_id, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str node_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.timeseries_node_query_with_http_info(body, container_id, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.timeseries_node_query_with_http_info(body, container_id, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def timeseries_node_query_with_http_info(self, body, container_id, node_id, **kwargs):  # noqa: E501
+        """Timeseries Node Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data that is attached to a specific node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_node_query_with_http_info(body, container_id, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str node_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'container_id', 'node_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -87,6 +434,10 @@ class TimeSeriesApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `timeseries_node_query`")  # noqa: E501
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
@@ -112,6 +463,16 @@ class TimeSeriesApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'text/plain', 'application/xml'])  # noqa: E501
+
         # Authentication setting
         auth_settings = ['BearerAuth']  # noqa: E501
 
@@ -123,7 +484,237 @@ class TimeSeriesApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type=None,  # noqa: E501
+            response_type='InlineResponse2002',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def timeseries_node_query(self, body, container_id, node_id, **kwargs):  # noqa: E501
+        """Timeseries Node Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data that is attached to a specific node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_node_query(body, container_id, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str node_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.timeseries_node_query_with_http_info(body, container_id, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.timeseries_node_query_with_http_info(body, container_id, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def timeseries_node_query_with_http_info(self, body, container_id, node_id, **kwargs):  # noqa: E501
+        """Timeseries Node Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data that is attached to a specific node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_node_query_with_http_info(body, container_id, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str node_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'container_id', 'node_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method timeseries_node_query" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `timeseries_node_query`")  # noqa: E501
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `timeseries_node_query`")  # noqa: E501
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `timeseries_node_query`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'text/plain', 'application/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/graphs/nodes/{node_id}/timeseries', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2002',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def timeseries_node_query(self, body, container_id, node_id, **kwargs):  # noqa: E501
+        """Timeseries Node Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data that is attached to a specific node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_node_query(body, container_id, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str node_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.timeseries_node_query_with_http_info(body, container_id, node_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.timeseries_node_query_with_http_info(body, container_id, node_id, **kwargs)  # noqa: E501
+            return data
+
+    def timeseries_node_query_with_http_info(self, body, container_id, node_id, **kwargs):  # noqa: E501
+        """Timeseries Node Query  # noqa: E501
+
+        This is an endpoint that accepts a GraphQL query and returns the results of that query. Primarily used for working with time series data that is attached to a specific node.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.timeseries_node_query_with_http_info(body, container_id, node_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param object body: (required)
+        :param str container_id: (required)
+        :param str node_id: (required)
+        :return: InlineResponse2002
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'container_id', 'node_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method timeseries_node_query" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `timeseries_node_query`")  # noqa: E501
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `timeseries_node_query`")  # noqa: E501
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in params or
+                params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `timeseries_node_query`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'node_id' in params:
+            path_params['node_id'] = params['node_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json', 'text/plain', 'application/xml'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/graphs/nodes/{node_id}/timeseries', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse2002',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

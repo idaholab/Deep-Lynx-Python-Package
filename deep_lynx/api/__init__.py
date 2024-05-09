@@ -19,6 +19,8 @@ from deep_lynx.api.metatype_relationship_pairs_api import MetatypeRelationshipPa
 from deep_lynx.api.metatype_relationships_api import MetatypeRelationshipsApi
 from deep_lynx.api.metatypes_api import MetatypesApi
 from deep_lynx.api.misc_api import MiscApi
+from deep_lynx.api.tags_api import TagsApi
 from deep_lynx.api.tasks_api import TasksApi
 from deep_lynx.api.time_series_api import TimeSeriesApi
 from deep_lynx.api.users_api import UsersApi
+from deep_lynx.api.default_api import DefaultApi

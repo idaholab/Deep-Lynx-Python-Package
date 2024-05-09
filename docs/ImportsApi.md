@@ -6,9 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_data_to_import**](ImportsApi.md#add_data_to_import) | **POST** /containers/{container_id}/datasources/{data_source_id}/imports/{import_id}/data | Add Data to Import
 [**create_import**](ImportsApi.md#create_import) | **POST** /containers/{container_id}/datasources/{data_source_id}/imports | Create Import
+[**delete_file**](ImportsApi.md#delete_file) | **DELETE** /containers/:container_id/import/datasources/:data_source_id/files/:file_id | Delete File
 [**delete_import**](ImportsApi.md#delete_import) | **DELETE** /containers/{container_id}/import/imports/{import_id} | Delete Import
 [**delete_import_data**](ImportsApi.md#delete_import_data) | **DELETE** /containers/{container_id}/import/imports/{import_id}/data/{data_id} | Delete Import Data
 [**list_imports_data**](ImportsApi.md#list_imports_data) | **GET** /containers/{container_id}/import/imports/{import_id}/data | List Import&#x27;s Data
+[**put_containers_container_id_import_datasources_datasource_id_files_file_id**](ImportsApi.md#put_containers_container_id_import_datasources_datasource_id_files_file_id) | **PUT** /containers/:container_id/import/datasources/:data_source_id/files/:file_id | Update files
 [**retrieve_import_data**](ImportsApi.md#retrieve_import_data) | **GET** /containers/{container_id}/import/imports/{import_id}/data/{data_id} | Retrieve Import Data
 [**update_import_data**](ImportsApi.md#update_import_data) | **PUT** /containers/{container_id}/import/imports/{import_id}/data/{data_id} | Update Import Data
 
@@ -117,6 +119,50 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_file**
+> delete_file()
+
+Delete File
+
+Delete a file
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.ImportsApi(deep_lynx.ApiClient(configuration))
+
+try:
+    # Delete File
+    api_instance.delete_file()
+except ApiException as e:
+    print("Exception when calling ImportsApi->delete_file: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -281,6 +327,58 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **put_containers_container_id_import_datasources_datasource_id_files_file_id**
+> put_containers_container_id_import_datasources_datasource_id_files_file_id(body=body, authorization=authorization)
+
+Update files
+
+Update a file
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.ImportsApi(deep_lynx.ApiClient(configuration))
+body = deep_lynx.FilesFileIdBody() # FilesFileIdBody | Key/value pair where the key is named 'file' and the file is any file.
+Optionally, any metadata can be added (optional)
+authorization = 'authorization_example' # str | Bearer token (optional)
+
+try:
+    # Update files
+    api_instance.put_containers_container_id_import_datasources_datasource_id_files_file_id(body=body, authorization=authorization)
+except ApiException as e:
+    print("Exception when calling ImportsApi->put_containers_container_id_import_datasources_datasource_id_files_file_id: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**FilesFileIdBody**](FilesFileIdBody.md)| Key/value pair where the key is named &#x27;file&#x27; and the file is any file.
+Optionally, any metadata can be added | [optional] 
+ **authorization** | **str**| Bearer token | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, multipart/form-data, application/xml
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

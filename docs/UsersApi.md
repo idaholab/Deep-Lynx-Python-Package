@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**invite_user_to_container**](UsersApi.md#invite_user_to_container) | **POST** /containers/{container_id}/users/invite | Invite User to Container
 [**list_invited_users_for_container**](UsersApi.md#list_invited_users_for_container) | **GET** /containers/{container_id}/users/invite | List Invited Users for Container
 [**list_outstanding_invites**](UsersApi.md#list_outstanding_invites) | **GET** /users/invites | List Outstanding Invites
+[**list_service_keys_for_container**](UsersApi.md#list_service_keys_for_container) | **GET** /containers/{container_id}/service-users/keys | List Service User Keys for Container
 [**list_service_user_key_pairs**](UsersApi.md#list_service_user_key_pairs) | **GET** /containers/{container_id}/service-users/{service_user_id}/keys | List Service User KeyPairs
 [**list_service_users**](UsersApi.md#list_service_users) | **GET** /containers/{container_id}/service-users | List Service Users
 [**list_user_permissions**](UsersApi.md#list_user_permissions) | **GET** /users/permissions | List User Permissions
@@ -126,7 +127,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_service_user**
-> create_service_user(container_id, body=body)
+> CreateServiceUserResponse create_service_user(container_id, body=body)
 
 Create Service User
 
@@ -148,7 +149,8 @@ body = deep_lynx.CreateServiceUser() # CreateServiceUser |  (optional)
 
 try:
     # Create Service User
-    api_instance.create_service_user(container_id, body=body)
+    api_response = api_instance.create_service_user(container_id, body=body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->create_service_user: %s\n" % e)
 ```
@@ -162,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**CreateServiceUserResponse**](CreateServiceUserResponse.md)
 
 ### Authorization
 
@@ -171,12 +173,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_service_user_key_pair**
-> create_service_user_key_pair(container_id, service_user_id)
+> InlineResponse2008 create_service_user_key_pair(container_id, service_user_id)
 
 Create Service User KeyPair
 
@@ -198,7 +200,8 @@ service_user_id = 'service_user_id_example' # str |
 
 try:
     # Create Service User KeyPair
-    api_instance.create_service_user_key_pair(container_id, service_user_id)
+    api_response = api_instance.create_service_user_key_pair(container_id, service_user_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->create_service_user_key_pair: %s\n" % e)
 ```
@@ -212,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -221,7 +224,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -377,7 +380,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_service_user_permissions**
-> list[InlineResponse2002] get_service_user_permissions(container_id, service_user_id)
+> list[list[str]] get_service_user_permissions(container_id, service_user_id)
 
 Get Service User Permissions
 
@@ -414,7 +417,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[InlineResponse2002]**](InlineResponse2002.md)
+**list[list[str]]**
 
 ### Authorization
 
@@ -572,8 +575,59 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_service_keys_for_container**
+> InlineResponse20011 list_service_keys_for_container(container_id, note=note)
+
+List Service User Keys for Container
+
+Used to list all service-user keys in a container. Useful for obtaining keys in a container with a certain note to verify an application has ben authorized for a container.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+note = 'note_example' # str | note with which keypair was created (optional)
+
+try:
+    # List Service User Keys for Container
+    api_response = api_instance.list_service_keys_for_container(container_id, note=note)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling UsersApi->list_service_keys_for_container: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **note** | **str**| note with which keypair was created | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_service_user_key_pairs**
-> list_service_user_key_pairs(container_id, service_user_id)
+> list_service_user_key_pairs(container_id, service_user_id, note=note)
 
 List Service User KeyPairs
 
@@ -592,10 +646,11 @@ from pprint import pprint
 api_instance = deep_lynx.UsersApi(deep_lynx.ApiClient(configuration))
 container_id = 'container_id_example' # str | 
 service_user_id = 'service_user_id_example' # str | 
+note = 'note_example' # str | search for keys created with a specific note (optional)
 
 try:
     # List Service User KeyPairs
-    api_instance.list_service_user_key_pairs(container_id, service_user_id)
+    api_instance.list_service_user_key_pairs(container_id, service_user_id, note=note)
 except ApiException as e:
     print("Exception when calling UsersApi->list_service_user_key_pairs: %s\n" % e)
 ```
@@ -606,6 +661,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**|  | 
  **service_user_id** | **str**|  | 
+ **note** | **str**| search for keys created with a specific note | [optional] 
 
 ### Return type
 
@@ -931,7 +987,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_service_user_permissions**
-> set_service_user_permissions(container_id, service_user_id, body=body)
+> InlineResponse2007 set_service_user_permissions(container_id, service_user_id, body=body)
 
 Set Service User Permissions
 
@@ -954,7 +1010,8 @@ body = deep_lynx.ServiceUserIdPermissionsBody() # ServiceUserIdPermissionsBody |
 
 try:
     # Set Service User Permissions
-    api_instance.set_service_user_permissions(container_id, service_user_id, body=body)
+    api_response = api_instance.set_service_user_permissions(container_id, service_user_id, body=body)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling UsersApi->set_service_user_permissions: %s\n" % e)
 ```
@@ -969,7 +1026,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -978,7 +1035,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

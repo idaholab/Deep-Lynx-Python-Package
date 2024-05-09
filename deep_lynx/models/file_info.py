@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -40,7 +40,8 @@ class FileInfo(object):
         'created_by': 'str',
         'modified_by': 'str',
         'container_id': 'str',
-        'md5hash': 'str'
+        'md5hash': 'str',
+        'short_uuid': 'str'
     }
 
     attribute_map = {
@@ -56,10 +57,11 @@ class FileInfo(object):
         'created_by': 'created_by',
         'modified_by': 'modified_by',
         'container_id': 'container_id',
-        'md5hash': 'md5hash'
+        'md5hash': 'md5hash',
+        'short_uuid': 'short_uuid'
     }
 
-    def __init__(self, metadata=None, id=None, file_name=None, file_size=None, adapter_file_path=None, adapter=None, data_source_id=None, created_at=None, modified_at=None, created_by=None, modified_by=None, container_id=None, md5hash=None):  # noqa: E501
+    def __init__(self, metadata=None, id=None, file_name=None, file_size=None, adapter_file_path=None, adapter=None, data_source_id=None, created_at=None, modified_at=None, created_by=None, modified_by=None, container_id=None, md5hash=None, short_uuid=None):  # noqa: E501
         """FileInfo - a model defined in Swagger"""  # noqa: E501
         self._metadata = None
         self._id = None
@@ -74,6 +76,7 @@ class FileInfo(object):
         self._modified_by = None
         self._container_id = None
         self._md5hash = None
+        self._short_uuid = None
         self.discriminator = None
         if metadata is not None:
             self.metadata = metadata
@@ -94,6 +97,8 @@ class FileInfo(object):
         self.container_id = container_id
         if md5hash is not None:
             self.md5hash = md5hash
+        if short_uuid is not None:
+            self.short_uuid = short_uuid
 
     @property
     def metadata(self):
@@ -381,6 +386,27 @@ class FileInfo(object):
         """
 
         self._md5hash = md5hash
+
+    @property
+    def short_uuid(self):
+        """Gets the short_uuid of this FileInfo.  # noqa: E501
+
+
+        :return: The short_uuid of this FileInfo.  # noqa: E501
+        :rtype: str
+        """
+        return self._short_uuid
+
+    @short_uuid.setter
+    def short_uuid(self, short_uuid):
+        """Sets the short_uuid of this FileInfo.
+
+
+        :param short_uuid: The short_uuid of this FileInfo.  # noqa: E501
+        :type: str
+        """
+
+        self._short_uuid = short_uuid
 
     def to_dict(self):
         """Returns the model properties as a dict"""

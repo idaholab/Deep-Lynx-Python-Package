@@ -4,6 +4,8 @@
 .env
 .DS_Store
 .pytest_cache
+poetry.lock
+pyvenv.cfg
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

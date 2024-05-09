@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**container_id** | **str** |  | 
-**relationship_pair_id** | **str** |  | 
+**container_id** | **str** |  | [optional] 
+**relationship_pair_id** | **str** |  | [optional] 
 **data_source_id** | **str** |  | [optional] 
 **import_data_id** | **str** |  | [optional] 
 **data_staging_id** | **str** |  | [optional] 

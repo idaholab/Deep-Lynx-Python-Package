@@ -9,9 +9,11 @@ Method | HTTP request | Description
 [**archive_container**](ContainersApi.md#archive_container) | **DELETE** /containers/{container_id} | Archive Container
 [**container_batch_update**](ContainersApi.md#container_batch_update) | **PUT** /containers | Container Batch Update
 [**create_container**](ContainersApi.md#create_container) | **POST** /containers | Create Container
+[**delete_data_template**](ContainersApi.md#delete_data_template) | **DELETE** /containers/{container_id}/data_source_templates/{template_id} | Delete Data Source Template
 [**import_container**](ContainersApi.md#import_container) | **POST** /containers/import | Import Container
 [**list_container_alerts**](ContainersApi.md#list_container_alerts) | **GET** /containers/{container_id}/alerts | List Container Alerts
 [**list_containers**](ContainersApi.md#list_containers) | **GET** /containers | List Containers
+[**list_data_templates**](ContainersApi.md#list_data_templates) | **GET** /containers/{container_id}/data_source_templates | List Data Source Templates
 [**list_ontology_versions**](ContainersApi.md#list_ontology_versions) | **GET** /containers/{container_id}/ontology/versions | List Ontology Versions
 [**publish_ontology_version**](ContainersApi.md#publish_ontology_version) | **POST** /containers/{container_id}/ontology/versions/{ontology_version_id}/publish | Publish Ontology Version
 [**reject_ontology_version_approval**](ContainersApi.md#reject_ontology_version_approval) | **DELETE** /containers/{container_id}/ontology/versions/{ontology_version_id}/approve | Reject Ontology Version Approval
@@ -229,7 +231,7 @@ Name | Type | Description  | Notes
 
 Create Container
 
-Creates a new container object. Containers are the root level object and are considered to contain both the ontology(in form of Metatypes, Metatype Keys, and MetatypeRelationships) as well as the data stored under that ontology.  Endpoint will accept both a single container request object, or an array of container request objects
+Creates a new container object. Containers are the root level object and are considered to contain both the ontology(in form of Metatypes, Metatype Keys, and MetatypeRelationships) as well as the data stored under that ontology. Endpoint will accept both a single container request object, or an array of container request objects
 
 ### Example
 ```python
@@ -273,6 +275,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_data_template**
+> Generic200Response delete_data_template(template_id, container_id)
+
+Delete Data Source Template
+
+Deletes a Data Source Template based on its UUID as supplied in the route.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.ContainersApi(deep_lynx.ApiClient(configuration))
+template_id = 'template_id_example' # str | 
+container_id = 'container_id_example' # str | 
+
+try:
+    # Delete Data Source Template
+    api_response = api_instance.delete_data_template(template_id, container_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContainersApi->delete_data_template: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **template_id** | **str**|  | 
+ **container_id** | **str**|  | 
+
+### Return type
+
+[**Generic200Response**](Generic200Response.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **import_container**
 > ContainerImportResponse import_container(name, description, data_versioning_enabled, path, file, dryrun=dryrun)
 
@@ -296,7 +349,7 @@ description = 'description_example' # str |
 data_versioning_enabled = true # bool | 
 path = 'path_example' # str | 
 file = 'file_example' # str | 
-dryrun = true # bool | If true returns a description of the container that will be created and its contents. (optional)
+dryrun = false # bool | If true returns a description of the container that will be created and its contents. (optional) (default to false)
 
 try:
     # Import Container
@@ -315,7 +368,7 @@ Name | Type | Description  | Notes
  **data_versioning_enabled** | **bool**|  | 
  **path** | **str**|  | 
  **file** | **str**|  | 
- **dryrun** | **bool**| If true returns a description of the container that will be created and its contents. | [optional] 
+ **dryrun** | **bool**| If true returns a description of the container that will be created and its contents. | [optional] [default to false]
 
 ### Return type
 
@@ -425,8 +478,57 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_data_templates**
+> InlineResponse200 list_data_templates(container_id)
+
+List Data Source Templates
+
+List all Data Source Templates for the container.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.ContainersApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+
+try:
+    # List Data Source Templates
+    api_response = api_instance.list_data_templates(container_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ContainersApi->list_data_templates: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_ontology_versions**
-> InlineResponse2003 list_ontology_versions(container_id)
+> InlineResponse2009 list_ontology_versions(container_id)
 
 List Ontology Versions
 
@@ -461,7 +563,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -673,7 +775,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **retrieve_ontology_version**
-> InlineResponse2004 retrieve_ontology_version(container_id, version_id)
+> InlineResponse20010 retrieve_ontology_version(container_id, version_id)
 
 Retrieve Ontology Version
 
@@ -710,7 +812,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 

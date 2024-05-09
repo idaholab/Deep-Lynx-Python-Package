@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.imports_api import ImportsApi  # noqa: E501
-from swagger_client.rest import ApiException
+import deep_lynx
+from deep_lynx.api.imports_api import ImportsApi  # noqa: E501
+from deep_lynx.rest import ApiException
 
 
 class TestImportsApi(unittest.TestCase):
@@ -31,49 +31,63 @@ class TestImportsApi(unittest.TestCase):
     def test_add_data_to_import(self):
         """Test case for add_data_to_import
 
-        AddDataToImport  # noqa: E501
+        Add Data to Import  # noqa: E501
         """
         pass
 
     def test_create_import(self):
         """Test case for create_import
 
-        CreateImport  # noqa: E501
+        Create Import  # noqa: E501
+        """
+        pass
+
+    def test_delete_file(self):
+        """Test case for delete_file
+
+        Delete File  # noqa: E501
         """
         pass
 
     def test_delete_import(self):
         """Test case for delete_import
 
-        DeleteImport  # noqa: E501
+        Delete Import  # noqa: E501
         """
         pass
 
     def test_delete_import_data(self):
         """Test case for delete_import_data
 
-        DeleteImportData  # noqa: E501
+        Delete Import Data  # noqa: E501
         """
         pass
 
     def test_list_imports_data(self):
         """Test case for list_imports_data
 
-        ListImportsData  # noqa: E501
+        List Import's Data  # noqa: E501
+        """
+        pass
+
+    def test_put_containers_container_id_import_datasources_datasource_id_files_file_id(self):
+        """Test case for put_containers_container_id_import_datasources_datasource_id_files_file_id
+
+        Update files  # noqa: E501
         """
         pass
 
     def test_retrieve_import_data(self):
         """Test case for retrieve_import_data
 
-        RetrieveImportData  # noqa: E501
+        Retrieve Import Data  # noqa: E501
         """
         pass
 
     def test_update_import_data(self):
         """Test case for update_import_data
 
-        UpdateImportData  # noqa: E501
+        Update Import Data  # noqa: E501
         """
         pass
 

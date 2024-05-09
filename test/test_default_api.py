@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -28,10 +28,45 @@ class TestDefaultApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id(self):
-        """Test case for get_core_swagger_collection_yaml_paths1containers1_container_id1graphs1nodes1_node_id
+    def test_delete_containers_container_id_graphs_tags_tag_id_edges(self):
+        """Test case for delete_containers_container_id_graphs_tags_tag_id_edges
 
-        Nth Node Query  # noqa: E501
+        Bulk Detach Tag from Edges  # noqa: E501
+        """
+        pass
+
+    def test_delete_containers_container_id_graphs_tags_tag_id_nodes(self):
+        """Test case for delete_containers_container_id_graphs_tags_tag_id_nodes
+
+        Bulk Detach Tag from Nodes  # noqa: E501
+        """
+        pass
+
+    def test_list_ts_for_node(self):
+        """Test case for list_ts_for_node
+
+        List Timeseries Sources for Node  # noqa: E501
+        """
+        pass
+
+    def test_post_containers_container_id_data_source_templates(self):
+        """Test case for post_containers_container_id_data_source_templates
+
+        Save Data Source Templates  # noqa: E501
+        """
+        pass
+
+    def test_put_containers_container_id_graphs_tags_tag_id_edges(self):
+        """Test case for put_containers_container_id_graphs_tags_tag_id_edges
+
+        Bulk Add Tag to Edge  # noqa: E501
+        """
+        pass
+
+    def test_put_containers_container_id_graphs_tags_tag_id_nodes(self):
+        """Test case for put_containers_container_id_graphs_tags_tag_id_nodes
+
+        Bulk Add Tag to Nodes  # noqa: E501
         """
         pass
 

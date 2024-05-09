@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.containers_api import ContainersApi  # noqa: E501
-from swagger_client.rest import ApiException
+import deep_lynx
+from deep_lynx.api.containers_api import ContainersApi  # noqa: E501
+from deep_lynx.rest import ApiException
 
 
 class TestContainersApi(unittest.TestCase):
@@ -28,73 +28,150 @@ class TestContainersApi(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_acknowledge_container_alert(self):
+        """Test case for acknowledge_container_alert
+
+        Acknowledge Container Alert  # noqa: E501
+        """
+        pass
+
+    def test_approve_ontology_version(self):
+        """Test case for approve_ontology_version
+
+        Approve Ontology Version  # noqa: E501
+        """
+        pass
+
     def test_archive_container(self):
         """Test case for archive_container
 
-        ArchiveContainer  # noqa: E501
+        Archive Container  # noqa: E501
         """
         pass
 
     def test_container_batch_update(self):
         """Test case for container_batch_update
 
-        ContainerBatchUpdate  # noqa: E501
+        Container Batch Update  # noqa: E501
         """
         pass
 
     def test_create_container(self):
         """Test case for create_container
 
-        CreateContainer  # noqa: E501
+        Create Container  # noqa: E501
+        """
+        pass
+
+    def test_delete_data_template(self):
+        """Test case for delete_data_template
+
+        Delete Data Source Template  # noqa: E501
         """
         pass
 
     def test_import_container(self):
         """Test case for import_container
 
-        ImportContainer  # noqa: E501
+        Import Container  # noqa: E501
+        """
+        pass
+
+    def test_list_container_alerts(self):
+        """Test case for list_container_alerts
+
+        List Container Alerts  # noqa: E501
         """
         pass
 
     def test_list_containers(self):
         """Test case for list_containers
 
-        ListContainers  # noqa: E501
+        List Containers  # noqa: E501
+        """
+        pass
+
+    def test_list_data_templates(self):
+        """Test case for list_data_templates
+
+        List Data Source Templates  # noqa: E501
+        """
+        pass
+
+    def test_list_ontology_versions(self):
+        """Test case for list_ontology_versions
+
+        List Ontology Versions  # noqa: E501
+        """
+        pass
+
+    def test_publish_ontology_version(self):
+        """Test case for publish_ontology_version
+
+        Publish Ontology Version  # noqa: E501
+        """
+        pass
+
+    def test_reject_ontology_version_approval(self):
+        """Test case for reject_ontology_version_approval
+
+        Reject Ontology Version Approval  # noqa: E501
         """
         pass
 
     def test_repair_container_permissions(self):
         """Test case for repair_container_permissions
 
-        RepairContainerPermissions  # noqa: E501
+        Repair Container Permissions  # noqa: E501
         """
         pass
 
     def test_retrieve_container(self):
         """Test case for retrieve_container
 
-        RetrieveContainer  # noqa: E501
+        Retrieve Container  # noqa: E501
+        """
+        pass
+
+    def test_retrieve_ontology_version(self):
+        """Test case for retrieve_ontology_version
+
+        Retrieve Ontology Version  # noqa: E501
+        """
+        pass
+
+    def test_rollback_ontology_version(self):
+        """Test case for rollback_ontology_version
+
+        Rollback Ontology Version  # noqa: E501
+        """
+        pass
+
+    def test_send_ontology_version_for_approval(self):
+        """Test case for send_ontology_version_for_approval
+
+        Send Ontology Version for Approval  # noqa: E501
         """
         pass
 
     def test_set_container_active(self):
         """Test case for set_container_active
 
-        SetContainerActive  # noqa: E501
+        Set Container Active  # noqa: E501
         """
         pass
 
     def test_update_container(self):
         """Test case for update_container
 
-        UpdateContainer  # noqa: E501
+        Update Container  # noqa: E501
         """
         pass
 
     def test_update_container_import(self):
         """Test case for update_container_import
 
-        UpdateContainerImport  # noqa: E501
+        Update Container Import  # noqa: E501
         """
         pass
 

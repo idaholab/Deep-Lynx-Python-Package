@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -35,7 +35,7 @@ class AuthenticationApi(object):
     def exchange_o_auth_token(self, **kwargs):  # noqa: E501
         """Exchange OAuth Token  # noqa: E501
 
-        Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see Deep Lynx documentation for details.  # noqa: E501
+        Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see DeepLynx documentation for details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.exchange_o_auth_token(async_req=True)
@@ -57,7 +57,7 @@ class AuthenticationApi(object):
     def exchange_o_auth_token_with_http_info(self, **kwargs):  # noqa: E501
         """Exchange OAuth Token  # noqa: E501
 
-        Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see Deep Lynx documentation for details.  # noqa: E501
+        Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see DeepLynx documentation for details.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.exchange_o_auth_token_with_http_info(async_req=True)
@@ -120,6 +120,105 @@ class AuthenticationApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def list_service_keys_for_container(self, container_id, **kwargs):  # noqa: E501
+        """List Service User Keys for Container  # noqa: E501
+
+        Used to list all service-user keys in a container. Useful for obtaining keys in a container with a certain note to verify an application has ben authorized for a container.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_service_keys_for_container(container_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str note: note with which keypair was created
+        :return: InlineResponse20011
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.list_service_keys_for_container_with_http_info(container_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.list_service_keys_for_container_with_http_info(container_id, **kwargs)  # noqa: E501
+            return data
+
+    def list_service_keys_for_container_with_http_info(self, container_id, **kwargs):  # noqa: E501
+        """List Service User Keys for Container  # noqa: E501
+
+        Used to list all service-user keys in a container. Useful for obtaining keys in a container with a certain note to verify an application has ben authorized for a container.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.list_service_keys_for_container_with_http_info(container_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str note: note with which keypair was created
+        :return: InlineResponse20011
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'note']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method list_service_keys_for_container" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `list_service_keys_for_container`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+
+        query_params = []
+        if 'note' in params:
+            query_params.append(('note', params['note']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/service-users/keys', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='InlineResponse20011',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -332,7 +431,7 @@ class AuthenticationApi(object):
     def rsa_initialize(self, **kwargs):  # noqa: E501
         """RSA Initialize  # noqa: E501
 
-        Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request,  or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request.  The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).  # noqa: E501
+        Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request, or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request. The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.rsa_initialize(async_req=True)
@@ -354,7 +453,7 @@ class AuthenticationApi(object):
     def rsa_initialize_with_http_info(self, **kwargs):  # noqa: E501
         """RSA Initialize  # noqa: E501
 
-        Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request,  or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request.  The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).  # noqa: E501
+        Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request, or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request. The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.rsa_initialize_with_http_info(async_req=True)

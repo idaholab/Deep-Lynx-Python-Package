@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | [**list[InlineResponse2001Value]**](InlineResponse2001Value.md) |  | [optional] 
-**is_error** | **bool** |  | [optional] 
+**value** | **bool** | The result of the operation. | [optional] 
+**is_error** | **bool** | Indicates if the operation resulted in an error. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -107,8 +107,10 @@ class Edge(object):
         self.discriminator = None
         if id is not None:
             self.id = id
-        self.container_id = container_id
-        self.relationship_pair_id = relationship_pair_id
+        if container_id is not None:
+            self.container_id = container_id
+        if relationship_pair_id is not None:
+            self.relationship_pair_id = relationship_pair_id
         if data_source_id is not None:
             self.data_source_id = data_source_id
         if import_data_id is not None:
@@ -189,8 +191,6 @@ class Edge(object):
         :param container_id: The container_id of this Edge.  # noqa: E501
         :type: str
         """
-        if container_id is None:
-            raise ValueError("Invalid value for `container_id`, must not be `None`")  # noqa: E501
 
         self._container_id = container_id
 
@@ -212,8 +212,6 @@ class Edge(object):
         :param relationship_pair_id: The relationship_pair_id of this Edge.  # noqa: E501
         :type: str
         """
-        if relationship_pair_id is None:
-            raise ValueError("Invalid value for `relationship_pair_id`, must not be `None`")  # noqa: E501
 
         self._relationship_pair_id = relationship_pair_id
 
