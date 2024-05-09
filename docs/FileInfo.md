@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **modified_by** | **str** |  | [optional] 
 **container_id** | **str** |  | 
 **md5hash** | **str** |  | [optional] 
+**short_uuid** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

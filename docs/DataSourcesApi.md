@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**archive_data_source**](DataSourcesApi.md#archive_data_source) | **DELETE** /containers/{container_id}/import/datasources/{data_source_id} | Archive Data Source
 [**create_data_source**](DataSourcesApi.md#create_data_source) | **POST** /containers/{container_id}/import/datasources | Create Data Source
 [**create_manual_import**](DataSourcesApi.md#create_manual_import) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/imports | Create Manual Import
+[**download_data_source**](DataSourcesApi.md#download_data_source) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/download | Download Timeseries Data Source
 [**download_file**](DataSourcesApi.md#download_file) | **GET** /containers/{container_id}/files/{file_id}/download | Download File
 [**list_data_sources**](DataSourcesApi.md#list_data_sources) | **GET** /containers/{container_id}/import/datasources | List Data Sources
 [**list_imports_for_data_source**](DataSourcesApi.md#list_imports_for_data_source) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/imports | List Imports for Data Source
@@ -79,7 +80,7 @@ Name | Type | Description  | Notes
 
 Create Data Source
 
-Create new datasource. Supported data source types are `http`, `standard` (or `manual`), `jazz`, and `aveva`.
+Create new datasource. Supported data source types are `http`, `standard` (or `manual`), `p6`, `aveva`, and `timeseries`.
 
 ### Example
 ```python
@@ -178,8 +179,59 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **download_data_source**
+> GetDataSourceResponse download_data_source(container_id, data_source_id)
+
+Download Timeseries Data Source
+
+Download a Timeseries Data Source by ID. Output is a CSV file.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.DataSourcesApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+data_source_id = 'data_source_id_example' # str | 
+
+try:
+    # Download Timeseries Data Source
+    api_response = api_instance.download_data_source(container_id, data_source_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DataSourcesApi->download_data_source: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **data_source_id** | **str**|  | 
+
+### Return type
+
+[**GetDataSourceResponse**](GetDataSourceResponse.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **download_file**
-> download_file(container_id, file_id)
+> file download_file(container_id, file_id)
 
 Download File
 
@@ -201,7 +253,8 @@ file_id = 'file_id_example' # str |
 
 try:
     # Download File
-    api_instance.download_file(container_id, file_id)
+    api_response = api_instance.download_file(container_id, file_id)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling DataSourcesApi->download_file: %s\n" % e)
 ```
@@ -215,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**file**](file.md)
 
 ### Authorization
 
@@ -224,12 +277,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_data_sources**
-> ListDataSourcesResponse list_data_sources(container_id)
+> ListDataSourcesResponse list_data_sources(container_id, decrypted=decrypted, timeseries=timeseries, count=count, archived=archived)
 
 List Data Sources
 
@@ -247,10 +300,14 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = deep_lynx.DataSourcesApi(deep_lynx.ApiClient(configuration))
 container_id = 'container_id_example' # str | 
+decrypted = true # bool | Return decrypted data sources. Requires read-write permissions on data. (optional)
+timeseries = true # bool | Return timeseries data sources (true) or non-timeseries data sources (false) (optional)
+count = true # bool | Return the count of data sources (optional)
+archived = true # bool | Return data sources marked as archived (optional)
 
 try:
     # List Data Sources
-    api_response = api_instance.list_data_sources(container_id)
+    api_response = api_instance.list_data_sources(container_id, decrypted=decrypted, timeseries=timeseries, count=count, archived=archived)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DataSourcesApi->list_data_sources: %s\n" % e)
@@ -261,6 +318,10 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**|  | 
+ **decrypted** | **bool**| Return decrypted data sources. Requires read-write permissions on data. | [optional] 
+ **timeseries** | **bool**| Return timeseries data sources (true) or non-timeseries data sources (false) | [optional] 
+ **count** | **bool**| Return the count of data sources | [optional] 
+ **archived** | **bool**| Return data sources marked as archived | [optional] 
 
 ### Return type
 
@@ -590,7 +651,7 @@ Name | Type | Description  | Notes
 
 Upload File
 
-Uploads a file and it's metadata to Deep Lynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself.   This should be a collection of files and normal fields. If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once Deep Lynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well.  NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then Deep Lynx will attempt to split up your metadata into its parts instead of treating it like a whole object.
+Uploads a file and it's metadata to DeepLynx. All additional fields on the multipart form will be processed and added as metadata to the file upload itself. This should be a collection of files and normal fields. If you include a file field and call that \"metadata\" - you can include a normal metadata upload as either a json, csv, or xml file. This data will be processed like a normal import and the files attached to the processed data. Once DeepLynx generates nodes and edges from that data, any files attached will automatically be attached to the resulting nodes/edges as well. NOTE: The metadata file you upload, if json, must be wrapped in an array. If you do not pass in an array of objects, even if it's a single object, then DeepLynx will attempt to split up your metadata into its parts instead of treating it like a whole object.
 
 ### Example
 ```python

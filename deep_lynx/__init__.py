@@ -3,9 +3,9 @@
 # flake8: noqa
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -31,9 +31,11 @@ from deep_lynx.api.metatype_relationship_pairs_api import MetatypeRelationshipPa
 from deep_lynx.api.metatype_relationships_api import MetatypeRelationshipsApi
 from deep_lynx.api.metatypes_api import MetatypesApi
 from deep_lynx.api.misc_api import MiscApi
+from deep_lynx.api.tags_api import TagsApi
 from deep_lynx.api.tasks_api import TasksApi
 from deep_lynx.api.time_series_api import TimeSeriesApi
 from deep_lynx.api.users_api import UsersApi
+from deep_lynx.api.default_api import DefaultApi
 # import ApiClient
 from deep_lynx.api_client import ApiClient
 from deep_lynx.configuration import Configuration
@@ -45,10 +47,12 @@ from deep_lynx.models.batch_container_update_request_inner import BatchContainer
 from deep_lynx.models.batch_update_container_response import BatchUpdateContainerResponse
 from deep_lynx.models.container import Container
 from deep_lynx.models.container_config import ContainerConfig
+from deep_lynx.models.container_id_data_source_templates_body import ContainerIdDataSourceTemplatesBody
 from deep_lynx.models.container_import_request import ContainerImportRequest
 from deep_lynx.models.container_import_response import ContainerImportResponse
 from deep_lynx.models.container_import_update_response import ContainerImportUpdateResponse
 from deep_lynx.models.container_invite import ContainerInvite
+from deep_lynx.models.containerscontainer_iddata_source_templates_custom_fields import ContainerscontainerIddataSourceTemplatesCustomFields
 from deep_lynx.models.create_container_request import CreateContainerRequest
 from deep_lynx.models.create_container_response import CreateContainerResponse
 from deep_lynx.models.create_data_export_request import CreateDataExportRequest
@@ -78,6 +82,7 @@ from deep_lynx.models.create_metatypes_response import CreateMetatypesResponse
 from deep_lynx.models.create_or_update_edges_request import CreateOrUpdateEdgesRequest
 from deep_lynx.models.create_or_update_nodes_request import CreateOrUpdateNodesRequest
 from deep_lynx.models.create_service_user import CreateServiceUser
+from deep_lynx.models.create_service_user_response import CreateServiceUserResponse
 from deep_lynx.models.create_task_response import CreateTaskResponse
 from deep_lynx.models.create_transformation_response import CreateTransformationResponse
 from deep_lynx.models.create_type_mapping_transformations_request import CreateTypeMappingTransformationsRequest
@@ -100,6 +105,8 @@ from deep_lynx.models.exporter import Exporter
 from deep_lynx.models.exporter_config import ExporterConfig
 from deep_lynx.models.file_info import FileInfo
 from deep_lynx.models.file_model import FileModel
+from deep_lynx.models.files_file_id_body import FilesFileIdBody
+from deep_lynx.models.files_file_id_body1 import FilesFileIdBody1
 from deep_lynx.models.generic200_response import Generic200Response
 from deep_lynx.models.get_container_response import GetContainerResponse
 from deep_lynx.models.get_data_export_response import GetDataExportResponse
@@ -119,20 +126,34 @@ from deep_lynx.models.get_metatype_response import GetMetatypeResponse
 from deep_lynx.models.get_node_response import GetNodeResponse
 from deep_lynx.models.get_task_response import GetTaskResponse
 from deep_lynx.models.get_user_response import GetUserResponse
+from deep_lynx.models.graphs_tags_body import GraphsTagsBody
+from deep_lynx.models.graphs_webgl_body import GraphsWebglBody
 from deep_lynx.models.import_data_type_mapping_response import ImportDataTypeMappingResponse
 from deep_lynx.models.import_data_type_mapping_response_inner import ImportDataTypeMappingResponseInner
+from deep_lynx.models.import_data_type_mappings_request import ImportDataTypeMappingsRequest
 from deep_lynx.models.import_id_data_body import ImportIdDataBody
 from deep_lynx.models.import_model import ImportModel
 from deep_lynx.models.inline_response200 import InlineResponse200
 from deep_lynx.models.inline_response2001 import InlineResponse2001
-from deep_lynx.models.inline_response2001_metatype_id import InlineResponse2001MetatypeId
-from deep_lynx.models.inline_response2001_origin_properties import InlineResponse2001OriginProperties
-from deep_lynx.models.inline_response2001_value import InlineResponse2001Value
+from deep_lynx.models.inline_response20010 import InlineResponse20010
+from deep_lynx.models.inline_response20010_value import InlineResponse20010Value
+from deep_lynx.models.inline_response20011 import InlineResponse20011
+from deep_lynx.models.inline_response20011_value import InlineResponse20011Value
 from deep_lynx.models.inline_response2002 import InlineResponse2002
 from deep_lynx.models.inline_response2003 import InlineResponse2003
-from deep_lynx.models.inline_response2003_value import InlineResponse2003Value
 from deep_lynx.models.inline_response2004 import InlineResponse2004
+from deep_lynx.models.inline_response2004_metatype_id import InlineResponse2004MetatypeId
+from deep_lynx.models.inline_response2004_origin_properties import InlineResponse2004OriginProperties
 from deep_lynx.models.inline_response2004_value import InlineResponse2004Value
+from deep_lynx.models.inline_response2005 import InlineResponse2005
+from deep_lynx.models.inline_response2006 import InlineResponse2006
+from deep_lynx.models.inline_response2007 import InlineResponse2007
+from deep_lynx.models.inline_response2008 import InlineResponse2008
+from deep_lynx.models.inline_response2009 import InlineResponse2009
+from deep_lynx.models.inline_response2009_value import InlineResponse2009Value
+from deep_lynx.models.inline_response200_custom_fields import InlineResponse200CustomFields
+from deep_lynx.models.inline_response200_value import InlineResponse200Value
+from deep_lynx.models.inline_response500 import InlineResponse500
 from deep_lynx.models.key_validation import KeyValidation
 from deep_lynx.models.list_container_invites_response import ListContainerInvitesResponse
 from deep_lynx.models.list_container_response import ListContainerResponse
@@ -142,6 +163,7 @@ from deep_lynx.models.list_data_sources_response import ListDataSourcesResponse
 from deep_lynx.models.list_data_targets_response import ListDataTargetsResponse
 from deep_lynx.models.list_data_type_mapping_response import ListDataTypeMappingResponse
 from deep_lynx.models.list_edge_files import ListEdgeFiles
+from deep_lynx.models.list_edges_for_node_ids_response import ListEdgesForNodeIDsResponse
 from deep_lynx.models.list_edges_response import ListEdgesResponse
 from deep_lynx.models.list_event_action_response import ListEventActionResponse
 from deep_lynx.models.list_event_action_status_response import ListEventActionStatusResponse
@@ -162,14 +184,13 @@ from deep_lynx.models.list_user_permissions_response import ListUserPermissionsR
 from deep_lynx.models.list_user_roles import ListUserRoles
 from deep_lynx.models.list_users_for_container_response import ListUsersForContainerResponse
 from deep_lynx.models.list_users_response import ListUsersResponse
-from deep_lynx.models.mappings_import_body import MappingsImportBody
 from deep_lynx.models.metatype import Metatype
 from deep_lynx.models.metatype_key import MetatypeKey
 from deep_lynx.models.metatype_relationship import MetatypeRelationship
 from deep_lynx.models.node import Node
 from deep_lynx.models.node_metatype_body import NodeMetatypeBody
+from deep_lynx.models.nodes_edges_body import NodesEdgesBody
 from deep_lynx.models.not_found404 import NotFound404
-from deep_lynx.models.one_of_upload_file_response import OneOfUploadFileResponse
 from deep_lynx.models.rsa_cancel_request import RSACancelRequest
 from deep_lynx.models.rsa_init_request import RSAInitRequest
 from deep_lynx.models.rsa_response import RSAResponse
@@ -190,6 +211,9 @@ from deep_lynx.models.relationship_pair_destination_metatype import Relationship
 from deep_lynx.models.service_user import ServiceUser
 from deep_lynx.models.service_user_id_permissions_body import ServiceUserIdPermissionsBody
 from deep_lynx.models.service_user_keys import ServiceUserKeys
+from deep_lynx.models.tag_id_edges_body import TagIdEdgesBody
+from deep_lynx.models.tag_id_nodes_body import TagIdNodesBody
+from deep_lynx.models.tags_tag_id_body import TagsTagIdBody
 from deep_lynx.models.task import Task
 from deep_lynx.models.task_config import TaskConfig
 from deep_lynx.models.token_exchange_request import TokenExchangeRequest
@@ -218,6 +242,7 @@ from deep_lynx.models.update_metatype_response import UpdateMetatypeResponse
 from deep_lynx.models.update_task_response import UpdateTaskResponse
 from deep_lynx.models.update_transformation_response import UpdateTransformationResponse
 from deep_lynx.models.upload_file_response import UploadFileResponse
+from deep_lynx.models.upload_file_response_value import UploadFileResponseValue
 from deep_lynx.models.user import User
 from deep_lynx.models.user_key import UserKey
 from deep_lynx.models.validate_metatype_properties_request import ValidateMetatypePropertiesRequest

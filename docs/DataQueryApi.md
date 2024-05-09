@@ -8,11 +8,11 @@ Method | HTTP request | Description
 [**query_graph**](DataQueryApi.md#query_graph) | **POST** /containers/{container_id}/query | Query Graph (Deprecated)
 
 # **data_query**
-> InlineResponse200 data_query(body, container_id)
+> InlineResponse2002 data_query(body, container_id, raw_metadata_enabled=raw_metadata_enabled, point_in_time=point_in_time)
 
 Query Data
 
-Query data from your container using GraphQL. You can learn more here - https://gitlab.software.inl.gov/b650/Deep-Lynx/-/wikis/Querying-Data-With-GraphQL
+Query data from your container using GraphQL. You can learn more here - https://github.com/idaholab/Deep-Lynx/wiki/Querying-Data-With-GraphQL
 
 ### Example
 ```python
@@ -27,10 +27,12 @@ from pprint import pprint
 api_instance = deep_lynx.DataQueryApi(deep_lynx.ApiClient(configuration))
 body = NULL # object | 
 container_id = 'container_id_example' # str | 
+raw_metadata_enabled = false # bool |  (optional) (default to false)
+point_in_time = 'point_in_time_example' # str |  (optional)
 
 try:
     # Query Data
-    api_response = api_instance.data_query(body, container_id)
+    api_response = api_instance.data_query(body, container_id, raw_metadata_enabled=raw_metadata_enabled, point_in_time=point_in_time)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DataQueryApi->data_query: %s\n" % e)
@@ -42,10 +44,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**object**](object.md)|  | 
  **container_id** | **str**|  | 
+ **raw_metadata_enabled** | **bool**|  | [optional] [default to false]
+ **point_in_time** | **str**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -53,17 +57,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/plain
+ - **Content-Type**: application/json, text/plain, application/xml
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_graph**
-> InlineResponse200 query_graph(body, container_id)
+> InlineResponse2002 query_graph(body, container_id)
 
 Query Graph (Deprecated)
 
-Query the graph of the specified container using GraphQL. GraphQL queries may be formatted as json or plain text.  This has been deprecated in favor of the `/containers/{container_id}/data` endpoint.
+Query the graph of the specified container using GraphQL. GraphQL queries may be formatted as json or plain text. This has been deprecated in favor of the `/containers/{container_id}/data` endpoint.
 
 ### Example
 ```python
@@ -96,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 

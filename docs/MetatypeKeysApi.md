@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 Create Metatype Key
 
-Creates a new key for a metatype. Keys consist of a unique key name (unique to the metatype only), key type, default values, and allowed values. Of those, only the first two are required.  The `dataType` field accepts only one of the following values: number, string, date, boolean, enumeration, file.   The fields `defaultValue` and `options` will only accept an array of the following types: string, boolean, number, float.  Pass in an array for bulk creation.  Currently the validation and cardinality functionality of keys are NOT checked at data insertion.
+Creates a new key for a metatype. Keys consist of a unique key name (unique to the metatype only), key type, default values, and allowed values. Of those, only the first two are required. The `dataType` field accepts only one of the following values: number, string, date, boolean, enumeration, file. The fields `defaultValue` and `options` will only accept an array of the following types: string, boolean, number, float. Pass in an array for bulk creation. Currently the validation and cardinality functionality of keys are NOT checked at data insertion.
 
 ### Example
 ```python

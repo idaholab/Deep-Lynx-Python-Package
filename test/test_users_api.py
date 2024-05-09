@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.users_api import UsersApi  # noqa: E501
-from swagger_client.rest import ApiException
+import deep_lynx
+from deep_lynx.api.users_api import UsersApi  # noqa: E501
+from deep_lynx.rest import ApiException
 
 
 class TestUsersApi(unittest.TestCase):
@@ -31,84 +31,147 @@ class TestUsersApi(unittest.TestCase):
     def test_accept_container_invite(self):
         """Test case for accept_container_invite
 
-        AcceptContainerInvite  # noqa: E501
+        Accept Container Invite  # noqa: E501
         """
         pass
 
     def test_assign_user_role(self):
         """Test case for assign_user_role
 
-        AssignUserRole  # noqa: E501
+        Assign User Role  # noqa: E501
+        """
+        pass
+
+    def test_create_service_user(self):
+        """Test case for create_service_user
+
+        Create Service User  # noqa: E501
+        """
+        pass
+
+    def test_create_service_user_key_pair(self):
+        """Test case for create_service_user_key_pair
+
+        Create Service User KeyPair  # noqa: E501
+        """
+        pass
+
+    def test_delete_service_user(self):
+        """Test case for delete_service_user
+
+        Delete Service User  # noqa: E501
+        """
+        pass
+
+    def test_delete_service_user_key_pair(self):
+        """Test case for delete_service_user_key_pair
+
+        Delete Service User KeyPair  # noqa: E501
         """
         pass
 
     def test_delete_user(self):
         """Test case for delete_user
 
-        DeleteUser  # noqa: E501
+        Delete User  # noqa: E501
+        """
+        pass
+
+    def test_get_service_user_permissions(self):
+        """Test case for get_service_user_permissions
+
+        Get Service User Permissions  # noqa: E501
         """
         pass
 
     def test_invite_user_to_container(self):
         """Test case for invite_user_to_container
 
-        InviteUserToContainer  # noqa: E501
+        Invite User to Container  # noqa: E501
         """
         pass
 
     def test_list_invited_users_for_container(self):
         """Test case for list_invited_users_for_container
 
-        ListInvitedUsersForContainer  # noqa: E501
+        List Invited Users for Container  # noqa: E501
         """
         pass
 
     def test_list_outstanding_invites(self):
         """Test case for list_outstanding_invites
 
-        ListOutstandingInvites  # noqa: E501
+        List Outstanding Invites  # noqa: E501
+        """
+        pass
+
+    def test_list_service_keys_for_container(self):
+        """Test case for list_service_keys_for_container
+
+        List Service User Keys for Container  # noqa: E501
+        """
+        pass
+
+    def test_list_service_user_key_pairs(self):
+        """Test case for list_service_user_key_pairs
+
+        List Service User KeyPairs  # noqa: E501
+        """
+        pass
+
+    def test_list_service_users(self):
+        """Test case for list_service_users
+
+        List Service Users  # noqa: E501
         """
         pass
 
     def test_list_user_permissions(self):
         """Test case for list_user_permissions
 
-        ListUserPermissions  # noqa: E501
+        List User Permissions  # noqa: E501
         """
         pass
 
     def test_list_users(self):
         """Test case for list_users
 
-        ListUsers  # noqa: E501
+        List Users  # noqa: E501
         """
         pass
 
     def test_list_users_for_container(self):
         """Test case for list_users_for_container
 
-        ListUsersForContainer  # noqa: E501
+        List Users for Container  # noqa: E501
         """
         pass
 
     def test_list_users_roles(self):
         """Test case for list_users_roles
 
-        ListUsersRoles  # noqa: E501
+        List User's Roles  # noqa: E501
         """
         pass
 
     def test_retrieve_user(self):
         """Test case for retrieve_user
 
-        RetrieveUser  # noqa: E501
+        Retrieve User  # noqa: E501
+        """
+        pass
+
+    def test_set_service_user_permissions(self):
+        """Test case for set_service_user_permissions
+
+        Set Service User Permissions  # noqa: E501
         """
         pass
 
     def test_update_user(self):
         """Test case for update_user
 
-        UpdateUser  # noqa: E501
+        Update User  # noqa: E501
         """
         pass
 

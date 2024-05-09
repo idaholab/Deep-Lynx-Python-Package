@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 Create Metatype Relationship
 
-Create a new metatype relationship. Describes the connection that could exist between two metatypes and acts as a vehicle for relationship specific keys.  Pass in an array for bulk creation.
+Create a new metatype relationship. Describes the connection that could exist between two metatypes and acts as a vehicle for relationship specific keys. Pass in an array for bulk creation.
 
 ### Example
 ```python

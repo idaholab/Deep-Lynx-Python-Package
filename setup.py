@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "deep_lynx"
-VERSION = "0.1.0"
+VERSION = "0.1.7"
 # To install the library, run the following
 #
 # python setup.py install

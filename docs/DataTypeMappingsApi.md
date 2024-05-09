@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost:8090*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**copy_transformations**](DataTypeMappingsApi.md#copy_transformations) | **POST** /containers/{container_id}/import/datasources/{sourceID}/mappings/{mappingID}/copy/{originalMappingID} | 
 [**create_transformation**](DataTypeMappingsApi.md#create_transformation) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations | Create Data Type Mapping&#x27;s Transformations
 [**delete_data_type_mapping**](DataTypeMappingsApi.md#delete_data_type_mapping) | **DELETE** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | Delete Data Type Mapping
 [**delete_transformation**](DataTypeMappingsApi.md#delete_transformation) | **DELETE** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id} | Delete Data Type Mapping&#x27;s Transformations
@@ -14,6 +15,59 @@ Method | HTTP request | Description
 [**retrieve_data_type_mapping**](DataTypeMappingsApi.md#retrieve_data_type_mapping) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | Retrieve Data Type Mapping
 [**update_data_type_mapping**](DataTypeMappingsApi.md#update_data_type_mapping) | **PUT** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id} | Update Data Type Mapping
 [**update_transformation**](DataTypeMappingsApi.md#update_transformation) | **PUT** /containers/{container_id}/import/datasources/{data_source_id}/mappings/{mapping_id}/transformations/{transformation_id} | Update Data Type Mapping&#x27;s Transformations
+
+# **copy_transformations**
+> copy_transformations(container_id, source_id, mapping_id, original_mapping_id)
+
+
+
+This endpoint copies transformations from the {originalMappingID} type mapping (final parameter) to the {mappingID} type mapping. This POST has NO body.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.DataTypeMappingsApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+source_id = 'source_id_example' # str | 
+mapping_id = 'mapping_id_example' # str | 
+original_mapping_id = 'original_mapping_id_example' # str | 
+
+try:
+    api_instance.copy_transformations(container_id, source_id, mapping_id, original_mapping_id)
+except ApiException as e:
+    print("Exception when calling DataTypeMappingsApi->copy_transformations: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **source_id** | **str**|  | 
+ **mapping_id** | **str**|  | 
+ **original_mapping_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_transformation**
 > CreateTransformationResponse create_transformation(body, container_id, data_source_id, mapping_id)
@@ -232,7 +286,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_data_type_mappings**
-> ImportDataTypeMappingResponse import_data_type_mappings(container_id, data_source_id, body=body)
+> ImportDataTypeMappingResponse import_data_type_mappings(container_id, data_source_id, body=body, is_enabled=is_enabled)
 
 Import Data Type Mappings
 
@@ -251,11 +305,12 @@ from pprint import pprint
 api_instance = deep_lynx.DataTypeMappingsApi(deep_lynx.ApiClient(configuration))
 container_id = 'container_id_example' # str | 
 data_source_id = 'data_source_id_example' # str | 
-body = NULL # list[object] |  (optional)
+body = deep_lynx.ImportDataTypeMappingsRequest() # ImportDataTypeMappingsRequest |  (optional)
+is_enabled = false # bool |  (optional) (default to false)
 
 try:
     # Import Data Type Mappings
-    api_response = api_instance.import_data_type_mappings(container_id, data_source_id, body=body)
+    api_response = api_instance.import_data_type_mappings(container_id, data_source_id, body=body, is_enabled=is_enabled)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DataTypeMappingsApi->import_data_type_mappings: %s\n" % e)
@@ -267,7 +322,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**|  | 
  **data_source_id** | **str**|  | 
- **body** | [**list[object]**](object.md)|  | [optional] 
+ **body** | [**ImportDataTypeMappingsRequest**](ImportDataTypeMappingsRequest.md)|  | [optional] 
+ **is_enabled** | **bool**|  | [optional] [default to false]
 
 ### Return type
 
@@ -279,7 +335,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

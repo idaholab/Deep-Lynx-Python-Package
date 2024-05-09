@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -28,18 +28,24 @@ class InlineResponse2004(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'value': 'InlineResponse2004Value'
+        'value': 'list[InlineResponse2004Value]',
+        'is_error': 'bool'
     }
 
     attribute_map = {
-        'value': 'value'
+        'value': 'value',
+        'is_error': 'isError'
     }
 
-    def __init__(self, value=None):  # noqa: E501
+    def __init__(self, value=None, is_error=None):  # noqa: E501
         """InlineResponse2004 - a model defined in Swagger"""  # noqa: E501
         self._value = None
+        self._is_error = None
         self.discriminator = None
-        self.value = value
+        if value is not None:
+            self.value = value
+        if is_error is not None:
+            self.is_error = is_error
 
     @property
     def value(self):
@@ -47,7 +53,7 @@ class InlineResponse2004(object):
 
 
         :return: The value of this InlineResponse2004.  # noqa: E501
-        :rtype: InlineResponse2004Value
+        :rtype: list[InlineResponse2004Value]
         """
         return self._value
 
@@ -57,12 +63,31 @@ class InlineResponse2004(object):
 
 
         :param value: The value of this InlineResponse2004.  # noqa: E501
-        :type: InlineResponse2004Value
+        :type: list[InlineResponse2004Value]
         """
-        if value is None:
-            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
+
+    @property
+    def is_error(self):
+        """Gets the is_error of this InlineResponse2004.  # noqa: E501
+
+
+        :return: The is_error of this InlineResponse2004.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_error
+
+    @is_error.setter
+    def is_error(self, is_error):
+        """Sets the is_error of this InlineResponse2004.
+
+
+        :param is_error: The is_error of this InlineResponse2004.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_error = is_error
 
     def to_dict(self):
         """Returns the model properties as a dict"""

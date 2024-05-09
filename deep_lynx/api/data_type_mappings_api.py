@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -31,6 +31,121 @@ class DataTypeMappingsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
+
+    def copy_transformations(self, container_id, source_id, mapping_id, original_mapping_id, **kwargs):  # noqa: E501
+        """copy_transformations  # noqa: E501
+
+        This endpoint copies transformations from the {originalMappingID} type mapping (final parameter) to the {mappingID} type mapping. This POST has NO body.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.copy_transformations(container_id, source_id, mapping_id, original_mapping_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str source_id: (required)
+        :param str mapping_id: (required)
+        :param str original_mapping_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.copy_transformations_with_http_info(container_id, source_id, mapping_id, original_mapping_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.copy_transformations_with_http_info(container_id, source_id, mapping_id, original_mapping_id, **kwargs)  # noqa: E501
+            return data
+
+    def copy_transformations_with_http_info(self, container_id, source_id, mapping_id, original_mapping_id, **kwargs):  # noqa: E501
+        """copy_transformations  # noqa: E501
+
+        This endpoint copies transformations from the {originalMappingID} type mapping (final parameter) to the {mappingID} type mapping. This POST has NO body.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.copy_transformations_with_http_info(container_id, source_id, mapping_id, original_mapping_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str container_id: (required)
+        :param str source_id: (required)
+        :param str mapping_id: (required)
+        :param str original_mapping_id: (required)
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['container_id', 'source_id', 'mapping_id', 'original_mapping_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method copy_transformations" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `copy_transformations`")  # noqa: E501
+        # verify the required parameter 'source_id' is set
+        if ('source_id' not in params or
+                params['source_id'] is None):
+            raise ValueError("Missing the required parameter `source_id` when calling `copy_transformations`")  # noqa: E501
+        # verify the required parameter 'mapping_id' is set
+        if ('mapping_id' not in params or
+                params['mapping_id'] is None):
+            raise ValueError("Missing the required parameter `mapping_id` when calling `copy_transformations`")  # noqa: E501
+        # verify the required parameter 'original_mapping_id' is set
+        if ('original_mapping_id' not in params or
+                params['original_mapping_id'] is None):
+            raise ValueError("Missing the required parameter `original_mapping_id` when calling `copy_transformations`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
+        if 'source_id' in params:
+            path_params['sourceID'] = params['source_id']  # noqa: E501
+        if 'mapping_id' in params:
+            path_params['mappingID'] = params['mapping_id']  # noqa: E501
+        if 'original_mapping_id' in params:
+            path_params['originalMappingID'] = params['original_mapping_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['BearerAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/containers/{container_id}/import/datasources/{sourceID}/mappings/{mappingID}/copy/{originalMappingID}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
 
     def create_transformation(self, body, container_id, data_source_id, mapping_id, **kwargs):  # noqa: E501
         """Create Data Type Mapping's Transformations  # noqa: E501
@@ -508,7 +623,8 @@ class DataTypeMappingsApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str data_source_id: (required)
-        :param list[object] body:
+        :param ImportDataTypeMappingsRequest body:
+        :param bool is_enabled:
         :return: ImportDataTypeMappingResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -532,13 +648,14 @@ class DataTypeMappingsApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str data_source_id: (required)
-        :param list[object] body:
+        :param ImportDataTypeMappingsRequest body:
+        :param bool is_enabled:
         :return: ImportDataTypeMappingResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['container_id', 'data_source_id', 'body']  # noqa: E501
+        all_params = ['container_id', 'data_source_id', 'body', 'is_enabled']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -571,13 +688,13 @@ class DataTypeMappingsApi(object):
             path_params['data_source_id'] = params['data_source_id']  # noqa: E501
 
         query_params = []
+        if 'is_enabled' in params:
+            query_params.append(('isEnabled', params['is_enabled']))  # noqa: E501
 
         header_params = {}
 
         form_params = []
         local_var_files = {}
-        if 'file' in params:
-            local_var_files['file'] = params['file']  # noqa: E501
 
         body_params = None
         if 'body' in params:
@@ -588,120 +705,7 @@ class DataTypeMappingsApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'multipart/form-data'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['BearerAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/containers/{container_id}/import/datasources/{data_source_id}/mappings/import', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='ImportDataTypeMappingResponse',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=params.get('async_req'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def import_data_type_mappings(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """Import Data Type Mappings  # noqa: E501
-
-        Import type mappings for a datasource. Accepts either a JSON body or actual JSON file. The payload should be an array of type mapping classes, previously generated using the export route.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.import_data_type_mappings(container_id, data_source_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str data_source_id: (required)
-        :param str file:
-        :return: ImportDataTypeMappingResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.import_data_type_mappings_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.import_data_type_mappings_with_http_info(container_id, data_source_id, **kwargs)  # noqa: E501
-            return data
-
-    def import_data_type_mappings_with_http_info(self, container_id, data_source_id, **kwargs):  # noqa: E501
-        """Import Data Type Mappings  # noqa: E501
-
-        Import type mappings for a datasource. Accepts either a JSON body or actual JSON file. The payload should be an array of type mapping classes, previously generated using the export route.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.import_data_type_mappings_with_http_info(container_id, data_source_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param str container_id: (required)
-        :param str data_source_id: (required)
-        :param str file:
-        :return: ImportDataTypeMappingResponse
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['container_id', 'data_source_id', 'file']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method import_data_type_mappings" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'container_id' is set
-        if ('container_id' not in params or
-                params['container_id'] is None):
-            raise ValueError("Missing the required parameter `container_id` when calling `import_data_type_mappings`")  # noqa: E501
-        # verify the required parameter 'data_source_id' is set
-        if ('data_source_id' not in params or
-                params['data_source_id'] is None):
-            raise ValueError("Missing the required parameter `data_source_id` when calling `import_data_type_mappings`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'container_id' in params:
-            path_params['container_id'] = params['container_id']  # noqa: E501
-        if 'data_source_id' in params:
-            path_params['data_source_id'] = params['data_source_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-        if 'file' in params:
-            local_var_files['file'] = params['file']  # noqa: E501
-
-        body_params = None
-        if 'body' in params:
-            body_params = params['body']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json', 'multipart/form-data'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['BearerAuth']  # noqa: E501

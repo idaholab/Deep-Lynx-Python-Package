@@ -1,9 +1,9 @@
 # coding: utf-8
 
 """
-    Deep Lynx
+    DeepLynx
 
-    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. Deep Lynx allows for an integrated platform during design and operations of mega projects.  The Deep Lynx Core API delivers a few main features.  1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format.  2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
+    The construction of megaprojects has consistently demonstrated challenges for project managers in regard to meeting cost, schedule, and performance requirements. Megaproject construction challenges are common place within megaprojects with many active projects in the United States failing to meet cost and schedule efforts by significant margins. Currently, engineering teams operate in siloed tools and disparate teams where connections across design, procurement, and construction systems are translated manually or over brittle point-to-point integrations. The manual nature of data exchange increases the risk of silent errors in the reactor design, with each silent error cascading across the design. These cascading errors lead to uncontrollable risk during construction, resulting in significant delays and cost overruns. DeepLynx allows for an integrated platform during design and operations of mega projects. The DeepLynx Core API delivers a few main features. 1. Provides a set of methods and endpoints for manipulating data in an object oriented database. This allows us to store complex datatypes as records and then to compile them into actual, modifiable objects at run-time. Users can store taxonomies or ontologies in a readable format. 2. Provides methods for storing and retrieving data in a graph database. This data is structured and validated against the aformentioned object oriented database before storage.  # noqa: E501
 
     OpenAPI spec version: 1.0
     
@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
-from swagger_client.api.events_api import EventsApi  # noqa: E501
-from swagger_client.rest import ApiException
+import deep_lynx
+from deep_lynx.api.events_api import EventsApi  # noqa: E501
+from deep_lynx.rest import ApiException
 
 
 class TestEventsApi(unittest.TestCase):
@@ -28,38 +28,66 @@ class TestEventsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_registered_event(self):
-        """Test case for create_registered_event
+    def test_create_event(self):
+        """Test case for create_event
 
-        CreateRegisteredEvent  # noqa: E501
+        Create Event  # noqa: E501
         """
         pass
 
-    def test_delete_registered_event(self):
-        """Test case for delete_registered_event
+    def test_create_event_action(self):
+        """Test case for create_event_action
 
-        DeleteRegisteredEvent  # noqa: E501
+        Create Event Action  # noqa: E501
         """
         pass
 
-    def test_list_registered_events(self):
-        """Test case for list_registered_events
+    def test_delete_event_action(self):
+        """Test case for delete_event_action
 
-        ListRegisteredEvents  # noqa: E501
+        Delete Event Action  # noqa: E501
         """
         pass
 
-    def test_retrieve_registered_event(self):
-        """Test case for retrieve_registered_event
+    def test_list_event_action_statuses(self):
+        """Test case for list_event_action_statuses
 
-        RetrieveRegisteredEvent  # noqa: E501
+        List Event Action Statuses  # noqa: E501
         """
         pass
 
-    def test_update_registered_event(self):
-        """Test case for update_registered_event
+    def test_list_event_actions(self):
+        """Test case for list_event_actions
 
-        UpdateRegisteredEvent  # noqa: E501
+        List Event Actions  # noqa: E501
+        """
+        pass
+
+    def test_retrieve_event_action(self):
+        """Test case for retrieve_event_action
+
+        Retrieve Event Action  # noqa: E501
+        """
+        pass
+
+    def test_retrieve_event_action_status(self):
+        """Test case for retrieve_event_action_status
+
+        Retrieve Event Action Status  # noqa: E501
+        """
+        pass
+
+    def test_update_event_action(self):
+        """Test case for update_event_action
+
+        Update Event Action  # noqa: E501
+        """
+        pass
+
+    def test_update_event_action_status(self):
+        """Test case for update_event_action_status
+
+        Update Event Action Status  # noqa: E501
         """
         pass
 

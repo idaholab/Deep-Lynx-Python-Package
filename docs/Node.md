@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] 
-**container_id** | **str** |  | 
+**container_id** | **str** |  | [optional] 
 **metatype_id** | **str** |  | [optional] 
 **metatype** | [**NodeMetatypeBody**](NodeMetatypeBody.md) |  | [optional] 
 **metatype_name** | **str** |  | [optional] 

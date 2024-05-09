@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost:8090*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**exchange_o_auth_token**](AuthenticationApi.md#exchange_o_auth_token) | **POST** /oauth/exchange | Exchange OAuth Token
+[**list_service_keys_for_container**](AuthenticationApi.md#list_service_keys_for_container) | **GET** /containers/{container_id}/service-users/keys | List Service User Keys for Container
 [**retrieve_o_auth_token**](AuthenticationApi.md#retrieve_o_auth_token) | **GET** /oauth/token | Retrieve OAuth Token
 [**rsa_cancel**](AuthenticationApi.md#rsa_cancel) | **POST** /rsa/cancel | RSA Cancel
 [**rsa_initialize**](AuthenticationApi.md#rsa_initialize) | **POST** /rsa/initialize | RSA Initialize
@@ -16,7 +17,7 @@ Method | HTTP request | Description
 
 Exchange OAuth Token
 
-Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see Deep Lynx documentation for details.
+Exchanges credentials for a JSON Web Token (JWT). Multiple authentication flows are supported, see DeepLynx documentation for details.
 
 ### Example
 ```python
@@ -56,6 +57,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_service_keys_for_container**
+> InlineResponse20011 list_service_keys_for_container(container_id, note=note)
+
+List Service User Keys for Container
+
+Used to list all service-user keys in a container. Useful for obtaining keys in a container with a certain note to verify an application has ben authorized for a container.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import deep_lynx
+from deep_lynx.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = deep_lynx.AuthenticationApi(deep_lynx.ApiClient(configuration))
+container_id = 'container_id_example' # str | 
+note = 'note_example' # str | note with which keypair was created (optional)
+
+try:
+    # List Service User Keys for Container
+    api_response = api_instance.list_service_keys_for_container(container_id, note=note)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AuthenticationApi->list_service_keys_for_container: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **container_id** | **str**|  | 
+ **note** | **str**| note with which keypair was created | [optional] 
+
+### Return type
+
+[**InlineResponse20011**](InlineResponse20011.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -167,7 +219,7 @@ Name | Type | Description  | Notes
 
 RSA Initialize
 
-Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request,  or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request.  The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).
+Used to begin (and optionally complete) an RSA authentication. Either a user's ID may be provided and the SecurID provided in a later `verify` request, or else the user may provide both the user ID (`subjectName`) and `securID` at once to `initialize` to complete the authentication request. The `securID` is the combination of the user's memorized token and 6 digit temporary RSA pin (with no spaces or characters between them).
 
 ### Example
 ```python
