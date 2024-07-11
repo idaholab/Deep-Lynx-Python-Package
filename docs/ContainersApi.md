@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**container_batch_update**](ContainersApi.md#container_batch_update) | **PUT** /containers | Container Batch Update
 [**create_container**](ContainersApi.md#create_container) | **POST** /containers | Create Container
 [**delete_data_template**](ContainersApi.md#delete_data_template) | **DELETE** /containers/{container_id}/data_source_templates/{template_id} | Delete Data Source Template
-[**import_container**](ContainersApi.md#import_container) | **POST** /containers/import | Import Container
+[**import_container**](ContainersApi.md#import_container) | **POST** /containers/{container_id}/import | Import Container
 [**list_container_alerts**](ContainersApi.md#list_container_alerts) | **GET** /containers/{container_id}/alerts | List Container Alerts
 [**list_containers**](ContainersApi.md#list_containers) | **GET** /containers | List Containers
 [**list_data_templates**](ContainersApi.md#list_data_templates) | **GET** /containers/{container_id}/data_source_templates | List Data Source Templates
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **import_container**
-> ContainerImportResponse import_container(name, description, data_versioning_enabled, path, file, dryrun=dryrun)
+> ContainerImportResponse import_container(export_file, container_id, dryrun=dryrun, import_ontology=import_ontology, import_data_sources=import_data_sources, import_type_mappings=import_type_mappings)
 
 Import Container
 
@@ -344,16 +344,16 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.ContainersApi(deep_lynx.ApiClient(configuration))
-name = 'name_example' # str | 
-description = 'description_example' # str | 
-data_versioning_enabled = true # bool | 
-path = 'path_example' # str | 
-file = 'file_example' # str | 
+export_file = 'export_file_example' # str | 
+container_id = 'container_id_example' # str | The ID of the container.
 dryrun = false # bool | If true returns a description of the container that will be created and its contents. (optional) (default to false)
+import_ontology = true # bool | Whether to import the ontology. (optional) (default to true)
+import_data_sources = true # bool | Whether to import data sources. (optional) (default to true)
+import_type_mappings = false # bool | Whether to import type mappings. (optional) (default to false)
 
 try:
     # Import Container
-    api_response = api_instance.import_container(name, description, data_versioning_enabled, path, file, dryrun=dryrun)
+    api_response = api_instance.import_container(export_file, container_id, dryrun=dryrun, import_ontology=import_ontology, import_data_sources=import_data_sources, import_type_mappings=import_type_mappings)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ContainersApi->import_container: %s\n" % e)
@@ -363,12 +363,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**|  | 
- **description** | **str**|  | 
- **data_versioning_enabled** | **bool**|  | 
- **path** | **str**|  | 
- **file** | **str**|  | 
+ **export_file** | **str**|  | 
+ **container_id** | **str**| The ID of the container. | 
  **dryrun** | **bool**| If true returns a description of the container that will be created and its contents. | [optional] [default to false]
+ **import_ontology** | **bool**| Whether to import the ontology. | [optional] [default to true]
+ **import_data_sources** | **bool**| Whether to import data sources. | [optional] [default to true]
+ **import_type_mappings** | **bool**| Whether to import type mappings. | [optional] [default to false]
 
 ### Return type
 
@@ -1026,7 +1026,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_container_import**
-> ContainerImportUpdateResponse update_container_import(name, description, data_versioning_enabled, path, file, container_id)
+> ContainerImportUpdateResponse update_container_import(export_file, container_id)
 
 Update Container Import
 
@@ -1043,16 +1043,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.ContainersApi(deep_lynx.ApiClient(configuration))
-name = 'name_example' # str | 
-description = 'description_example' # str | 
-data_versioning_enabled = true # bool | 
-path = 'path_example' # str | 
-file = 'file_example' # str | 
+export_file = 'export_file_example' # str | 
 container_id = 'container_id_example' # str | 
 
 try:
     # Update Container Import
-    api_response = api_instance.update_container_import(name, description, data_versioning_enabled, path, file, container_id)
+    api_response = api_instance.update_container_import(export_file, container_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ContainersApi->update_container_import: %s\n" % e)
@@ -1062,11 +1058,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**|  | 
- **description** | **str**|  | 
- **data_versioning_enabled** | **bool**|  | 
- **path** | **str**|  | 
- **file** | **str**|  | 
+ **export_file** | **str**|  | 
  **container_id** | **str**|  | 
 
 ### Return type

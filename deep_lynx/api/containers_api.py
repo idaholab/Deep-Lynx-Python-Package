@@ -630,55 +630,55 @@ class ContainersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def import_container(self, name, description, data_versioning_enabled, path, file, **kwargs):  # noqa: E501
+    def import_container(self, export_file, container_id, **kwargs):  # noqa: E501
         """Import Container  # noqa: E501
 
         An optional query param `dryrun` may be included with a value of `true` in order to return a HTML formatted string explaining the name and description of the container along with the number of metatypes, metatype relationships, and metatype keys to be created. This request uses a form-data body. If the ontology to be imported is being referenced via url, provide the url via a `path` field. Otherwise a local file may be provided. A file takes precedence over a `path` value if both are provided.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.import_container(name, description, data_versioning_enabled, path, file, async_req=True)
+        >>> thread = api.import_container(export_file, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str name: (required)
-        :param str description: (required)
-        :param bool data_versioning_enabled: (required)
-        :param str path: (required)
-        :param str file: (required)
+        :param str export_file: (required)
+        :param str container_id: The ID of the container. (required)
         :param bool dryrun: If true returns a description of the container that will be created and its contents.
+        :param bool import_ontology: Whether to import the ontology.
+        :param bool import_data_sources: Whether to import data sources.
+        :param bool import_type_mappings: Whether to import type mappings.
         :return: ContainerImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.import_container_with_http_info(name, description, data_versioning_enabled, path, file, **kwargs)  # noqa: E501
+            return self.import_container_with_http_info(export_file, container_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.import_container_with_http_info(name, description, data_versioning_enabled, path, file, **kwargs)  # noqa: E501
+            (data) = self.import_container_with_http_info(export_file, container_id, **kwargs)  # noqa: E501
             return data
 
-    def import_container_with_http_info(self, name, description, data_versioning_enabled, path, file, **kwargs):  # noqa: E501
+    def import_container_with_http_info(self, export_file, container_id, **kwargs):  # noqa: E501
         """Import Container  # noqa: E501
 
         An optional query param `dryrun` may be included with a value of `true` in order to return a HTML formatted string explaining the name and description of the container along with the number of metatypes, metatype relationships, and metatype keys to be created. This request uses a form-data body. If the ontology to be imported is being referenced via url, provide the url via a `path` field. Otherwise a local file may be provided. A file takes precedence over a `path` value if both are provided.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.import_container_with_http_info(name, description, data_versioning_enabled, path, file, async_req=True)
+        >>> thread = api.import_container_with_http_info(export_file, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str name: (required)
-        :param str description: (required)
-        :param bool data_versioning_enabled: (required)
-        :param str path: (required)
-        :param str file: (required)
+        :param str export_file: (required)
+        :param str container_id: The ID of the container. (required)
         :param bool dryrun: If true returns a description of the container that will be created and its contents.
+        :param bool import_ontology: Whether to import the ontology.
+        :param bool import_data_sources: Whether to import data sources.
+        :param bool import_type_mappings: Whether to import type mappings.
         :return: ContainerImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['name', 'description', 'data_versioning_enabled', 'path', 'file', 'dryrun']  # noqa: E501
+        all_params = ['export_file', 'container_id', 'dryrun', 'import_ontology', 'import_data_sources', 'import_type_mappings']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -693,49 +693,37 @@ class ContainersApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'name' is set
-        if ('name' not in params or
-                params['name'] is None):
-            raise ValueError("Missing the required parameter `name` when calling `import_container`")  # noqa: E501
-        # verify the required parameter 'description' is set
-        if ('description' not in params or
-                params['description'] is None):
-            raise ValueError("Missing the required parameter `description` when calling `import_container`")  # noqa: E501
-        # verify the required parameter 'data_versioning_enabled' is set
-        if ('data_versioning_enabled' not in params or
-                params['data_versioning_enabled'] is None):
-            raise ValueError("Missing the required parameter `data_versioning_enabled` when calling `import_container`")  # noqa: E501
-        # verify the required parameter 'path' is set
-        if ('path' not in params or
-                params['path'] is None):
-            raise ValueError("Missing the required parameter `path` when calling `import_container`")  # noqa: E501
-        # verify the required parameter 'file' is set
-        if ('file' not in params or
-                params['file'] is None):
-            raise ValueError("Missing the required parameter `file` when calling `import_container`")  # noqa: E501
+        # verify the required parameter 'export_file' is set
+        if ('export_file' not in params or
+                params['export_file'] is None):
+            raise ValueError("Missing the required parameter `export_file` when calling `import_container`")  # noqa: E501
+        # verify the required parameter 'container_id' is set
+        if ('container_id' not in params or
+                params['container_id'] is None):
+            raise ValueError("Missing the required parameter `container_id` when calling `import_container`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
+        if 'container_id' in params:
+            path_params['container_id'] = params['container_id']  # noqa: E501
 
         query_params = []
         if 'dryrun' in params:
             query_params.append(('dryrun', params['dryrun']))  # noqa: E501
+        if 'import_ontology' in params:
+            query_params.append(('importOntology', params['import_ontology']))  # noqa: E501
+        if 'import_data_sources' in params:
+            query_params.append(('importDataSources', params['import_data_sources']))  # noqa: E501
+        if 'import_type_mappings' in params:
+            query_params.append(('importTypeMappings', params['import_type_mappings']))  # noqa: E501
 
         header_params = {}
 
         form_params = []
         local_var_files = {}
-        if 'name' in params:
-            form_params.append(('name', params['name']))  # noqa: E501
-        if 'description' in params:
-            form_params.append(('description', params['description']))  # noqa: E501
-        if 'data_versioning_enabled' in params:
-            form_params.append(('data_versioning_enabled', params['data_versioning_enabled']))  # noqa: E501
-        if 'path' in params:
-            form_params.append(('path', params['path']))  # noqa: E501
-        if 'file' in params:
-            local_var_files['file'] = params['file']  # noqa: E501
+        if 'export_file' in params:
+            local_var_files['export_file'] = params['export_file']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
@@ -750,7 +738,7 @@ class ContainersApi(object):
         auth_settings = ['BearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/containers/import', 'POST',
+            '/containers/{container_id}/import', 'POST',
             path_params,
             query_params,
             header_params,
@@ -2024,21 +2012,17 @@ class ContainersApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_container_import(self, name, description, data_versioning_enabled, path, file, container_id, **kwargs):  # noqa: E501
+    def update_container_import(self, export_file, container_id, **kwargs):  # noqa: E501
         """Update Container Import  # noqa: E501
 
         Updates an existing container via an ontology file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_container_import(name, description, data_versioning_enabled, path, file, container_id, async_req=True)
+        >>> thread = api.update_container_import(export_file, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str name: (required)
-        :param str description: (required)
-        :param bool data_versioning_enabled: (required)
-        :param str path: (required)
-        :param str file: (required)
+        :param str export_file: (required)
         :param str container_id: (required)
         :return: ContainerImportUpdateResponse
                  If the method is called asynchronously,
@@ -2046,33 +2030,29 @@ class ContainersApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_container_import_with_http_info(name, description, data_versioning_enabled, path, file, container_id, **kwargs)  # noqa: E501
+            return self.update_container_import_with_http_info(export_file, container_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_container_import_with_http_info(name, description, data_versioning_enabled, path, file, container_id, **kwargs)  # noqa: E501
+            (data) = self.update_container_import_with_http_info(export_file, container_id, **kwargs)  # noqa: E501
             return data
 
-    def update_container_import_with_http_info(self, name, description, data_versioning_enabled, path, file, container_id, **kwargs):  # noqa: E501
+    def update_container_import_with_http_info(self, export_file, container_id, **kwargs):  # noqa: E501
         """Update Container Import  # noqa: E501
 
         Updates an existing container via an ontology file.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_container_import_with_http_info(name, description, data_versioning_enabled, path, file, container_id, async_req=True)
+        >>> thread = api.update_container_import_with_http_info(export_file, container_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str name: (required)
-        :param str description: (required)
-        :param bool data_versioning_enabled: (required)
-        :param str path: (required)
-        :param str file: (required)
+        :param str export_file: (required)
         :param str container_id: (required)
         :return: ContainerImportUpdateResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['name', 'description', 'data_versioning_enabled', 'path', 'file', 'container_id']  # noqa: E501
+        all_params = ['export_file', 'container_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2087,26 +2067,10 @@ class ContainersApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'name' is set
-        if ('name' not in params or
-                params['name'] is None):
-            raise ValueError("Missing the required parameter `name` when calling `update_container_import`")  # noqa: E501
-        # verify the required parameter 'description' is set
-        if ('description' not in params or
-                params['description'] is None):
-            raise ValueError("Missing the required parameter `description` when calling `update_container_import`")  # noqa: E501
-        # verify the required parameter 'data_versioning_enabled' is set
-        if ('data_versioning_enabled' not in params or
-                params['data_versioning_enabled'] is None):
-            raise ValueError("Missing the required parameter `data_versioning_enabled` when calling `update_container_import`")  # noqa: E501
-        # verify the required parameter 'path' is set
-        if ('path' not in params or
-                params['path'] is None):
-            raise ValueError("Missing the required parameter `path` when calling `update_container_import`")  # noqa: E501
-        # verify the required parameter 'file' is set
-        if ('file' not in params or
-                params['file'] is None):
-            raise ValueError("Missing the required parameter `file` when calling `update_container_import`")  # noqa: E501
+        # verify the required parameter 'export_file' is set
+        if ('export_file' not in params or
+                params['export_file'] is None):
+            raise ValueError("Missing the required parameter `export_file` when calling `update_container_import`")  # noqa: E501
         # verify the required parameter 'container_id' is set
         if ('container_id' not in params or
                 params['container_id'] is None):
@@ -2124,16 +2088,8 @@ class ContainersApi(object):
 
         form_params = []
         local_var_files = {}
-        if 'name' in params:
-            form_params.append(('name', params['name']))  # noqa: E501
-        if 'description' in params:
-            form_params.append(('description', params['description']))  # noqa: E501
-        if 'data_versioning_enabled' in params:
-            form_params.append(('data_versioning_enabled', params['data_versioning_enabled']))  # noqa: E501
-        if 'path' in params:
-            form_params.append(('path', params['path']))  # noqa: E501
-        if 'file' in params:
-            local_var_files['file'] = params['file']  # noqa: E501
+        if 'export_file' in params:
+            local_var_files['export_file'] = params['export_file']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`

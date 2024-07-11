@@ -89,7 +89,7 @@ from pprint import pprint
 api_instance = deep_lynx.ImportsApi(deep_lynx.ApiClient(configuration))
 container_id = 'container_id_example' # str | 
 data_source_id = 'data_source_id_example' # str | 
-body = deep_lynx.DataSourceIdImportsBody() # DataSourceIdImportsBody |  (optional)
+body = deep_lynx.DataSourceIdImportsBody1() # DataSourceIdImportsBody1 |  (optional)
 
 try:
     # Create Import
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **container_id** | **str**|  | 
  **data_source_id** | **str**|  | 
- **body** | [**DataSourceIdImportsBody**](DataSourceIdImportsBody.md)|  | [optional] 
+ **body** | [**DataSourceIdImportsBody1**](DataSourceIdImportsBody1.md)|  | [optional] 
 
 ### Return type
 

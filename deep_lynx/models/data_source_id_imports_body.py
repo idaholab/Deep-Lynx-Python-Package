@@ -28,93 +28,41 @@ class DataSourceIdImportsBody(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'data_source_id': 'str',
-        'reference': 'str',
-        'status_message': 'str'
+        'import_path': 'str'
     }
 
     attribute_map = {
-        'data_source_id': 'data_source_id',
-        'reference': 'reference',
-        'status_message': 'status_message'
+        'import_path': 'import_path'
     }
 
-    def __init__(self, data_source_id=None, reference=None, status_message=None):  # noqa: E501
+    def __init__(self, import_path=None):  # noqa: E501
         """DataSourceIdImportsBody - a model defined in Swagger"""  # noqa: E501
-        self._data_source_id = None
-        self._reference = None
-        self._status_message = None
+        self._import_path = None
         self.discriminator = None
-        self.data_source_id = data_source_id
-        if reference is not None:
-            self.reference = reference
-        if status_message is not None:
-            self.status_message = status_message
+        self.import_path = import_path
 
     @property
-    def data_source_id(self):
-        """Gets the data_source_id of this DataSourceIdImportsBody.  # noqa: E501
+    def import_path(self):
+        """Gets the import_path of this DataSourceIdImportsBody.  # noqa: E501
 
 
-        :return: The data_source_id of this DataSourceIdImportsBody.  # noqa: E501
+        :return: The import_path of this DataSourceIdImportsBody.  # noqa: E501
         :rtype: str
         """
-        return self._data_source_id
+        return self._import_path
 
-    @data_source_id.setter
-    def data_source_id(self, data_source_id):
-        """Sets the data_source_id of this DataSourceIdImportsBody.
+    @import_path.setter
+    def import_path(self, import_path):
+        """Sets the import_path of this DataSourceIdImportsBody.
 
 
-        :param data_source_id: The data_source_id of this DataSourceIdImportsBody.  # noqa: E501
+        :param import_path: The import_path of this DataSourceIdImportsBody.  # noqa: E501
         :type: str
         """
-        if data_source_id is None:
-            raise ValueError("Invalid value for `data_source_id`, must not be `None`")  # noqa: E501
+        if import_path is None:
+            raise ValueError("Invalid value for `import_path`, must not be `None`")  # noqa: E501
 
-        self._data_source_id = data_source_id
-
-    @property
-    def reference(self):
-        """Gets the reference of this DataSourceIdImportsBody.  # noqa: E501
-
-
-        :return: The reference of this DataSourceIdImportsBody.  # noqa: E501
-        :rtype: str
-        """
-        return self._reference
-
-    @reference.setter
-    def reference(self, reference):
-        """Sets the reference of this DataSourceIdImportsBody.
-
-
-        :param reference: The reference of this DataSourceIdImportsBody.  # noqa: E501
-        :type: str
-        """
-
-        self._reference = reference
-
-    @property
-    def status_message(self):
-        """Gets the status_message of this DataSourceIdImportsBody.  # noqa: E501
-
-
-        :return: The status_message of this DataSourceIdImportsBody.  # noqa: E501
-        :rtype: str
-        """
-        return self._status_message
-
-    @status_message.setter
-    def status_message(self, status_message):
-        """Sets the status_message of this DataSourceIdImportsBody.
-
-
-        :param status_message: The status_message of this DataSourceIdImportsBody.  # noqa: E501
-        :type: str
-        """
-
-        self._status_message = status_message
+        self._import_path = import_path
 
     def to_dict(self):
         """Returns the model properties as a dict"""

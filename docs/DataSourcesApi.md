@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**archive_data_source**](DataSourcesApi.md#archive_data_source) | **DELETE** /containers/{container_id}/import/datasources/{data_source_id} | Archive Data Source
 [**create_data_source**](DataSourcesApi.md#create_data_source) | **POST** /containers/{container_id}/import/datasources | Create Data Source
-[**create_manual_import**](DataSourcesApi.md#create_manual_import) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/imports | Create Manual Import
+[**create_manual_import_from_path**](DataSourcesApi.md#create_manual_import_from_path) | **POST** /containers/{container_id}/import/datasources/{data_source_id}/imports | Create Manual Import From Path
 [**download_data_source**](DataSourcesApi.md#download_data_source) | **GET** /containers/{container_id}/import/datasources/{data_source_id}/download | Download Timeseries Data Source
 [**download_file**](DataSourcesApi.md#download_file) | **GET** /containers/{container_id}/files/{file_id}/download | Download File
 [**list_data_sources**](DataSourcesApi.md#list_data_sources) | **GET** /containers/{container_id}/import/datasources | List Data Sources
@@ -126,12 +126,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_manual_import**
-> CreateManualImportResponse create_manual_import(body, container_id, data_source_id)
+# **create_manual_import_from_path**
+> object create_manual_import_from_path(container_id, data_source_id, import_path=import_path, fast_load=fast_load)
 
-Create Manual Import
+Create Manual Import From Path
 
-Create a manual import.
+Create a manual import by uploading a file or providing raw JSON data.
 
 ### Example
 ```python
@@ -144,29 +144,31 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = deep_lynx.DataSourcesApi(deep_lynx.ApiClient(configuration))
-body = NULL # object | 
 container_id = 'container_id_example' # str | 
 data_source_id = 'data_source_id_example' # str | 
+import_path = 'import_path_example' # str |  (optional)
+fast_load = true # bool | Optional parameter to enable fast load. (optional)
 
 try:
-    # Create Manual Import
-    api_response = api_instance.create_manual_import(body, container_id, data_source_id)
+    # Create Manual Import From Path
+    api_response = api_instance.create_manual_import_from_path(container_id, data_source_id, import_path=import_path, fast_load=fast_load)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DataSourcesApi->create_manual_import: %s\n" % e)
+    print("Exception when calling DataSourcesApi->create_manual_import_from_path: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**object**](object.md)|  | 
  **container_id** | **str**|  | 
  **data_source_id** | **str**|  | 
+ **import_path** | **str**|  | [optional] 
+ **fast_load** | **bool**| Optional parameter to enable fast load. | [optional] 
 
 ### Return type
 
-[**CreateManualImportResponse**](CreateManualImportResponse.md)
+**object**
 
 ### Authorization
 
@@ -174,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

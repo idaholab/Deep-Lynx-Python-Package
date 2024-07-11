@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import deep_lynx
-from deep_lynx.models.create_manual_import import CreateManualImport  # noqa: E501
+from deep_lynx.models.container_id_import_body import ContainerIdImportBody  # noqa: E501
 from deep_lynx.rest import ApiException
 
 
-class TestCreateManualImport(unittest.TestCase):
-    """CreateManualImport unit test stubs"""
+class TestContainerIdImportBody(unittest.TestCase):
+    """ContainerIdImportBody unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestCreateManualImport(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testCreateManualImport(self):
-        """Test CreateManualImport"""
+    def testContainerIdImportBody(self):
+        """Test ContainerIdImportBody"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = deep_lynx.models.create_manual_import.CreateManualImport()  # noqa: E501
+        # model = deep_lynx.models.container_id_import_body.ContainerIdImportBody()  # noqa: E501
         pass
 
 

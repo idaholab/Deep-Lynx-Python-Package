@@ -286,7 +286,7 @@ class ImportsApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str data_source_id: (required)
-        :param DataSourceIdImportsBody body:
+        :param DataSourceIdImportsBody1 body:
         :return: CreateImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
@@ -310,7 +310,7 @@ class ImportsApi(object):
         :param async_req bool
         :param str container_id: (required)
         :param str data_source_id: (required)
-        :param DataSourceIdImportsBody body:
+        :param DataSourceIdImportsBody1 body:
         :return: CreateImportResponse
                  If the method is called asynchronously,
                  returns the request thread.
