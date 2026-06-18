@@ -1,3 +1,10 @@
+> [!WARNING]
+> **This repository has been archived and is no longer maintained.**
+> The code is provided for historical reference and may contain unpatched
+> or unknown vulnerabilities. It should not be used in production systems.
+
+---
+
 # DeepLynx Python SDK
 This is an SDK for the [DeepLynx](https://github.com/idaholab/Deep-Lynx) data warehouse that supports Python projects. It is used for creating API requests and sending and receiving data from DeepLynx. 
 
